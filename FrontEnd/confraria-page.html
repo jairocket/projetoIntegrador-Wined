@@ -8,6 +8,10 @@
     <title>Confraria</title>
     <link rel="stylesheet" href="/FrontEnd/views/assets/styles/main.css">
     <link rel="stylesheet" href="/FrontEnd/views/assets/styles/confraria-page.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -16,34 +20,36 @@
         <img id="logo" src="/FrontEnd/views/assets/images/logo-mobile.svg" alt="Wined logo">
     </header>
     <main>
-        <div>
+        <div class="confraria-cover">
             <img src="/FrontEnd/views/assets/images/confraria-cover.svg" alt="confraria-cover">
             <div>
                 <img src="/FrontEnd/views/assets/images/search-icon.svg" alt="search-icon">
                 <img src="/FrontEnd/views/assets/images/settings-icon.svg" alt="settings-icon">
             </div>
         </div>
-        <h2>Confraria-wined ></h2>
-        <div>
-            <p>Since 2021</p>
-            <img src="/FrontEnd/views/assets/images/dot.svg" alt="dot-separation">
-            <p>35 membros</p>
+        <div class="confraria-title">
+            <h2>Confraria-wined ></h2>
+            <div>
+                <p>Since 2021</p>
+                <img src="/FrontEnd/views/assets/images/dot.svg" alt="dot-separation">
+                <p>35 membros</p>
+            </div>
         </div>
-        <div>
-            <button>CONVIDAR NOVO MEMBRO +</button>
+        <section class="confraria-members">
+            <button>convidar novo membro +</button>
             <img src="/FrontEnd/views/assets/images/mobile-confraria-members.svg" alt="membros">
             <img src="/FrontEnd/views/assets/images/settings-icon.svg" alt="settings-icon">
-        </div>
-        <div>
-            <div>
+        </section>
+        <section class="create-post-section">
+            <div class="create-post-buttons">
                 <button>Agenda de reuniões</button>
                 <button>Chat do Grupo</button>
             </div>
-            <div>
+            <div class="write-post">
                 <p>Compartilhe sua experiência...</p>
                 <img src="/FrontEnd/views/assets/images/avatar-icon.svg" alt="avatar">
             </div>
-            <div>
+            <div class="upload-media-post">
                 <div>
                     <img src="/FrontEnd/views/assets/images/add-picture.svg" alt="add-picture">
                     <p>Foto</p>
@@ -53,8 +59,10 @@
                     <p>Vídeo</p>
                 </div>
             </div>
-        </div>
-        <p>Atividades Recentes</p>
+        </section>
+        <section class="user-post-section">
+            <p>Atividades Recentes</p>
+        </section>
     </main>
 </body>
 

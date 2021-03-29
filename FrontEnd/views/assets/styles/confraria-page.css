@@ -1,3 +1,7 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
 header {
     justify-content: flex-start;
     height: 48px;
@@ -12,5 +16,153 @@ header > #logo {
 }
 
 main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 100vh;
+    background: linear-gradient(180deg, #9B0000 5%, #2E0000 50%);
+}
+
+.confraria-cover {
+    position: relative;
+}
+
+.confraria-cover > div {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+}
+
+.confraria-cover > div img {
+    margin: 0 10px;
+}
+
+.confraria-title {
+    align-self: flex-start;
+    margin: 10px 0 23px 20px;
+}
+
+.confraria-title > h2 {
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.confraria-title > div {
+    display: flex;
+    justify-content: space-around;
+
+    font-family: 'roboto', sans-serif;
+    font-size: 12px;
+}
+
+.confraria-members {
+    display: flex;
+
+    width: 360px;
+    padding: 0 20px;
+
+    position: relative;
+    justify-content: space-between;
+}
+
+.confraria-members > button {
+    background: #287A5C;
+    border-radius: 25px;
+
+    height: 55px;
+    width: 130px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    font-variant: small-caps;
+}
+
+.confraria-members > img {
+    /* box-shadow: 2px 4px 20px rgb(0 0 0 / 25%); */
+}
+
+.confraria-members > img:last-child {
+    position: absolute;
+    right: 30px;
+    top: 22.5px;
+}
+
+.create-post-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100vw;
+
+    background: #4F0000;
+    margin: 20px 0;
+
+}
+
+.create-post-buttons {
+    width: 360px;
+
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.create-post-buttons button {
+    background: #C41818;
+    width: 120px;
+    height: 38px;
+    border-radius: 20px;
+}
+
+.write-post {
+    width: 360px ;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    padding-bottom: 3px;
+    border-bottom: 1px solid white;
+}
+
+.write-post > p {
+    width: 240px;
+    height: 28px;
+
+    border: 2px solid #FFFFFF;
+    border-radius: 22px;
+    padding: 6px 0;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1;
+}
+
+.upload-media-post {
+    width: 360px;
+    display: flex;
+    justify-content: space-evenly;
+
+    padding: 10px 0;
+}
+
+.upload-media-post div {
+    display: flex;
+    align-items: center;
+}
+
+.upload-media-post div > img {
+    margin-right: 8px;
+}
+
+.user-post-section {
+    display: flex;
+}   
+
+.user-post-section p {
+    
 }
