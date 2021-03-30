@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    margin-top: 60px;
+
+}
+
+.input-field input {
+    box-sizing: border-box;
+    width: 312px;
+    height: 30px;
+    padding: 15px;
+    background: #E5E5E5;
+    border-radius: 4px;
+    /* outline: none; */
+    margin: 10px 0;
+    border: none;
+    text-align: inherit;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario a {
+    align-self: flex-end;
+    color: #b71f39;
+    font-size: 14px;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.botao {
+    border-radius: 40px;
+    border: none;
+}
+
+.formulario .botao {
+    width: 312px;
+    height: 40px;
+    color:white;
+    background-color: #b71f39;
+}
+
+.separador {
+    font-family: 'roboto', sans-serif;
+    font-size: 12px;
+    color: #736B6B;
+    margin: 25px 0;
+
+    display: flex;
+    align-items: center;
+}
+
+.separador div {
+    width: 138px;
+    height: 0;
+    border-bottom: 1px solid #736B6B;
+    margin: 0 10px;
+}
+
+.social-fields {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 24px;
+
+    width: 312px;
+}
+
+.social-field {
+    font-family: 'roboto', sans-serif;
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.social-field img {
+    height: 20px;
+    width: 20px;
+}
+
+.social-field a {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+
+    width: 70px;
+
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.facebook {
+    background: #4a659f;
+    
+}
+
+.facebook a {
+    color:white;
+}
+
+.google {
+    background: #eee6df;
+}
+
+.google a {
+    color: #a8a5a3;
+}
+
+.criar-cadastro {
+    padding-left: 180px;
+    
+    display: flex;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    margin-right: 25px;
+}
+
+.criar-cadastro p {
+    font-weight: 500;
+    font-size: 14px;
+
+}
+
+.criar-cadastro a {
+    text-decoration: none;
+    color: #b71f39;
+    font-size: 14px;
+    font-weight: 500;
+}
