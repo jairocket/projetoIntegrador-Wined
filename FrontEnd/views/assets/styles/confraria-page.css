@@ -1,46 +1,68 @@
 * {
+    box-sizing: border-box;    
+    border: 0;
+    outline: 0;   
+    padding: 0;
+    margin: 0;
+    color: white;
     font-family: 'Montserrat', sans-serif;
 }
 
+
 header {
-    justify-content: flex-start;
+    background-color: #9B0000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     height: 48px;
-    padding: 16px;
+    padding: 15px;
 
     box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.25);
 }
 
 header > #logo {
-    padding-left: 20px;
-
+    padding-top: 5px;
 }
 
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
     background: linear-gradient(180deg, #9B0000 5%, #2E0000 50%);
 }
 
 .confraria-cover {
-    position: relative;
+    width: 100%;
+    max-width: 1100 ;
+    height: auto;
 }
 
-.confraria-cover > div {
-    position: absolute;
-    top: 15px;
-    right: 15px;
+.settings {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0 23px;
+    padding: 0 20px;
 }
 
-.confraria-cover > div img {
-    margin: 0 10px;
+.setting-search-buttons {
+    display: flex;
+    align-items: center;
+    /* padding-right: 5px; */
 }
 
-.confraria-title {
-    align-self: flex-start;
-    margin: 10px 0 23px 20px;
+.setting-search-buttons div {
+    height: 40px;
+    width: 40px;
+    background: #C41818;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
 }
 
 .confraria-title > h2 {
@@ -59,7 +81,7 @@ main {
 .confraria-members {
     display: flex;
 
-    width: 360px;
+    width: 100%;
     padding: 0 20px;
 
     position: relative;
@@ -98,7 +120,7 @@ main {
     flex-direction: column;
     align-items: center;
 
-    width: 100vw;
+    width: 100%;
 
     background: #4F0000;
     margin: 20px 0;
@@ -106,7 +128,7 @@ main {
 }
 
 .create-post-buttons {
-    width: 360px;
+    width: 100%;
 
     display: flex;
     justify-content: space-around;
@@ -121,7 +143,7 @@ main {
 }
 
 .write-post {
-    width: 360px ;
+    width: 90% ;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -143,11 +165,16 @@ main {
 }
 
 .upload-media-post {
-    width: 360px;
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
 
     padding: 10px 0;
+}
+
+.upload-media-separator {
+    width: 0;
+    border-right: 1px solid white;
 }
 
 .upload-media-post div {
@@ -159,10 +186,8 @@ main {
     margin-right: 8px;
 }
 
-.user-post-section {
-    display: flex;
-}   
-
-.user-post-section p {
-    
+.posts-filter {
+    align-self: flex-start;
+    margin-left: 5%;
+    margin-bottom: 200px;
 }
