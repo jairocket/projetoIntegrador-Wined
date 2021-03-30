@@ -1,12 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
+    <link rel="stylesheet" href="views/assets/styles/register.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+  <main>
+    <div id="call">
+      Junte-se à <h1 id="logo">Wined+</h1>
+    </div>
+    <div id="call-text">
+      <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id.</h2>
+    </div>
+    <div class="terms">
+      <label>
+        <input type="checkbox">
+      </label>
+      <div class="terms-text">
+        Aceito os <a href="#">Termos de Uso</a> e <a href="#">Política de Privacidade</a>.
+      </div>
+    </div>
+    <form action="#" method="POST">
+      <label for="email">
+        <input type="email" name="email" id="email" placeholder="Digite seu e-mail">
+      </label>
+      <label for="name">
+        <input type="text" name="name" id="name" placeholder="Nome">
+      </label>
+      <label for="surname">
+        <input type="text" name="surname" id="surname" placeholder="Sobrenome">
+      </label>
+      <label for="password">
+        <input class="password-form" type="password" name="password" id="password" placeholder="Defina uma senha">
+      </label>
+      <button class="button btn-form" type="submit">Junte-se à Wined+</button>
+    </form>
+  </main>
 </body>
 </html>

@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  padding: 64px 24px 47px;
+}
+
+#call, #logo, #call-text > h2, .btn-form {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#call, #logo {
+  display: flex;
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+#logo {
+  font-style: italic;
+  margin-left: 6px;
+  color: #9B0000;
+  text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#call-text {
+  margin-top: 14px;
+}
+
+#call-text > h2 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: justify;
+}
+
+.terms {
+  display: flex;
+  margin: 24px 0px 26px;
+  align-items: center;
+}
+
+.terms, form {
+  font-family: 'Roboto', sans-serif;
+}
+
+.terms > label {
+  width: 15px;
+  height: 15px;
+}
+
+.terms > label > input {
+  width: 100%;
+  height: 100%;
+}
+
+.terms-text {
+  font-size: 12px;
+  line-height: 14px;
+  margin-left: 8px;
+}
+
+form > label > input {
+  background: #E5E5E5;
+  height: 30px;
+  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 8px;
+  padding-left: 18px;
+}
+
+.password-form {
+  margin-top: 24px;
+}
+
+button {
+  background: none;
+  cursor: pointer;
+}
+
+.btn-form {
+  margin: 24px 0px 14px;
+  width: 100%;
+  height: 40px;
+  background: #9B0000;
+  border-radius: 40px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
