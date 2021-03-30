@@ -2,38 +2,34 @@
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-
 }
 
 main {
     display: flex;
     flex-direction: column;
-    width: 360px;
-    justify-content: center;
     align-items: center;
+    justify-content: flex-end;
 }
 
 .logo {
     display: flex;
     align-items: center;
     margin-bottom: 40px;
-    margin-top: 100px;
+    margin-top: 60px;
 
 }
 
-.logo h2 {
-    color: #b71f39;
-    font-style: italic;
-
-}
-
-.input-field {
+.input-field input {
+    box-sizing: border-box;
     width: 312px;
     height: 30px;
+    padding: 15px;
     background: #E5E5E5;
     border-radius: 4px;
-    outline: none;
+    /* outline: none; */
     margin: 10px 0;
+    border: none;
+    text-align: inherit;
 }
 
 .formulario {
@@ -46,10 +42,12 @@ main {
     color: #b71f39;
     font-size: 14px;
     margin-bottom: 25px;
+    font-weight: 500;
 }
 
 .botao {
     border-radius: 40px;
+    border: none;
 }
 
 .formulario .botao {
@@ -60,27 +58,55 @@ main {
 }
 
 .separador {
+    font-family: 'roboto', sans-serif;
+    font-size: 12px;
+    color: #736B6B;
     margin: 25px 0;
 
+    display: flex;
+    align-items: center;
+}
+
+.separador div {
+    width: 138px;
+    height: 0;
+    border-bottom: 1px solid #736B6B;
+    margin: 0 10px;
 }
 
 .social-fields {
     display: flex;
     justify-content: space-around;
     margin-bottom: 24px;
+
+    width: 312px;
 }
 
 .social-field {
+    font-family: 'roboto', sans-serif;
     width: 150px;
     height: 40px;
     display: flex;
-    font-family: 'roboto', sans-serif;
+    justify-content: space-around;
+    align-items: center;
     
 }
 
+.social-field img {
+    height: 20px;
+    width: 20px;
+}
+
 .social-field a {
-    text-decoration: none;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
     text-align: center;
+
+    width: 70px;
+
+    text-decoration: none;
     display: flex;
     align-items: center;
 }
@@ -96,7 +122,6 @@ main {
 
 .google {
     background: #eee6df;
-    color: #a8a5a3;
 }
 
 .google a {
@@ -104,7 +129,8 @@ main {
 }
 
 .criar-cadastro {
-    align-self: flex-end;
+    padding-left: 180px;
+    
     display: flex;
     flex-direction: column;
     height: 20px;
@@ -113,7 +139,7 @@ main {
 }
 
 .criar-cadastro p {
-    font-weight: bold;
+    font-weight: 500;
     font-size: 14px;
 
 }
@@ -122,5 +148,5 @@ main {
     text-decoration: none;
     color: #b71f39;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 500;
 }
