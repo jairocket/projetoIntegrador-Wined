@@ -1,0 +1,193 @@
+* {
+    box-sizing: border-box;    
+    border: 0;
+    outline: 0;   
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+header {
+    background-color: #9B0000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 48px;
+    padding: 15px;
+
+    box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+header > #logo {
+    padding-top: 5px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(180deg, #9B0000 5%, #2E0000 50%);
+}
+
+.confraria-cover {
+    width: 100%;
+    max-width: 1100 ;
+    height: auto;
+}
+
+.settings {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0 23px;
+    padding: 0 20px;
+}
+
+.setting-search-buttons {
+    display: flex;
+    align-items: center;
+    /* padding-right: 5px; */
+}
+
+.setting-search-buttons div {
+    height: 40px;
+    width: 40px;
+    background: #C41818;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+}
+
+.confraria-title > h2 {
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.confraria-title > div {
+    display: flex;
+    justify-content: space-around;
+
+    font-family: 'roboto', sans-serif;
+    font-size: 12px;
+}
+
+.confraria-members {
+    display: flex;
+
+    width: 100%;
+    padding: 0 20px;
+
+    position: relative;
+    justify-content: space-between;
+}
+
+.confraria-members > button {
+    background: #287A5C;
+    border-radius: 25px;
+
+    height: 55px;
+    width: 130px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    font-variant: small-caps;
+}
+
+.confraria-members > img {
+    /* box-shadow: 2px 4px 20px rgb(0 0 0 / 25%); */
+}
+
+.confraria-members > img:last-child {
+    position: absolute;
+    right: 30px;
+    top: 22.5px;
+}
+
+.create-post-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+
+    background: #4F0000;
+    margin: 20px 0;
+
+}
+
+.create-post-buttons {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.create-post-buttons button {
+    background: #C41818;
+    width: 120px;
+    height: 38px;
+    border-radius: 20px;
+}
+
+.write-post {
+    width: 90% ;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    padding-bottom: 3px;
+    border-bottom: 1px solid white;
+}
+
+.write-post > p {
+    width: 240px;
+    height: 28px;
+
+    border: 2px solid #FFFFFF;
+    border-radius: 22px;
+    padding: 6px 0;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1;
+}
+
+.upload-media-post {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+    padding: 10px 0;
+}
+
+.upload-media-separator {
+    width: 0;
+    border-right: 1px solid white;
+}
+
+.upload-media-post div {
+    display: flex;
+    align-items: center;
+}
+
+.upload-media-post div > img {
+    margin-right: 8px;
+}
+
+.posts-filter {
+    align-self: flex-start;
+    margin-left: 5%;
+    margin-bottom: 200px;
+}
