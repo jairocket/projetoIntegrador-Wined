@@ -23,7 +23,7 @@ header > button{
 }
 
 main{
-    background: linear-gradient(#9B0000, #2E0000);
+    background: linear-gradient(#9B0000, #2e0000, #2e0000,  #2e0000);
     height: 85vh;
 }
 
@@ -52,10 +52,14 @@ main{
     justify-content: space-between;
     padding: 10px, 10px, 0, 10px;
     position: relative;
-    bottom: 50px;
+    bottom: 30px;
     
 }
-
+.rprofileInfo{
+    display: flex;
+    align-items: center;
+    
+}
 
 
 .navbar{
@@ -67,42 +71,67 @@ main{
     margin: 8px;
 }
 
+.dashboardSection{
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    position: relative;
+    left: 5%;
+    background-color: #4f0000;
+    border-radius: 8%;
+}
+
 .dashboardSection > h2{
     padding-left: 10px;
+    padding-top: 10px;
 }
 .dashboardSection > p{
     padding: 25px;
+    display: flex;
+    align-self: center;
     
 }
 
 .fraternityPic{
-    height: 7.8125vh;
+    height: 7vh;
     width: 13.89%;
     border:solid white thin;
     border-radius: 25%;
+}
+
+.fraternityMenu{
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    position: relative;
+    left: 5%;
+    background-color: #4f0000;
+    border-radius: 8%;
+    margin-top: 10px;
 }
 
 .fraternityMenu > div > a{
     padding-left: 25px;
     display: flex;
     padding-bottom: 5px;
+    align-items: center;
 
 }
 
 .fraternityMenu, .fraternityMenu > h3 {
-    padding-bottom: 10px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
     
-    
+      
 }
 
-.fraternityMenu > h3{
-    padding-left: 10px;
-}
-
-.fraternityMenu > div > a > h4{
+.fraternityMenu div > a > h4{
     display: flex;
     align-items: center;
     padding-left: 15px;
+    padding-top: 10px;
+    
     
 }
 
