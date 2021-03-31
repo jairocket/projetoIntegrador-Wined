@@ -36,7 +36,7 @@ main {
     font-weight: 500;
 }
 
-.btn-form {
+.btn-form, .botao {
     border-radius: 40px;
     border: none;
 }
@@ -65,77 +65,11 @@ main {
 }
 
 .social-fields {
-    display: flex;
-    justify-content: space-around;
     margin-bottom: 24px;
-
     width: 312px;
 }
 
-.social-field {
-    width: 150px;
-    height: 40px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    
-}
-
-.social-field img {
-    height: 20px;
-    width: 20px;
-}
-
-.social-field a {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    text-align: center;
-
-    width: 70px;
-
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
-
-.facebook {
-    background: #4a659f;
-    
-}
-
-.facebook a {
-    color:white;
-}
-
-.google {
-    background: #eee6df;
-}
-
-.google a {
-    color: #a8a5a3;
-}
-
 .criar-cadastro {
-    padding-left: 180px;
-    
-    display: flex;
-    flex-direction: column;
-    height: 20px;
-    justify-content: space-between;
-    margin-right: 25px;
-}
-
-.criar-cadastro p {
-    font-weight: 500;
-    font-size: 14px;
-
-}
-
-.criar-cadastro a {
-    text-decoration: none;
-    color: #b71f39;
-    font-size: 14px;
-    font-weight: 500;
+    width: 100%;
+    padding: 0px 24px;
 }
