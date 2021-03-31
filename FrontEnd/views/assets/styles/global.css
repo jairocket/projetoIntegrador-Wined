@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  background: none;
+  cursor: pointer;
+}
+
+.separador, .social-field, .terms, form, .input-field {
+  font-family: 'Roboto', sans-serif;
+}
+
+#call, #logo, #call-text > h2, .btn-form, .text-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.input-field input, form > label > input {
+  background: #E5E5E5;
+  height: 30px;
+  border-radius: 4px;
+  width: 100%;
+  padding-left: 18px;
+}
+
+.social-fields {
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-field {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: right;
+  text-decoration: none;
+  width: 150px;
+  height: 40px;
+  padding: 6px 15px;
+  border-radius: 40px;
+}
+
+.social-field > img {
+  width: 19.2px;
+}
+
+.facebook {
+  background: #4A659F;
+  color: #fff;
+}
+
+.google {
+  border: 1px solid #EEE6DF;
+  color: #A8A5A3;
+}
+
+.perfil-question {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+
+.perfil-question > p {
+  margin-bottom: 3px;
+}
+
+.perfil-question > a {
+  color: #9B0000;
+  text-decoration: none;
+}
