@@ -1,0 +1,521 @@
+* {
+    box-sizing: border-box;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color:#B71F39;
+    padding: 10px;
+}
+
+header > img {
+ width: 115px;
+ 
+}
+
+
+header > button {
+    background: none;
+    cursor: pointer;
+    
+}
+
+.navbar{
+    display:none;
+    
+    
+}
+
+/* to apanhando para colocar sombra nos textos do navbar */
+.navbar > a {
+    font-size: 18px;
+    margin-right: 15px;
+    text-decoration: none;
+    color: #E6AAAE;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600;
+    text-shadow: 0px 3px 21px -5px rgba(0, 0, 0, 0.25);
+    
+}
+
+
+
+.scroll-pic{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* botão cadastrar */
+.login-up{
+text-decoration: none;
+font-family:'Josefin Sans', sans-serif;
+font-style: normal;
+font-weight: bold;
+font-size: 10px;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: #fff;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 20px 24px;
+
+width: 86px;
+height: 28.76px;
+
+background: #EC414B;
+/* Button / Primary */
+
+box-shadow: 4px 4px 0px #F1876F, 8px 8px 0px #F5AE9E;
+
+position:absolute;
+    top:55%;
+    left:20%;
+    -webkit-transform:translate3d(-50%, -50%, 0);
+    -moz-transform:translate3d(-50%, -50%, 0);
+    transform:translate3d(-50%, -50%, 0);
+}
+
+.pic-landing{
+    width: 100%;
+}
+
+.next-slide1, .next-slide2{
+    position: absolute;
+    left: auto;
+    bottom: 0%;
+}
+
+h1{
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    font-family:'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.wined-what-is, .what-is-Brotherhood {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+
+.wined-what-is img{
+    padding: 10px;
+
+}
+
+.text {
+    text-align: justify;
+    font-family:'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 9px;
+    line-height: 12px;
+    margin: 5px 0 10px;
+    padding: 5px 20px 10px;
+    
+}
+
+.wined-what-is h2{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    font-size: 16px;
+    font-family:'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+
+}
+
+.sublinhado{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    font-size: 16px;
+    font-family:'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 0px 0px 5px;
+    border-bottom: 4px solid #B42340;
+    margin: 0px 4px 20px;
+}
+
+.team{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.member{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.name-member{
+    font-size: 14px;
+    font-family:'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    flex-wrap: wrap;
+    margin: 5px 0 5px;
+    padding: 10px 20px 5px;
+}
+
+.member p{
+    text-align: justify;
+    font-family:'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 9px;
+    line-height: 12px;
+    margin: 5px 0 10px;
+    padding: 10px 20px 10px;
+}
+
+.what-is-Brotherhood{
+    position: relative;
+}
+.what-is-Brotherhood img{
+    padding: 10px;
+}
+
+.how-many-people{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 20px 30px 20px;
+    box-shadow: 4px 4px 4px 4px rgba(232, 70, 21, 0.74);
+}
+
+.how-many-people h2{
+    width: 100%;
+    color:#fff;
+    background: #E84615;
+    text-align: center;
+    font-size: 18px;
+    font-family:'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-style: italic;
+    font-weight: 600;
+    padding: 10px;
+
+}
+
+.text2{
+    text-align: justify;
+    font-family:'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    margin: 5px 0 10px;
+    padding: 5px 20px 5px; 
+}
+
+
+.number-people{
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 59px;
+    text-align: center;
+
+}
+
+
+/* botão criar confraria */
+.create-Brotherhood{
+    text-decoration: none;
+    font-family:'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0px 20px;
+    padding: 20px 20px;
+
+    width: 155px;
+    height: 32px;
+
+
+    background: #EC414B;
+    /* Button / Primary */
+
+    box-shadow: 4px 4px 0px #F1876F, 8px 8px 0px #F5AE9E;
+
+    position:absolute;
+        top:100%;
+        left:50%;
+        -webkit-transform:translate3d(-50%, -50%, 0);
+        -moz-transform:translate3d(-50%, -50%, 0);
+        transform:translate3d(-50%, -50%, 0);
+
+}
+
+
+.people-world{
+    margin: 0px 0px 30px;
+    
+    position:absolute;
+    top:-6.8%;
+    z-index: 2;
+
+}
+
+
+.people-wined{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    background: #E0F0E6;
+    margin: 140px 0px 180px;
+    position: relative;
+    padding: 190px 0px 200px;
+}
+
+
+.people-wined h2 {
+    display: flex;
+    font-family:'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 17px;
+    text-align: center;
+    flex-wrap: wrap;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.number-user {
+    font-family:'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 78px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+.avaliation-people{
+    display: flex;
+    flex-wrap: wrap;
+    background: #EFFFF5;
+    border-radius: 19px;
+    margin: 15px 20px 15px;
+    padding: 6px 10px 18px ;
+    justify-content: space-between;
+}
+
+/* isso daqui faz com que apenas apareça 2 avaliações em vez das 4 avaliações
+vai ficar assim até eu aprender mais sobre carrossel */
+.avaliation-people:nth-of-type(n+3){
+    display:none
+}
+
+.name-user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;   
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.publication-user{
+    display: flex;
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 166%;
+    letter-spacing: 0.1em;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #7B7B7B;
+}
+
+    
+
+.star-avaliation{
+    margin: 0px 10px 0px;
+
+}
+
+
+.avaliation-people article {
+    text-align: justify;
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.05em;
+
+}
+
+
+.what-is-stay{
+    position:absolute;
+    top:80%;
+    left: 0%;
+    width: 149px;
+    height: 70px;
+    background: #7CE815;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 14px;
+    
+}
+
+.create-count{
+    text-decoration: none;
+    font-family:'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0px 20px;
+    padding: 20px;
+
+    width: 132px;
+    height: 32px;
+
+
+    background: #EC414B;
+    /* Button / Primary */
+
+    box-shadow: 4px 4px 0px #F1876F, 8px 8px 0px #F5AE9E;
+
+    position:absolute;
+    top:85%;
+    z-index: 10;
+}
+
+
+.congratuations{
+    position: absolute;
+    bottom: -19%;
+}
+
+/* Aqui começa a configuração do Footer */
+footer {
+    display: flex;
+    
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;  
+    background: linear-gradient(rgba(242, 217, 160, 0.8),rgba(150, 22, 35, 0.2));
+}
+
+footer > p> a {
+    font-size: 12px;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    color: #612B2E;
+    line-height: 30px;
+}
+
+footer > img{
+    padding: 15px;
+}
+
+
+/* Aqui é processo de tentativas de resposividade */
+/* Falta bastante coisa */
+@media (min-width: 481px) {
+
+    header > img {
+        width: 180px; 
+       }
+       .menu {
+        width: 40px;
+        height: 40px;
+        
+    }
+
+}
+
+
+@media (min-width: 600px) {
+
+       .hamburger-menu {
+       display: none;
+        
+    }
+
+        .navbar{
+        display:flex;
+    }
+    .navbar > a{
+        font-size: 14px ;
+        font-weight: 600;
+    }
+    
+
+}
+
+@media (min-width: 680px) {
+
+    .hamburger-menu {
+    display: none;
+     
+ }
+
+     .navbar{
+     display:flex;
+ }
+ .navbar > a{
+     font-size: 18px ;
+ }
+ 
+
+}
