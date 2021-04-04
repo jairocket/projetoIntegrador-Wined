@@ -1,0 +1,239 @@
+* { 
+    box-sizing: border-box;    
+    border: 0;
+    outline: 0;   
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #9B0000;
+    padding: 0 10px 0 10px;
+    min-height: 10vh;
+    align-items: center;
+}
+
+header > button{
+    background: none;
+}
+
+main{
+    background: linear-gradient(#9B0000, #2e0000,  #2e0000);
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em;
+}
+
+.backgroundPic, .backgroundPic > img{
+    width: 100%;
+    height: 20vh;    
+}
+
+.profilePic{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: thin white solid; 
+    margin-left: 10px;
+    position: relative;
+    bottom: 7.5vh;
+    
+}
+
+.topOptions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px, 10px, 0, 10px;
+    height: 15vh;
+    
+  
+}
+
+.profileInfo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3%;
+}
+
+
+.navbar{
+    display: flex;
+    align-items: flex-end;
+}
+
+.navbar > a{
+    margin: 8px;
+}
+
+.navbarMenu{
+    display:none;
+}
+
+.dashboardSection{
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    background-color: #4f0000;
+    border-radius: 8%;
+}
+
+.dashboardSection > h2{
+    padding: 25px;  
+}
+
+.dashboardSection > p{
+    padding: 25px;
+    display: flex;
+    align-self: center; 
+}
+
+.fraternityPic{
+    height: 7vh;
+    width: 13.89%;
+    border:solid white thin;
+    border-radius: 25%;
+}
+
+.fraternityMenu{
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    margin-bottom: 3%;
+    background-color: #4f0000;
+    border-radius: 8%;
+    margin-top: 10px;
+}
+
+.fraternityMenu > div > a{
+    padding-left: 25px;
+    display: flex;
+    padding-bottom: 5px;
+    align-items: center;
+
+}
+
+.fraternityMenu, .fraternityMenu > h3 {
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-top: 15px;     
+}
+
+.fraternityMenu div > a > h4{
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    padding-top: 10px;    
+}
+
+.fraternity{
+    display: flex;
+    justify-content: center;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #9B0000;
+    color: white;
+    height: 5vh;
+    width: 100%;
+} 
+
+@media ( min-width: 1279px ){
+    main{
+        display: flex;
+        flex-direction: row;
+        
+    }
+    .topOptions{
+        width: 100%;
+    }
+
+    .topView{
+        display: flex;
+        width: 67%;
+        flex-direction: column;
+        
+    }
+    .top{
+        display: flex;
+        
+        flex-direction: row;
+        justify-content: space-between;  
+    }
+    .navbar{
+        display: none;
+    }
+
+    .navbarMenu{
+        display: flex;
+        flex-direction: column;
+        background-color: #4f0000;
+        align-items: left;
+        justify-content: center;
+        height: 36.6vh;
+        border-radius: 8%;
+        padding: 20px   
+        
+    }
+    .backgroundPic, .backgroundPic > img {
+        width: 100%;
+        display: flex;
+        height: 26vh;
+        
+    }
+    .topOptions {
+        display: flex;
+      
+       
+    }
+    .profileInfo{
+        width: 100%;
+        padding-left: 3%;
+             
+    }
+
+    .profilePic{
+        width: 225px;
+        height: 225px;
+        position: relative;
+        bottom: 12.5vh;
+
+    }
+    .fraternity{
+        height: 38.9vh;
+        display: flex;
+    }
+    .dash{
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        justify-content: space-between;
+        padding-left: 3%;
+        padding-bottom: 2%;
+        
+        
+    }
+    .fraternityMenu{
+        width: 100%;
+        margin: 0;
+    }
+
+    .dashboardSection{
+        width: 100%;
+        height: 38.9vh;    
+    }
+
+    .dashboardSection > p{
+        line-height: 1.5;
+    }
+  
+}
