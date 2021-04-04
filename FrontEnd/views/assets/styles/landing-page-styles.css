@@ -41,7 +41,7 @@ header > button {
     color: #E6AAAE;
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 600;
-    text-shadow: 0px 3px 21px -5px rgba(0, 0, 0, 0.25);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     
 }
 
@@ -97,15 +97,17 @@ position:absolute;
 }
 
 h1{
+    display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 20px 20px 15px;
     text-align: center;
     font-family:'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
     letter-spacing: 0.1em;
+    line-height: 20px;
     text-transform: uppercase;
 }
 
@@ -118,7 +120,15 @@ h1{
 
 .wined-what-is img{
     padding: 10px;
+}
 
+.wined-what-is img:first-of-type {
+    width: 180px;
+    height: 40px;
+}
+.wined-what-is img:nth-of-type(n+2){
+    width: 183px;
+    height: 179px;
 }
 
 .text {
@@ -184,16 +194,6 @@ h1{
     padding: 10px 20px 5px;
 }
 
-.member p{
-    text-align: justify;
-    font-family:'Josefin Sans', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 9px;
-    line-height: 12px;
-    margin: 5px 0 10px;
-    padding: 10px 20px 10px;
-}
 
 .what-is-Brotherhood{
     position: relative;
@@ -224,6 +224,14 @@ h1{
     font-weight: 600;
     padding: 10px;
 
+}
+.text{
+    text-align: justify;
+    font-family:'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 9px;
+    line-height: 12px;
 }
 
 .text2{
@@ -452,10 +460,11 @@ footer {
     flex-direction: column;
     justify-content:center;
     align-items: center;  
+    text-align: center;
     background: linear-gradient(rgba(242, 217, 160, 0.8),rgba(150, 22, 35, 0.2));
 }
 
-footer > p> a {
+footer > nav> a {
     font-size: 12px;
     text-decoration: none;
     font-family: 'Josefin Sans', sans-serif;
@@ -513,9 +522,58 @@ footer > img{
      .navbar{
      display:flex;
  }
+
  .navbar > a{
      font-size: 18px ;
  }
- 
+
+ .login-up{
+    width: 131px;
+    height: 52px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 42px;
+}
+.wined-what-is img:first-of-type {
+    width: 300px;
+    height: 120px;
+}
+.wined-what-is img:nth-of-type(n+2){
+    width: 300px;
+    height: 286px;
+}
+
+.text{
+    font-size: 14px;
+    line-height: 16px;
+}
+.text2{
+    font-size: 18px;
+    line-height: 20px;
+}
+}
+
+@media (min-width: 800px){
+    .login-up{
+        width: 185px;
+        height: 68px;
+        font-size: 20px;
+        line-height: 28px;
+    }
+
 
 }
+
+
+
+@media (min-width: 1100px){
+
+h1 {
+    font-size: 3.5rem;
+    line-height: 60px;
+};
+};
