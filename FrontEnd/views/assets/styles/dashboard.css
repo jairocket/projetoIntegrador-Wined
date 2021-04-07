@@ -137,6 +137,17 @@ main{
     justify-content: center;
 }
 
+.main{
+    display: flex;
+    flex-direction: column;
+}
+
+.main > section{
+    
+    border-top: solid  #287A5C thin;
+
+}
+
 footer{
     display: flex;
     justify-content: center;
