@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', landingRouter);
 app.use('/login', loginRouter);
-app.use('/register', registerRouter);
+app.use('/cadastrar', registerRouter);
 app.use('/confraria', brotherhoodPageRouter);
 app.use('/perfil', profileRouter);
 
