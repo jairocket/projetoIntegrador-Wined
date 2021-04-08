@@ -1,30 +1,8 @@
 * {
-    box-sizing: border-box;    
-    border: 0;
-    outline: 0;   
-    padding: 0;
-    margin: 0;
     color: white;
     font-family: 'Montserrat', sans-serif;
 }
 
-
-header {
-    background-color: #9B0000;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    height: 48px;
-    padding: 15px;
-
-    box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.25);
-}
-
-header > #logo {
-    padding-top: 5px;
-}
 
 main {
     display: flex;
