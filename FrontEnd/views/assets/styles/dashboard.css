@@ -26,7 +26,7 @@ main{
     background: linear-gradient(#9B0000, #2e0000,  #2e0000);
     display: flex;
     flex-direction: column;
-    font-size: 1.5em;
+    
 }
 
 .backgroundPic, .backgroundPic > img{
@@ -35,8 +35,8 @@ main{
 }
 
 .profilePic{
-    width: 150px;
-    height: 150px;
+    width: 125px;
+    height: 125px;
     border-radius: 50%;
     border: thin white solid; 
     margin-left: 10px;
@@ -49,8 +49,9 @@ main{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 10px, 10px, 0, 10px;
+    padding-right: 3%;
     height: 15vh;
+    
     
   
 }
@@ -213,10 +214,11 @@ footer{
     }
 
     .profilePic{
-        width: 225px;
-        height: 225px;
+        width: 180px;
+        height: 180px;
         position: relative;
-        bottom: 12.5vh;
+        bottom: 15vh;
+        left: 25px;
 
     }
     .fraternity{
