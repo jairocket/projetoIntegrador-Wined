@@ -1,25 +1,6 @@
 * { 
-    box-sizing: border-box;    
-    border: 0;
-    outline: 0;   
-    padding: 0;
-    margin: 0;
     color: white;
     font-family: 'Montserrat', sans-serif;
-}
-
-header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: #9B0000;
-    padding: 0 10px 0 10px;
-    min-height: 10vh;
-    align-items: center;
-}
-
-header > button{
-    background: none;
 }
 
 main{
@@ -147,16 +128,6 @@ main{
     
     border-top: solid  #287A5C thin;
 
-}
-
-footer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #9B0000;
-    color: white;
-    height: 5vh;
-    width: 100%;
 } 
 
 @media ( min-width: 1279px ){

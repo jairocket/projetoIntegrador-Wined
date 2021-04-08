@@ -6,6 +6,76 @@
   margin: 0;
 }
 
+header {
+  background-color: #9B0000;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  height: 48px;
+  padding: 15px;
+
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+ul, a {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+#hamburger {
+  width: 16px;
+  height: 16px;
+  
+  margin: 0 10px 0 0;
+}
+
+#logo {
+  width: 130px;
+  height: 32px;
+}
+
+#profile-pic {
+  width: 35px;
+  height: 35px;
+  
+  position: absolute;
+  right: 15px;
+}
+
+#menu-desktop {
+  display: none;
+}
+
+footer {
+  height: 80px;
+  padding-bottom: 10px;
+  background: #9B0000;
+  font-size: 12px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+footer ul {
+  width: 95%;
+
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+footer ul li {
+  margin: 0 15px 7px;
+}
+
+footer p {
+  font-weight: 500;
+}
+
 button {
   background: none;
   cursor: pointer;
@@ -77,4 +147,73 @@ button {
 .perfil-question > a {
   color: #9B0000;
   text-decoration: none;
+}
+
+
+
+@media (min-width: 650px) {
+  header {
+    height: 80px;
+  }
+
+  #hamburger {
+    width: 36px;
+    height: 36px;
+
+    margin: 0 40px 0 20px;
+  }
+
+  #logo {
+    width: 220px;
+    height: 64px;
+  }
+
+  #profile-pic {
+    width: 64px;
+    height: 64px;
+
+    right: 40px;
+  }
+
+  footer {
+    height: 120px;
+    font-size: 16px;
+  }
+  
+  footer ul {
+    width: 80%;
+  }
+  
+}
+
+@media (min-width: 970px) {
+  #hamburger {
+    display: none;
+  }
+
+  #logo {
+    margin-left: 25px;
+  }
+
+  #profile-pic {
+
+  }
+
+  #menu-desktop {
+    width: 70%;
+    
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  #menu-desktop a {
+    font-size: 24px;
+    font-weight: 500;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  footer {
+    font-size: 22px;
+  }
 }
