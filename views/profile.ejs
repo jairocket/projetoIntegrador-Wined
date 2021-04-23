@@ -10,11 +10,15 @@
             </div>
             
             <div class ="topOptions">
-                <div class ="profilePic">
-            </div>
+                <form action="/" method="POST" enctype="multipart/form-data">
+                    
+                    <button type="submit"><div class ="profilePic">
+                        <input type="file" name="avatarFile" id="file" multiple>
+                    </div></button>
+                </form>
                 <div class="navbar">
                     <a href="#"><img src="images/home.svg"></a>
-                    <a href="#"><img src="images/likeIcon.svg"></a>
+                    <a href="http://localhost:3000/favorites"><img src="images/likeIcon.svg"></a>
                     <a href="#"><img src="images/wishListIcon.svg"></a>
                     <a href="#"><img src="images/notificationsIcon.svg"></a>
                 </div>                
@@ -31,10 +35,7 @@
         </section>
         <section class="dash">
             <div class="navbarMenu">
-                <a href="#"><h4>Home</h4><br></a>
-                <a href="#"><h4>Lista de Desejos</h4><br></a>
-                <a href="#"><h4>Vinhos Favoritos</h4><br></a>
-                <a href="#"><h4>Notificações</h4><br></a>
+                
             </div>
 
             
