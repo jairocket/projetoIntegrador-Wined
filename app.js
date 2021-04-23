@@ -28,7 +28,7 @@ app.use('/login', loginRouter);
 app.use('/cadastrar', registerRouter);
 app.use('/confraria', brotherhoodPageRouter);
 app.use('/perfil', profileRouter);
-app.use('/perfil/favorites', favoritesRouter)
+app.use('/favorites', favoritesRouter)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
