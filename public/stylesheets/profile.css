@@ -22,8 +22,7 @@ main{
     border: thin white solid; 
     margin-left: 10px;
     position: relative;
-    bottom: 7.5vh;
-    
+    bottom: 7.5vh;  
 }
 
 .topOptions{
@@ -43,7 +42,6 @@ main{
     justify-content: center;
     margin-bottom: 3%;
 }
-
 
 .navbar{
     display: flex;
@@ -91,6 +89,10 @@ main{
     background-color: #4f0000;
     border-radius: 8%;
     margin-top: 10px;
+}
+
+.notifications{
+    display: none;
 }
 
 .fraternityMenu > div > a{
@@ -200,13 +202,30 @@ main{
         width: 30%;
         justify-content: space-between;
         padding-left: 3%;
-        padding-bottom: 2%;
-        
-        
+        padding-bottom: 2%; 
     }
-    .fraternityMenu{
+
+    #notificationsBell{
+        display: none;
+    }
+    .notifications{
+        display: flex;
         width: 100%;
+        flex-direction: column;
+        margin-bottom: 3%;
+        background-color: #4f0000;
+        border-radius: 8%;
         margin: 0;
+    }
+
+    .notifications > h3 {
+        padding-bottom: 5px;
+        padding-left: 15px;
+        padding-top: 15px;     
+    }
+
+    .fraternityMenu{
+        display: none;
     }
 
     .dashboardSection{
