@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('privacyPolicy', { title: "Privacidade", style: "profile" });
+  res.render('privacyPolicy', { title: "Privacidade", style: "rules" });
 });
 
 module.exports = router;
