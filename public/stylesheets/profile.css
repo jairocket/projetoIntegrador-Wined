@@ -77,8 +77,8 @@ main{
 }
 
 .fraternityPic{
-    height: 7vh;
-    width: 13.89%;
+    height: 50px;
+    width: 50px;
     border:solid white thin;
     border-radius: 25%;
 }
@@ -152,9 +152,7 @@ main{
         flex-direction: row;
         justify-content: space-between;  
     }
-    .navbar{
-        display: none;
-    }
+ 
 
     .navbarMenu{
         display: flex;
