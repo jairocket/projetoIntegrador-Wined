@@ -2,27 +2,7 @@
 
     <main>
         <section class = "topView">
-            <div class="top">
-                <div class="backgroundPic">
-                    <img alt="foto de fundo" src="images/background-1430057_640.jpg">
-                </div>
-               
-            </div>
-            
-            <div class ="topOptions">
-                <form action="/" method="POST" enctype="multipart/form-data">
-                    
-                    <button type="submit"><div class ="profilePic">
-                        <input type="file" name="avatarFile" id="file" multiple>
-                    </div></button>
-                </form>
-                <div class="navbar">
-                    <a href="#"><img src="images/home.svg"></a>
-                    <a href="http://localhost:3000/favorites"><img src="images/likeIcon.svg"></a>
-                    <a href="#"><img src="images/wishListIcon.svg"></a>
-                    <a href="#"><img src="images/notificationsIcon.svg"></a>
-                </div>                
-            </div>
+            <%- include('./partials/topView') %>
 
                 <div class="profileInfo">
                     <div class="dashboardSection">
