@@ -15,7 +15,7 @@ let UserController = {
         let hashedPassword = bcrypt.hashSync(password, 12);
         let user = {email, name, surname, password: hashedPassword};
         users.push(user);
-        users = JSON.stringify(users);
+        users = JSON.stringify(users, null, 2);
         fs.writeFileSync(userJson, users);
         res.send('usuário cadastrado com sucesso!');
         
