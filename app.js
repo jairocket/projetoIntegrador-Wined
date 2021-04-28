@@ -3,6 +3,8 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const session = require('express-session');
+
 
 const landingRouter = require('./routes/landingPage');
 const loginRouter = require('./routes/login');
@@ -11,7 +13,8 @@ const brotherhoodPageRouter = require('./routes/brotherhoodPage');
 const profileRouter = require('./routes/profile');
 const favoritesRouter = require('./routes/favoritesPage');
 const privacyPolicyRouter = require('./routes/privacyPolicy');
-const termsOfUseRouter = require('./routes/termsOfUse')
+const termsOfUseRouter = require('./routes/termsOfUse');
+const salvarSenha = require('./routes/salvarSenha');
 
 const app = express();
 
@@ -24,6 +27,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: 'Projeto Wined+',
+  resave: false,
+  saveUninitialized: true,
+}))
 
 app.use('/', landingRouter);
 app.use('/login', loginRouter);
@@ -33,6 +41,7 @@ app.use('/perfil', profileRouter);
 app.use('/favorites', favoritesRouter);
 app.use('/privacidade', privacyPolicyRouter);
 app.use('/termos', termsOfUseRouter);
+app.use('/password', salvarSenha);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

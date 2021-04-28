@@ -7,7 +7,6 @@ main{
     background: linear-gradient(#9B0000, #2e0000,  #2e0000);
     display: flex;
     flex-direction: column;
-    
 }
 
 .backgroundPic, .backgroundPic > img{
@@ -31,9 +30,6 @@ main{
     justify-content: space-between;
     padding-right: 3%;
     height: 15vh;
-    
-    
-  
 }
 
 .profileInfo{
@@ -45,7 +41,7 @@ main{
 
 .navbar{
     display: flex;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .navbar > a{
