@@ -14,7 +14,7 @@ const profileRouter = require('./routes/profile');
 const favoritesRouter = require('./routes/favoritesPage');
 const privacyPolicyRouter = require('./routes/privacyPolicy');
 const termsOfUseRouter = require('./routes/termsOfUse');
-const salvarSenha = require('./routes/salvarSenha');
+
 
 const app = express();
 
@@ -41,7 +41,7 @@ app.use('/perfil', profileRouter);
 app.use('/favorites', favoritesRouter);
 app.use('/privacidade', privacyPolicyRouter);
 app.use('/termos', termsOfUseRouter);
-app.use('/password', salvarSenha);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
