@@ -17,8 +17,7 @@ let UserController = {
         users.push(user);
         users = JSON.stringify(users, null, 2);
         fs.writeFileSync(userJson, users);
-        res.send('usuário cadastrado com sucesso!');
-        
+        res.send('usuário cadastrado com sucesso!');  
     },
     loginForm: (req, res)=>{
         res.render('login')
