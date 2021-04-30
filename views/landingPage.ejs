@@ -1,36 +1,6 @@
-<!DOCTYPE html>
-<html lang = 'pt-BR'>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Home | Wined +</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='stylesheets/landing-page-styles.css'>
-    
-</head>
-<body>
-    <header>
-        <!-- <img  class="logo" src="images/logo.svg" alt="Logo"/> antigo logo -->
-        <img id="logo" src="images/logo-wined-header.svg" alt="Wined logo">
-        <button type="button" class="hamburger-menu">
-            <img class="menu" src="images/hamburger.svg" alt="Hamburger menu"/>
-        </button>
-        <nav class="navbar">
-            <a href="#" class="home">
-                Início
-            </a>
-            
-            <a href="#" class="what-is-wined">
-                O que é a Wined +
-            </a>
-            
-            <a href="#" class="confraries">
-                Confrarias
-            </a>
-            
-        </nav>
-    </header>
+<%- include('./partials/headerUnlogged.ejs')  %>
 
+<body>
     <main>
 <!-- parte que é o 'carrossel' de fotos + o botão para cadastro na wined+ -->
         <div class="scroll-pic">
@@ -70,8 +40,8 @@
                 </h3>
                 <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida orci dui, vel
                 sagittis tellus egestas vel.</p>    
-                </article> 
-                <img class="next-slide2" src="images/next-slide-model2.svg" alt="passar slide"/>
+                </article>  
+                <img class="next-slide2" src="images/next-slide-model2.svg" alt="passar slide"/>  
             </div>
             
         </div>
