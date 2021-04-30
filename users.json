@@ -64,5 +64,11 @@
     "name": "adriano",
     "surname": "dricoti",
     "password": "$2a$12$gEkt0fnQWvRs2ny4Ko1CreuCHa.7zMnB3FQtBe/.9oPfXKHvB2mM2"
+  },
+  {
+    "email": "giovannagardinali11@gmail.com",
+    "name": "Giovanna",
+    "surname": "Gardinali de Miranda",
+    "password": "$2a$12$Hi4BlWrgPGbYyqcXD1g.5ubkbUmTUV1Ciuam6vC/1C6LXiWOtj9Fy"
   }
 ]
