@@ -46,5 +46,23 @@
     "name": "kotal ",
     "surname": "kahn",
     "password": "$2a$12$7iZjwfqDhaYx/UVG./zARe90kgw0rn9LxrASneAheIRq4gn8yu1vS"
+  },
+  {
+    "email": "nyk@email.com",
+    "name": "Nykolle",
+    "surname": "Malone",
+    "password": "$2a$12$8CcNgR8mPFHqiUj3n1wVY.OnyK1BkC8pDDVKvewtxMBJVZSEHjOQy"
+  },
+  {
+    "email": "jailsonanjos@email.com",
+    "name": "Jailson",
+    "surname": "Anjos",
+    "password": "$2a$12$m/FfRrSKdplriMnDM/ORJOOfll.N5AA.99gMBQzNFogjuecCD7h.i"
+  },
+  {
+    "email": "adriano@email.com",
+    "name": "adriano",
+    "surname": "dricoti",
+    "password": "$2a$12$gEkt0fnQWvRs2ny4Ko1CreuCHa.7zMnB3FQtBe/.9oPfXKHvB2mM2"
   }
 ]

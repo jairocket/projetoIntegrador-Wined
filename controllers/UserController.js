@@ -1,5 +1,4 @@
 const bcrypt = require('bcryptjs');
-const { json } = require('express');
 const fs = require('fs');
 const path = require('path');
 
@@ -22,8 +21,16 @@ let UserController = {
     loginForm: (req, res)=>{
         res.render('login')
     },
-    logUser: (req,res)=>{
-
+    userLogger: (req,res)=>{
+        let users = JSON.parse(fs.readFileSync(userJson, 'utf-8'));
+        let {email, password} = req.body;
+        for (user of users){
+            if((user.email == email) && (bcrypt.compareSync(password, user.password))){
+                res.send('ok');
+            }            
+        }
+        res.status(401).send('não autorizado')    
+   
     }
 }
 
