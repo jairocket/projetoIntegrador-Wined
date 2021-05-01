@@ -70,5 +70,55 @@
     "name": "Giovanna",
     "surname": "Gardinali de Miranda",
     "password": "$2a$12$Hi4BlWrgPGbYyqcXD1g.5ubkbUmTUV1Ciuam6vC/1C6LXiWOtj9Fy"
+  },
+  {
+    "email": "ivens@email",
+    "name": "Ivens",
+    "surname": "Müller",
+    "password": "$2a$12$TwS2tlj3qBHuHJs1o1Nsqev2llKJu/66tv/tWQpNs/eL.c/RMhjgG"
+  },
+  {
+    "email": "ivens@email",
+    "name": "Ivens",
+    "surname": "Müller",
+    "password": "$2a$12$2V.TpgZNF1MWplR48Z/Q0uT0bsJO/xq/anfGTc.jnIV.Ijcz0a8TS"
+  },
+  {
+    "email": "ash@email.com",
+    "name": "Ash",
+    "surname": "Catchum",
+    "password": "$2a$12$yLdsFa/pq.XtaQsjv94rHei0K67P.D5cT4J91GOQ0O0ID3wms.lSe"
+  },
+  {
+    "email": "saori@email.com",
+    "name": "Saori",
+    "surname": "Kido",
+    "password": "$2a$12$a28Bk5JmJ828d3p73oWTwOH0NYSUWVBN.3J0tsX8FYlct0Wv1nzlC"
+  },
+  {
+    "email": "maria@email.com",
+    "name": "Maria",
+    "surname": "Gadu",
+    "password": "$2a$12$ZonUCG/oMhGeeGUVkm8OuOyFhnxatvk7DRSbsVKvtTttM1WM.R4lq"
+  },
+  {
+    "email": "ze@email.com",
+    "name": "Zé",
+    "surname": "Ramalho",
+    "terms": "on",
+    "password": "$2a$12$aSNvOZP2v3P24/byRnrJheOOmSpEPPp3sYKQTt/57Tj3ehAZgmsoC"
+  },
+  {
+    "email": "judaspriest@email.com",
+    "name": "Rob",
+    "surname": "Halford",
+    "password": "$2a$12$ZdzPIeykOSskQwM9GygJeO6Lw7l2xnnzuSK7meEt.MWfnmY3hBL0."
+  },
+  {
+    "email": "jax@yahoo.com.br",
+    "name": "Jax",
+    "surname": "Briggs",
+    "terms": "on",
+    "password": "$2a$12$jUdl91cV1lFc5Ct0eH3OWuBZ7VmYSLsRNFAl7jM.vBCwLpq3W6bG."
   }
 ]
