@@ -18,15 +18,17 @@ router.post('/', [
     check("password").isLength({min: 8}).withMessage("Por favor, escolha uma senha com pelo menos oito caracteres!"),
     check("terms").exists().withMessage("Para se cadastrar, é preciso aceitar os termos de uso e a política de privacidade!"),
     body("email").custom((email)=>{
+        let userExists = false;
         for(user of users){
-            if(user.email != email){
-                console.log(user.email)
-            }else{
-                console.log(user.email)
+            if(user.email == email){
+                userExists = true;
                 break
-            }
-        } return user.email
-    })
+            }       
+        }
+        if (!userExists){
+            return email;
+        }
+    }).withMessage("Email, já cadastrado. Tente fazer login!")
 ],
 userController.saveForm);
 
