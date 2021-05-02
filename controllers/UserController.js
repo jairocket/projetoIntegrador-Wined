@@ -22,7 +22,7 @@ let UserController = {
             res.send('usuário cadastrado com sucesso!');
         }else{
             console.log(errorsList)
-            res.send("deu erro, negão")
+            res.render("register", {errors: errorsList.errors});
         }  
     },
     loginForm: (req, res)=>{

@@ -18,6 +18,15 @@
     <div id="call-text">
       <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id.</h2>
     </div>
+    <br>
+    <% if(typeof(errors) != "undefined"){ %>
+      <p>Não foi possível realizar o cadastro pois:</p>
+      <ul>
+        <% errors.forEach((error)=>{ %>
+          <li><%= error.msg %></li>
+        <% }) %>
+      </ul>
+    <% } %>
 
     <form action='/cadastrar'method="POST" class="formulario">
       <div class="terms">
