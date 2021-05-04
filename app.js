@@ -11,9 +11,11 @@ const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const brotherhoodPageRouter = require('./routes/brotherhoodPage');
 const profileRouter = require('./routes/profile');
+
 const favoritesRouter = require('./routes/favoritesPage');
 const privacyPolicyRouter = require('./routes/privacyPolicy');
 const termsOfUseRouter = require('./routes/termsOfUse');
+
 
 
 const app = express();
@@ -37,7 +39,9 @@ app.use('/', landingRouter);
 app.use('/login', loginRouter);
 app.use('/cadastrar', registerRouter);
 app.use('/confraria', brotherhoodPageRouter);
+
 app.use('/perfil', profileRouter);
+
 app.use('/favorites', favoritesRouter);
 app.use('/privacidade', privacyPolicyRouter);
 app.use('/termos', termsOfUseRouter);

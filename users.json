@@ -12,6 +12,27 @@
     "surname": "Malone",
     "terms": "on",
     "password": "$2a$12$AiZKPIgfl8HHMBi9f6VSkuQyK65V2f6P.2p/DYhHlpwuyEoez27p2"
+  },
+  {
+    "email": "giovannagardinali11@gmail.com",
+    "name": "Giovanna",
+    "surname": "de Miranda",
+    "terms": "on",
+    "password": "$2a$12$njpn9puW.cmbU.am/eP2bewy62GUORZB1U4JXGylRf5boy37lKxlq"
+  },
+  {
+    "email": "giovannagardinali@gmail.com",
+    "name": "Giovanna",
+    "surname": "de Miranda",
+    "terms": "on",
+    "password": "$2a$12$cfsxUGjw4vrJk1y1eslMK.WaOFxTwlKBIM/N6njTbqsha1N/ENmfS"
+  },
+  {
+    "id": "b29a26e3-4f2a-4dba-b0ba-21b4f67c9dd4",
+    "email": "ricapancitamarmitas@gmail.com",
+    "name": "Giovanna",
+    "surname": "de Miranda",
+    "terms": "on",
+    "password": "$2a$12$t9oCF99Lm1T5b3sFNvkRGez1WGcbuYWE0qlut2rhF4eZCpphOg.dm"
   }
-  
 ]
