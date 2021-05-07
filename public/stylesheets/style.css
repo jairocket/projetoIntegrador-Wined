@@ -8,6 +8,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+    height: 100vh;
 }
 
 .logo {
@@ -39,6 +40,7 @@ main {
 .btn-form, .botao {
     border-radius: 40px;
     border: none;
+    align-items: center;
 }
 
 .formulario .btn-form {
@@ -52,7 +54,6 @@ main {
     font-size: 12px;
     color: #736B6B;
     margin: 25px 0;
-
     display: flex;
     align-items: center;
 }
@@ -74,23 +75,24 @@ main {
     padding: 0px 24px;
 }
 
-.background{
-    display: none;
-}
+
 
 @media(min-width: 1280px){
     main {
         display: flex;
         flex-direction: row;
+        background-image: url("../images/imagens-login.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
-    .background{
-        display: flex;
-        
-    }
-    .background > img{
-        max-width: 60%;
-        height: auto;
+   
+    .loginForm{
+        padding: 30px;
+        background-color: white;
+        border-radius: 25px;
+        position: relative;
+        right: 3%;
     }
 
 }
