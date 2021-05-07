@@ -73,3 +73,24 @@ main {
     width: 100%;
     padding: 0px 24px;
 }
+
+.background{
+    display: none;
+}
+
+@media(min-width: 1280px){
+    main {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .background{
+        display: flex;
+        
+    }
+    .background > img{
+        max-width: 60%;
+        height: auto;
+    }
+
+}

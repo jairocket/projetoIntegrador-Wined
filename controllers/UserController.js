@@ -33,6 +33,7 @@ let UserController = {
         let {email, password} = req.body;
         for (user of users){
             if((user.email == email) && (bcrypt.compareSync(password, user.password))){
+                req.session.user = user
                 res.send('ok');
             }            
         }
