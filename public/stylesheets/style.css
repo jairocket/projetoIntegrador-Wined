@@ -8,7 +8,11 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    height: 100vh;
+    
+}
+
+.loginForm{
+
 }
 
 .logo {
@@ -77,13 +81,14 @@ main {
 
 
 
-@media(min-width: 1280px){
+@media(min-width: 414px){
     main {
         display: flex;
         flex-direction: row;
         background-image: url("../images/imagens-login.jpg");
         background-repeat: no-repeat;
         background-size: cover;
+        height: 100vh;
     }
 
    
