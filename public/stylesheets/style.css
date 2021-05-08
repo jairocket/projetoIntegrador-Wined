@@ -11,16 +11,12 @@ main {
     
 }
 
-.loginForm{
-
-}
 
 .logo {
     display: flex;
     align-items: center;
     margin-bottom: 40px;
     margin-top: 60px;
-
 }
 
 .input-field input {
@@ -90,7 +86,6 @@ main {
         background-size: cover;
         height: 100vh;
     }
-
    
     .loginForm{
         padding: 30px;
@@ -99,5 +94,4 @@ main {
         position: relative;
         right: 3%;
     }
-
 }
