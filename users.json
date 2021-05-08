@@ -13,26 +13,22 @@
     "terms": "on",
     "password": "$2a$12$AiZKPIgfl8HHMBi9f6VSkuQyK65V2f6P.2p/DYhHlpwuyEoez27p2"
   },
+
   {
-    "email": "giovannagardinali11@gmail.com",
-    "name": "Giovanna",
-    "surname": "de Miranda",
+    "email": "jailson@digitalhouse.com",
+    "name": "Jailson",
+    "surname": "Anjos",
     "terms": "on",
-    "password": "$2a$12$njpn9puW.cmbU.am/eP2bewy62GUORZB1U4JXGylRf5boy37lKxlq"
+    "password": "$2a$12$G6URG2ILyti7Xuw6qInh8u54XCCRXXDuQmsTw2rzQwzJpTdnK0Pjy",
+    "id": "47d80b7a-faf5-4e0c-a3b2-f90715fedc01"
   },
   {
-    "email": "giovannagardinali@gmail.com",
-    "name": "Giovanna",
-    "surname": "de Miranda",
+    "email": "liu@yahoo.com.br",
+    "name": "Liu",
+    "surname": "Kang",
     "terms": "on",
-    "password": "$2a$12$cfsxUGjw4vrJk1y1eslMK.WaOFxTwlKBIM/N6njTbqsha1N/ENmfS"
-  },
-  {
-    "id": "b29a26e3-4f2a-4dba-b0ba-21b4f67c9dd4",
-    "email": "ricapancitamarmitas@gmail.com",
-    "name": "Giovanna",
-    "surname": "de Miranda",
-    "terms": "on",
-    "password": "$2a$12$t9oCF99Lm1T5b3sFNvkRGez1WGcbuYWE0qlut2rhF4eZCpphOg.dm"
+    "password": "$2a$12$KYrKUzF5k/k2LbbyFjoAze8yZzYP65c1rNtUMkF8vkYdeTdrvXKLS",
+    "id": "56f0ea91-c181-41ec-992a-2838f9575267"
+
   }
 ]

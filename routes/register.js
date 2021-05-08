@@ -4,7 +4,7 @@ const router = express.Router();
 const { check, validationResult, body } = require('express-validator');
 const path = require('path');
 const fs = require('fs');
-const { nextTick } = require('process');
+
 
 let userJson = path.join("users.json")
 let users = JSON.parse(fs.readFileSync(userJson, 'utf-8'));
