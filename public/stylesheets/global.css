@@ -63,7 +63,7 @@ footer {
 
 footer ul {
   width: 95%;
-
+  flex-direction: row;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -71,10 +71,16 @@ footer ul {
 
 footer ul li {
   margin: 0 15px 7px;
+  flex-direction: row;
+}
+footer ul li a {
+  margin: 0 15px 7px;
+  color: #fff;
 }
 
 footer p {
   font-weight: 500;
+  color: #fff;
 }
 
 button {

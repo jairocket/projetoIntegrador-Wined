@@ -1,0 +1,63 @@
+<%- include('./partials/header')  %>
+
+  <main>
+    <div id="call">
+      Junte-se à <h1 id="logo">Wined+</h1>
+    </div>
+    <div id="call-text">
+      <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id.</h2>
+    </div>
+    <br>
+    <% if(typeof(errors) != "undefined"){ %>
+      <p>Não foi possível realizar o cadastro pois:</p>
+      <ul>
+        <% errors.forEach((error)=>{ %>
+          <li><%= error.msg %></li>
+        <% }) %>
+      </ul>
+    <% } %>
+
+    <form action='/confraria/cadastrar' method="POST" class="formulario">
+
+      <label for="nameBrotherhood">Nome da Confraria
+        <input type="text" name="nameBrotherhood" id="nameBrotherhood" placeholder="Ex: Apreciadores 2021">
+      </label>
+      <div class = "dateBrotherhood">
+          <p>Data de criação</p>
+        <label>A contar de hoje
+          <input type="radio" name="date" id="date-now">
+        </label>
+        <label> Criação anterior
+          <input type="radio" name="date" id="date">
+        </label> 
+
+        <% if (#date == "on"){ %>
+        
+        <label for="date"> Selecione o dia
+          <input type="date" name="date" id="date1" placeholder="01/01/2000">
+        </label>
+        <%  }%>
+      </div>
+    <div>
+      <p>Nome do(a) Criador(a)</p>
+      <label for="nameCreate"> 
+        <input type="text" name="nameCreate" id="nameCreate" placeholder="Nome">
+      </label>
+
+      <p>Sobrenome do(a) Criador(a)</p>
+      <label for="surnameCreate"> 
+        <input type="text" name="surnameCreate" id="surnameCreate" placeholder="Sobrenome">
+      </label>
+    </div>
+
+    <label for="description"> 
+      <textarea name="description" id="description" placeholder="Ex: Nós somos a Confraria 
+      ... gostamos..."></textarea>
+    </label>
+    
+      <button class="button btn-form" type="submit">Criar Confraria</button>
+    </form>
+
+  </main>
+
+  <%- include('./partials/footer.ejs')  %>
