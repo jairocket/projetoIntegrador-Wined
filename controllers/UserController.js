@@ -37,13 +37,14 @@ let UserController = {
     userLogger: (req,res)=>{
         let users = JSON.parse(fs.readFileSync(userJson, 'utf-8'));
         let {email, password} = req.body;
-        for (user of users){
-            if((user.email == email) && (bcrypt.compareSync(password, user.password))){
+        for (usr of users){
+            if((usr.email == email) && (bcrypt.compareSync(password, usr.password))){
+                let user = {name: usr.name, surname: usr.surname}
                 req.session.user = user
+                console.log(req.session.user)
                 res.redirect('/perfil')
                 //res.send('ok');
-            }
-            req.session.user = user
+            }    
         }
         res.status(401).send('não autorizado')    
    
