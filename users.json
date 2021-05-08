@@ -19,5 +19,21 @@
     "surname": "Anjos",
     "terms": "on",
     "password": "$2a$12$PNmcWGheyEbUe6YW0QAfk.l4E9AtDnsm4vK4EDQG9IND54cHZTqX."
+  },
+  {
+    "email": "jailson@digitalhouse.com",
+    "name": "Jailson",
+    "surname": "Anjos",
+    "terms": "on",
+    "password": "$2a$12$G6URG2ILyti7Xuw6qInh8u54XCCRXXDuQmsTw2rzQwzJpTdnK0Pjy",
+    "id": "47d80b7a-faf5-4e0c-a3b2-f90715fedc01"
+  },
+  {
+    "email": "liu@yahoo.com.br",
+    "name": "Liu",
+    "surname": "Kang",
+    "terms": "on",
+    "password": "$2a$12$KYrKUzF5k/k2LbbyFjoAze8yZzYP65c1rNtUMkF8vkYdeTdrvXKLS",
+    "id": "56f0ea91-c181-41ec-992a-2838f9575267"
   }
 ]
