@@ -19,9 +19,9 @@ let UserController = {
           }
         if (errorsList.isEmpty()){
             let users = JSON.parse(fs.readFileSync(userJson, 'utf-8'));
-            let {email, name, surname, password, terms} = req.body;
+            let {email, name, surname, password, terms, birthday, userBio} = req.body;
             let hashedPassword = bcrypt.hashSync(password, 12);
-            let user = {email, name, surname, terms, password: hashedPassword, id: uuidv4()};
+            let user = {email, name, surname, terms, birthday, userBio, password: hashedPassword, id: uuidv4()};
             users.push(user);
             users = JSON.stringify(users, null, 2);
             fs.writeFileSync(userJson, users);
@@ -39,7 +39,7 @@ let UserController = {
         let {email, password} = req.body;
         for (usr of users){
             if((usr.email == email) && (bcrypt.compareSync(password, usr.password))){
-                let user = {name: usr.name, surname: usr.surname}
+                let user = {name: usr.name, surname: usr.surname, id: usr.id, userBio}
                 req.session.user = user
                 console.log(req.session.user)
                 res.redirect('/perfil')
@@ -48,7 +48,12 @@ let UserController = {
         }
         res.status(401).send('não autorizado')    
    
-    }
+    },
+    profileEditorForm:(req, res)=>{
+        res.render('profileEditor')
+    },
+   
+
 }
 
 module.exports = UserController;
