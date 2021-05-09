@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="stylesheets/global.css">
+    <link rel="stylesheet" href="stylesheets/register.css">
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main>
+    <div id="call">
+      Atualize seu perfil na <h1 id="logo">Wined+</h1>
+    </div>
+    <div id="call-text">
+      <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id.</h2>
+    </div>
+    <br>
+    
+
+    <%- include('./partials/topView') %>
+
+    <form action='/cadastrar'method="POST" class="formulario">
+   
+      <label for="email">
+        <input type="email" name="email" id="email" placeholder="Altere seu e-mail cadastrado">
+      </label>
+      <label for="name">
+        <input type="text" name="name" id="name" placeholder="Nome">
+      </label>
+      <label for="surname">
+        <input type="text" name="surname" id="surname" placeholder="Sobrenome">
+      </label>
+      <label for="userBio">
+        <input type="text" name="userBio" id="userBio" placeholder="Conte um pouco sobre você e sua paixão por vinhos">
+        </label>
+      <label for="password">
+        <input class="password-form" type="password" name="password" id="password" placeholder="Defina uma nova senha aqui, se quiser!">
+      </label>
+      <button class="button btn-form" type="submit">Atualizar Perfil</button>
+    </form>
+ 
+  </main>
+</body>
+</html>
