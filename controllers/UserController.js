@@ -21,7 +21,7 @@ let UserController = {
             let users = JSON.parse(fs.readFileSync(userJson, 'utf-8'));
             let {email, name, surname, password, terms, birthday, userBio} = req.body;
             let hashedPassword = bcrypt.hashSync(password, 12);
-            let user = {email, name, surname, terms, birthday, userBio, password: hashedPassword, id: uuidv4()};
+            let user = {email, name, surname, terms, password: hashedPassword, birthday, userBio, id: uuidv4()};
             users.push(user);
             users = JSON.stringify(users, null, 2);
             fs.writeFileSync(userJson, users);
@@ -39,7 +39,7 @@ let UserController = {
         let {email, password} = req.body;
         for (usr of users){
             if((usr.email == email) && (bcrypt.compareSync(password, usr.password))){
-                let user = {name: usr.name, surname: usr.surname, id: usr.id, userBio}
+                let user = {name: usr.name, surname: usr.surname, id: usr.id, userBio: usr.userBio}
                 req.session.user = user
                 console.log(req.session.user)
                 res.redirect('/perfil')
@@ -50,9 +50,8 @@ let UserController = {
    
     },
     profileEditorForm:(req, res)=>{
-        res.render('profileEditor')
-    },
-   
+        res.render('profileEditor', { title: "Editar Perfil", style: "register", user: req.session.user })
+    }
 
 }
 
