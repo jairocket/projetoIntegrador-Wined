@@ -58,6 +58,7 @@ main{
     flex-direction: column;
     background-color: #4f0000;
     border-radius: 8%;
+    
 }
 
 .dashboardSection > h2{
@@ -67,7 +68,8 @@ main{
 .dashboardSection > p{
     padding: 25px;
     display: flex;
-    align-self: center; 
+    align-self:flex-start;
+    
 }
 
 .fraternityPic{
