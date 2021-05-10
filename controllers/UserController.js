@@ -39,7 +39,7 @@ let UserController = {
         let {email, password} = req.body;
         for (usr of users){
             if((usr.email == email) && (bcrypt.compareSync(password, usr.password))){
-                let user = {name: usr.name, surname: usr.surname, id: usr.id, userBio}
+                let user = {name: usr.name, surname: usr.surname, id: usr.id, userBio: usr.userBio}
                 req.session.user = user
                 console.log(req.session.user)
                 res.redirect('/perfil')

@@ -33,6 +33,21 @@ main {
   align-items: center;
 }
 
+.delete{
+  display: flex;
+  margin: 24px 0px 26px;
+  flex-direction: column;
+}
+
+.call-text > p {
+  margin-left: 6px;
+}
+
+.delete-form {
+  display: flex;
+  flex-direction: row;  
+}
+
 .terms > label {
   width: 15px;
   height: 15px;
