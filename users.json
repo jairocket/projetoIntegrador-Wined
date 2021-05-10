@@ -35,5 +35,13 @@
     "terms": "on",
     "password": "$2a$12$KYrKUzF5k/k2LbbyFjoAze8yZzYP65c1rNtUMkF8vkYdeTdrvXKLS",
     "id": "56f0ea91-c181-41ec-992a-2838f9575267"
+  },
+  {
+    "email": "fabiojrfla@gmail.com",
+    "name": "Fábio",
+    "surname": "Santos Jr.",
+    "terms": "on",
+    "password": "$2a$12$oVu0zMt9dvLONrMXQtj9MuiCCfc.VhgQblt4wYRlNT72eRbtcUEeq",
+    "id": "22492506-8111-4575-a830-ffd519667a9b"
   }
 ]
