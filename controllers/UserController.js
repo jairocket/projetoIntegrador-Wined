@@ -21,7 +21,7 @@ let UserController = {
             let users = JSON.parse(fs.readFileSync(userJson, 'utf-8'));
             let {email, name, surname, password, terms, birthday, userBio} = req.body;
             let hashedPassword = bcrypt.hashSync(password, 12);
-            let user = {email, name, surname, terms, birthday, userBio, password: hashedPassword, id: uuidv4()};
+            let user = {email, name, surname, terms, password: hashedPassword, birthday, userBio, id: uuidv4()};
             users.push(user);
             users = JSON.stringify(users, null, 2);
             fs.writeFileSync(userJson, users);
@@ -51,8 +51,7 @@ let UserController = {
     },
     profileEditorForm:(req, res)=>{
         res.render('profileEditor')
-    },
-   
+    }
 
 }
 
