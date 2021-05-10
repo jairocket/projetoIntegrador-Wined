@@ -50,7 +50,7 @@ let UserController = {
    
     },
     profileEditorForm:(req, res)=>{
-        res.render('profileEditor')
+        res.render('profileEditor', { title: "Editar Perfil", style: "register", user: req.session.user })
     }
 
 }
