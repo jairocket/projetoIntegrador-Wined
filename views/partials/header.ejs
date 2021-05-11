@@ -27,10 +27,36 @@
             
         </ul>
 
-       
-            <a href= "http://localhost:3000/perfil">
-                <img id="profile-pic" src="images/user-temp-img.svg" alt="User Picture">
-            </a>
-            
+        <div class="dropdown">
+          <button onclick="myFunction()" >
+            <img id="profile-pic" src="images/user-temp-img.svg" alt="User Picture" class="dropbtn">
+          </button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="http://localhost:3000/perfil">Meu Perfil</a>
+            <a href="http://localhost:3000/editarperfil">Editar Perfil</a>
+            <a href="#">Ajuda</a>
+            <a href="#">Sair</a>
+          </div>
+        </div>
+        <script>
+          function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+
+          window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+          
+}
+
+        </script>           
         
     </header>
