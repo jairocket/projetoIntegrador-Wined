@@ -27,7 +27,7 @@
     "terms": "on",
     "password": "$2a$12$G6URG2ILyti7Xuw6qInh8u54XCCRXXDuQmsTw2rzQwzJpTdnK0Pjy",
     "id": "47d80b7a-faf5-4e0c-a3b2-f90715fedc01",
-    "userBio": "Admirador de vinhos. Um dos fundadores da Wined+.",
+    "userBio": "Admirador de vinhos. Um dos sócios fundadores da Wined+.",
     "birthday": "11/07/1985"
   },
   {
@@ -45,5 +45,15 @@
     "terms": "on",
     "password": "$2a$12$oVu0zMt9dvLONrMXQtj9MuiCCfc.VhgQblt4wYRlNT72eRbtcUEeq",
     "id": "22492506-8111-4575-a830-ffd519667a9b"
+  },
+  {
+    "email": "nayannaschneider@email.com",
+    "name": "Nayanna",
+    "surname": "Zoche",
+    "terms": "on",
+    "password": "$2a$12$nnSXjSbWsyTvFciA0ysJPu8pC3uvmf/BMe/Of8woQHpYqeLS8n.7q",
+    "birthday": "1988-07-13",
+    "userBio": "Tomar uma taça, me faz ter vontade de tomar duas garrafas!",
+    "id": "9419e274-a9b4-4b7e-91a9-9e546c892342"
   }
 ]
