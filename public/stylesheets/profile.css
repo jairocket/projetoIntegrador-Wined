@@ -19,9 +19,14 @@ main{
     height: 125px;
     border-radius: 50%;
     border: thin white solid; 
-    margin-left: 10px;
+    margin-left: 20px;
     position: relative;
     bottom: 7.5vh;  
+}
+
+.userName{
+    margin-left: 5.1%;
+    margin-bottom: 15px;
 }
 
 .topOptions{
@@ -130,11 +135,36 @@ main{
 
 } 
 
+@media( min-width:768px){
+    .topOptions{
+        height: 10vh;
+    }
+    .profilePic{
+        width: 150px;
+        height: 150px;
+        position: relative;
+        left: 10px;
+    }
+}
+@media(min-width:1024px){
+    .profilePic{
+        bottom: 4vh;
+        left: 20px;
+    }
+    .backgroundPic, .backgroundPic > img{
+        height: 12vh;
+    }
+}
+
 @media ( min-width: 1279px ){
     main{
         display: flex;
         flex-direction: row;
         
+    }
+    .userName{
+        font-size: 150%;
+        margin-bottom: 25px;
     }
     .topOptions{
         width: 100%;
