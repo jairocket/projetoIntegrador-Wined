@@ -87,3 +87,23 @@ form > label > input {
 .perfil-question {
   margin-top: 32px;
 }
+
+@media(min-width: 414px){
+  main {
+      display: flex;
+      flex-direction: row;
+      background-image: url("../images/imagens-register.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      justify-content: center;
+      
+  }
+ 
+  .registerForm{
+      padding: 30px;
+      background-color: white;
+      border-radius: 25px;
+      min-width: 70%;
+      
+  }
+}
