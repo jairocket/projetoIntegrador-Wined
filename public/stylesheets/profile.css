@@ -29,6 +29,11 @@ main{
     margin-bottom: 15px;
 }
 
+#brotherhoodTitle{
+    margin-left: 5.1%;
+    margin-bottom: 15px;    
+}
+
 .topOptions{
     display: flex;
     flex-direction: row;
@@ -182,7 +187,9 @@ main{
         flex-direction: row;
         justify-content: space-between;  
     }
- 
+    #brotherhoodTitle{
+        display: none;
+    }
 
     .navbarMenu{
         display: flex;
@@ -235,6 +242,10 @@ main{
 
     #notificationsBell{
         display: none;
+    }
+
+    .userName{
+        margin: 30px;
     }
     .notifications{
         display: flex;

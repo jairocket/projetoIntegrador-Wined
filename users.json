@@ -55,5 +55,15 @@
     "birthday": "1988-07-13",
     "userBio": "Tomar uma taça, me faz ter vontade de tomar duas garrafas!",
     "id": "9419e274-a9b4-4b7e-91a9-9e546c892342"
+  },
+  {
+    "email": "diego@digitalhouse.com",
+    "name": "Diego",
+    "surname": "Matias",
+    "terms": "on",
+    "password": "$2a$12$JZAxK9JNKdeA2x9Szo62y.yKihrTV9RYWt8MCocZUh3TcAXfn0Vv.",
+    "birthday": "1999-06-11",
+    "userBio": "Fanático por vinhos, só que não! Prefiro cerveja!",
+    "id": "90211ed3-dc80-4622-a09f-b620a38c66e7"
   }
 ]
