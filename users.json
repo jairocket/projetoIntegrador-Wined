@@ -65,5 +65,15 @@
     "birthday": "1999-06-11",
     "userBio": "Fanático por vinhos, só que não! Prefiro cerveja!",
     "id": "90211ed3-dc80-4622-a09f-b620a38c66e7"
+  },
+  {
+    "email": "leonardoraposo@digitalhouse.com",
+    "name": "Leonardo",
+    "surname": "Raposo",
+    "terms": "on",
+    "password": "$2a$12$lGSUaCiUKoqHYhqNndLW9ugxhT.7FKi0ys.qjDhLsfQTurcGDIXwK",
+    "birthday": "1980-08-26",
+    "userBio": "Esse site deveria se chamar winooooooooooo!!!!",
+    "id": "73b3243b-632a-4029-8a6e-6275ef5f7249"
   }
 ]
