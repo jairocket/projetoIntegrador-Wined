@@ -22,21 +22,29 @@ module.exports = (sequelize, DataTypes)=>{
             allowNull:false
         },
         password: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.STRING(2048),
             allowNull: false
         },
-        profilePicture: DataTypes.STRING(25),  
+        profilePicture: {
+            type: DataTypes.STRING(25),
+            defaultValue: " "
+        },  
 
-        backgroundPicture: DataTypes.STRING(25),
+        backgroundPicture: {
+            type: DataTypes.STRING(25),
+            defaultValue: " "
+        },
 
-        userDescription: DataTypes.STRING,
-        
+        description: {
+            type: DataTypes.STRING(1024),
+        },
+
         birthday: {
             type: DataTypes.DATE,
             allowNull: false
         }
     },{
-        tableName: "user"
+        tableName: "users"
     })
     return User
 }
