@@ -34,8 +34,8 @@ let UserController = {
     //         res.render("register", {errors: errorsList.errors});
     //     }  
     // },
-        // let errorsList = validationResult(req);
-        // if (errorsList.isEmpty()){
+        let errorsList = validationResult(req);
+        if (errorsList.isEmpty()){
             let {
                 email, 
                 name, 
@@ -55,7 +55,7 @@ let UserController = {
                 name, 
                 surname, 
                 terms, 
-                password, 
+                password: hashedPassword, 
                 birthday, 
                 description, 
                 profilePicture, 
@@ -63,8 +63,11 @@ let UserController = {
                 
             })
             console.log(results)
-            res.send('ok')
-        //} 
+            res.render('login')
+        }else{
+            console.log(errorsList)
+            res.render("register", {errors: errorsList.errors});
+        }
         
     },
     loginForm: (req, res)=>{
