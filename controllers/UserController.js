@@ -13,27 +13,6 @@ let UserController = {
         res.render('register')
     },
     saveForm: async (req, res)=>{
-    //     let errorsList = validationResult(req);
-    //     function uuidv4() {
-    //         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    //           var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-    //           return v.toString(16);
-    //         });
-    //       }
-    //     if (errorsList.isEmpty()){
-    //         let users = JSON.parse(fs.readFileSync(userJson, 'utf-8'));
-    //         let {email, name, surname, password, terms, birthday, userBio} = req.body;
-    //         let hashedPassword = bcrypt.hashSync(password, 12);
-    //         let user = {email, name, surname, terms, password: hashedPassword, birthday, userBio, id: uuidv4()};
-    //         users.push(user);
-    //         users = JSON.stringify(users, null, 2);
-    //         fs.writeFileSync(userJson, users);
-    //         res.send('usuário cadastrado com sucesso!');
-    //     }else{
-    //         console.log(errorsList)
-    //         res.render("register", {errors: errorsList.errors});
-    //     }  
-    // },
         let errorsList = validationResult(req);
         if (errorsList.isEmpty()){
             let {

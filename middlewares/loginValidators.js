@@ -12,7 +12,6 @@ const loginValidations = [
             const user = await db.User.findOne({
                 where:{email: emailValidar}
             })
-
             if(user != null){
                 return Promise.reject("E-mail já cadastrado.");
             }else{

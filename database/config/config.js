@@ -1,7 +1,7 @@
 module.exports = 
 {
   "development": {
-    "username": "Jailson",
+    "username": "root",
     "password": "Pipoca85",
     "database": "wined",
     "host": "127.0.0.1",
