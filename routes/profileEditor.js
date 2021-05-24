@@ -8,6 +8,8 @@ const fs = require('fs');
 let userJson = path.join("users.json")
 let users = JSON.parse(fs.readFileSync(userJson, 'utf-8'));
 
-router.get('/', userController.profileEditorForm)
+router.get('/:id', userController.profileEditorForm);
+router.put('/:id', userController.profileEditor);
+router.delete('/:id', userController.delete)
 
 module.exports = router
