@@ -1,10 +1,10 @@
 * { 
-    color: white;
+    color: black;
     font-family: 'Montserrat', sans-serif;
 }
 
 main{
-    background: linear-gradient(#9B0000, #2e0000,  #2e0000);
+    background: whitesmoke;
     display: flex;
     flex-direction: column;
 }
@@ -18,7 +18,7 @@ main{
     width: 125px;
     height: 125px;
     border-radius: 50%;
-    border: thin white solid; 
+    border: thin black solid; 
     margin-left: 20px;
     position: relative;
     bottom: 7.5vh;  
@@ -66,7 +66,7 @@ main{
     display: flex;
     width: 90%;
     flex-direction: column;
-    background-color: #4f0000;
+    background-color: #FFCDC1;
     border-radius: 8%;
     
 }
@@ -94,7 +94,7 @@ main{
     width: 90%;
     flex-direction: column;
     margin-bottom: 3%;
-    background-color: #4f0000;
+    background-color: #FFCDC1;
     border-radius: 8%;
     margin-top: 10px;
 }
@@ -194,7 +194,7 @@ main{
     .navbarMenu{
         display: flex;
         flex-direction: column;
-        background-color: #4f0000;
+        background-color: #FFCDC1;
         align-items: left;
         justify-content: center;
         height: 36.6vh;
@@ -252,7 +252,7 @@ main{
         width: 100%;
         flex-direction: column;
         margin-bottom: 3%;
-        background-color: #4f0000;
+        background-color: #FFCDC1;
         border-radius: 8%;
         margin: 0;
     }

@@ -58,7 +58,7 @@ let UserController = {
             where: {email}
         })
         if ((usr.email == email) && (bcrypt.compareSync(password, usr.password))){
-            const user = {name: usr.name, surname: usr.surname, description: usr.description, id: usr.id}
+            const user = {name: usr.name, surname: usr.surname, description: usr.description, id: usr.id, email: usr.email}
             req.session.user = user;
             console.log(req.session.user);
             res.redirect('/perfil');
@@ -69,7 +69,7 @@ let UserController = {
     profileEditorForm: async (req, res)=>{
         const {id} = req.params;
         const user = await db.User.findByPk(id);
-        return res.render('profileEditor', { title: "Editar Perfil", style: "register",  user})
+        return res.render('profileEditor', { title: "Editar Perfil", style: "register",  user: req.session.user})
     },
     profileEditor: async (req, res)=>{
         const {id} = req.params;
