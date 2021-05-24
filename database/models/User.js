@@ -19,11 +19,11 @@ module.exports = (sequelize, DataTypes)=>{
             unique: true
         },
         terms: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(10),
             allowNull:false
         },
         password: {
-            type: DataTypes.STRING(2048),
+            type: DataTypes.STRING(255),
             allowNull: false
         },
         profilePicture: {

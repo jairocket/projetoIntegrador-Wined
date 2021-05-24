@@ -52,16 +52,16 @@ let UserController = {
     loginForm: (req, res)=>{
         res.render('login')
     },
-    userLogger: (req,res)=>{
-        let users = JSON.parse(fs.readFileSync(userJson, 'utf-8'));
-        let {email, password} = req.body;
-        for (usr of users){
-            if((usr.email == email) && (bcrypt.compareSync(password, usr.password))){
-                let user = {name: usr.name, surname: usr.surname, id: usr.id, userBio: usr.userBio}
-                req.session.user = user
-                console.log(req.session.user)
-                res.redirect('/perfil')
-            }    
+    userLogger: async(req,res)=>{
+        const {email, password} = req.body;
+        const usr = await db.User.findOne({
+            where: {email}
+        })
+        if ((usr.email == email) && (bcrypt.compareSync(password, usr.password))){
+            const user = {name: usr.name, surname: usr.surname, description: usr.description, id: usr.id, email: usr.email}
+            req.session.user = user;
+            console.log(req.session.user);
+            res.redirect('/perfil');
         }
         res.status(401).send('não autorizado')    
    
@@ -69,7 +69,7 @@ let UserController = {
     profileEditorForm: async (req, res)=>{
         const {id} = req.params;
         const user = await db.User.findByPk(id);
-        return res.render('profileEditor', { title: "Editar Perfil", style: "register",  user})
+        return res.render('profileEditor', { title: "Editar Perfil", style: "register",  user: req.session.user})
     },
     profileEditor: async (req, res)=>{
         const {id} = req.params;
@@ -81,11 +81,13 @@ let UserController = {
             description
         },
         {
-            returning: true,
             where:{id},  
-            plain: true
         })
-        return res.json(results) 
+        return res.json({
+            IsSuccess: true,
+            message: 'User Updated',
+            results: results
+        }) 
     },
     delete: async (req, res)=>{
         const{id} = req.params;
