@@ -60,7 +60,7 @@ let UserController = {
         if ((usr.email == email) && (bcrypt.compareSync(password, usr.password))){
             const user = {name: usr.name, surname: usr.surname, description: usr.description, id: usr.id, email: usr.email}
             req.session.user = user;
-            console.log(req.session.user);
+            
             res.redirect('/perfil');
         }
         res.status(401).send('não autorizado')    
@@ -69,7 +69,7 @@ let UserController = {
     profileEditorForm: async (req, res)=>{
         const {id} = req.params;
         const user = await db.User.findByPk(id);
-        return res.render('profileEditor', { title: "Editar Perfil", style: "register",  user: req.session.user})
+        return res.render('profileEditor', { title: "Editar Perfil", style: "register",  user})
     },
     profileEditor: async (req, res)=>{
         const {id} = req.params;
@@ -84,8 +84,6 @@ let UserController = {
             where:{id},  
         })
         return res.json({
-            IsSuccess: true,
-            message: 'User Updated',
             results: results
         }) 
     },
