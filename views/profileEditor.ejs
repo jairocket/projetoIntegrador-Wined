@@ -14,27 +14,25 @@
     </div>
     <br>
 
-    <form action='#'method="POST" class="formulario">
+    <form action='/editarperfil/<%= user.id %>?_method=PUT' method="POST" class="formulario">
    
       <label for="email">
-        <input type="email" name="email" id="email" placeholder="Altere seu e-mail cadastrado">
+        <input type="email" name="email" id="email" value="<%=user.email%>">
       </label>
       <label for="name">
-        <input type="text" name="name" id="name" placeholder="Nome">
+        <input type="text" name="name" id="name" value = "<%=user.name%>">
       </label>
       <label for="surname">
-        <input type="text" name="surname" id="surname" placeholder="Sobrenome">
+        <input type="text" name="surname" id="surname" value = "<%=user.surname%>">
       </label>
-      <label for="userBio">
-        <input type="text" name="userBio" id="userBio" placeholder="Conte um pouco sobre você e sua paixão por vinhos">
+      <label for="description">
+        <input type="text" name="userBio" id="userBio" value = "<%=user.description%>">
         </label>
-      <label for="password">
-        <input class="password-form" type="password" name="password" id="password" placeholder="Defina uma nova senha aqui, se quiser!">
-      </label>
+      
       <button class="button btn-form" type="submit">Atualizar Perfil</button>
     </form>
 
-    <form action='#'method="POST" class="formulario">
+    <form action='/editarperfil/<%= user.id %>?_method=DELETE'method="POST" class="formulario">
   <div class="delete">
     <div class = "delete-form">
     <label>

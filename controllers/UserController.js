@@ -61,14 +61,39 @@ let UserController = {
                 req.session.user = user
                 console.log(req.session.user)
                 res.redirect('/perfil')
-                //res.send('ok');
             }    
         }
         res.status(401).send('não autorizado')    
    
     },
-    profileEditorForm:(req, res)=>{
-        res.render('profileEditor', { title: "Editar Perfil", style: "register", user: req.session.user })
+    profileEditorForm: async (req, res)=>{
+        const {id} = req.params;
+        const user = await db.User.findByPk(id);
+        return res.render('profileEditor', { title: "Editar Perfil", style: "register",  user})
+    },
+    profileEditor: async (req, res)=>{
+        const {id} = req.params;
+        const {name, surname, email, description} = req.body;
+        const results = await db.User.update({
+            name,
+            surname,
+            email,
+            description
+        },
+        {
+            returning: true,
+            where:{id},  
+            plain: true
+        })
+        return res.json(results) 
+    },
+    delete: async (req, res)=>{
+        const{id} = req.params;
+    const results = await db.User.destroy({
+        where:{id}
+    })
+        console.log(results)
+        return res.json(results)
     }
 
 }
