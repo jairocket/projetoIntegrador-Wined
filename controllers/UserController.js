@@ -58,7 +58,13 @@ let UserController = {
             where: {email}
         })
         if ((usr.email == email) && (bcrypt.compareSync(password, usr.password))){
-            const user = {name: usr.name, surname: usr.surname, description: usr.description, id: usr.id, email: usr.email}
+            const user = {
+                name: usr.name,
+                surname: usr.surname,
+                description: usr.description, 
+                id: usr.id, 
+                email: usr.email
+            }
             req.session.user = user;
             
             res.redirect('/perfil');
@@ -84,7 +90,7 @@ let UserController = {
             where:{id},  
         })
         return res.json({
-            results: results
+            results
         }) 
     },
     delete: async (req, res)=>{

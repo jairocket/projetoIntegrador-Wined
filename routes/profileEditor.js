@@ -10,7 +10,7 @@ let userJson = path.join("users.json")
 let users = JSON.parse(fs.readFileSync(userJson, 'utf-8'));
 
 router.get('/:id',auth, userController.profileEditorForm);
-router.put('/:id',auth, userController.profileEditor);
-router.delete('/:id',auth, userController.delete)
+router.put('/:id', userController.profileEditor);
+router.delete('/:id', userController.delete)
 
 module.exports = router
