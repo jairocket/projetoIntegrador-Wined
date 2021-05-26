@@ -45,7 +45,12 @@ main {
 
 .delete-form {
   display: flex;
-  flex-direction: row;  
+  flex-direction: row; 
+  align-items: center; 
+}
+
+.delete-form > label{
+  margin-right: 1%;
 }
 
 .terms > label {
@@ -91,7 +96,7 @@ form > label > input {
 @media(min-width: 414px){
   main {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       background-image: url("../images/imagens-register.jpg");
       background-repeat: no-repeat;
       background-size: cover;
@@ -99,11 +104,20 @@ form > label > input {
       
   }
  
-  .registerForm{
+  .registerForm, .editForm{
       padding: 30px;
       background-color: white;
       border-radius: 25px;
-      min-width: 70%;
-      
+      max-width: 60%;
+      position: relative;
+      left: 20%;
+  }
+  .profilePictureOptions{
+      background-color: white;
+      border-radius: 25px;
+      max-width: 60%;
+      margin-bottom: 20px;
+      position: relative;
+      left: 20%;      
   }
 }

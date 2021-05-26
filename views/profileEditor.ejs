@@ -1,10 +1,13 @@
+<head><link rel="stylesheet" href="../../stylesheets/profile.css"></head>
 <%- include('./partials/header') %>
 
 
 <body>
   <main>    
-
+    <section class="profilePictureOptions">
     <%- include('./partials/topView') %>
+    </section>
+    <section class=editForm>
 
     <div id="call">
       Atualize seu perfil na <h1 id="logo">Wined+</h1>
@@ -26,7 +29,7 @@
         <input type="text" name="surname" id="surname" value = "<%=user.surname%>">
       </label>
       <label for="description">
-        <input type="text" name="userBio" id="userBio" value = "<%=user.description%>">
+        <input type="text" name="description" id="description" value = "<%=user.description%>">
         </label>
       
       <button class="button btn-form" type="submit">Atualizar Perfil</button>
@@ -38,14 +41,15 @@
     <label>
       <input type="checkbox" name="delete" id="delete">
     </label>
-    <div class="call-text">
-      <p>Desejo remover minha conta.</p>
+    <div id="call-text">
+      <h2>Desejo remover minha conta.</h2>
     </div>
   </div>
       <button class="button btn-form" type="submit">Remover Perfil</button>
     </div>
   </form>
- 
+</section>
   </main>
+  <%- include('./partials/footer')  %>  
 </body>
 </html>

@@ -1,6 +1,8 @@
+<head><link rel="stylesheet" href="../../stylesheets/register.css"></head>
 <%- include('./partials/header') %>
 
     <main>
+    <section class="topProfile">
         <section class = "topView">
             <%- include('./partials/topView') %>
 
@@ -13,6 +15,15 @@
         </section>
         <section class="dash">
             <div class="navbarMenu">
+                <div>
+                    <button class="button btn-form" type="submit">Seguir Perfil</button>
+                </div>
+                <div>
+                    <button class="button btn-form" type="submit">Convidar para Confraria</button>
+                </div>
+                <div>
+                    <button class="button btn-form" type="submit">Enviar Mensagem</button>
+                </div>
                 
             </div>
             <h3 id="brotherhoodTitle">Minhas Confrarias</h3>
@@ -34,11 +45,12 @@
                         </a>
                     </div>
                 </div>
-                <div class="notifications">
-                    <h3>Notificações</h3>
-                </div>
             </div>
-        </section> 
+        </section>
+    </section>
+        <section class="wines">
+            <%- include('./partials/wishFav') %> 
+        </section>
 
     </main>
 
