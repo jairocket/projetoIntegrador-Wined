@@ -46,7 +46,9 @@ header > button {
     
 }
 
-
+#login {
+    margin-left: 80px;
+}
 
 .scroll-pic{
     display:flex;
