@@ -1,12 +1,10 @@
-* { 
-    color: black;
-    font-family: 'Montserrat', sans-serif;
-}
 
 main{
     background: white;
     display: flex;
     flex-direction: column;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .backgroundPic, .backgroundPic > img{
@@ -20,6 +18,7 @@ main{
     border-radius: 50%;
     border: thin black solid; 
     margin-left: 20px;
+    margin-bottom: 20px;
     position: relative;
     bottom: 7.5vh;  
 }
@@ -67,7 +66,7 @@ main{
     width: 90%;
     flex-direction: column;
     background-color: #FFCDC1;
-    border-radius: 8%;
+    border-radius: 25px;
     
 }
 
@@ -169,11 +168,12 @@ main{
     main{
         display: flex;
         flex-direction: column;
-        
+        padding-top: 30px;
+        padding-left: 15px;
     }
     .userName{
         font-size: 150%;
-        margin-bottom: 25px;
+        margin: 35px;
     }
     .topProfile{
         width: 100%;
@@ -214,8 +214,9 @@ main{
     .backgroundPic, .backgroundPic > img {
         width: 100%;
         display: flex;
-        height: 18vh;
-        
+        height: 15vh;
+        border-start-start-radius: 25px;
+        border-start-end-radius: 25px;
     }
     .topOptions {
         display: flex;
@@ -224,14 +225,13 @@ main{
     }
     .profileInfo{
         width: 100%;
-        padding-left: 3%;
              
     }
 
     .profilePic{
        
         position: relative;
-        bottom: 15vh;
+        bottom: 10vh;
         left: 25px;
 
     }
@@ -250,7 +250,7 @@ main{
     #notificationsBell{
         display: none;
     }
-
+    
     
     .notifications{
         display: flex;
