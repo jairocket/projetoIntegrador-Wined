@@ -19,6 +19,11 @@ router.post('/', upload.single('avatarFile'), function (req, res, next) {
   res.redirect('/perfil');
 });
 
+router.get('/sair', function(req, res){
+  req.session.destroy();
+  res.redirect('/login');
+})
+
 //Desafio 30
 
 router.get('/pesquisar/:offset?/:limit?', async (req, res)=>{
