@@ -1,4 +1,10 @@
-<%- include('./partials/header') %>
+<% if(!user){ %>
+    <%- include('./partials/headerUnlogged') %>
+<% } else { %>
+    <%- include('./partials/header') %>
+<% } %>
+
+
 
 <h1>Privacy policy</h1>
 

@@ -37,6 +37,10 @@ ul, a {
   font-family: 'Montserrat', sans-serif;
 }
 
+#terms {
+  color:#9B0000;
+}
+
 #logo {
   width: 130px;
   height: 32px;
