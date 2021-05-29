@@ -6,8 +6,6 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 const { check, validationResult, body } = require('express-validator');
 
-let userJson = path.join("users.json")
-
 let UserController = {
     registerForm: (req, res)=>{
         res.render('register')
@@ -89,9 +87,9 @@ let UserController = {
         {
             where:{id},  
         })
-        return res.json({
-            results
-        }) 
+        return res.redirect(
+            '/perfil'
+        ) 
     },
     delete: async (req, res)=>{
         const{id} = req.params;
