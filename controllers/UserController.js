@@ -1,14 +1,9 @@
 const bcrypt = require('bcryptjs');
 const fs = require('fs');
 const path = require('path');
-<<<<<<< HEAD
-const { v4: uuidv4 } = require('uuid');
-
-=======
 const db = require('../database/models');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
->>>>>>> 32baaca0307840e7a282f1a47b178cacd7de7d16
 const { check, validationResult, body } = require('express-validator');
 
 let UserController = {
@@ -18,20 +13,6 @@ let UserController = {
     saveForm: async (req, res)=>{
         let errorsList = validationResult(req);
         if (errorsList.isEmpty()){
-<<<<<<< HEAD
-            let id = uuidv4();
-            let users = JSON.parse(fs.readFileSync(userJson, 'utf-8'));
-            let {email, name, surname, password, terms} = req.body;
-            let hashedPassword = bcrypt.hashSync(password, 12);
-
-
-            let user = {email, name, surname, terms, password: hashedPassword, id: uuidv4()};
-
-            users.push(user);
-            users = JSON.stringify(users, null, 2);
-            fs.writeFileSync(userJson, users);
-            res.send('usuário cadastrado com sucesso!');
-=======
             let {
                 email, 
                 name, 
@@ -60,7 +41,6 @@ let UserController = {
             })
             console.log(results)
             res.render('login')
->>>>>>> 32baaca0307840e7a282f1a47b178cacd7de7d16
         }else{
             console.log(errorsList)
             res.render("register", {errors: errorsList.errors});
@@ -70,20 +50,6 @@ let UserController = {
     loginForm: (req, res)=>{
         res.render('login')
     },
-<<<<<<< HEAD
-    userLogger: (req,res)=>{
-        let users = JSON.parse(fs.readFileSync(userJson, 'utf-8'));
-        let {email, password} = req.body;
-        for (user of users){
-            if((user.email == email) && (bcrypt.compareSync(password, user.password))){
-
-                req.session.user = user
-                res.redirect('/perfil')
-                //res.send('ok');
-            }
-            req.session.user = user
-
-=======
     userLogger: async(req,res)=>{
         const {email, password} = req.body;
         const usr = await db.User.findOne({
@@ -100,7 +66,6 @@ let UserController = {
             req.session.user = user;
             
             res.redirect('/perfil');
->>>>>>> 32baaca0307840e7a282f1a47b178cacd7de7d16
         }
         res.status(401).send('não autorizado')    
    

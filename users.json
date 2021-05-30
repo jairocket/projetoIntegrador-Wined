@@ -32,14 +32,6 @@
     "id": "56f0ea91-c181-41ec-992a-2838f9575267"
   },
   {
-<<<<<<< HEAD
-    "email": "giovannagardinali11@gmail.com",
-    "name": "Giovanna",
-    "surname": "Gardinali",
-    "terms": "on",
-    "password": "$2a$12$K4/EmCkdiMEO0x45HtNJMOFg92LLBQWsw5EE8Jr4ywTr.nGLd62q2",
-    "id": "f1d3ffff-1a0a-403c-850a-d80c90c1a6f5"
-=======
     "email": "fabiojrfla@gmail.com",
     "name": "Fábio",
     "surname": "Santos Jr.",
@@ -76,6 +68,5 @@
     "birthday": "1980-08-26",
     "userBio": "Esse site deveria se chamar winooooooooooo!!!!",
     "id": "73b3243b-632a-4029-8a6e-6275ef5f7249"
->>>>>>> 32baaca0307840e7a282f1a47b178cacd7de7d16
   }
 ]
