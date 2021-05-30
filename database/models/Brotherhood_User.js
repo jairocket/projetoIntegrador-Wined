@@ -1,9 +1,5 @@
-
-
-
-
 module.exports = (sequelize, DataTypes)=>{
-    const Brotherhood_User = sequelize.define("Brotherhood", {
+    const Brotherhood_User = sequelize.define("Brotherhood_User", {
         id:{
             type: DataTypes.INTEGER,
             primaryKey: true,
