@@ -19,7 +19,9 @@
     "surname": "Anjos",
     "terms": "on",
     "password": "$2a$12$G6URG2ILyti7Xuw6qInh8u54XCCRXXDuQmsTw2rzQwzJpTdnK0Pjy",
-    "id": "47d80b7a-faf5-4e0c-a3b2-f90715fedc01"
+    "id": "47d80b7a-faf5-4e0c-a3b2-f90715fedc01",
+    "userBio": "Admirador de vinhos. Um dos sócios fundadores da Wined+.",
+    "birthday": "11/07/1985"
   },
   {
     "email": "liu@yahoo.com.br",
@@ -30,11 +32,50 @@
     "id": "56f0ea91-c181-41ec-992a-2838f9575267"
   },
   {
+<<<<<<< HEAD
     "email": "giovannagardinali11@gmail.com",
     "name": "Giovanna",
     "surname": "Gardinali",
     "terms": "on",
     "password": "$2a$12$K4/EmCkdiMEO0x45HtNJMOFg92LLBQWsw5EE8Jr4ywTr.nGLd62q2",
     "id": "f1d3ffff-1a0a-403c-850a-d80c90c1a6f5"
+=======
+    "email": "fabiojrfla@gmail.com",
+    "name": "Fábio",
+    "surname": "Santos Jr.",
+    "terms": "on",
+    "password": "$2a$12$oVu0zMt9dvLONrMXQtj9MuiCCfc.VhgQblt4wYRlNT72eRbtcUEeq",
+    "id": "22492506-8111-4575-a830-ffd519667a9b"
+  },
+  {
+    "email": "nayannaschneider@email.com",
+    "name": "Nayanna",
+    "surname": "Zoche",
+    "terms": "on",
+    "password": "$2a$12$nnSXjSbWsyTvFciA0ysJPu8pC3uvmf/BMe/Of8woQHpYqeLS8n.7q",
+    "birthday": "1988-07-13",
+    "userBio": "Tomar uma taça, me faz ter vontade de tomar duas garrafas!",
+    "id": "9419e274-a9b4-4b7e-91a9-9e546c892342"
+  },
+  {
+    "email": "diego@digitalhouse.com",
+    "name": "Diego",
+    "surname": "Matias",
+    "terms": "on",
+    "password": "$2a$12$JZAxK9JNKdeA2x9Szo62y.yKihrTV9RYWt8MCocZUh3TcAXfn0Vv.",
+    "birthday": "1999-06-11",
+    "userBio": "Fanático por vinhos, só que não! Prefiro cerveja!",
+    "id": "90211ed3-dc80-4622-a09f-b620a38c66e7"
+  },
+  {
+    "email": "leonardoraposo@digitalhouse.com",
+    "name": "Leonardo",
+    "surname": "Raposo",
+    "terms": "on",
+    "password": "$2a$12$lGSUaCiUKoqHYhqNndLW9ugxhT.7FKi0ys.qjDhLsfQTurcGDIXwK",
+    "birthday": "1980-08-26",
+    "userBio": "Esse site deveria se chamar winooooooooooo!!!!",
+    "id": "73b3243b-632a-4029-8a6e-6275ef5f7249"
+>>>>>>> 32baaca0307840e7a282f1a47b178cacd7de7d16
   }
 ]

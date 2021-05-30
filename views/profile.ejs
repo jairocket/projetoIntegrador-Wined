@@ -1,27 +1,37 @@
+
 <%- include('./partials/header') %>
 
     <main>
+    <section class="topProfile">
         <section class = "topView">
             <%- include('./partials/topView') %>
 
                 <div class="profileInfo">
-                    <div class="dashboardSection">
-                        <h2><%= user.name + " " + user.surname %><br></h2>    
+                    <div class="dashboardSection">   
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id. Lorem ipsum dolor sit amet, consectetur adipiscing elit.                   
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            <%= user.description %>
                         </p>
                 </div>    
         </section>
         <section class="dash">
             <div class="navbarMenu">
+                <div>
+                    <button class="button btn-form" type="submit">Seguir Perfil</button>
+                </div>
+                <div>
+                    <button class="button btn-form" type="submit">Convidar para Confraria</button>
+                </div>
+                <div>
+                    <button class="button btn-form" type="submit">Enviar Mensagem</button>
+                </div>
                 
             </div>
-
+            <h3 id="brotherhoodTitle">Minhas Confrarias</h3>
             
             <div class="fraternity">
+                
                 <div class="fraternityMenu"> 
-                    <h3>Minhas Confrarias</h3>
+                    
                     <div>
                         <a href="#">
                             <div class="fraternityPic"></div>
@@ -35,11 +45,12 @@
                         </a>
                     </div>
                 </div>
-                <div class="notifications">
-                    <h3>Notificações</h3>
-                </div>
             </div>
-        </section> 
+        </section>
+    </section>
+        <section class="wines">
+            <%- include('./partials/wishFav') %> 
+        </section>
 
     </main>
 

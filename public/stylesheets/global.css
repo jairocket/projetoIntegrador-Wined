@@ -7,30 +7,43 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+.btn-form {
+  margin: 24px 0px 14px;
+  width: 100%;
+  height: 40px;
+  background: #9B0000;
+  border-radius: 40px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
 header {
   background-color: #9B0000;
   position: relative;
-
   display: flex;
   align-items: center;
-
+  justify-content: space-between;
   height: 48px;
   padding: 15px;
-
+  color:#FFFFFF;
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.25);
 }
 
 ul, a {
   list-style-type: none;
   text-decoration: none;
+<<<<<<< HEAD
   color:#fff;
+=======
+  color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+>>>>>>> 32baaca0307840e7a282f1a47b178cacd7de7d16
 }
 
-#hamburger {
-  width: 16px;
-  height: 16px;
-  
-  margin: 0 10px 0 0;
+#terms {
+  color:#9B0000;
 }
 
 #logo {
@@ -39,10 +52,8 @@ ul, a {
 }
 
 #profile-pic {
-  width: 35px;
-  height: 35px;
-  
-  position: absolute;
+  width: 64px;
+  height: 64px;  
   right: 15px;
   bottom: 10px;
 }
@@ -158,7 +169,72 @@ button {
   text-decoration: none;
 }
 
+.backgroundPic, .backgroundPic > img{
+  width: 100%;
+  height: 20vh;    
+}
 
+.profilePic{
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  border: thin black solid; 
+  margin-left: 10px;
+  position: relative;
+  bottom: 7.5vh;  
+}
+
+.navbar{
+display: flex;
+align-items: center;
+justify-content: flex-end;
+}
+
+.navbar > a{
+margin: 8px;
+justify-items: flex-end;
+
+}
+
+.dropbtn {
+  
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/*.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}*/
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  right: 0;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+<<<<<<< HEAD
 .dateBrotherhood{
   display: flex;
   flex-direction: column;
@@ -190,6 +266,9 @@ button {
   justify-content: center;
   padding: 0px 0px 20px;
 }
+=======
+.show {display: block;}
+>>>>>>> 32baaca0307840e7a282f1a47b178cacd7de7d16
 
 @media (min-width: 650px) {
   header {
@@ -209,8 +288,8 @@ button {
   }
 
   #profile-pic {
-    width: 64px;
-    height: 64px;
+    width: 100px;
+    height: 100px;
 
     right: 40px;
   }
@@ -225,6 +304,8 @@ button {
   }
   
 }
+
+
 
 @media (min-width: 970px) {
   #hamburger {
@@ -241,12 +322,14 @@ button {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    font-family: 'Montserrat', sans-serif;
   }
 
   #menu-desktop a {
     font-size: 24px;
     font-weight: 500;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
   }
 
   footer {

@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %> </title>
-    <link rel="stylesheet" href="stylesheets/global.css">
-    <link rel="stylesheet" href="stylesheets/<%= style %>.css">
+    <link rel="stylesheet" href="../../stylesheets/global.css">
+    <link rel="stylesheet" href="../../stylesheets/<%= style %>.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
@@ -16,15 +16,51 @@
 
 <body>
     <header>
+<<<<<<< HEAD
         <img id="hamburger" src="images/hamburger.svg" alt="hamburgerButton">
         <img id="logo" src="images/logo-wined-header.svg" alt="Wined logo">
+=======
+        
+        
+        <img id="logo" src="../../images/logo-wined-header.svg" alt="Wined logo">
+    
+>>>>>>> 32baaca0307840e7a282f1a47b178cacd7de7d16
         <ul id="menu-desktop">
             
             <li><a href="#">Minhas Confrarias</a></li>
             <li><a href="#">Blog</a></li>
             
         </ul>
-        <a href = "http://localhost:3000/perfil">
-            <img id="profile-pic" src="images/user-temp-img.svg" alt="User Picture">
-        </a>
+
+        <div class="dropdown">
+          <button onclick="myFunction()" >
+            <img id="profile-pic" src="../../images/user-temp-img.svg" alt="User Picture" class="dropbtn">
+          </button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="http://localhost:3000/perfil">Meu Perfil</a>
+            <a href="http://localhost:3000/editarperfil/<%=user.id%>">Editar Perfil</a>
+            <a href="#">Ajuda</a>
+            <a href="http://localhost:3000/perfil/sair">Sair</a>
+          </div>
+        </div>
+        <script>
+          function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+
+          window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+          
+}
+        </script>           
+        
     </header>

@@ -33,6 +33,26 @@ main {
   align-items: center;
 }
 
+.delete{
+  display: flex;
+  margin: 24px 0px 26px;
+  flex-direction: column;
+}
+
+.call-text > p {
+  margin-left: 6px;
+}
+
+.delete-form {
+  display: flex;
+  flex-direction: row; 
+  align-items: center; 
+}
+
+.delete-form > label{
+  margin-right: 1%;
+}
+
 .terms > label {
   width: 15px;
   height: 15px;
@@ -71,4 +91,33 @@ form > label > input {
 
 .perfil-question {
   margin-top: 32px;
+}
+
+@media(min-width: 414px){
+  main {
+      display: flex;
+      flex-direction: column;
+      background-image: url("../images/imagens-register.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      justify-content: center;
+      
+  }
+ 
+  .registerForm, .editForm{
+      padding: 30px;
+      background-color: white;
+      border-radius: 25px;
+      max-width: 60%;
+      position: relative;
+      left: 20%;
+  }
+  .profilePictureOptions{
+      background-color: white;
+      border-radius: 25px;
+      max-width: 60%;
+      margin-bottom: 20px;
+      position: relative;
+      left: 20%;      
+  }
 }

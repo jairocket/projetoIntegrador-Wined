@@ -1,13 +1,13 @@
 
-<section>
+<section class=topp>
     <div class="top">
         <div class="backgroundPic">
-            <img alt="foto de fundo" src="images/background-1430057_640.jpg">
+            <img alt="foto de fundo" src="../../images/background-1430057_640.jpg">
         </div>   
     </div>
     
     <div class ="topOptions">
-        <form action="/" method="POST" enctype="multipart/form-data">
+        <form action="/perfil" method="POST" enctype="multipart/form-data">
             
             <button type="submit"><div class ="profilePic">
                 <input type="file" name="avatarFile" id="file" multiple>
@@ -16,6 +16,8 @@
         <div class="navbar">
             <a href="http://localhost:3000/favorites"><img src="images/likeIcon.svg"></a>
             <a href="#" id="notificationsBell"><img src="images/notificationsIcon.svg"></a>
-        </div>                
+        </div>
+                       
     </div>
+    <div class="userName"><h5><%= user.name + " " + user.surname %><br></h5></div> 
 </section>

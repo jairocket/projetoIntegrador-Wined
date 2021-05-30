@@ -12,6 +12,7 @@
 </head>
 <body>
   <main>
+    <section class = registerForm>
     <div id="call">
       Junte-se à <h1 id="logo">Wined+</h1>
     </div>
@@ -34,21 +35,34 @@
           <input type="checkbox" name="terms" id="terms">
         </label>
         <div class="terms-text">
-          Aceito os <a href="http://localhost:3000/termos">Termos de Uso</a> e <a href="http://localhost:3000/privacidade">Política de Privacidade</a>.
+          Aceito os <a id ="terms"href="http://localhost:3000/termos">Termos de Uso</a> e <a id ="terms" href="http://localhost:3000/privacidade">Política de Privacidade</a>.
         </div>
       </div>
+      <p>E-mail</p>
       <label for="email">
         <input type="email" name="email" id="email" placeholder="Digite seu e-mail">
       </label>
+      <p>Nome</p>
       <label for="name">
-        <input type="text" name="name" id="name" placeholder="Nome">
+        <input type="text" name="name" id="name" placeholder="Digite seu Nome">
       </label>
+      <p>Sobrenome</p>
       <label for="surname">
-        <input type="text" name="surname" id="surname" placeholder="Sobrenome">
+        <input type="text" name="surname" id="surname" placeholder="Digite seu Sobrenome">
       </label>
+      <p>Data de Nascimento</p>
+      <label for="birthday">
+        <input type="date" name="birthday" id="birthday" placeholder="Data de Nascimento">
+      </label>
+      <p>Conte-nos sobre você</p>
+      <label for="description">
+        <input type="text" name="description" id="description" placeholder="Conte um pouco sobre você e sua paixão por vinhos">
+        </label>
+      
       <label for="password">
         <input class="password-form" type="password" name="password" id="password" placeholder="Defina uma senha">
       </label>
+      
       <button class="button btn-form" type="submit">Junte-se à Wined+</button>
     </form>
     <div class="social-fields">
@@ -65,6 +79,7 @@
       <p>Você já tem um perfil?</p>
       <a href="http://localhost:3000/login">Faça login</a>
     </div>
+  </section>
   </main>
 </body>
 </html>
