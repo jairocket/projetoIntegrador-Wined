@@ -47,7 +47,7 @@ app.use('/perfil', profileRouter);
 app.use('/favorites', favoritesRouter);
 app.use('/privacidade', privacyPolicyRouter);
 app.use('/termos', termsOfUseRouter);
-app.use('/confraria/cadastrar', registerBrotherhoodRouter);
+app.use('/criar', registerBrotherhoodRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -4,6 +4,7 @@
   outline: 0;
   padding: 0;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 header {
@@ -22,6 +23,7 @@ header {
 ul, a {
   list-style-type: none;
   text-decoration: none;
+  color:#fff;
 }
 
 #hamburger {
@@ -50,8 +52,8 @@ ul, a {
 }
 
 footer {
-  height: 80px;
-  padding-bottom: 10px;
+  height: 100px;
+  padding:10px 0px 10px;
   background: #9B0000;
   font-size: 12px;
 
@@ -71,7 +73,7 @@ footer ul {
 
 footer ul li {
   margin: 0 15px 7px;
-  flex-direction: row;
+  
 }
 footer ul li a {
   margin: 0 15px 7px;
@@ -157,6 +159,37 @@ button {
 }
 
 
+.dateBrotherhood{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px 10px;
+  align-items: center;
+  justify-content: center;
+}
+.choice-date{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+  .choice-date label{
+    padding: 0px 15px 0px;
+  }
+
+  .calender{
+    padding: 25px 0px 25px;
+    
+  }
+.chanceler{
+  display: flex;
+  flex-direction: column;
+}
+
+.chanceler p{
+  align-items: center;
+  justify-content: center;
+  padding: 0px 0px 20px;
+}
 
 @media (min-width: 650px) {
   header {

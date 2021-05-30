@@ -13,7 +13,6 @@
     "terms": "on",
     "password": "$2a$12$AiZKPIgfl8HHMBi9f6VSkuQyK65V2f6P.2p/DYhHlpwuyEoez27p2"
   },
-
   {
     "email": "jailson@digitalhouse.com",
     "name": "Jailson",
@@ -29,6 +28,13 @@
     "terms": "on",
     "password": "$2a$12$KYrKUzF5k/k2LbbyFjoAze8yZzYP65c1rNtUMkF8vkYdeTdrvXKLS",
     "id": "56f0ea91-c181-41ec-992a-2838f9575267"
-
+  },
+  {
+    "email": "giovannagardinali11@gmail.com",
+    "name": "Giovanna",
+    "surname": "Gardinali",
+    "terms": "on",
+    "password": "$2a$12$K4/EmCkdiMEO0x45HtNJMOFg92LLBQWsw5EE8Jr4ywTr.nGLd62q2",
+    "id": "f1d3ffff-1a0a-403c-850a-d80c90c1a6f5"
   }
 ]
