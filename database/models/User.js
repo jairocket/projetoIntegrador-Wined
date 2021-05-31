@@ -51,7 +51,7 @@
     User.associate = function(modelos){
         User.belongsToMany(modelos.Brotherhood, {
             through: modelos.Brotherhood_User,
-            foreignKey: "brotherhood_id"
+            foreignKey: "users_id"
         })  
     }
 

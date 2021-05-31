@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes)=>{
     Brotherhood.associate = function(modelos){
         Brotherhood.belongsToMany(modelos.User, {
             through: modelos.Brotherhood_User,
-            foreignKey: "user_id"
+            foreignKey: "brotherhood_id"
         })  
     }
 
