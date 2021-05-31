@@ -1,5 +1,4 @@
 
-
 module.exports = (sequelize, DataTypes)=>{
     const Brotherhood = sequelize.define("Brotherhood", {
         id:{
@@ -12,7 +11,7 @@ module.exports = (sequelize, DataTypes)=>{
             allowNull: false
         },
    
-        backgroundPicture: {
+        background_Pic: {
             type: DataTypes.STRING(255),
             defaultValue: " "
         },
@@ -27,7 +26,7 @@ module.exports = (sequelize, DataTypes)=>{
     Brotherhood.associate = function(modelos){
         Brotherhood.belongsToMany(modelos.User, {
             through: modelos.Brotherhood_User,
-            foreignKey: "user_id"
+            foreignKey: "brotherhood_id"
         })  
     }
 
