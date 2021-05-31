@@ -88,15 +88,6 @@ position:absolute;
     -moz-transform:translate3d(-50%, -50%, 0);
     transform:translate3d(-50%, -50%, 0);
 }
-.login-up:hover{
-    background: #9B0000;
-}
-.create-Brotherhood:hover{
-    background: #9B0000;
-}
-.create-count:hover{
-    background: #9B0000;
-}
 
 .pic-landing{
     width: 100%;
@@ -114,7 +105,7 @@ h1{
     align-items: center;
     padding: 20px 20px 15px;
     text-align: center;
-    font-family:'Montserrat', sans-serif;
+    font-family:'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
@@ -138,7 +129,7 @@ h1{
 
 .text {
     text-align: justify;
-    font-family:'Montserrat', sans-serif;
+    font-family:'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 9px;
@@ -153,7 +144,7 @@ h1{
     flex-direction: row;
     text-align: center;
     font-size: 16px;
-    font-family:'Montserrat', sans-serif;
+    font-family:'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: 600;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -166,7 +157,7 @@ h1{
     flex-direction: row;
     text-align: center;
     font-size: 16px;
-    font-family:'Montserrat', sans-serif;
+    font-family:'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: 600;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -190,7 +181,7 @@ h1{
 }
 .name-member{
     font-size: 14px;
-    font-family:'Montserrat', sans-serif;
+    font-family:'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: 600;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -223,7 +214,7 @@ h1{
     background: #E84615;
     text-align: center;
     font-size: 18px;
-    font-family:'Montserrat', sans-serif;
+    font-family:'Josefin Sans', sans-serif;
     font-style: normal;
     font-style: italic;
     font-weight: 600;
@@ -232,7 +223,7 @@ h1{
 }
 .text{
     text-align: justify;
-    font-family:'Montserrat', sans-serif;
+    font-family:'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 9px;
@@ -241,7 +232,7 @@ h1{
 
 .text2{
     text-align: justify;
-    font-family:'Montserrat', sans-serif;
+    font-family:'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
@@ -252,7 +243,7 @@ h1{
 
 
 .number-people{
-    font-family:'Montserrat', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-style: italic;
     font-weight: bold;
     font-size: 48px;
@@ -265,7 +256,7 @@ h1{
 /* botão criar confraria */
 .create-Brotherhood{
     text-decoration: none;
-    font-family:'Montserrat', sans-serif;
+    font-family:'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 10px;
@@ -322,7 +313,7 @@ h1{
 
 .people-wined h2 {
     display: flex;
-    font-family:'Montserrat', sans-serif;
+    font-family:'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 16px;
@@ -333,7 +324,7 @@ h1{
 }
 
 .number-user {
-    font-family:'Montserrat', sans-serif;
+    font-family:'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 64px;
@@ -364,7 +355,7 @@ vai ficar assim até eu aprender mais sobre carrossel */
     justify-content: center;
     align-items: center;
     text-align: center;   
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -373,7 +364,7 @@ vai ficar assim até eu aprender mais sobre carrossel */
 
 .publication-user{
     display: flex;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 10px;
@@ -395,7 +386,7 @@ vai ficar assim até eu aprender mais sobre carrossel */
 
 .avaliation-people article {
     text-align: justify;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
@@ -414,7 +405,7 @@ vai ficar assim até eu aprender mais sobre carrossel */
     background: #7CE815;
     padding: 20px;
     text-align: center;
-    font-family:'Montserrat', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
@@ -424,7 +415,7 @@ vai ficar assim até eu aprender mais sobre carrossel */
 
 .create-count{
     text-decoration: none;
-    font-family:'Montserrat', sans-serif;
+    font-family:'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 10px;
@@ -458,6 +449,29 @@ vai ficar assim até eu aprender mais sobre carrossel */
     bottom: -19%;
 }
 
+/* Aqui começa a configuração do Footer */
+footer {
+    display: flex;
+    
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;  
+    text-align: center;
+    background: linear-gradient(rgba(242, 217, 160, 0.8),rgba(150, 22, 35, 0.2));
+}
+
+footer > nav> a {
+    font-size: 12px;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    color: #612B2E;
+    line-height: 30px;
+}
+
+footer > img{
+    padding: 15px;
+}
 
 
 /* Aqui é processo de tentativas de resposividade */
