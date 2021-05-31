@@ -170,6 +170,7 @@ main{
         flex-direction: column;
         padding-top: 30px;
         padding-left: 15px;
+        padding-right: 15px;
     }
     .userName{
         font-size: 150%;
@@ -220,8 +221,6 @@ main{
     }
     .topOptions {
         display: flex;
-      
-       
     }
     .profileInfo{
         width: 100%;
@@ -284,6 +283,10 @@ main{
     .wines{
         display: flex;
         flex-direction: column;
+    }
+
+    .favoritesList > h3, .wishList > h3{
+        padding: 15px;
     }
   
 }
