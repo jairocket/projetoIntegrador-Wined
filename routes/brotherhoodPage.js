@@ -3,6 +3,7 @@ const router = express.Router();
 const auth = require('../middlewares/auth');
 const db = require('../database/models');
 const Sequelize = require('sequelize');
+const brotherhoodController = require('../controllers/BrotherhoodController')
 
 
 /* GET home page. */
@@ -11,36 +12,10 @@ router.get('/', auth, function(req, res, next) {
 });
 
 /*Creates a brotherhood */
-router.post('/criar', async function (req, res){
-  let {
-    name,  
-    description, 
-    background_Pic,
-    chancellor  
-  } = req.body;
-      
-  const brotherhood = await db.Brotherhood.create({
-    name,  
-    description, 
-    background_Pic, 
-    chancellor
-  })
-    console.log(brotherhood)
-    return res.json(brotherhood)
-});
+router.post('/criar', brotherhoodController.brotherhoodCreator);
 
 //GET brotherhood members
 
-router.get('/confrades/:id', async function(req, res){
-    let id = req.params.id;
-    
-    const brotherhoodMembers = await db.Brotherhood.findAll({
-      include: [
-        {model: db.User}
-      ],
-      where:{id} 
-    })
-    return res.json(brotherhoodMembers)
-})
+router.get('/confrades/:id', brotherhoodController.getMembers);
 
 module.exports = router;
