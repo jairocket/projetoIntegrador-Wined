@@ -4,6 +4,7 @@
   outline: 0;
   padding: 0;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .btn-form {
@@ -33,8 +34,12 @@ header {
 ul, a {
   list-style-type: none;
   text-decoration: none;
+<<<<<<< HEAD
+  color:#fff;
+=======
   color: #FFFFFF;
   font-family: 'Montserrat', sans-serif;
+>>>>>>> 32baaca0307840e7a282f1a47b178cacd7de7d16
 }
 
 #terms {
@@ -58,8 +63,8 @@ ul, a {
 }
 
 footer {
-  height: 80px;
-  padding-bottom: 10px;
+  height: 100px;
+  padding:10px 0px 10px;
   background: #9B0000;
   font-size: 12px;
 
@@ -71,7 +76,7 @@ footer {
 
 footer ul {
   width: 95%;
-
+  flex-direction: row;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -79,10 +84,16 @@ footer ul {
 
 footer ul li {
   margin: 0 15px 7px;
+  
+}
+footer ul li a {
+  margin: 0 15px 7px;
+  color: #fff;
 }
 
 footer p {
   font-weight: 500;
+  color: #fff;
 }
 
 button {
@@ -223,7 +234,41 @@ justify-items: flex-end;
 
 .dropdown a:hover {background-color: #ddd;}
 
+<<<<<<< HEAD
+.dateBrotherhood{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px 10px;
+  align-items: center;
+  justify-content: center;
+}
+.choice-date{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+  .choice-date label{
+    padding: 0px 15px 0px;
+  }
+
+  .calender{
+    padding: 25px 0px 25px;
+    
+  }
+.chanceler{
+  display: flex;
+  flex-direction: column;
+}
+
+.chanceler p{
+  align-items: center;
+  justify-content: center;
+  padding: 0px 0px 20px;
+}
+=======
 .show {display: block;}
+>>>>>>> 32baaca0307840e7a282f1a47b178cacd7de7d16
 
 @media (min-width: 650px) {
   header {

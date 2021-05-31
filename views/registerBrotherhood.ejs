@@ -1,0 +1,49 @@
+<%- include('./partials/header')  %>
+
+  <main>
+<div class="create-new-brotherhood">
+    <form action='' method="POST" class="formulario">
+
+      <label for="nameBrotherhood">Nome da Confraria
+        <input type="text" name="nameBrotherhood" id="nameBrotherhood" placeholder="Ex: Apreciadores 2021">
+      </label>
+      <div class = "dateBrotherhood">
+          <p>Data de criação</p><br>
+       <div class="choice-date">
+          <label>A contar de hoje
+          <input type="radio" name="date" id="date-now">
+        </label><br>
+        <label> Criação anterior
+          <input type="radio" name="date" id="date">
+        </label> 
+       </div> 
+
+        
+        <label for="date" class="calender"> Selecione o dia <br>
+          <input type="date" name="date" id="date1" placeholder="01/01/2000">
+        </label>
+ 
+      </div>
+    <div class="chanceler">
+      <p>Chanceler da Confraria</p>
+      <label for="nameCreate" > Nome <br>
+        <input type="text" name="nameCreate" id="nameCreate" placeholder="Ex: Alexandre">
+      </label>
+
+      
+      <label for="surnameCreate"> Sobrenome <br>
+        <input type="text" name="surnameCreate" id="surnameCreate" placeholder="Ex: Moreira">
+      </label>
+    </div>
+
+    <label for="description" class="description-create"> Descrição da confraria
+      <textarea name="description" id="description" placeholder="Ex: Nós somos a Confraria 
+      ... gostamos..."></textarea>
+    </label>
+    
+      <button class="button-create" type="submit">Criar Confraria</button>
+    </form>
+  </div>
+  </main>
+
+  <%- include('./partials/footer.ejs')  %>
