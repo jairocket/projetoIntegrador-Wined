@@ -12,16 +12,11 @@ const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const brotherhoodPageRouter = require('./routes/brotherhoodPage');
 const profileRouter = require('./routes/profile');
-
 const favoritesRouter = require('./routes/favoritesPage');
 const privacyPolicyRouter = require('./routes/privacyPolicy');
 const termsOfUseRouter = require('./routes/termsOfUse');
-<<<<<<< HEAD
-const registerBrotherhoodRouter = require('./routes/registerBrotherhood');
-=======
 const profileEditorRouter = require('./routes/profileEditor');
 
->>>>>>> 32baaca0307840e7a282f1a47b178cacd7de7d16
 
 
 const app = express();
@@ -49,18 +44,12 @@ app.use('/', landingRouter);
 app.use('/login', loginRouter);
 app.use('/cadastrar', registerRouter);
 app.use('/confraria', brotherhoodPageRouter);
-
 app.use('/perfil', profileRouter);
-
 app.use('/favorites', favoritesRouter);
 app.use('/privacidade', privacyPolicyRouter);
 app.use('/termos', termsOfUseRouter);
-<<<<<<< HEAD
-app.use('/criar', registerBrotherhoodRouter);
-=======
 app.use('/editarperfil', profileEditorRouter)
 
->>>>>>> 32baaca0307840e7a282f1a47b178cacd7de7d16
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

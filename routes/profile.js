@@ -10,14 +10,10 @@ const db = require('../database/models');
 const { Op } = require("sequelize");
 
 /* GET home page. */
-
 router.get('/', auth, function(req, res, next) {
   res.render('profile', { title: "Meu Perfil", style: "profile", user: req.session.user });
-
 });
 
-<<<<<<< HEAD
-=======
 router.post('/', upload.single('avatarFile'), function (req, res, next) {
   console.log(req.file);
   res.redirect('/perfil');
@@ -56,7 +52,6 @@ router.get('/filtrar/:name', async (req, res)=>{
 });
 
 
->>>>>>> 32baaca0307840e7a282f1a47b178cacd7de7d16
 
 
 module.exports = router;
