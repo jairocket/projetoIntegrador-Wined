@@ -3,13 +3,14 @@ const router = express.Router();
 const auth = require('../middlewares/auth');
 const db = require('../database/models');
 const Sequelize = require('sequelize');
-const Brotherhood_User = require('../database/models/Brotherhood_User');
+
 
 /* GET home page. */
 router.get('/', auth, function(req, res, next) {
   res.render('brotherhoodPage', { title: "Confraria", style: "brotherhood", user: req.session.user });
 });
 
+/*Creates a brotherhood */
 router.post('/criar', async function (req, res){
   let {
     name,  
@@ -27,6 +28,8 @@ router.post('/criar', async function (req, res){
     console.log(brotherhood)
     return res.json(brotherhood)
 });
+
+//GET brotherhood members
 
 router.get('/confrades/:id', async function(req, res){
     let id = req.params.id;
