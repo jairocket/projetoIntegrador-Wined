@@ -1,14 +1,34 @@
 * {
-    color: white;
+    color: black;
     font-family: 'Montserrat', sans-serif;
 }
 
 
 main {
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background: whitesmoke;
+}
+
+.confraria{
+    display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(180deg, #9B0000 5%, #2E0000 50%);
+    width: 69%;
+}
+
+.userName > h5{
+    padding: 20px;
+}
+
+.dash{
+    width: 29%;
+    align-items: center;
+}
+
+.topp{
+    width: 100%;
 }
 
 .confraria-cover {
@@ -59,33 +79,59 @@ main {
 .confraria-members {
     display: flex;
 
-    width: 100%;
+    
     padding: 0 20px;
 
     position: relative;
     justify-content: space-between;
 }
-
-.confraria-members > button {
+.brotherhoodMenu{
+    display: flex;
+    flex-direction: row;
+}
+.brotherhoodMenu > button {
     background: #287A5C;
     border-radius: 25px;
-
-    height: 55px;
-    width: 130px;
-
+    height: 40px;
+    width: 170px;
+    margin: 10px;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 16px;
     text-align: center;
     letter-spacing: 0.05em;
     font-variant: small-caps;
+    color:white;
 }
 
-.confraria-members > img {
-    /* box-shadow: 2px 4px 20px rgb(0 0 0 / 25%); */
+.description, .userDescription{
+    display: flex;
+    flex-direction: column;
+    background-color: #FFCDC1;
+    border-radius: 25px;
+    
 }
+
+.description{
+    margin: 30px;
+    width: 90%;
+}
+
+.userDescription{
+    display:flex;
+    width: 95%;
+}
+
+.description > p, .userDescription > p{
+    
+    padding: 30px;
+}
+
+/*.confraria-members > img {
+    /* box-shadow: 2px 4px 20px rgb(0 0 0 / 25%); */
+/*}*/
 
 .confraria-members > img:last-child {
     position: absolute;
@@ -97,11 +143,9 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    width: 100%;
-
-    background: #4F0000;
-    margin: 20px 0;
+    border: solid black thin;
+    width: 95%;
+    background: whitesmoke;
 
 }
 
@@ -130,11 +174,20 @@ main {
     border-bottom: 1px solid white;
 }
 
-.write-post > p {
-    width: 240px;
-    height: 28px;
+.write-postPrompt{
+    background: #c4c4c4;
+    width: 85%;
+    border-radius: 22px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1;
+    height: 35px;
+}
 
-    border: 2px solid #FFFFFF;
+.write-post > p {
+    
+    height: 28px;
+    border: 2px solid black thin;
     border-radius: 22px;
     padding: 6px 0;
     font-size: 12px;
@@ -146,7 +199,6 @@ main {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-
     padding: 10px 0;
 }
 
