@@ -15,6 +15,14 @@ module.exports = {
       path: {
         type: Sequelize.STRING(1024),
         allowNull: false
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
       }
     });
   },
