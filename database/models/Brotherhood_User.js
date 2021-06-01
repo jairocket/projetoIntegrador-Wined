@@ -7,23 +7,17 @@ module.exports = (sequelize, DataTypes)=>{
         },
         users_id: {
             type: DataTypes.INTEGER(10)
-        },
-   
+        },   
         brotherhood_id: {
             type: DataTypes.INTEGER(11)
         },
-
         chancellor: {
             type: DataTypes.BOOLEAN,
         }
     },{
-        tableName: "brotherhood_user",
+        tableName: "brotherhoods_users",
         timestamps: false
-    })
+    });
+
     return Brotherhood_User
-}
-
-
-
-
-
+};

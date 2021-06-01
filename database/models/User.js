@@ -29,22 +29,19 @@
         profile_picture_id: {
             type: DataTypes.INTEGER
         },  
-
         background_picture_id: {
             type: DataTypes.INTEGER
         },
-
         description: {
             type: DataTypes.STRING(1024),
         },
-
         birthday: {
             type: DataTypes.DATE,
             allowNull: false
         }
     },{
         tableName: "users"
-    })
+    });
 
     User.associate = function(modelos){
         User.belongsToMany(modelos.Brotherhood, {

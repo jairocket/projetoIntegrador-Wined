@@ -1,4 +1,3 @@
-
 module.exports = (sequelize, DataTypes)=>{
     const Brotherhood = sequelize.define("Brotherhood", {
         id:{
@@ -10,17 +9,17 @@ module.exports = (sequelize, DataTypes)=>{
             type: DataTypes.STRING(50),
             allowNull: false
         },
-   
-        background_Pic: {
-            type: DataTypes.STRING(255),
-            defaultValue: " "
+        brotherhood_picture_id: {
+            type: DataTypes.INTEGER,
         },
-
         description: {
             type: DataTypes.STRING(255),
+        },
+        since: {
+            type: DataTypes.DATE,
         }
     },{
-        tableName: "brotherhood"
+        tableName: "brotherhoods"
     })
 
     Brotherhood.associate = function(modelos){
@@ -32,4 +31,3 @@ module.exports = (sequelize, DataTypes)=>{
 
     return Brotherhood
 }
-
