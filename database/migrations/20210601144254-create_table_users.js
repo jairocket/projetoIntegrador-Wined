@@ -30,10 +30,18 @@ module.exports = {
           allowNull: false
       },
       profile_picture_id: {
-          type: Sequelize.INTEGER
+          type: Sequelize.INTEGER,
+          references: {
+            model: "profile_pictures",
+            key: "id"
+          }
       },  
       background_picture_id: {
-          type: Sequelize.INTEGER
+          type: Sequelize.INTEGER,
+          references: {
+            model: "background_pictures",
+            key: "id"
+          }
       },
       description: {
           type: Sequelize.STRING(1024),
