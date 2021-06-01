@@ -26,14 +26,12 @@
             type: DataTypes.STRING(255),
             allowNull: false
         },
-        profilePicture: {
-            type: DataTypes.STRING(25),
-            defaultValue: " "
+        profile_picture_id: {
+            type: DataTypes.INTEGER
         },  
 
-        backgroundPicture: {
-            type: DataTypes.STRING(25),
-            defaultValue: " "
+        background_picture_id: {
+            type: DataTypes.INTEGER
         },
 
         description: {
@@ -56,5 +54,4 @@
     }
 
     return User
-}
-
+};
