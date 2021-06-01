@@ -47,8 +47,16 @@
         User.belongsToMany(modelos.Brotherhood, {
             through: modelos.Brotherhood_User,
             foreignKey: "users_id"
-        })  
-    }
+        });
+        User.hasOne(modelos.Profile_Picture, {
+            as: "profile_pictures",
+            foreignKey: "profile_picture_id"
+        });
+        User.hasOne(modelos.Background_Picture, {
+            as: "background_pictures",
+            foreignKey: "background_picture_id"
+        });
+    };
 
     return User
 };
