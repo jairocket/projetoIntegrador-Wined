@@ -1,38 +1,60 @@
+
 <%- include('./partials/header')  %>
 
     <main>
+        <section class="dash">
+            <%- include('./partials/topview') %>
+             <div class="userDescription">
+                <p><%= user.description %></p>
+            </div>
+             <div class= dashMenu>
+                <div class="brotherhoodMenu">
+                    <button>Adega</button>
+                    <button>Favoritos</button>
+                </div>
+                <div class="brotherhoodMenu">   
+                    <button>Criar Confraria</button>
+                    <button>Editar Confraria</button>
+                </div>
+            </div>
+        </section>
+        <section class="confraria">
         <img class="confraria-cover" src="images/confraria-cover.svg" alt="confraria-cover">
         <section class="settings">
             <div class="confraria-title">
-                <h2>Confraria-wined ></h2>
+                <h2>Nome da Confraria ></h2>
                 <div>
                     <p>Since 2021</p>
                     <img src="images/dot.svg" alt="dot-separation">
-                    <p>35 membros</p>
+                    <p>12 membros</p>
                 </div>
             </div>
-            <div class="setting-search-buttons">
-                <div>
-                    <img src="images/search-icon.svg" alt="search-icon">
-                </div>
-                <div>
-                    <img src="images/settings-icon.svg" alt="settings-icon">
-                </div>
+            <div class="brotherhoodMenu">
+                <button>Agenda de Reuniões</button>
+                <button>Convidar Confrade</button>
+            </div>
+            <div class="confraria-members">
+                <img src="images/mobile-confraria-members.svg" alt="membros">
+                <img src="images/settings-icon.svg" alt="settings-icon">
             </div>
         </section>
-        <section class="confraria-members">
-            <button>convidar novo membro +</button>
-            <img src="images/mobile-confraria-members.svg" alt="membros">
-            <img src="images/settings-icon.svg" alt="settings-icon">
-        </section>
+
+        
+            <div class="description">
+                <p>Descrição da Confraria</p>
+            </div>
+        
         <section class="create-post-section">
             <div class="create-post-buttons">
-                <button>Agenda de reuniões</button>
-                <button>Chat do Grupo</button>
+
             </div>
             <div class="write-post">
-                <p>Compartilhe sua experiência...</p>
                 <img src="images/avatar-icon.svg" alt="avatar">
+                <div class="write-postPrompt">
+                    <p>Compartilhe sua experiência...</p>
+                </div>
+                
+                
             </div>
             <div class="upload-media-post">
                 <div>
@@ -49,6 +71,7 @@
         <section class="posts-filter">
             <p>Atividades Recentes</p>
         </section>
+    </section>
     </main>
     
 <%- include('./partials/footer')  %>  
