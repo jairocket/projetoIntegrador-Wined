@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     });
   
     Brotherhood_Picture.associate = function(models) {
-      Brotherhood_Picture.belongsTo(Brotherhood)
+      Brotherhood_Picture.belongsTo(models.Brotherhood)
     }
   
     return Brotherhood_Picture;

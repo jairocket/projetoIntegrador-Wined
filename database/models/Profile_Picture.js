@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Profile_Picture.associate = function(models) {
-    Profile_Picture.belongsTo(User)
+    Profile_Picture.belongsTo(models.User)
   }
 
   return Profile_Picture;
