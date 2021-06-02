@@ -1,4 +1,3 @@
-
 module.exports = (sequelize, DataTypes)=>{
     const Brotherhood = sequelize.define("Brotherhood", {
         id:{
@@ -10,26 +9,29 @@ module.exports = (sequelize, DataTypes)=>{
             type: DataTypes.STRING(50),
             allowNull: false
         },
-   
-        background_Pic: {
-            type: DataTypes.STRING(255),
-            defaultValue: " "
+        brotherhood_picture_id: {
+            type: DataTypes.INTEGER,
         },
-
         description: {
             type: DataTypes.STRING(255),
+        },
+        since: {
+            type: DataTypes.DATE,
         }
     },{
-        tableName: "brotherhood"
+        tableName: "brotherhoods"
     })
 
     Brotherhood.associate = function(modelos){
         Brotherhood.belongsToMany(modelos.User, {
             through: modelos.Brotherhood_User,
             foreignKey: "brotherhood_id"
-        })  
+        });
+        Brotherhood.hasOne(modelos.Brotherhood_Picture, {
+            as: "brotherhood_pictures",
+            foreignKey: "brotherhood_picture_id"
+        });
     }
 
     return Brotherhood
 }
-

@@ -26,35 +26,37 @@
             type: DataTypes.STRING(255),
             allowNull: false
         },
-        profilePicture: {
-            type: DataTypes.STRING(25),
-            defaultValue: " "
+        profile_picture_id: {
+            type: DataTypes.INTEGER
         },  
-
-        backgroundPicture: {
-            type: DataTypes.STRING(25),
-            defaultValue: " "
+        background_picture_id: {
+            type: DataTypes.INTEGER
         },
-
         description: {
             type: DataTypes.STRING(1024),
         },
-
         birthday: {
             type: DataTypes.DATE,
             allowNull: false
         }
     },{
         tableName: "users"
-    })
+    });
 
     User.associate = function(modelos){
         User.belongsToMany(modelos.Brotherhood, {
             through: modelos.Brotherhood_User,
             foreignKey: "users_id"
-        })  
-    }
+        });
+        User.hasOne(modelos.Profile_Picture, {
+            as: "profile_pictures",
+            foreignKey: "profile_picture_id"
+        });
+        User.hasOne(modelos.Background_Picture, {
+            as: "background_pictures",
+            foreignKey: "background_picture_id"
+        });
+    };
 
     return User
-}
-
+};
