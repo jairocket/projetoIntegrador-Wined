@@ -3,6 +3,9 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+h5{
+    margin: 15px;
+}
 
 main {
     display: flex;
@@ -71,17 +74,13 @@ main {
 .confraria-title > div {
     display: flex;
     justify-content: space-around;
-
     font-family: 'roboto', sans-serif;
     font-size: 12px;
 }
 
 .confraria-members {
-    display: flex;
-
-    
+    display: flex;    
     padding: 0 20px;
-
     position: relative;
     justify-content: space-between;
 }
@@ -89,7 +88,7 @@ main {
     display: flex;
     flex-direction: row;
 }
-.brotherhoodMenu > button {
+.brotherhoodMenu > button, .brotherhoodMenu > a {
     background: #287A5C;
     border-radius: 25px;
     height: 40px;
@@ -104,6 +103,11 @@ main {
     letter-spacing: 0.05em;
     font-variant: small-caps;
     color:white;
+}
+
+.brotherhoodMenu > a > p{
+    color: white;
+    padding: 10px;
 }
 
 .description, .userDescription{
