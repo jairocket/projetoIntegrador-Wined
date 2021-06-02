@@ -27,14 +27,6 @@ module.exports = {
       chancellor: {
           type: Sequelize.BOOLEAN,
       },
-      createdAt: {
-        type: Sequelize.DATE,
-        allowNull: false,
-      },
-      updatedAt: {
-        type: Sequelize.DATE,
-        allowNull: false,
-      }
     });
   },
 
