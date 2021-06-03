@@ -10,7 +10,7 @@ h5{
 main {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-end;
     background: whitesmoke;
 }
 
@@ -18,7 +18,8 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 69%;
+    width: 70%;
+    padding-right: 1%;
 }
 
 .userName > h5{
@@ -26,8 +27,14 @@ main {
 }
 
 .dash{
-    width: 29%;
-    align-items: center;
+    width: 28%;
+    position: fixed;
+    left: 1%;
+    
+}
+
+.topOptions{
+    height: 15vh;
 }
 
 .topp{
@@ -118,6 +125,13 @@ main {
     
 }
 
+.dashMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+
 .description{
     margin: 30px;
     width: 90%;
@@ -125,7 +139,8 @@ main {
 
 .userDescription{
     display:flex;
-    width: 95%;
+    width: 100%;
+    align-self: center;
 }
 
 .description > p, .userDescription > p{
@@ -183,9 +198,15 @@ main {
     width: 85%;
     border-radius: 22px;
     font-size: 12px;
-    text-align: center;
+    text-align: justify;
     line-height: 1;
-    height: 35px;
+    min-height: 35px;
+    padding: 10px;
+    
+}
+
+.write-postPrompt > div{
+    padding-bottom: 1px;
 }
 
 .write-post > p {
