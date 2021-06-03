@@ -1,10 +1,9 @@
 const express = require('express');
+const DashboardController = require('../controllers/DashboardController');
 const router = express.Router();
 
 const auth = require('../middlewares/auth')
 
-router.get('/', auth, function(req, res){
-    res.render('dashboard', { title: "Dashboard", style: "brotherhood", user: req.session.user });
-  });
+router.get('/', auth, DashboardController.getBrotherhoods);
 
   module.exports = router;

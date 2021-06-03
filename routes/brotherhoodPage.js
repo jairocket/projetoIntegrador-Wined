@@ -7,7 +7,8 @@ const brotherhoodController = require('../controllers/BrotherhoodController')
 
 
 /* GET home page. */
-router.get('/', auth, function(req, res, next) {
+router.get('/', auth, function(req, res) {
+
   res.render('brotherhoodPage', { title: "Confraria", style: "brotherhood", user: req.session.user });
 });
 
@@ -20,6 +21,6 @@ router.get('/confrades/:id', brotherhoodController.getMembers);
 
 //GET member's brotherhoods
 
-router.get('/confrarias/:id', brotherhoodController.getBrotherhoods)
+//router.get('/confrarias/:id', brotherhoodController.getBrotherhoods)
 
 module.exports = router;

@@ -1,17 +1,95 @@
-main{
+.main{
     display: flex;
     flex-direction: row;
-    justify-items: space-evenly;
+    justify-content: space-evenly;
+    background-color:darkred;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.profileInfo{
+.profileInfo, .myBrotherhoods, .notifications{
     width: 30%;
+    padding: 30px;
+    border-radius: 25px;
+    background-color: whitesmoke;
+    
 }
 
-.myBrotherhoods{
-    width: 30%;
+h5{
+    margin: 15px;
 }
 
-.notifications{
-    width: 30%;
+a{
+    color: black;
+}
+
+.userName > h5{
+    padding: 20px;
+    
+}
+
+.topOptions{
+    height: 15vh;
+}
+
+.topp{
+    width: 100%;
+
+}
+
+.brotherhoodMenu{
+    display: flex;
+    flex-direction: row;
+}
+.brotherhoodMenu > button, .brotherhoodMenu > a {
+    background: #287A5C;
+    border-radius: 25px;
+    height: 40px;
+    width: 170px;
+    margin: 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    font-variant: small-caps;
+    color:white;
+}
+
+.brotherhoodMenu > a > p{
+    color: white;
+    padding: 10px;
+}
+
+.description, .userDescription{
+    display: flex;
+    flex-direction: column;
+    background-color: #FFCDC1;
+    border-radius: 25px;
+    
+}
+
+.dashMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.description{
+    margin: 30px;
+    width: 90%;
+}
+
+.userDescription{
+    display:flex;
+    width: 100%;
+    align-self: center;
+}
+
+.description > p, .userDescription > p{
+    
+    padding: 30px;
 }
