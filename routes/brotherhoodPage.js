@@ -18,4 +18,8 @@ router.post('/criar', brotherhoodController.brotherhoodCreator);
 
 router.get('/confrades/:id', brotherhoodController.getMembers);
 
+//GET member's brotherhoods
+
+router.get('/confrarias/:id', brotherhoodController.getBrotherhoods)
+
 module.exports = router;

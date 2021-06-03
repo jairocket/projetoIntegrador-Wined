@@ -1,0 +1,17 @@
+main{
+    display: flex;
+    flex-direction: row;
+    justify-items: space-evenly;
+}
+
+.profileInfo{
+    width: 30%;
+}
+
+.myBrotherhoods{
+    width: 30%;
+}
+
+.notifications{
+    width: 30%;
+}
