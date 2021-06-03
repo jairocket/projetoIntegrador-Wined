@@ -22,7 +22,7 @@
         <section class="myBrotherhoods">
             <h3>Minhas Confrarias</h3>
             <% brotherhoods.forEach((brotherhood)=>{ %>
-                <li><a href ="#"><%= brotherhood.name %></a></li>
+                <li><a href ="/confraria/<%= brotherhood.id %>"><%= brotherhood.name %></a></li>
 
             <% }) %>
         </section>
