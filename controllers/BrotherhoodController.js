@@ -34,22 +34,8 @@ getMembers: async (req, res) =>{
       where:{id} 
     })
     return res.json(brotherhoodMembers)
-    },
+    }
 
-// GET member's brotherhoods
-getBrotherhoods: async(req,res)=>{
-    let {id} = req.params;
-    const membersBrotherhoods = await db.User.findAll({
-      include: [
-        {
-          model: db.Brotherhood,
-          right: true
-        },
-        
-      ],
-      where:{id}
-    })
-    return res.json(membersBrotherhoods)
-}
+
 }
 module.exports = BrotherhoodController
