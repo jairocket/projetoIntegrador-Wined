@@ -7,9 +7,16 @@ const brotherhoodController = require('../controllers/BrotherhoodController')
 
 
 /* GET home page. */
-router.get('/', auth, function(req, res) {
-
-  res.render('brotherhoodPage', { title: "Confraria", style: "brotherhood", user: req.session.user });
+router.get('/:id', auth, async function(req, res) {
+  const{id} = req.params;
+  const brotherhood = await db.Brotherhood.findByPk(id);
+  console.log(brotherhood)
+  res.render('brotherhoodPage', { 
+    title: "Confraria",
+    style: "brotherhood", 
+    user: req.session.user,
+    brotherhood:brotherhood
+   });
 });
 
 /*Creates a brotherhood */

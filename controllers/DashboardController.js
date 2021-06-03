@@ -17,10 +17,8 @@ const DashboardController ={
                     required:true,
                     attributes: [],
                 },  
-            ],
-          
+            ],     
     })
-    console.log(membersBrotherhoods)
     return res.render(
         'dashboard', {
         title: "Dashboard",
