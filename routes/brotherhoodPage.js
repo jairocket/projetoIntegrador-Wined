@@ -4,10 +4,10 @@ const auth = require('../middlewares/auth');
 const db = require('../database/models');
 const Sequelize = require('sequelize');
 const brotherhoodController = require('../controllers/BrotherhoodController')
-
+const membershipCheck = require('../middlewares/membershipCheck');
 
 /* GET home page. */
-router.get('/:id', auth, async function(req, res) {
+router.get('/:id', auth, membershipCheck, async function(req, res) {
   const{id} = req.params;
   const brotherhood = await db.Brotherhood.findByPk(id);
   console.log(brotherhood)
