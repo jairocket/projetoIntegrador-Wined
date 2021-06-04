@@ -31,6 +31,10 @@ module.exports = (sequelize, DataTypes)=>{
             as: "brotherhood_pictures",
             foreignKey: "brotherhood_picture_id"
         });
+        Brotherhood.hasMany(modelos.Event, {
+            as: "events",
+            foreignKey: "brotherhood_id"
+        });
     }
 
     return Brotherhood

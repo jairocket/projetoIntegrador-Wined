@@ -1,5 +1,3 @@
-const Brotherhood = require("./Brotherhood");
-
 module.exports = (sequelize, DataTypes) => {
     const Brotherhood_Picture = sequelize.define('Brotherhood_Picture', {
       id: {
