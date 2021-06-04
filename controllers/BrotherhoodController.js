@@ -21,16 +21,25 @@ brotherhoodCreator: async (req, res) =>{
     })
 
     let brotherhood_id = brotherhood.id
-    const brotherhood_user = await db.Brotherhood_User.create({
+    const brotherhood_chancellor = await db.Brotherhood_User.create({
         brotherhood_id,
         user_id: req.session.id,
         chancellor: true
     })
       console.log(brotherhood)
-      console.log(brotherhood_user)
+      console.log(brotherhood_chancellor)
       return res.json(brotherhood)
     },
+
+//ADD new members (pesquisar create bulk)
     
+    // addMembers: async (req, res) =>{
+    //   const newMember = await db.Brotherhood_User.create({
+    //     user_id,
+    //     brotherhood_id,
+    //     chancellor
+    //   })
+    // },
 //GET brotherhood's members
 
 getMembers: async (req, res) =>{
