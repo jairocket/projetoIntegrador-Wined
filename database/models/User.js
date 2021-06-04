@@ -56,6 +56,10 @@
             as: "background_pictures",
             foreignKey: "background_picture_id"
         });
+        User.belongsToMany(modelos.Event, {
+            through: modelos.User_Event,
+            foreignKey: "users_id"
+        })
     };
 
     return User
