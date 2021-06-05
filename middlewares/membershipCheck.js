@@ -13,7 +13,6 @@ async function membershipCheck(req, res, next){
             }
         ]
     })
-    console.log(isMember)
     if(isMember){
         next()
     }else{
