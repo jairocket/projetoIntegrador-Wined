@@ -33,13 +33,13 @@ const BrotherhoodController = {
     })
 
     let brotherhood_id = brotherhood.id
-    const brotherhood_chancellor = await db.Brotherhood_User.create({
+    const brotherhoodChancellor = await db.Brotherhood_User.create({
         brotherhood_id,
         user_id: req.session.id,
         chancellor: true
     })
       console.log(brotherhood)
-      console.log(brotherhood_chancellor)
+      console.log(brotherhoodChancellor)
       return res.json(brotherhood)
     },
 
@@ -52,8 +52,9 @@ const BrotherhoodController = {
     //     chancellor
     //   })
     // },
-//GET brotherhood's members
 
+    
+//GET brotherhood's members
 getMembers: async (req, res) =>{
     let id = req.params.id;
     const brotherhoodMembers = await db.User.findAll({
