@@ -7,23 +7,12 @@ const brotherhoodController = require('../controllers/BrotherhoodController')
 const membershipCheck = require('../middlewares/membershipCheck');
 
 /* GET home page. */
-router.get('/:id', auth, membershipCheck, async function(req, res) {
-  const{id} = req.params;
-  const brotherhood = await db.Brotherhood.findByPk(id);
-  console.log(brotherhood)
-  res.render('brotherhoodPage', { 
-    title: "Confraria",
-    style: "brotherhood", 
-    user: req.session.user,
-    brotherhood:brotherhood
-   });
-});
+router.get('/:id', auth, membershipCheck, brotherhoodController.accessBrotherhood);
 
 /*Creates a brotherhood */
 router.post('/criar', brotherhoodController.brotherhoodCreator);
 
-//GET brotherhood members
-
+//GET brotherhood members 
 router.get('/confrades/:id', brotherhoodController.getMembers);
 
 //GET member's brotherhoods

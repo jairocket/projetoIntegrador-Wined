@@ -4,8 +4,20 @@ const { check, validationResult, body } = require('express-validator');
 
 const BrotherhoodController = {
 
-/*Creates a brotherhood */
-brotherhoodCreator: async (req, res) =>{ 
+  //Get brotherhood page
+  accessBrotherhood: async function(req, res) {
+    const{id} = req.params;
+    const brotherhood = await db.Brotherhood.findByPk(id);
+    res.render('brotherhoodPage', { 
+      title: "Confraria",
+      style: "brotherhood", 
+      user: req.session.user,
+      brotherhood:brotherhood
+     });
+  },
+
+  /*Creates a brotherhood */
+  brotherhoodCreator: async (req, res) =>{ 
     let {
         name,  
         description, 
@@ -31,7 +43,7 @@ brotherhoodCreator: async (req, res) =>{
       return res.json(brotherhood)
     },
 
-//ADD new members (pesquisar create bulk)
+  //ADD new members (pesquisar create bulk)
     
     // addMembers: async (req, res) =>{
     //   const newMember = await db.Brotherhood_User.create({
@@ -44,12 +56,18 @@ brotherhoodCreator: async (req, res) =>{
 
 getMembers: async (req, res) =>{
     let id = req.params.id;
-    const brotherhoodMembers = await db.Brotherhood.findAll({
+    const brotherhoodMembers = await db.User.findAll({
       include: [
-        {model: db.User}
+        {
+          model: db.Brotherhood,
+          where: {id},
+          required: true,
+          attributes: []
+        }
       ],
-      where:{id} 
+      attributes: ['id', 'name', 'surname', 'email', 'profile_picture_id']
     })
+    
     return res.json(brotherhoodMembers)
     }
 
