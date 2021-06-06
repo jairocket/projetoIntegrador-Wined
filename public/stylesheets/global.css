@@ -6,6 +6,136 @@
   margin: 0;
 }
 
+html{
+  font-size: 10px;
+}
+
+button {
+  background: none;
+  cursor: pointer;
+}
+
+ul > li {
+  list-style-type: none;
+}
+
+ul > li > a {
+  text-decoration: none;
+}
+
+header {
+  background-color: #9B0000;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.8rem;
+  padding: 1.5rem;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+#call, #logo, #call-text > h2, .btn-form, .text-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#navbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+#hamburger-container {
+  padding: 0.8rem;
+  transition: 0.2s;
+}
+
+#menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 4.8rem;
+  right: -14rem;
+  z-index: 1000;
+  background-color: #FFFFFF;
+  height: calc(100vh - 48px);
+  width: 14rem;
+  transition: 0.2s;
+  visibility: hidden;
+}
+
+#menu > li > a {
+  display: block;
+  padding: 0.8rem;
+  font-size: 1.4rem;
+  color:#9B0000;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.25);
+}
+
+#navbar.active {
+  overflow: visible;
+}
+
+#navbar.active #hamburger-container {
+  margin-right: 9rem;
+}
+
+#navbar.active #menu {
+  right: 0;
+  visibility: visible;
+}
+
+#menu-desktop {
+  display: none;
+}
+
+footer > nav> a {
+  font-size: 12px;
+  font-weight: 400;
+  color: #612B2E;
+  line-height: 30px;
+}
+
+footer > img{
+  padding: 15px;
+}
+
+#footer-menu {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #9B0000;
+  align-items: center;
+}
+
+#footer-menu > ul > li {
+  margin: 1rem 0;
+}
+
+#footer-menu > ul > li > a {
+  font-size: 1.2rem;
+  color: #E6AAAE;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#copyright {
+  background: linear-gradient(rgba(242, 217, 160, 0.8),rgba(150, 22, 35, 0.2));
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.logo-footer {
+  display: none;
+}
+
 .btn-form {
   margin: 24px 0px 14px;
   width: 100%;
@@ -18,84 +148,20 @@
   color: #FFFFFF;
 }
 
-header {
-  background-color: #9B0000;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 48px;
-  padding: 15px;
-  color:#FFFFFF;
-  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.25);
-}
-
-ul, a {
-  list-style-type: none;
-  text-decoration: none;
-  color: #FFFFFF;
-  font-family: 'Montserrat', sans-serif;
-}
-
 #terms {
   color:#9B0000;
 }
 
 #logo {
-  width: 130px;
-  height: 32px;
+  height: 3.2rem;
 }
 
 #profile-pic {
   width: 64px;
-  height: 64px;  
-  right: 15px;
-  bottom: 10px;
-}
-
-#menu-desktop {
-  display: none;
-}
-
-footer {
-  height: 80px;
-  padding-bottom: 10px;
-  background: #9B0000;
-  font-size: 12px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-
-footer ul {
-  width: 95%;
-
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-
-footer ul li {
-  margin: 0 15px 7px;
-}
-
-footer p {
-  font-weight: 500;
-}
-
-button {
-  background: none;
-  cursor: pointer;
 }
 
 .separador, .social-field, .terms, form, .input-field {
   font-family: 'Roboto', sans-serif;
-}
-
-#call, #logo, #call-text > h2, .btn-form, .text-montserrat {
-  font-family: 'Montserrat', sans-serif;
 }
 
 .input-field input, form > label > input {
@@ -173,30 +239,9 @@ button {
   bottom: 7.5vh;  
 }
 
-.navbar{
-display: flex;
-align-items: center;
-justify-content: flex-end;
-}
-
-.navbar > a{
-margin: 8px;
-justify-items: flex-end;
-
-}
-
 .dropbtn {
-  
-  color: white;
   padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
 }
-
-/*.dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
-}*/
 
 .dropdown {
   position: relative;
@@ -225,58 +270,77 @@ justify-items: flex-end;
 
 .show {display: block;}
 
-@media (min-width: 650px) {
+@media (min-width: 769px) {
+  /* main {
+    margin: 0 auto;
+    max-width: 70%; 
+  } */
+
   header {
-    height: 80px;
-  }
-
-  #hamburger {
-    width: 36px;
-    height: 36px;
-
-    margin: 0 40px 0 20px;
+    height: 8rem;
   }
 
   #logo {
-    width: 220px;
-    height: 64px;
+    height: 5rem;
   }
 
-  #profile-pic {
-    width: 100px;
-    height: 100px;
-
-    right: 40px;
-  }
-
-  footer {
-    height: 120px;
-    font-size: 16px;
-  }
-  
-  footer ul {
-    width: 80%;
-  }
-  
-}
-
-
-
-@media (min-width: 970px) {
-  #hamburger {
+  #hamburger-container {
     display: none;
   }
 
-  #logo {
-    margin-left: 25px;
+  #menu {
+    position: static;
+    flex-direction: row;
+    top: auto;
+    right: auto;
+    z-index: auto;
+    width: auto;
+    height: auto;
+    background: none;
+    gap: 1rem;
+    visibility: visible;
+  }
+
+  #menu > li > a {
+    color: #E6AAAE;
+    border: none;
+    font-size: 1.8rem;
+  }
+
+  #navbar {
+    position: static;
+    top: auto;
+    right: auto;
+    z-index: auto;
+  }
+
+  #login {
+    margin-left: 5rem;
+  }
+  #footer-menu {
+    position: relative;
+    height: 6rem;
+    justify-content: center;
+    padding: 0 18rem;
+  }
+
+  #footer-menu > ul {
+    display: flex;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .logo-footer {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 3px;
   }
 
   #menu-desktop {
     width: 70%;
-    
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
     font-family: 'Montserrat', sans-serif;
   }
 
@@ -287,7 +351,8 @@ justify-items: flex-end;
     color: #FFFFFF;
   }
 
-  footer {
-    font-size: 22px;
+  #profile-pic {
+    width: 10rem;
+    /* height: 10rem; */
   }
 }

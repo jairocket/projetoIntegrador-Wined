@@ -6,31 +6,32 @@
     <title>Home | Wined +</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="stylesheets/global.css">
+    <link rel="stylesheet" href="stylesheets/animations.css">
     <link rel='stylesheet' type='text/css' media='screen' href='stylesheets/landing-page-styles.css'>
     <link rel="stylesheet" href="stylesheets/<%= style %>.css">
-    
-    
 </head>
 <body>
-    <header>
-        <img id="logo" src="images/logo-wined-header.svg" alt="Wined logo">
-        <button type="button" class="hamburger-menu">
-            <img class="menu" src="images/hamburger.svg" alt="Hamburger menu"/>
-        </button>
-        <nav class="navbar">
-            <a href="#" class="home">
-                Início
-            </a>
-            
-            <a href="#" class="what-is-wined">
-                O que é a Wined +
-            </a>
-            
-            <a href="#" class="confraries">
-                Confrarias
-            </a>
-            <a href="/login" id="login">
-                Entrar
-            </a>
+    <header id="header-unlogged">
+        <a href="/"><img id="logo" src="images/logo-wined-header.svg" alt="Wined logo"></a>
+        <nav id="navbar">
+            <div id="hamburger-container">
+                <button type="button" id="hamburger-menu">
+                    <img src="images/hamburger.svg" alt="Hamburger menu"/>
+                </button>
+            </div>
+            <ul id="menu">
+                <li><a href="#" class="what-is-wined">O que é a Wined +</a></li>
+                <li><a href="#" class="confraries">Confrarias</a></li>
+                <li><a href="/login" id="login">Entrar</a></li>
+            </ul>
         </nav>
     </header>
+    <script>
+        const btnHamburger = document.getElementById("hamburger-menu");
+
+        function toggleMenu() {
+            const nav = document.getElementById("navbar");
+            nav.classList.toggle("active")
+        }
+        btnHamburger.addEventListener("click", toggleMenu);
+    </script>

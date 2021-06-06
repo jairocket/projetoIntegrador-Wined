@@ -1,12 +1,17 @@
 const multer  = require('multer');
-const path = require('path');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './uploads');
+    if(file.fieldname === "avatarFile") {
+      cb(null, './uploads/images/profilePictures');
+    } else if(file.fieldname === "backgroundFile") {
+      cb(null, './uploads/images/backgroundPictures');
+    } else {
+      cb(null, './uploads/images/brotherhoodPictures');
+    }
   },
   filename: function (req, file, cb) {
-    cb(null, `${Date.now()}_img_${path.extname(file.originalname)}`);
+    cb(null, `${Date.now()}_img_${file.originalname}`);
   }
 });
 

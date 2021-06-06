@@ -14,7 +14,7 @@ router.get('/', auth, function(req, res, next) {
   res.render('profile', { title: "Meu Perfil", style: "profile", user: req.session.user });
 });
 
-router.post('/', upload.single('avatarFile'), function (req, res, next) {
+router.post('/', upload.any(), function (req, res, next) {
   console.log(req.file);
   res.redirect('/perfil');
 });
