@@ -59,7 +59,14 @@
         User.belongsToMany(modelos.Event, {
             through: modelos.User_Event,
             foreignKey: "users_id"
-        })
+        });
+        User.hasMany(modelos.Post, {
+            as: "posts"
+        });
+        User.hasMany(modelos.Reaction, {
+            as: "reactions"
+        });
+
     };
 
     return User
