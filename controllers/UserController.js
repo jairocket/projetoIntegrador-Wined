@@ -84,7 +84,7 @@ let UserController = {
         },
         {
             where:{id},  
-        })
+        });
         return res.redirect(
             '/perfil'
         ) 

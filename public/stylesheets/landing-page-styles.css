@@ -1,405 +1,356 @@
-* {
-    box-sizing: border-box;
-    border: 0;
-    outline: 0;
-    padding: 0;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-}
-
-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    background-color:#B71F39;
-    padding: 10px;
-}
-
-header > img {
- width: 115px;
- 
-}
-
-
-header > button {
-    background: none;
-    cursor: pointer;
-    
-}
-
-.navbar{
-    display:none;
-    
-    
-}
-
-/* to apanhando para colocar sombra nos textos do navbar */
-.navbar > a {
-    font-size: 18px;
-    margin-right: 15px;
-    text-decoration: none;
-    color: #E6AAAE;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    
-}
-
-#login {
-    margin-left: 80px;
-}
-
 .scroll-pic{
-    display:flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
+    overflow: hidden;
 }
 
-/* botão cadastrar */
-.login-up{
-text-decoration: none;
-
-font-style: normal;
-font-weight: bold;
-font-size: 10px;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: #fff;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 20px 24px;
-
-width: 86px;
-height: 28.76px;
-
-background: #EC414B;
-/* Button / Primary */
-
-box-shadow: 4px 4px 0px #F1876F, 8px 8px 0px #F5AE9E;
-
-position:absolute;
-    top:55%;
-    left:20%;
-    -webkit-transform:translate3d(-50%, -50%, 0);
-    -moz-transform:translate3d(-50%, -50%, 0);
-    transform:translate3d(-50%, -50%, 0);
+.photos {
+    display: flex;
+    width: 400%;
+    animation-name: slider;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
 }
 
 .pic-landing{
-    width: 100%;
+    width: 25%;
 }
 
-.next-slide1, .next-slide2{
+.pic-text {
     position: absolute;
-    left: auto;
-    bottom: 0%;
+    top: 15%;
+    left: 0;
+    max-width: 50%;
 }
 
-h1{
+.login-up {
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 20px 15px;
-    text-align: center;
-    font-family:'Josefin Sans', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    letter-spacing: 0.1em;
-    line-height: 20px;
-    text-transform: uppercase;
+    padding: 2rem 2.4rem;
+    width: 8.6rem;
+    height: 2.9rem;
+    background: #EC414B;
+    box-shadow: 4px 4px 0px #f1876f, 8px 8px 0px #f5ae9e;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    -moz-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
 }
 
-.wined-what-is, .what-is-Brotherhood {
+.next-slide1 {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.wined-what-is, 
+.what-is-Brotherhood,
+.what-is, 
+.what-is > div {
     display: flex;
     flex-direction: column;
-    justify-content:center;
     align-items: center;
 }
 
-.wined-what-is img{
-    padding: 10px;
+.wined-what-is, 
+.what-is-Brotherhood {
+    padding: 0 2.5rem;
 }
 
+.what-is {
+    margin: 3rem 0;
+}
 
+#h1 {
+    margin: 2rem 0;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+}
+
+.what-is-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.drink-wine-1 {
+    width: 50%;
+    margin: 1rem 0;
+}
 
 .text {
     text-align: justify;
-    font-family:'Josefin Sans', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 9px;
-    line-height: 12px;
-    margin: 5px 0 10px;
-    padding: 5px 20px 10px;
-    
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 12px;
+    line-height: 14px;
 }
 
-.wined-what-is h2{
+.h2{
     display: flex;
-    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    gap: 0.5rem;
     text-align: center;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-family:'Josefin Sans', sans-serif;
-    font-style: normal;
     font-weight: 600;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    
-
+    margin-bottom: 2rem;
 }
 
 .sublinhado{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    font-size: 16px;
-    font-family:'Josefin Sans', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding: 0px 0px 5px;
     border-bottom: 4px solid #B42340;
-    margin: 0px 4px 20px;
+}
+
+#team-details {
+    position: relative;
+    overflow: hidden;
 }
 
 .team{
     display: flex;
+    flex-wrap: nowrap;
     justify-content: center;
-    align-items: center;
     text-align: center;
-    position: relative;
+    width: 200%;
+    padding: 1rem 0;
+    transition: all 500ms ease;
 }
 
-.member{
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.member > p {
+    padding: 1rem;
 }
-.name-member{
-    font-size: 14px;
-    font-family:'Josefin Sans', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    flex-wrap: wrap;
+
+.name-member {
+    font-size: 1.4rem;
+    font-family: 'Josefin Sans', sans-serif;
+    text-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     margin: 5px 0 5px;
     padding: 10px 20px 5px;
 }
 
-
-.what-is-Brotherhood{
-    position: relative;
+.next-slide {
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    margin-bottom: 2rem;
+    gap: 1rem;
 }
-.what-is-Brotherhood img{
-    padding: 10px;
+
+#team-um {
+    position: absolute;
+    left: 46%;
+    bottom: 0%;
+    z-index: 1;
 }
 
-.how-many-people{
+#team-dois {
+    position: absolute;
+    left: 51%;
+    bottom: 0%;
+    z-index: 1;
+}
+
+#team-um:checked ~ .team {
+    transform: translateX(0%);
+}
+
+#team-dois:checked ~ .team {
+    transform: translateX(-50%);
+}
+
+.friends {
+    width: 80%;
+    margin: 1rem 0;
+}
+
+.how-many-people {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 20px 30px 20px;
-    box-shadow: 4px 4px 4px 4px rgba(232, 70, 21, 0.74);
+    box-shadow: 4px 4px 4px 4px rgb(232 70 21 / 74%);
 }
 
-.how-many-people h2{
+.how-many-people > h2 {
     width: 100%;
-    color:#fff;
+    color: #fff;
     background: #E84615;
     text-align: center;
-    font-size: 18px;
-    font-family:'Josefin Sans', sans-serif;
-    font-style: normal;
+    font-size: 1.8rem;
+    font-family: 'Josefin Sans', sans-serif;
     font-style: italic;
-    font-weight: 600;
     padding: 10px;
-
-}
-.text{
-    text-align: justify;
-    font-family:'Josefin Sans', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 9px;
-    line-height: 12px;
 }
 
-.text2{
+.how-many-people > p {
     text-align: justify;
-    font-family:'Josefin Sans', sans-serif;
-    font-style: normal;
-    font-weight: normal;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 12px;
     line-height: 14px;
     margin: 5px 0 10px;
-    padding: 5px 20px 5px; 
+    padding: 5px 20px 5px;
 }
 
-
-.number-people{
+#number-people {
     font-family: 'Josefin Sans', sans-serif;
     font-style: italic;
     font-weight: bold;
-    font-size: 48px;
-    line-height: 59px;
-    text-align: center;
-
+    font-size: 4.8rem;
+    line-height: 3rem;
 }
 
-
 /* botão criar confraria */
-.create-Brotherhood{
-    text-decoration: none;
-    font-family:'Josefin Sans', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #fff;
+.create-Brotherhood {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 40px 0px 20px;
-    padding: 20px 20px;
-
-    width: 155px;
-    height: 32px;
-
-
+    margin: 4rem 0 7rem;
+    padding: 2rem 2rem;
+    width: 15.5rem;
+    height: 3.2rem;
     background: #EC414B;
+
     /* Button / Primary */
 
     box-shadow: 4px 4px 0px #F1876F, 8px 8px 0px #F5AE9E;
-
-    position:absolute;
-        top:100%;
-        left:50%;
-        -webkit-transform:translate3d(-50%, -50%, 0);
-        -moz-transform:translate3d(-50%, -50%, 0);
-        transform:translate3d(-50%, -50%, 0);
-
 }
 
-
-.people-world{
-    margin: 0px 0px 30px;
-    
-    position:absolute;
-    top:-6.8%;
-    z-index: 2;
-
+.create-Brotherhood > a {
+    text-decoration: none;
+    font-family:'Josefin Sans', sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    color: #fff;
 }
-
 
 .people-wined{
     display: flex;
     flex-direction: column;
-    justify-content:center;
     align-items: center;
     background: #E0F0E6;
-    margin: 140px 0px 180px;
+    margin: 1rem 0px 15rem;
     position: relative;
-    padding: 190px 0px 200px;
+    padding: 30rem 0px 12rem;
 }
 
-
-.people-wined h2 {
-    display: flex;
-    font-family:'Josefin Sans', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 17px;
-    text-align: center;
-    flex-wrap: wrap;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.people-world{
+    position:absolute;
+    top:-5%;
+    z-index: 2;
 }
 
 .number-user {
-    font-family:'Josefin Sans', sans-serif;
-    font-style: normal;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: bold;
     font-size: 64px;
-    line-height: 78px;
-    text-align: center;
-    margin-bottom: 30px;
 }
 
+.avaliations {
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 7rem;
+    overflow: hidden;
+}
+
+.star {
+    width: 30%;
+    align-self: center;
+    margin: 1rem 0 4rem;
+}
+
+.comments {
+    display: flex;
+    width: 200%;
+    padding: 2rem 0;
+    transition: all 500ms ease;
+}
+
+.comments-1,
+.comments-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#comments-um {
+    position: absolute;
+    left: 46%;
+    bottom: 0%;
+    z-index: 1;
+}
+
+#comments-dois {
+    position: absolute;
+    left: 51%;
+    bottom: 0%;
+    z-index: 1;
+}
+
+#comments-um:checked ~ .comments {
+    transform: translateX(0%);
+}
+
+#comments-dois:checked ~ .comments {
+    transform: translateX(-50%);
+}
 
 .avaliation-people{
     display: flex;
     flex-wrap: wrap;
     background: #EFFFF5;
-    border-radius: 19px;
-    margin: 15px 20px 15px;
-    padding: 6px 10px 18px ;
+    border-radius: 2rem;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem 1.5rem ;
     justify-content: space-between;
+    max-width: 85%;
 }
 
-/* isso daqui faz com que apenas apareça 2 avaliações em vez das 4 avaliações
-vai ficar assim até eu aprender mais sobre carrossel */
-.avaliation-people:nth-of-type(n+3){
-    display:none
-}
-
-.name-user{
+.name-user {
     display: flex;
-    justify-content: center;
     align-items: center;
-    text-align: center;   
     font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
-    font-weight: 500;
     font-size: 14px;
-    line-height: 16px;
 }
 
-.publication-user{
+.publication-user {
     display: flex;
     font-family: 'Josefin Sans', sans-serif;
-    font-style: normal;
-    font-weight: normal;
     font-size: 10px;
-    line-height: 166%;
-    letter-spacing: 0.1em;
-    justify-content: center;
     align-items: center;
-    text-align: center;
     color: #7B7B7B;
 }
-
-    
-
-.star-avaliation{
-    margin: 0px 10px 0px;
-
-}
-
 
 .avaliation-people article {
     text-align: justify;
     font-family: 'Josefin Sans', sans-serif;
-    font-style: normal;
-    font-weight: normal;
     font-size: 12px;
-    line-height: 14px;
-    letter-spacing: 0.05em;
-
+    padding: 0 1rem 0 4rem;
 }
 
+.call {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    align-items: center;
+    margin: 5rem 0;
+}
 
 .what-is-stay{
-    position:absolute;
-    top:80%;
-    left: 0%;
     width: 149px;
     height: 70px;
     background: #7CE815;
@@ -410,7 +361,7 @@ vai ficar assim até eu aprender mais sobre carrossel */
     font-weight: 600;
     font-size: 14px;
     line-height: 14px;
-    
+    align-self: flex-start;
 }
 
 .create-count{
@@ -437,138 +388,99 @@ vai ficar assim até eu aprender mais sobre carrossel */
     /* Button / Primary */
 
     box-shadow: 4px 4px 0px #F1876F, 8px 8px 0px #F5AE9E;
-
-    position:absolute;
-    top:85%;
-    z-index: 10;
 }
-
 
 .congratuations{
     position: absolute;
-    bottom: -19%;
+    bottom: -190%;
 }
 
-/* Aqui começa a configuração do Footer */
-footer {
-    display: flex;
-    
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;  
-    text-align: center;
-    background: linear-gradient(rgba(242, 217, 160, 0.8),rgba(150, 22, 35, 0.2));
-}
-
-footer > nav> a {
-    font-size: 12px;
-    text-decoration: none;
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 400;
-    color: #612B2E;
-    line-height: 30px;
-}
-
-footer > img{
-    padding: 15px;
-}
-
-
-/* Aqui é processo de tentativas de resposividade */
-/* Falta bastante coisa */
 @media (min-width: 481px) {
 
-    header > img {
-        width: 180px; 
-       }
-       .menu {
-        width: 40px;
-        height: 40px;
-        
+    .wined-what-is, .what-is-Brotherhood {
+        padding: 0 5rem;
     }
 
-}
-
-
-@media (min-width: 600px) {
-
-       .hamburger-menu {
-       display: none;
-        
+    .member {
+        max-width: 30%;
     }
 
-        .navbar{
-        display:flex;
+    .how-many-people {
+        max-width: 80%;
     }
-    .navbar > a{
-        font-size: 14px ;
-        font-weight: 600;
+
+    .avaliation-people {
+        max-width: 60%;
     }
-    
-
 }
 
-@media (min-width: 680px) {
-
-    .hamburger-menu {
-    display: none;
-     
- }
-
-     .navbar{
-     display:flex;
- }
-
- .navbar > a{
-     font-size: 18px ;
- }
-
- .login-up{
-    width: 131px;
-    height: 52px;
-    font-size: 14px;
-    line-height: 20px;
-}
-
-h1 {
-    font-size: 30px;
-    line-height: 42px;
-}
-
-
-
-.text{
-    font-size: 14px;
-    line-height: 16px;
-}
-.text2{
-    font-size: 18px;
-    line-height: 20px;
-}
-}
-
-@media (min-width: 800px){
-    .login-up{
-        width: 185px;
-        height: 68px;
-        font-size: 20px;
-        line-height: 28px;
+@media (min-width: 769px) {
+    main {
+        margin: 0 auto;
+        max-width: 70%; 
     }
-    .next-slide1, .next-slide2, .next-slide3{
-        height: 10px;
-    };
 
+    .what-is-details {
+        flex-direction: row-reverse;
+        gap: 5rem;
+        margin-top: 3rem;
+    }
+
+    .what-is-details > div {
+        max-width: 50%;
+    }
+
+    .text {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    .team {
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .member {
+        max-width: 40%;
+    }
+
+    .how-many-people {
+        max-width: 60%;
+    }
+
+    .people-world {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .people-world > img {
+        width: 100%;
+    }
+
+    .avaliations {
+        margin-top: 35rem;
+    }
+
+    .star {
+        width: 15%;
+    }
+
+    .comments {
+        width: 100%;
+    }
+
+    .avaliation-people {
+        max-width: 80%;
+    }
+
+    .congratuations {
+        width: 38rem;
+    }
 }
-
-
-
-@media (min-width: 1100px){
-
-h1 {
-    font-size: 3.5rem;
-    line-height: 100px;
-}
-.next-slide1, .next-slide2, .next-slide3{
-    height: 10px;
-};
-};

@@ -3,67 +3,104 @@
 <body>
     <main>
 <!-- parte que é o 'carrossel' de fotos + o botão para cadastro na wined+ -->
-        <div class="scroll-pic">
-            <img class="pic-landing" src="images/pic-landing.svg" alt="foto vinho"/> 
-                <a href="http://localhost:3000/cadastrar" class="login-up">CADASTRAR</a>
-                <img class="next-slide1" src="images/next-slide-model1.svg" alt="passar slide"/>
-        </div>
+        <section class="scroll-pic">
+            <div class="photos">
+                <img class="pic-landing" src="images/pic-landing1.svg" alt="foto slide"/> 
+                <img class="pic-landing" src="images/pic-landing2.svg" alt="foto slide"/> 
+                <img class="pic-landing" src="images/pic-landing3.svg" alt="foto slide"/> 
+                <img class="pic-landing" src="images/pic-landing1.svg" alt="foto slide"/> 
+            </div>
+            <img class="pic-text" src="images/pic-landing-text.svg" alt="text"/>
+            <a href="http://localhost:3000/cadastrar" class="login-up">CADASTRAR</a>
+        </section>
 
     <!-- aqui começa a parte do que é a Wined     -->
-        <div class="wined-what-is">
-            <h1>
-                MUDANDO SUA EXPERIÊNCIA EM <br>VINHOS
-            </h1>
-            <img class="text-wt-wined" src="images/wined-what-is.svg" alt="o que wined"/>
-            <img class="drink-wine-1" src="images/drink-wine-1.svg" alt="bebendo vinho"/>
-            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida orci dui, vel
-                 sagittis tellus egestas vel. Vestibulum et nibh a metus lobortis elementum. 
-                 Sed et sem ut arcu rutrum dapibus at sed est. Aenean in purus eu neque vulputate laoreet. 
-                 In ante odio, euismod id nibh non, molestie pretium metus. Vestibulum nibh mi, lacinia vel
-                  blandit non, tincidunt vitae enim. Quisque bibendum eget quam ornare ultrices. 
-                  Cras aliquam ut metus in faucibus. Aenean condimentum id magna at dapibus. </p>
-            <h2> O  <p class="sublinhado">Time </p> </h2> 
+        <section class="wined-what-is">
+            <div class="what-is">
+                <div id="h1">
+                    <h1>
+                        MUDANDO SUA EXPERIÊNCIA EM VINHOS
+                    </h1>
+                </div>
+                <div>
+                    <img class="text-wt-wined" src="images/wined-what-is.svg" alt="o que wined"/>
+                <div class="what-is-details">
+                    <img class="drink-wine-1" src="images/drink-wine-1.svg" alt="bebendo vinho"/>
+                    <div>
+                        <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida orci dui, vel
+                            sagittis tellus egestas vel. Vestibulum et nibh a metus lobortis elementum. 
+                            Sed et sem ut arcu rutrum dapibus at sed est. Aenean in purus eu neque vulputate laoreet. 
+                            In ante odio, euismod id nibh non, molestie pretium metus. Vestibulum nibh mi, lacinia vel
+                             blandit non, tincidunt vitae enim. Quisque bibendum eget quam ornare ultrices. 
+                             Cras aliquam ut metus in faucibus. Aenean condimentum id magna at dapibus. </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div id="team-details">
+                <div class="h2">
+                    <p>O<p class="sublinhado">Time</p></p>
+                </div>
+                <input type="radio" name="slide-team" id="team-um" checked>
+                <input type="radio" name="slide-team" id="team-dois">
             <div class="team">
                 <article class="member">
                     <img class="team1" src="images/team.svg" alt="pessoa 1 do time"/>
-                <h3 class="name-member">
+                    <h3 class="name-member">
                     Lorem ipsum dolor sit amet 
-                </h3>
+                    </h3>
                     <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida orci dui, vel
-                sagittis tellus egestas vel.</p>    
-                </article> 
-            
+                    sagittis tellus egestas vel.</p>    
+                </article>
+
                 <article class="member">
                     <img class="team2" src="images/team.svg" alt="pessoa 2 do time"/>
-                <h3 class="name-member">
-                Lorem ipsum dolor sit amet 
-                </h3>
-                <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida orci dui, vel
-                sagittis tellus egestas vel.</p>    
-                </article>  
-                <img class="next-slide2" src="images/next-slide-model2.svg" alt="passar slide"/>  
-            </div>
-            
-        </div>
-        <div class="what-is-Brotherhood">
-            <img class="brotherhood" src="images/brotherhood-what.svg" alt="o que e confraria"/>
-            <img class="friends" src="images/friends.svg" alt="confraria"/>
-            <p class="text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida orci dui, 
-                vel sagittis tellus egestas vel. Vestibulum et nibh a metus lobortis elementum. 
-                Sed et sem ut arcu rutrum dapibus at sed est. Aenean in purus eu neque vulputate laoreet. 
-                In ante odio, euismod id nibh non, molestie pretium metus. Vestibulum nibh mi, lacinia vel 
-                blandit non, tincidunt vitae enim. Quisque bibendum eget quam ornare ultrices. Cras aliquam ut 
-                metus in faucibus. Aenean condimentum id magna at dapibus. 
+                    <h3 class="name-member">
+                    Lorem ipsum dolor sit amet 
+                    </h3>
+                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida orci dui, vel
+                    sagittis tellus egestas vel.</p>    
+                </article>
+                <article class="member">
+                    <img class="team1" src="images/team.svg" alt="pessoa 1 do time"/>
+                    <h3 class="name-member">
+                    Lorem ipsum dolor sit amet 
+                    </h3>
+                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida orci dui, vel
+                    sagittis tellus egestas vel.</p>    
+                </article>
 
-                eu neque vulputate laoreet. In ante odio, euismod id nibh non, molestie pretium metus. 
-                Vestibulum nibh mi, lacinia vel blandit non, tincidunt vitae enim. Quisque bibendum eget quam 
-                ornare ultrices. Cras aliquam ut metus in faucibus. Aenean condimentum id magna at dapibus.  
-            </p>
+                <article class="member">
+                    <img class="team2" src="images/team.svg" alt="pessoa 2 do time"/>
+                    <h3 class="name-member">
+                    Lorem ipsum dolor sit amet 
+                    </h3>
+                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida orci dui, vel
+                    sagittis tellus egestas vel.</p>    
+                </article>
+            </div>
+            </div>    
+        </section>
+        <section class="what-is-Brotherhood">
+            <div class="what-is">
+                <img class="brotherhood" src="images/brotherhood-what.svg" alt="o que e confraria"/>
+                <img class="friends" src="images/friends.svg" alt="confraria"/>
+                <p class="text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida orci dui, 
+                    vel sagittis tellus egestas vel. Vestibulum et nibh a metus lobortis elementum. 
+                    Sed et sem ut arcu rutrum dapibus at sed est. Aenean in purus eu neque vulputate laoreet. 
+                    In ante odio, euismod id nibh non, molestie pretium metus. Vestibulum nibh mi, lacinia vel 
+                    blandit non, tincidunt vitae enim. Quisque bibendum eget quam ornare ultrices. Cras aliquam ut 
+                    metus in faucibus. Aenean condimentum id magna at dapibus. 
+                    <br>
+                    <br>
+                    eu neque vulputate laoreet. In ante odio, euismod id nibh non, molestie pretium metus. 
+                    Vestibulum nibh mi, lacinia vel blandit non, tincidunt vitae enim. Quisque bibendum eget quam 
+                    ornare ultrices. Cras aliquam ut metus in faucibus. Aenean condimentum id magna at dapibus.  
+                </p>
+            </div>
             <div class="how-many-people">
-                <h2>
-                    Quantas people são necessárias?
-                </h2>
+                <h2>Quantas people são necessárias?</h2>
                 
                 <p class="text2">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -71,140 +108,118 @@
                     Vestibulum et nibh a metus lobortis elementum. Sed et sem ut arcu rutrum 
                     dapibus at sed est. Aenean in purus   
                 </p>
-                <p class="number-people">
-                    6  
-                </p>
+                <p id="number-people">6</p>
                 <p class="text2">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                     Quisque gravida orci dui, vel sagittis tellus egestas vel. 
-                     
                 </p>
-                <p class="number-people">
-                    12
-                </p>
+                <p id="number-people">12</p>
                 <p class="text2">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                     Quisque gravida orci dui, vel sagittis tellus egestas vel. 
                     Vestibulum et nibh a metus lobortis elementum. 
                 </p>
             </div>
-            <a href="#" class="create-Brotherhood">
-                CRIAR CONFRARIA 
-            </a>
-        </div>
-        <div class="people-wined">
-            
-            <img  class="people-world" src="images/world-peoples.svg" alt="usuarios wined+"/>
-            
-
-            <h2>WINEDEANOS EM <p class="sublinhado">NÚMEROS</p> </h2>
-            <p class="number-user">
-                25.430
-                <img class="plus-confetti" src="images/plus-confetti.svg" alt="enfeites"/>
-            </p>
-            
-            <h2>
-                <p class="sublinhado">AVALIAÇÕES </p> DA  PLATAFORMA
-            </h2>
-            <img class="star" src="images/star.svg" alt="estrela de avaliacao"/>
-            <div class="avaliation-people">
-                <img class="pic-user1" src="images/pic-user1.svg" alt="imagem do usuario"/>
-                <div class="name-user">
-                    Scarlet withch
-                </div>
-                <div class="publication-user">
-                    6 May, 2020
-                </div>
-                <img class="star-avaliation" src="images/star-5-avaliation.svg" alt="avaliacao"/>
-                <span>
-                    <article>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
-                        nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  
-                    </article>
-                </span>
+            <div class="create-Brotherhood">
+                <a href="#">CRIAR CONFRARIA</a>
             </div>
-            <div class="avaliation-people">
-                <img class="pic-user2" src="images/pic-user2.svg" alt="imagem do usuario"/>
-                <div class="name-user">
-                    Scarlet withch2
+        </section>
+        <section class="people-wined">
+            <div class="people-world">
+                <img src="images/world-peoples.svg" alt="usuarios wined+"/>
+                <div class="h2">
+                    <p>WINEDEANOS EM <p class="sublinhado">NÚMEROS</p></p>
                 </div>
-                <div class="publication-user">
-                    7 May, 2020
-                </div>
-                <img class="star-avaliation" src="images/star-4-avaliation.svg" alt="avaliacao"/>
-                <span>
-                    <article>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
-                        nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  
-                    </article>
-                </span>
+                <p class="number-user">25.430
+                <img class="plus-confetti" src="images/plus-confetti.svg" alt="enfeites"/></p>
             </div>
-            <div class="avaliation-people">
-                <img class="pic-user3" src="images/pic-user3.svg" alt="imagem do usuario"/>
-                <div class="name-user">
-                    Scarlet withch3
+            <div class="avaliations">
+                <div class="h2">
+                    <p><p class="sublinhado">AVALIAÇÕES</p>DA PLATAFORMA</p>
                 </div>
-                <div class="publication-user">
-                    8 May, 2020
+                <img class="star" src="images/star.svg" alt="estrela de avaliacao"/>
+                <input type="radio" name="slide-comments" id="comments-um" checked>
+                <input type="radio" name="slide-comments" id="comments-dois">
+                <div class="comments">
+                    <div class="comments-1">
+                        <div class="avaliation-people">
+                            <img class="pic-user1" src="images/pic-user1.svg" alt="imagem do usuario"/>
+                            <div class="name-user">
+                                Scarlet withch
+                            </div>
+                            <div class="publication-user">
+                                6 May, 2020
+                            </div>
+                            <img class="star-avaliation" src="images/star-5-avaliation.svg" alt="avaliacao"/>
+                            <span>
+                                <article>
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
+                                    nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  
+                                </article>
+                            </span>
+                        </div>
+                        <div class="avaliation-people">
+                            <img class="pic-user2" src="images/pic-user2.svg" alt="imagem do usuario"/>
+                            <div class="name-user">
+                                Scarlet withch2
+                            </div>
+                            <div class="publication-user">
+                                7 May, 2020
+                            </div>
+                            <img class="star-avaliation" src="images/star-4-avaliation.svg" alt="avaliacao"/>
+                            <span>
+                                <article>
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
+                                    nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  
+                                </article>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="comments-2">
+                        <div class="avaliation-people">
+                            <img class="pic-user3" src="images/pic-user3.svg" alt="imagem do usuario"/>
+                            <div class="name-user">
+                                Scarlet withch3
+                            </div>
+                            <div class="publication-user">
+                                8 May, 2020
+                            </div>
+                            <img class="star-avaliation" src="images/star-4-avaliation.svg" alt="avaliacao"/>
+                            <span>
+                                <article>
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
+                                    nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  
+                                </article>
+                            </span>
+                        </div>
+                        <div class="avaliation-people">
+                            <img class="pic-user4" src="images/pic-user4.svg" alt="imagem do usuario"/>
+                            <div class="name-user">
+                                Scarlet withch4
+                            </div>
+                            <div class="publication-user">
+                                9 May, 2020
+                            </div>
+                            <img class="star-avaliation" src="images/star-2-avaliation.svg" alt="avaliacao"/>
+                            <span>
+                                <article>
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
+                                    nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  
+                                </article>
+                            </span>
+                        </div>
+                    </div>
                 </div>
-                <img class="star-avaliation" src="images/star-4-avaliation.svg" alt="avaliacao"/>
-                <span>
-                    <article>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
-                        nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  
-                    </article>
-                </span>
             </div>
-            <div class="avaliation-people">
-                <img class="pic-user4" src="images/pic-user4.svg" alt="imagem do usuario"/>
-                <div class="name-user">
-                    Scarlet withch4
+            <div class="call">
+                <div class="what-is-stay">
+                    <span>O que você está esperando?</span>
                 </div>
-                <div class="publication-user">
-                    9 May, 2020
-                </div>
-                <img class="star-avaliation" src="images/star-2-avaliation.svg" alt="avaliacao"/>
-                <span>
-                    <article>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
-                        nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  
-                    </article>
-                </span>
+                <a href="/cadastrar" class="create-count">CRIAR CONTA</a>
+                <img  class="congratuations" src="images/congratuations.svg" alt="parabens"/>
             </div>
-            <img class="next-slide3" src="images/next-slide-model3.svg" alt="passar slide"/>
-            <div class="what-is-stay">
-                O que você está esperando?
-            </div>
-            <a href="http://localhost:3000/cadastrar" class="create-count">
-                CRIAR CONTA
-            </a>
-            <img  class="congratuations" src="images/congratuations.svg" alt="parabens"/>
-        </div>
+        </section>
        
     </main>
-    <footer>
-        <nav>
-                <a class="sobre" href="#">
-                    Sobre
-                </a>
-            <br>
-                <a class="contato" href="#">
-                    Contato
-                </a>
-            <br>
-                <a class="termos" href="#">
-                    Termos de Uso
-                </a>
-            <br>
-                <a class="politica" href="#">
-                    Política de privacidade
-                </a>
-            <br>
-                <a class="politica-cont" href="#">
-                    Política de conteúdo
-                </a>
-        </nav>
-        <img class="Copyscript" src="images/copyscript.svg" alt="feito por wined+"/>      
-    </footer>
-</body>
-</html>
+
+    <%- include('./partials/footer.ejs')  %>
