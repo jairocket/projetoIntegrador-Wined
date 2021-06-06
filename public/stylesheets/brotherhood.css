@@ -1,14 +1,44 @@
 * {
-    color: white;
+    color: black;
     font-family: 'Montserrat', sans-serif;
 }
 
+h5{
+    margin: 15px;
+}
 
 main {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background: whitesmoke;
+}
+
+.confraria{
+    display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(180deg, #9B0000 5%, #2E0000 50%);
+    width: 70%;
+    padding-right: 1%;
+}
+
+.userName > h5{
+    padding: 20px;
+}
+
+.dash{
+    width: 28%;
+    position: fixed;
+    left: 1%;
+    
+}
+
+.topOptions{
+    height: 15vh;
+}
+
+.topp{
+    width: 100%;
 }
 
 .confraria-cover {
@@ -51,41 +81,76 @@ main {
 .confraria-title > div {
     display: flex;
     justify-content: space-around;
-
     font-family: 'roboto', sans-serif;
     font-size: 12px;
 }
 
 .confraria-members {
-    display: flex;
-
-    width: 100%;
+    display: flex;    
     padding: 0 20px;
-
     position: relative;
     justify-content: space-between;
 }
-
-.confraria-members > button {
+.brotherhoodMenu{
+    display: flex;
+    flex-direction: row;
+}
+.brotherhoodMenu > button, .brotherhoodMenu > a {
     background: #287A5C;
     border-radius: 25px;
-
-    height: 55px;
-    width: 130px;
-
+    height: 40px;
+    width: 170px;
+    margin: 10px;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 16px;
     text-align: center;
     letter-spacing: 0.05em;
     font-variant: small-caps;
+    color:white;
 }
 
-.confraria-members > img {
-    /* box-shadow: 2px 4px 20px rgb(0 0 0 / 25%); */
+.brotherhoodMenu > a > p{
+    color: white;
+    padding: 10px;
 }
+
+.description, .userDescription{
+    display: flex;
+    flex-direction: column;
+    background-color: #FFCDC1;
+    border-radius: 25px;
+    
+}
+
+.dashMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.description{
+    margin: 30px;
+    width: 90%;
+}
+
+.userDescription{
+    display:flex;
+    width: 100%;
+    align-self: center;
+}
+
+.description > p, .userDescription > p{
+    
+    padding: 30px;
+}
+
+/*.confraria-members > img {
+    /* box-shadow: 2px 4px 20px rgb(0 0 0 / 25%); */
+/*}*/
 
 .confraria-members > img:last-child {
     position: absolute;
@@ -97,12 +162,9 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    width: 100%;
-
-    background: #4F0000;
-    margin: 20px 0;
-
+    width: 95%;
+    background: #9B0000;
+    border-radius: 25px;
 }
 
 .create-post-buttons {
@@ -125,16 +187,30 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-
     padding-bottom: 3px;
     border-bottom: 1px solid white;
 }
 
-.write-post > p {
-    width: 240px;
-    height: 28px;
+.write-postPrompt{
+    background: whitesmoke;
+    width: 85%;
+    border-radius: 22px;
+    font-size: 12px;
+    text-align: justify;
+    line-height: 1;
+    min-height: 35px;
+    padding: 10px;
+    overflow-wrap: break-word;
+}
 
-    border: 2px solid #FFFFFF;
+.write-postPrompt > div{
+    padding-bottom: 1px;
+}
+
+.write-post > p {
+    
+    height: 28px;
+    border: 2px solid black thin;
     border-radius: 22px;
     padding: 6px 0;
     font-size: 12px;
@@ -146,7 +222,6 @@ main {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-
     padding: 10px 0;
 }
 

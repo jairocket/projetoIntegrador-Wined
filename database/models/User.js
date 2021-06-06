@@ -38,6 +38,10 @@
         birthday: {
             type: DataTypes.DATE,
             allowNull: false
+        },
+        provider: {
+            type: DataTypes.BOOLEAN,
+            default: false
         }
     },{
         tableName: "users"
@@ -56,6 +60,17 @@
             as: "background_pictures",
             foreignKey: "background_picture_id"
         });
+        User.belongsToMany(modelos.Event, {
+            through: modelos.User_Event,
+            foreignKey: "users_id"
+        });
+        User.hasMany(modelos.Post, {
+            as: "posts"
+        });
+        User.hasMany(modelos.Reaction, {
+            as: "reactions"
+        });
+
     };
 
     return User

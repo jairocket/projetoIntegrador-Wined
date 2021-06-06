@@ -9,6 +9,7 @@ const methodOverride = require('method-override');
 
 const landingRouter = require('./routes/landingPage');
 const loginRouter = require('./routes/login');
+const dashboardRouter = require('./routes/dashboard');
 const registerRouter = require('./routes/register');
 const brotherhoodPageRouter = require('./routes/brotherhoodPage');
 const profileRouter = require('./routes/profile');
@@ -48,7 +49,8 @@ app.use('/perfil', profileRouter);
 app.use('/favorites', favoritesRouter);
 app.use('/privacidade', privacyPolicyRouter);
 app.use('/termos', termsOfUseRouter);
-app.use('/editarperfil', profileEditorRouter)
+app.use('/editarperfil', profileEditorRouter);
+app.use('/dashboard', dashboardRouter);
 
 
 // catch 404 and forward to error handler

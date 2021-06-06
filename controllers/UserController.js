@@ -62,8 +62,7 @@ let UserController = {
                 email: usr.email
             }
             req.session.user = user;
-            
-            res.redirect('/perfil');
+            res.redirect('/dashboard');
         }
         res.status(401).send('não autorizado')    
    
