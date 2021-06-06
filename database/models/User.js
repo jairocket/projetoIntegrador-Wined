@@ -38,6 +38,10 @@
         birthday: {
             type: DataTypes.DATE,
             allowNull: false
+        },
+        provider: {
+            type: DataTypes.BOOLEAN,
+            default: false
         }
     },{
         tableName: "users"

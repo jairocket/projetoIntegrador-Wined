@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
         as: 'author',
         foreignKey: "users_id"
       });
-      Post.hasMany(models.Reactions)
+      Post.hasMany(models.Reaction)
     }
   
     return Post;
