@@ -18,13 +18,25 @@ const DashboardController ={
                     attributes: [],
                 },  
             ],     
-    })
+        })
+
+        const user = await db.User.findByPk(id, {
+            attributes: [
+                'id',
+                'name',
+                'surname', 
+                'description', 
+                'profile_picture_id', 
+                'background_picture_id'
+            ]
+        })
+
     return res.render(
         'dashboard', {
         title: "Dashboard",
         style: "dashboard",
         brotherhoods: membersBrotherhoods,
-        user: req.session.user,
+        user,
         
         }
      )
