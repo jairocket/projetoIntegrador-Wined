@@ -99,7 +99,7 @@ let UserController = {
             where:{id},  
         });
         return res.redirect(
-            '/perfil'
+            '/dashboard'
         ) 
     },
     delete: async (req, res)=>{
