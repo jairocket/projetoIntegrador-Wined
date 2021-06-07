@@ -67,6 +67,20 @@ let UserController = {
         res.status(401).send('não autorizado')    
    
     },
+    getProfile: async (req, res) =>{
+        const {id} = req.params
+        const profile = await db.User.findByPk(id);
+        console.log(profile)
+        const user = {
+            name: profile.name,
+            surname: profile.surname,
+            description: profile.description, 
+            id: profile.id, 
+            email: profile.email
+        }
+        return res.render('profile', { title: "Meu Perfil", style: "profile", user: user })
+
+    },
     profileEditorForm: async (req, res)=>{
         const id = req.session.user.id;
         const user = await db.User.findByPk(id);
