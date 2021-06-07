@@ -56,6 +56,7 @@ a{
     letter-spacing: 0.05em;
     font-variant: small-caps;
     color:white;
+    text-decoration: none;
 }
 
 .brotherhoodMenu > a > p{
