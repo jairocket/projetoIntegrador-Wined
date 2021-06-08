@@ -21,10 +21,7 @@ router.post('/', upload.any(), function (req, res, next) {
   res.redirect('/perfil');
 });
 
-router.get('/sair', function(req, res){
-  req.session.destroy();
-  res.redirect('/login');
-})
+
 
 //Desafio 30
 
