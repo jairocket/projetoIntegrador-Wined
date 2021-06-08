@@ -38,10 +38,11 @@ let UserController = {
                 
             })
             console.log(results)
+            req.flash('success', "Cadastro realizado com sucesso!")
             res.render('login')
         }else{
             console.log(errorsList)
-            res.render("register", {errors: errorsList.errors});
+            res.render("register", {errors: errorsList.errors, old: req.body});
         }
         
     },

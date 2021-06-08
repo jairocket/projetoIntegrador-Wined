@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
 const methodOverride = require('method-override');
-
+const flash = require('express-flash');
 
 const landingRouter = require('./routes/landingPage');
 const loginRouter = require('./routes/login');
@@ -39,7 +39,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(flash());
 
 app.use('/', landingRouter);
 app.use('/login', loginRouter);

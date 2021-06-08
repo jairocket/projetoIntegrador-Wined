@@ -20,6 +20,9 @@
         <div class="logo">
             <img src="images/logo-wined.svg" alt="logo-wined">
         </div>
+        <% if (messages.success) { %>
+            <div class="flash flash-success"><%= messages.success %></div>
+        <% } %>
         <form action="/login" method='POST' class="formulario">
             <div class="input-field">
                 <input type="text" name="email" id="email" placeholder="E-mail">

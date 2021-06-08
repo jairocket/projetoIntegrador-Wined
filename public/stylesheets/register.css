@@ -27,6 +27,10 @@ main {
   text-align: justify;
 }
 
+.errors {
+  color:#9B0000;
+}
+
 .terms {
   display: flex;
   margin: 24px 0px 26px;
@@ -93,7 +97,7 @@ form > label > input {
   margin-top: 32px;
 }
 
-@media(min-width: 414px){
+@media(min-width: 481px){
   main {
       display: flex;
       flex-direction: column;
