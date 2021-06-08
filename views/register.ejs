@@ -20,44 +20,40 @@
       <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id.</h2>
     </div>
     <br>
-    <% if(typeof(errors) != "undefined"){ %>
-      <p>Não foi possível realizar o cadastro pois:</p>
-      <ul>
-        <% errors.forEach((error)=>{ %>
-          <li><%= error.msg %></li>
-        <% }) %>
-      </ul>
-    <% } %>
-
+    <span class="errors">
+      <% if(typeof(errors) != "undefined"){ %>
+        <p>Não foi possível realizar o cadastro pois:</p>
+        <ul>
+          <% errors.forEach((error)=>{ %>
+            <li><%= error.msg %></li>
+          <% }) %>
+        </ul>
+      <% } %>
+    </span>
     <form action='/cadastrar'method="POST" class="formulario">
       <div class="terms">
         <label>
           <input type="checkbox" name="terms" id="terms">
         </label>
         <div class="terms-text">
-          Aceito os <a id ="terms"href="http://localhost:3000/termos">Termos de Uso</a> e <a id ="terms" href="http://localhost:3000/privacidade">Política de Privacidade</a>.
+          Aceito os <a id ="terms"href="/termos">Termos de Uso</a> e <a id ="terms" href="/privacidade">Política de Privacidade</a>.
         </div>
       </div>
-      <p>E-mail</p>
       <label for="email">
-        <input type="email" name="email" id="email" placeholder="Digite seu e-mail">
+        <input type="email" name="email" id="email" placeholder="Digite seu e-mail" value="<%= locals.old && old.email %>">
       </label>
-      <p>Nome</p>
       <label for="name">
-        <input type="text" name="name" id="name" placeholder="Digite seu Nome">
+        <input type="text" name="name" id="name" placeholder="Digite seu Nome" value="<%= locals.old && old.name %>">
       </label>
-      <p>Sobrenome</p>
       <label for="surname">
-        <input type="text" name="surname" id="surname" placeholder="Digite seu Sobrenome">
+        <input type="text" name="surname" id="surname" placeholder="Digite seu Sobrenome" value="<%= locals.old && old.surname %>">
       </label>
-      <p>Data de Nascimento</p>
       <label for="birthday">
-        <input type="date" name="birthday" id="birthday" placeholder="Data de Nascimento">
+        <input type="text" onfocus="(this.type='date')" name="birthday" id="birthday" placeholder="Data de Nascimento" value="<%= locals.old && old.birthday %>" required>
       </label>
-      <p>Conte-nos sobre você</p>
       <label for="description">
-        <input type="text" name="description" id="description" placeholder="Conte um pouco sobre você e sua paixão por vinhos">
-        </label>
+        <textarea name="description" id="description" cols="1" rows="3" placeholder="Conte um pouco sobre você e sua paixão por vinhos"><%=locals.old && old.description%></textarea>
+      </label>
       
       <label for="password">
         <input class="password-form" type="password" name="password" id="password" placeholder="Defina uma senha">
@@ -77,7 +73,7 @@
     </div>
     <div class="perfil-question text-montserrat">
       <p>Você já tem um perfil?</p>
-      <a href="http://localhost:3000/login">Faça login</a>
+      <a href="/login">Faça login</a>
     </div>
   </section>
   </main>
