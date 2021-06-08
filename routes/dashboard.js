@@ -7,4 +7,9 @@ const auth = require('../middlewares/auth');
 
 router.get('/', auth, DashboardController.getBrotherhoods);
 
+router.get('/sair', function(req, res){
+  req.session.destroy();
+  res.redirect('/login');
+})
+
   module.exports = router;
