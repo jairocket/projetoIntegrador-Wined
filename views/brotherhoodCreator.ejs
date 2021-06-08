@@ -1,0 +1,31 @@
+
+<%- include('./partials/header')  %>
+<body>
+    <main>
+      <section class = registerForm>
+
+        <div id="call">
+          Não perca tempo e crie logo sua confraria <h1 id="logo">Wined+</h1>
+        </div>
+        <div id="call-text">
+          <h2>É muito simples!</h2>
+        </div>      
+      <br>
+      <form action='/confraria/criar'method="POST" class="formulario">
+   
+        <label for="name">
+          <input type="text" name="name" id="name" placeholder="Escolha um nome para sua confraria" value="<%= locals.old && old.name %>">
+        </label>
+
+        <label for="description">
+            <textarea name="description" id="description" cols="1" rows="3" placeholder="Descreva sua confraria" value="<%= locals.old && old.name %>" ></textarea>
+        </label>
+
+        <label for="birthday">
+            <input type="text" onfocus="(this.type='date')" name="since" id="since" placeholder="Se sua confraria já existe, informe aqui a data de criação" value="<%= locals.old && old.birthday %>">
+        </label>
+        
+        <button class="button btn-form" type="submit">Criar Confraria</button>
+      </form>
+    </main>
+      <%- include('./partials/footer')  %>
