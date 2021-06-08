@@ -6,14 +6,25 @@ const Sequelize = require('sequelize');
 const brotherhoodController = require('../controllers/BrotherhoodController')
 const membershipCheck = require('../middlewares/membershipCheck');
 
-/* GET home page. */
-router.get('/:id', auth, membershipCheck, brotherhoodController.accessBrotherhood);
+
+router.get('/criar', (req, res) =>{
+    res.render('brotherhoodCreator', {user: req.session.user, title: 'Cadastrar Confraria', style: 'register' })
+})
 
 /*Creates a brotherhood */
 router.post('/criar', brotherhoodController.brotherhoodCreator);
 
 //GET brotherhood members 
 router.get('/confrades/:id', brotherhoodController.getMembers);
+
+/* GET home page. */
+router.get('/:id', auth, membershipCheck, brotherhoodController.accessBrotherhood);
+
+
+
+
+
+
 
 //GET member's brotherhoods
 
