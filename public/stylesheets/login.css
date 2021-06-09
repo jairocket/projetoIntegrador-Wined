@@ -1,53 +1,27 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    
+    padding: 6.4rem 2.4rem 2.4rem;
 }
 
 
 .logo {
     display: flex;
-    align-items: center;
+    justify-content: center;
     margin-bottom: 40px;
-    margin-top: 60px;
 }
 
 .input-field input {
-    /* outline: none; */
     margin: 10px 0;
 }
 
-.formulario {
-    display: flex;
-    flex-direction: column;
-}
-
 .formulario a {
-    align-self: flex-end;
     color: #b71f39;
     font-size: 14px;
     margin-bottom: 25px;
     font-weight: 500;
 }
 
-.btn-form, .botao {
-    border-radius: 40px;
-    border: none;
-    align-items: center;
-}
-
-.formulario .btn-form {
-    width: 312px;
-    height: 40px;
-    color:white;
-    background-color: #b71f39;
+#forgot-password {
+    text-align: right;
 }
 
 .separador {
@@ -65,22 +39,24 @@ main {
     margin: 0 10px;
 }
 
-.social-fields {
-    margin-bottom: 24px;
-    width: 312px;
-}
-
 .criar-cadastro {
     width: 100%;
-    padding: 0px 24px;
 }
 
+.flash {
+    background-color: green;
+    font-size: 1.4rem;
+    color: white;
+    border-radius: 1rem;
+    padding: 1rem;
+}
 
-
-@media(min-width: 414px){
+@media(min-width: 481px){
     main {
+        
         display: flex;
         flex-direction: row;
+        justify-content: flex-end;
         background-image: url("../images/imagens-login.jpg");
         background-repeat: no-repeat;
         background-size: cover;
@@ -91,7 +67,6 @@ main {
         padding: 30px;
         background-color: white;
         border-radius: 25px;
-        position: relative;
-        right: 3%;
+        max-height: 60rem;
     }
 }
