@@ -163,7 +163,11 @@ footer > img{
   width: 64px;
 }
 
-.separador, .social-field, .terms, form, .input-field {
+.separador, 
+.social-field, 
+.terms, 
+form, 
+.input-field {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -174,6 +178,8 @@ form > label > input {
   border-radius: 4px;
   width: 100%;
   padding-left: 18px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
 }
 
 form > label > textarea {
@@ -183,6 +189,7 @@ form > label > textarea {
   padding: 18px;
   margin-bottom: 8px;
   font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
 }
 
 .social-fields {
@@ -282,6 +289,12 @@ form > label > textarea {
 .dropdown a:hover {background-color: #ddd;}
 
 .show {display: block;}
+
+.bi, .bi-eye-slash {
+  margin-left: -30px;
+  cursor: pointer;
+  font-size: 1.6rem;
+}
 
 @media (min-width: 769px) {
 

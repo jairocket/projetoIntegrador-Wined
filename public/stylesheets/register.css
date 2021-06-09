@@ -105,7 +105,6 @@ form > label > input {
       background-repeat: no-repeat;
       background-size: cover;
       justify-content: center;
-      
   }
  
   .registerForm, .editForm{
@@ -123,5 +122,12 @@ form > label > input {
       margin-bottom: 20px;
       position: relative;
       left: 20%;      
+  }
+}
+
+@media ( min-width: 769px ) {
+
+  .errors {
+    font-size: 1.4rem;
   }
 }
