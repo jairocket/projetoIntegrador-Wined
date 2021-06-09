@@ -238,6 +238,7 @@ form > label > textarea {
   font-size: 14px;
   line-height: 17px;
   color: #000000;
+  margin-top: 32px;
 }
 
 .perfil-question > p {
