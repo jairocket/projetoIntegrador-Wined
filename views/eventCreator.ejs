@@ -1,0 +1,36 @@
+<%- include('./partials/header') %>
+
+<body>
+    
+  <main>
+    <section class = registerForm>
+    <div id="call">
+      Crie um evento e compartilhe momentos <h1 id="logo">Wined+</h1>
+    </div>
+    <form action='/eventos'method="POST" class="formulario">
+
+      <p>Nome</p>
+      <label for="name">
+        <input type="text" name="name" id="name" placeholder="Nome do evento">
+      </label>
+      <p>Data</p>
+      <label for="Data">
+        <input type="date" name="date" id="date" placeholder="Digite a Data do Evento">
+      </label>
+      <p>Endereço</p>
+      <label for="endereço">
+        <input type="text" name="local" id="local" placeholder="Digite o endereço">
+      </label>
+      <p>Hora</p>
+      <label for="Hora">
+        <input type="datetime" name="Hora" id="Hora" placeholder="Digite a Hora">
+      </label>
+      <button class="button btn-form" type="submit">Cadastre seu evento</button>
+    </form>
+    </div>
+</section>
+  </main>
+</body>
+
+<%- include('./partials/footer')  %>  
+</html>
