@@ -7,8 +7,22 @@ const BrotherhoodController = {
   //Get brotherhood page
   accessBrotherhood: async function(req, res) {
     const{id} = req.params;
-    const user_id = req.session.user.id
+    const user_id = req.session.user.id;
+
     const brotherhood = await db.Brotherhood.findByPk(id);
+
+    const members = await db.User.findAll({
+      include: [
+        {
+          model: db.Brotherhood,
+          where: {id},
+          required: true,
+          attributes: []
+        }
+      ],
+      attributes: ['id', 'name', 'surname', 'profile_picture_id']
+    });
+
     const user = await db.User.findByPk(user_id, {attributes: [
       'id',
       'name',
@@ -22,7 +36,8 @@ const BrotherhoodController = {
       title: "Confraria",
       style: "brotherhood", 
       user,
-      brotherhood:brotherhood
+      brotherhood:brotherhood,
+      members: members
      });
   },
 

@@ -4,8 +4,24 @@
     <main>
         <section class="dash">
             <%- include('./partials/topview') %>
-             <div class="userDescription">
+            <div class="userDescription">
                 <p><%= user.description %></p>
+            </div>
+            <div class="members">
+                <h5>Confrades ></h5>
+                <% members.forEach((member)=>{ %>
+                    <div class="member">
+                        <a href ="/perfil/<%= member.id %>">
+                            
+                                <img src="" alt="">
+                            
+                        </a>
+                        <div>
+                            <a href ="/perfil/<%= member.id %>"><%= member.name %> <%= member.surname %></a><br>
+                        </div>
+                    </div>
+                <% }) %>
+
             </div>
              <!-- <div class= dashMenu>
                 <div class="brotherhoodMenu">
