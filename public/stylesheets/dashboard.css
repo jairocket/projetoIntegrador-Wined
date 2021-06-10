@@ -11,12 +11,26 @@
     width: 33%;
     padding: 30px;
     border-radius: 25px;
-    background-color: whitesmoke;
+    background-color: whitesmoke;  
+}
+
+.brotherhood{
+    font-size: 14px;
+    margin-left: 20px;
     
+    padding: 10px;
 }
 
 h5{
     margin: 15px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+h4{
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
 }
 
 a{

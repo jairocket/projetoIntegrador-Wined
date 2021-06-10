@@ -9,8 +9,29 @@ const BrotherhoodController = {
     const{id} = req.params;
     const user_id = req.session.user.id;
 
-    const brotherhood = await db.Brotherhood.findByPk(id);
-
+    const bhood = await db.Brotherhood.findByPk(id, {
+      attributes:['name', 'since', 'createdAt', 'description', 'id']});
+    const brotherhood ={
+      name: bhood.name,
+      since: bhood.since,
+      createdAt: `${bhood.createdAt.getDate()}/${bhood.createdAt.getMonth()+1}/${bhood.createdAt.getFullYear()}`,
+      //since: `${bhood.since.getDate()}/${bhood.since.getMonth()}/${bhood.since.getFullYear()}`,
+      description: bhood.description,
+      id: bhood.id
+    }
+    
+    const count = await db.User.findAndCountAll({
+      include: [
+        {
+          model: db.Brotherhood,
+          where: {id},
+          required: true,
+          attributes: []
+        }
+      ],
+     attributes: [] 
+    });
+    
     const members = await db.User.findAll({
       include: [
         {
@@ -37,8 +58,10 @@ const BrotherhoodController = {
       style: "brotherhood", 
       user,
       brotherhood:brotherhood,
-      members: members
+      members: members,
+      count: count.count
      });
+     
   },
 
   /*Creates a brotherhood */
@@ -56,6 +79,7 @@ const BrotherhoodController = {
         brotherhood_picture_id, 
         since
     })
+    
 
     let brotherhood_id = brotherhood.id
     const brotherhoodChancellor = await db.Brotherhood_User.create({
@@ -63,8 +87,6 @@ const BrotherhoodController = {
         user_id: req.session.id,
         chancellor: true
     })
-      console.log(brotherhood)
-      console.log(brotherhoodChancellor)
       return res.json(brotherhood)
     },
 

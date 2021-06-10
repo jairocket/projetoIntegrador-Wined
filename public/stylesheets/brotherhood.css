@@ -5,13 +5,24 @@
 }
 
 h5{
-    margin: 15px;
+    margin: 30px;
+    font-weight: 500;
+    text-decoration: underline;
+}
+h2{
+    font-size: 22px;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.confraria-title > div > p{
+    font-size: 12px;
 }
 
 main {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-evenly;
     background: whitesmoke;
 }
 
