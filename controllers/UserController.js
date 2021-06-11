@@ -69,7 +69,7 @@ let UserController = {
                     res.redirect('/dashboard');
             } else {
                 req.flash('error', "Senha incorreta!")
-                res.render('login')
+                res.render('login', {old: req.body})
             }
         } else {
             console.log(errorsList)
