@@ -10,7 +10,7 @@ const membershipCheck = require('../middlewares/membershipCheck');
 
 /*GET a form to create a brotherhood */
 
-router.get('/criar', (req, res) =>{
+router.get('/criar', auth, (req, res) =>{
     res.render('brotherhoodCreator', {user: req.session.user, title: 'Cadastrar Confraria', style: 'register' })
 });
 
@@ -18,9 +18,9 @@ router.get('/criar', (req, res) =>{
 router.post('/criar', brotherhoodController.brotherhoodCreator);
 
 //GET brotherhood members 
-router.get('/confrades/:id', brotherhoodController.getMembers);
+router.get('/confrades/:id', auth, brotherhoodController.getMembers);
 
-router.get('/eventos/:id', (req, res) =>{
+router.get('/eventos/:id', auth, (req, res) =>{
     res.render('eventCreator', {user: req.session.user, title: 'Cadastrar Eventos', style: 'register'})
 }); 
 
