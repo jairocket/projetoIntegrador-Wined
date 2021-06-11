@@ -301,6 +301,10 @@ form > label > textarea {
   font-size: 1.6rem;
 }
 
+.errors {
+  color:#9B0000;
+}
+
 @media (min-width: 769px) {
 
   header {
@@ -386,5 +390,10 @@ form > label > textarea {
   #profile-pic {
     width: 10rem;
     /* height: 10rem; */
+  }
+
+
+  .errors {
+    font-size: 1.4rem;
   }
 }

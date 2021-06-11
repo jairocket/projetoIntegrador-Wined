@@ -27,10 +27,6 @@ main {
   text-align: justify;
 }
 
-.errors {
-  color:#9B0000;
-}
-
 .terms {
   display: flex;
   margin: 24px 0px 26px;
@@ -106,12 +102,5 @@ form > label > input {
       margin-bottom: 20px;
       position: relative;
       left: 20%;      
-  }
-}
-
-@media ( min-width: 769px ) {
-
-  .errors {
-    font-size: 1.4rem;
   }
 }

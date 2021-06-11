@@ -24,9 +24,22 @@
         <% if (messages.success) { %>
             <div class="flash flash-success"><%= messages.success %></div>
         <% } %>
+        <span class="errors">
+            <% if(typeof(errors) != "undefined"){ %>
+              <p>Não foi possível entrar pois:</p>
+              <ul>
+                <% errors.forEach((error)=>{ %>
+                  <li><%= error.msg %></li>
+                <% }) %>
+              </ul>
+            <% } %>
+            <% if (messages.error) { %>
+                <div class="flash flash-error"><%= messages.error %></div>
+            <% } %>
+          </span>
         <form action="/login" method='POST' class="formulario">
             <div class="input-field">
-                <input type="text" name="email" id="email" placeholder="E-mail">
+                <input type="text" name="email" id="email" placeholder="E-mail" value="<%= locals.old && old.email %>">
             </div>
             <div class="input-field">
                 <input type="password" name="password" id="password" placeholder="Senha"><i class="bi bi-eye-slash" id="togglePassword"></i>
