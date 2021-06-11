@@ -7,11 +7,20 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.profileInfo, .myBrotherhoods, .notifications{
-    width: 33%;
-    padding: 30px;
-    border-radius: 25px;
+.profileInfo, .myBrotherhoods{
+    width: 19.5%;
     background-color: whitesmoke;  
+}
+
+.myBrotherhoods{
+    padding: 30px;
+}
+
+.notifications{
+    width: 59.5%;
+    background-color: whitesmoke;
+    padding: 30px;
+    
 }
 
 .brotherhood{
@@ -53,7 +62,7 @@ a{
 
 .brotherhoodMenu{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 .brotherhoodMenu > button, .brotherhoodMenu > a {
     background: #287A5C;
@@ -99,9 +108,9 @@ a{
 }
 
 .userDescription{
-    display:flex;
-    width: 100%;
-    align-self: center;
+    position: relative;
+    width: 90%;
+    left: 10px;
 }
 
 .description > p, .userDescription > p{

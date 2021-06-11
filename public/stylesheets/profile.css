@@ -5,6 +5,7 @@ main{
     flex-direction: column;
     color: black;
     font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
 }
 
 .backgroundPic, .backgroundPic > img{
@@ -31,6 +32,8 @@ main{
 
 h5 {
     color: black;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 #brotherhoodTitle{
