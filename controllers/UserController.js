@@ -50,23 +50,31 @@ let UserController = {
         res.render('login')
     },
     userLogger: async(req,res)=>{
-        const {email, password} = req.body;
-        const usr = await db.User.findOne({
-            where: {email}
-        })
-        if ((usr.email == email) && (bcrypt.compareSync(password, usr.password))){
-            const user = {
-                name: usr.name,
-                surname: usr.surname,
-                description: usr.description, 
-                id: usr.id, 
-                email: usr.email
+        let errorsList = validationResult(req);
+        if (errorsList.isEmpty()){
+            const {email, password} = req.body;
+            const usr = await db.User.findOne({
+                where: {email}
+            });
+
+            if ((usr.email == email) && (bcrypt.compareSync(password, usr.password))){
+                    const user = {
+                        name: usr.name,
+                        surname: usr.surname,
+                        description: usr.description, 
+                        id: usr.id, 
+                        email: usr.email
+                    }
+                    req.session.user = user;
+                    res.redirect('/dashboard');
+            } else {
+                req.flash('error', "Senha incorreta!")
+                res.render('login', {old: req.body})
             }
-            req.session.user = user;
-            res.redirect('/dashboard');
-        }
-        res.status(401).send('não autorizado')    
-   
+        } else {
+            console.log(errorsList)
+            res.render("login", {errors: errorsList.errors, old: req.body});
+        }   
     },
     getProfile: async (req, res) =>{
         const {id} = req.params

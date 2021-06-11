@@ -43,7 +43,7 @@ main {
     width: 100%;
 }
 
-.flash {
+.flash-success {
     background-color: green;
     font-size: 1.4rem;
     color: white;

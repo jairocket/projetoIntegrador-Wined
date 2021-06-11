@@ -13,6 +13,9 @@ const db = require('../database/models');
 const { Op } = require("sequelize");
 
 /* GET profile page. */
+router.get('/', auth, (req, res) => {
+  res.redirect('/perfil/' + req.session.user.id)
+});
 router.get('/:id', auth, UserController.getProfile);
 
 
