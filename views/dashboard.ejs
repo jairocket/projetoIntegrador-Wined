@@ -11,24 +11,25 @@
             <div class= dashMenu>
             <div class="brotherhoodMenu">
                 <a href="#"><p>Adega</p></a>
-                <a href="http://localhost:3000/favorites"><p>Favoritos</p></a>
-            </div>
-            <div class="brotherhoodMenu"> 
                 <a href="#"><p>Criar Confraria</p></a>
-                <a href="#"><p>Editar Confraria</p></a> 
+                
             </div>
+            <!-- <div class="brotherhoodMenu"> 
+                <a href="http://localhost:3000/favorites"><p>Favoritos</p></a>
+                
+            </div> -->
         </section>
 
         <section class="myBrotherhoods">
-            <h3>Minhas Confrarias</h3>
+            <h4>Minhas Confrarias</h4>
             <% brotherhoods.forEach((brotherhood)=>{ %>
-                <li><a href ="/confraria/<%= brotherhood.id %>"><%= brotherhood.name %></a></li>
+                <a href ="/confraria/<%= brotherhood.id %>"><div class="brotherhood"><%= brotherhood.name %></div></a><br>
 
             <% }) %>
         </section>
 
         <section class="notifications">
-            <h3>Notificações</h3>
+            <h4>Notificações</h4>
 
 
         </section>
