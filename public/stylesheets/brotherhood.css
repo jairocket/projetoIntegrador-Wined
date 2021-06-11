@@ -179,9 +179,9 @@ main {
 }
 
 .userDescription{
-    display:flex;
-    width: 100%;
-    align-self: center;
+    position:relative;
+    width: 95%;
+    right: 5px;
 }
 
 .description > p, .userDescription > p{
