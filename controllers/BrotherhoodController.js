@@ -84,10 +84,10 @@ const BrotherhoodController = {
     let brotherhood_id = brotherhood.id
     const brotherhoodChancellor = await db.Brotherhood_User.create({
         brotherhood_id,
-        user_id: req.session.id,
+        users_id: req.session.user.id,
         chancellor: true
     })
-      return res.json(brotherhood)
+      return res.redirect('/dashboard')
     },
 
   //ADD new members (pesquisar create bulk)
