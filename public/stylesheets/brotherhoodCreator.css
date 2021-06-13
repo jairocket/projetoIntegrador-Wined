@@ -1,0 +1,28 @@
+.btn-form1 {
+    margin: 24px 0px 14px;
+    width: 30%;
+    height: 40px;
+    background: #9B0000;
+    border-radius: 40px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+  }
+
+  .btn-add {
+    margin: 24px 0px 14px;
+    width: 30%;
+    height: 40px;
+    background: #287A5C;
+    border-radius: 40px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+  }
+
+  #addMember-addInput{
+    display: flex;
+    justify-content: space-evenly;
+  }
