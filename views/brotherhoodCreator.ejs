@@ -1,3 +1,15 @@
+<head>
+  <link rel="stylesheet" href="../../stylesheets/brotherhoodCreator.css">
+</head>
+
+<script>
+  function addNewInput(){
+    var newInput = document.createElement('div');
+    newInput.innerHTML = "<label for='member'><input type= 'email' name='member' id='member' placeholder='Informe o e-mail do seu ou sua confrade'></div></label>"
+    document.getElementById('newInput').appendChild(newInput);  
+  }
+</script>
+
 
 <%- include('./partials/header')  %>
 <body>
@@ -21,11 +33,26 @@
             <textarea name="description" id="description" cols="1" rows="3" placeholder="Descreva sua confraria" value="<%= locals.old && old.name %>" ></textarea>
         </label>
 
-        <label for="createdSince">
-            <input type="text" onfocus="(this.type='date')" name="since" id="since" placeholder="Se sua confraria já existe, informe aqui a data de criação" value="<%= locals.old && old.birthday %>">
+        <label for="since">
+            <input type="text" onfocus="(this.type='date')" name="since" id="since" placeholder="Data de criação" value="<%= locals.old && old.birthday %>">
         </label>
+
+        <div id='addMember'>
+          <div>
+            <label for="member">
+              <input type="email" name="member" id="member" placeholder="Informe o e-mail do seu ou sua confrade">
+            </label>  
+          </div>
+
+          <div id='newInput'>
+
+          </div>
+        </div>
+        <div id="addMember-addInput">
+          <button class ="button btn-add"type="button" value="addInput" onclick="addNewInput();">Adicionar Membro</button>
+          <button class="button btn-form1" type="submit">Criar Confraria</button>
+        </div>
         
-        <button class="button btn-form" type="submit">Criar Confraria</button>
       </form>
     </main>
       <%- include('./partials/footer')  %>
