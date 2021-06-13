@@ -70,16 +70,31 @@ const BrotherhoodController = {
         name,  
         description, 
         brotherhood_picture_id,
-        since 
+        since,
+        members
         } = req.body;
-        
-    const brotherhood = await db.Brotherhood.create({
+    
+        let membersIds = [];
+
+        // await members.forEach(member => {
+        //   db.User.findOne({
+        //     where:{
+        //       email: member
+        //     },
+        //     attributes:['id']
+        //   }).then(membersIds.push(result))
+        // });
+
+        const brotherhood = await db.Brotherhood.create({
         name,  
         description, 
         brotherhood_picture_id, 
         since
     })
     
+    
+
+    console.log(members)
 
     let brotherhood_id = brotherhood.id
     const brotherhoodChancellor = await db.Brotherhood_User.create({
@@ -92,13 +107,14 @@ const BrotherhoodController = {
 
   //ADD new members (pesquisar create bulk)
     
-    // addMembers: async (req, res) =>{
-    //   const newMember = await db.Brotherhood_User.create({
-    //     user_id,
-    //     brotherhood_id,
-    //     chancellor
-    //   })
-    // },
+    addMembers: async (req, res) =>{
+     
+      
+      const addMember = await db.Brotherhood_User.create({
+
+
+    })
+  },
 
     
 //GET brotherhood's members
