@@ -1,6 +1,7 @@
 const db = require('../database/models');
 const Sequelize = require('sequelize');
 const { check, validationResult, body } = require('express-validator');
+const { promiseImpl } = require('ejs');
 
 const BrotherhoodController = {
 
@@ -72,40 +73,49 @@ const BrotherhoodController = {
         brotherhood_picture_id,
         since,
         members
-        } = req.body;
-    
-        let membersIds = [];
-
-        // await members.forEach(member => {
-        //   db.User.findOne({
-        //     where:{
-        //       email: member
-        //     },
-        //     attributes:['id']
-        //   }).then(membersIds.push(result))
-        // });
-
+        } = req.body;  
+        
         const brotherhood = await db.Brotherhood.create({
         name,  
         description, 
         brotherhood_picture_id, 
         since
-    })
-    
-    
-
-    console.log(members)
+    });
 
     let brotherhood_id = brotherhood.id
     const brotherhoodChancellor = await db.Brotherhood_User.create({
         brotherhood_id,
         users_id: req.session.user.id,
         chancellor: true
-    })
+    });
+
+    const membersIds =  members.map(async function(member) {
+      await db.User.findOne({
+        where:{
+          email: member
+        },
+        attributes:['id']
+      })
+    });
+
+
+    Promise.resolve(membersIds).then(membersIds.forEach(async(memberId) => {
+      await db.Brotherhood_User.create({
+        brotherhood_id,
+        users_id: memberId.id,
+        chancellor: false
+      })
+      
+    })) ;
+    
+      
+
       return res.redirect('/dashboard')
     },
 
   //ADD new members (pesquisar create bulk)
+
+  
     
     addMembers: async (req, res) =>{
      

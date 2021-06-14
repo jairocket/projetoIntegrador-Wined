@@ -30,7 +30,7 @@ const DashboardController ={
                 'background_picture_id'
             ]
         })
-
+       
     return res.render(
         'dashboard', {
         title: "Dashboard",
