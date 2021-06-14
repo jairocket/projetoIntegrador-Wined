@@ -1,18 +1,23 @@
 <head>
   <link rel="stylesheet" href="../../stylesheets/brotherhoodCreator.css">
+  
 </head>
 
+
+<script type="text/javascript" src="../views/js/brotherhoodCreator.js"></script>
+
 <script>
-  function addNewInput(){
-    var newInput = document.createElement('div');
-    newInput.innerHTML = "<label for='members'><input type= 'email' name='members' id='members' placeholder='Informe o e-mail do seu ou sua confrade'></div></label>"
-    document.getElementById('newInput').appendChild(newInput);  
-  }
+function addNewInput(){
+  var newInput = document.createElement('div');
+  newInput.innerHTML = "<label for='members'><input type= 'email' name='members' id='members' placeholder='Informe o e-mail do seu ou sua confrade'></div></label>"
+  document.getElementById('newInput').appendChild(newInput);  
+}
 </script>
 
 
 <%- include('./partials/header')  %>
 <body>
+  
     <main>
       <section class = registerForm>
 
@@ -56,3 +61,5 @@
       </form>
     </main>
       <%- include('./partials/footer')  %>
+      
+</body>
