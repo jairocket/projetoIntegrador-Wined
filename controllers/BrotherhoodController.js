@@ -88,25 +88,41 @@ const BrotherhoodController = {
         users_id: req.session.user.id,
         chancellor: true
     });
-
-    const membersIds =  members.map(async function(member) {
+    
+    for(member of members){
       await db.User.findOne({
-        where:{
-          email: member
-        },
-        attributes:['id']
+        where:{email:member},
+        attributes: ['id']
+      }).then(async(result) =>{
+        await db.Brotherhood_User.create({
+          brotherhood_id,
+          users_id: result.id,
+          chancellor: false
+        })
       })
-    });
+    }
+    
+
+    // const membersIds = members.map(async(member)=> {
+    //   await db.User.findOne({
+    //     where:{
+    //       email: member
+    //     },
+       
+    //   })
+    // });
 
 
-    Promise.resolve(membersIds).then(membersIds.forEach(async(memberId) => {
-      await db.Brotherhood_User.create({
-        brotherhood_id,
-        users_id: memberId.id,
-        chancellor: false
-      })
+    //Promise.all(membersIds).then(valores => console.log(valores))
+
+    // Promise.resolve(membersIds).then(membersIds.forEach(async(memberId) => {
+    //   await db.Brotherhood_User.create({
+    //     brotherhood_id,
+    //     users_id: memberId.id,
+    //     chancellor: false
+    //   })
       
-    })) ;
+    // })) ;
     
       
 
