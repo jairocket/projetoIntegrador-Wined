@@ -112,7 +112,6 @@ const BrotherhoodController = {
     //   })
     // });
 
-
     //Promise.all(membersIds).then(valores => console.log(valores))
 
     // Promise.resolve(membersIds).then(membersIds.forEach(async(memberId) => {
@@ -122,24 +121,53 @@ const BrotherhoodController = {
     //     chancellor: false
     //   })
       
-    // })) ;
-    
-      
+    // })) ;   
 
       return res.redirect('/dashboard')
     },
 
-  //ADD new members (pesquisar create bulk)
+    update: async (req, res) =>{
+      let { id } = req.params;
+      let {
+        name,  
+        description, 
+        brotherhood_picture_id,
+        since,
+        members
+        } = req.body;
+      const brotherhood = await db.Brotherhood.update({
+        name,
+        description,
+        since
+      },{ 
+        where:{ id }
+      });
 
-  
+      for(member of members){
+        await db.User.findOne({
+          where:{email:member},
+          attributes: ['id']
+        }).then(async(result) =>{
+          await db.Brotherhood_User.create({
+            brotherhood_id,
+            users_id: result.id,
+            chancellor: false
+          })
+        });
+      }
+
+    },
+
     
-    addMembers: async (req, res) =>{
-     
-      
-      const addMember = await db.Brotherhood_User.create({
-
-
-    })
+    delete: async (req, res) =>{ 
+      let { id } = req.params; 
+      const deleteMembers = await db.Brotherhood_User.delete({
+        where:{brotherhood_id: id}
+      });
+      const deleteBrotherhood = await db.Brotherhood.delete({
+        where:{id}
+      });
+      return res.redirect('/dashboard');
   },
 
     
