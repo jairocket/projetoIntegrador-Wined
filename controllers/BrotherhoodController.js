@@ -126,6 +126,30 @@ const BrotherhoodController = {
       return res.redirect('/dashboard')
     },
 
+    updateView: async (req, res)=>{
+
+      let { id } = req.params;
+      
+      const members = await db.User.findAll({
+          include: [
+            {
+              model: db.Brotherhood,
+              where: {id},
+              required: true,
+              attributes: []
+            }
+          ],
+          attributes: ['id', 'name', 'surname', 'profile_picture_id']
+        });
+  
+      res.render('brotherhoodEditor', {
+          id: req.params.id,
+          user: req.session.user, 
+          members: members,
+          title: 'Editar Confraria', 
+          style: 'register'})
+  },
+
     update: async (req, res) =>{
       let { id } = req.params;
       let {
