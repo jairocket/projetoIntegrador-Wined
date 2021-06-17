@@ -17,10 +17,26 @@ router.get('/criar', auth, (req, res) =>{
 router.post('/criar', brotherhoodController.brotherhoodCreator);
 
 //GET brotherhoodEditor
-router.get('/editar/:id', auth, membershipCheck, (req, res)=>{
+router.get('/editar/:id', auth, membershipCheck, async (req, res)=>{
+
+    let { id } = req.params;
+    
+    const members = await db.User.findAll({
+        include: [
+          {
+            model: db.Brotherhood,
+            where: {id},
+            required: true,
+            attributes: []
+          }
+        ],
+        attributes: ['id', 'name', 'surname', 'profile_picture_id']
+      });
+
     res.render('brotherhoodEditor', {
         id: req.params.id,
         user: req.session.user, 
+        members: members,
         title: 'Editar Confraria', 
         style: 'register'})
 }) //criar view, incluir callback para renderizar a view
