@@ -10,9 +10,6 @@ const multer = require('multer');
 const storage = require('../middlewares/multer');
 const upload = multer({storage: storage});
 
-let userJson = path.join("users.json")
-let users = JSON.parse(fs.readFileSync(userJson, 'utf-8'));
-
 router.get('/:id', auth, userController.profileEditorForm);
 router.put('/:id', upload.any(), userController.profileEditor);
 router.delete('/:id', userController.delete)

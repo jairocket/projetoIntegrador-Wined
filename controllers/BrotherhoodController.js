@@ -149,13 +149,13 @@ const BrotherhoodController = {
           attributes: ['id']
         }).then(async(result) =>{
           await db.Brotherhood_User.create({
-            brotherhood_id,
+            brotherhood_id: req.params.id,
             users_id: result.id,
             chancellor: false
           })
         });
       }
-
+      res.redirect('/dashboard')
     },
 
     
@@ -169,8 +169,7 @@ const BrotherhoodController = {
       });
       return res.redirect('/dashboard');
   },
-
-    
+ 
 //GET brotherhood's members
 getMembers: async (req, res) =>{
     let id = req.params.id;
