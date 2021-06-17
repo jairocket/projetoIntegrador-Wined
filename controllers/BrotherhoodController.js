@@ -131,9 +131,7 @@ const BrotherhoodController = {
       let {
         name,  
         description, 
-        brotherhood_picture_id,
-        since,
-        members
+        since
         } = req.body;
       const brotherhood = await db.Brotherhood.update({
         name,
@@ -142,7 +140,10 @@ const BrotherhoodController = {
       },{ 
         where:{ id }
       });
+      res.redirect('/dashboard')
+    },
 
+    admMembers: async(req, res) =>{
       for(member of members){
         await db.User.findOne({
           where:{email:member},
@@ -155,7 +156,7 @@ const BrotherhoodController = {
           })
         });
       }
-      res.redirect('/dashboard')
+
     },
 
     
