@@ -52,8 +52,8 @@
             <div id='newInput'></div>
 
             <div id="addMember-addInput">
-              <button class ="button btn-add"type="button" value="addInput" onclick="addNewInput();">Adicionar Membro</button>
-              <button class="button btn-form1" type="submit">Criar Confraria</button>
+              <button class ="button btn-add"type="button" value="addInput" onclick="addNewInput();">Adicionar E-mail</button>
+              <button class="button btn-form1" type="submit">Submeter</button>
             </div>
 
         </div> 
@@ -61,24 +61,34 @@
       </section>
 
       <section class="registerForm">
+
         <div id="call-text">
-          <h2>Remova confrades</h2>
+          <h2>Gerenciar confrades</h2><br>
         </div> 
-        <div>
+
+        <table>
           <% members.forEach((member)=>{ %>
-            <div>
-                <div>
-                    <span><%= member.name %> <%= member.surname %></span> <a href ="/perfil/<%= member.id %>">Tornar Chanceler</a> <a href ="/perfil/<%= member.id %>">Remover</a> <br>
-                </div>
-            </div>
+              <tr id="memberOptions">
+                <td id="memberName">
+                  <span><%= member.name %> <%= member.surname %></span>   
+                </td>
+                <td id='chancellor'>
+                  <a href ="/perfil/<%= member.id %>">Tornar Chanceler</a>
+                </td>
+                <td id='remove'>
+                  <a href ="/perfil/<%= member.id %>">Remover</a>
+                </td>
+              </tr>
           <% }) %>
-        </div>
+        </table>
       </section>
 
       <section class="registerForm">
+
         <div id="call-text">
           <h2>Deseja excluir sua confraria?</h2>
         </div>
+
         <form action='//<%= user.id %>?_method=DELETE'method="POST" class="formulario">
           <div class="terms">
             <label>

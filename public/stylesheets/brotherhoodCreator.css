@@ -22,11 +22,50 @@
     color: #FFFFFF;
   }
 
+  .registerForm{
+    margin-bottom: 10px;
+  }
+
   #addMember-addInput{
     display: flex;
     justify-content: space-evenly;
   }
 
-  .registerForm{
-    margin-bottom: 10px;
+  #memberOptions{
+    display: flex;
+    align-items: center;
+    height: 35px;
+    
   }
+
+  #memberOptions > td > span, #memberOptions > td > a {
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  #memberOptions > td > a{
+    
+    color: #FFFFFF;
+    font-weight: 500;
+    border-radius: 25px;
+    width: 50px;
+  }
+
+  #remove{
+    background: #9B0000;
+  }
+
+  #chancellor{
+    background: #287A5C;
+  }
+
+  td{
+    padding: 15px;
+    margin: 1px;
+  }
+  
+
+  #memberName{
+    width: 250px;
+  }
+
