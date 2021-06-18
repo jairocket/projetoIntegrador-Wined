@@ -32,6 +32,18 @@ const BrotherhoodService = {
             })
         }
         return res.redirect('/dashboard') 
+    },
+
+    deleteMember: async(req, res)=>{
+        let { b_id, m_id } = req.params;
+        const deleted = await db.Brotherhood_User.delete({
+            where: {
+                [Op.and]: [
+                    {users_id: m_id}, 
+                    {brotherhood_id: b_id}
+                ]
+            }
+        })
     }
     
 }

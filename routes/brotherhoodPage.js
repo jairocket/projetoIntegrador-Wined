@@ -25,6 +25,8 @@ router.put('/editar/:id', brotherhoodController.update);
 //ADD new members into the brotherhood
 router.post('/editar/adicionar/:id', brotherhoodController.addMembers);
 
+router.delete('/editar/delete/:b_id/:m_id') //criar controller. service criado.
+
 //DELETE brotherhood
 router.delete('/delete/:id', brotherhoodController.delete);
 
