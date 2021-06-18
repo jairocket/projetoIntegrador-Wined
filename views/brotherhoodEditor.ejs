@@ -1,6 +1,7 @@
 <head>
-    <link rel="stylesheet" href="../public/stylesheets/brotherhoodCreator.css">
-    <script src="js/brotherhood.Creator.js"></script>
+    <link rel="stylesheet" href="../../stylesheets/brotherhoodCreator.css">
+    <script type="text/javascript" src="../../js/brotherhood.Creator.js"></script>
+    <script type="text/javascript" src="../../js/dropdown.js"></script> 
 </head>
   
   <%- include('./partials/header')  %>
@@ -37,44 +38,58 @@
       <section class="registerForm">
         <div id="call-text">
           <h2>Adicione novos confrades</h2>
-        </div>  
-        <form action="#">
-          <div>
-            <label for="members">
-              <input type="email" name="members" id="members" placeholder="Informe o e-mail do seu ou sua confrade">
-            </label>  
-          </div>
+        </div> 
+        
+        <form action="#" method="POST" class="formulario">
+          <div id='addMember'>
 
-          <div id='newInput'></div>
+            <div>
+              "<label for='members'>
+                <input type= 'email' name='members' id='members' placeholder='Informe o e-mail do seu ou sua confrade'>
+              </label> 
+            </div>
 
-          <div id="addMember-addInput">
-            <button class ="button btn-add"type="button" value="addInput" onclick="addNewInput();">Adicionar Membro</button>
-            <button class="button btn-form1" type="submit">Criar Confraria</button>
-          </div>
+            <div id='newInput'></div>
 
+            <div id="addMember-addInput">
+              <button class ="button btn-add"type="button" value="addInput" onclick="addNewInput();">Adicionar E-mail</button>
+              <button class="button btn-form1" type="submit">Submeter</button>
+            </div>
+
+        </div> 
         </form>
       </section>
 
       <section class="registerForm">
+
         <div id="call-text">
-          <h2>Remova confrades</h2>
+          <h2>Gerenciar confrades</h2><br>
         </div> 
-        <div>
+
+        <table>
           <% members.forEach((member)=>{ %>
-            <div class="">
-                <div>
-                    <p><%= member.name %> <%= member.surname %></p> <a href ="/perfil/<%= member.id %>">Remover</a> <br>
-                </div>
-            </div>
+              <tr id="memberOptions">
+                <td id="memberName">
+                  <span><%= member.name %> <%= member.surname %></span>   
+                </td>
+                <td id='chancellor'>
+                  <a href ="/perfil/<%= member.id %>">Tornar Chanceler</a>
+                </td>
+                <td id='remove'>
+                  <a href ="/perfil/<%= member.id %>">Remover</a>
+                </td>
+              </tr>
           <% }) %>
-        </div>
+        </table>
       </section>
 
       <section class="registerForm">
+
         <div id="call-text">
           <h2>Deseja excluir sua confraria?</h2>
         </div>
-        <form action='/editarperfil/<%= user.id %>?_method=DELETE'method="POST" class="formulario">
+
+        <form action='//<%= user.id %>?_method=DELETE'method="POST" class="formulario">
           <div class="terms">
             <label>
               <input type="checkbox" name="terms" id="terms">
