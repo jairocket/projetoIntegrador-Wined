@@ -22,6 +22,9 @@ router.get('/editar/:id', auth, membershipCheck, brotherhoodController.updateVie
 /* UPDATE brotherhoodPage */
 router.put('/editar/:id', brotherhoodController.update);
 
+//ADD new members into the brotherhood
+router.post('/editar/adicionar/:id', brotherhoodController.addMembers);
+
 //DELETE brotherhood
 router.delete('/delete/:id', brotherhoodController.delete);
 

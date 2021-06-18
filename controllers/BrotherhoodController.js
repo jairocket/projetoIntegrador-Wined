@@ -2,6 +2,7 @@ const db = require('../database/models');
 const Sequelize = require('sequelize');
 const { check, validationResult, body } = require('express-validator');
 const { promiseImpl } = require('ejs');
+const BrotherhoodService = require('../services/BrotherhoodService');
 
 const BrotherhoodController = {
 
@@ -155,7 +156,7 @@ const BrotherhoodController = {
       let {
         name,  
         description, 
-        since
+        since,
         } = req.body;
       const brotherhood = await db.Brotherhood.update({
         name,
@@ -167,21 +168,7 @@ const BrotherhoodController = {
       res.redirect('/dashboard')
     },
 
-    admMembers: async(req, res) =>{
-      for(member of members){
-        await db.User.findOne({
-          where:{email:member},
-          attributes: ['id']
-        }).then(async(result) =>{
-          await db.Brotherhood_User.create({
-            brotherhood_id: req.params.id,
-            users_id: result.id,
-            chancellor: false
-          })
-        });
-      }
-
-    },
+    addMembers: BrotherhoodService.addMembers,
 
     
     delete: async (req, res) =>{ 
