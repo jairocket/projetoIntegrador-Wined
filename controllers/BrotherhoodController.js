@@ -172,7 +172,8 @@ const BrotherhoodController = {
 
     deleteMember: async (req, res)=>{
       await BrotherhoodService.deleteMember(req, res)
-      res.redirect('/confraria/id');      
+      const { id } = req.params
+      res.redirect(`/confraria/${id}`);      
 
     }, 
 

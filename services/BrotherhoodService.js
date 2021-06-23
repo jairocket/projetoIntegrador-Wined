@@ -47,7 +47,7 @@ const BrotherhoodService = {
           })
         })
       }
-        return res.redirect('/dashboard') 
+        return res.redirect('/dashboard ') 
     },
 
     deleteMember: async(req, res)=>{
