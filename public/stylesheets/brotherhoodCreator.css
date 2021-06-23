@@ -26,15 +26,6 @@
     margin-bottom: 10px;
   }
 
-/* #chancellorMenu, #member{
-  display: flex;
-}
-#member{
-  justify-items: stretch;
-} */
-
- 
-
   #addMember-addInput{
     display: flex;
     justify-content: space-evenly;

@@ -5,6 +5,7 @@ const db = require('../database/models');
 const Sequelize = require('sequelize');
 const brotherhoodController = require('../controllers/BrotherhoodController')
 const membershipCheck = require('../middlewares/membershipCheck');
+const notAMemberCheck =require('../middlewares/notAMemberCheck');
 
 
 
@@ -23,7 +24,7 @@ router.get('/editar/:id', auth, membershipCheck, brotherhoodController.updateVie
 router.put('/editar/:id', brotherhoodController.update);
 
 //ADD new members into the brotherhood
-router.post('/editar/adicionar/:id', brotherhoodController.addMembers);
+router.post('/editar/adicionar/:id', notAMemberCheck, brotherhoodController.addMembers);
 
 router.delete('/editar/delete/:id/:m_id', auth, membershipCheck, brotherhoodController.deleteMember) //criar controller. service criado.
 
