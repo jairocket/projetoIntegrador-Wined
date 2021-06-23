@@ -18,6 +18,16 @@ module.exports = (sequelize, DataTypes)=>{
         tableName: "brotherhoods_users",
         timestamps: false
     });
+    Brotherhood_User.associate = function(modelos){
+        Brotherhood_User.hasMany(modelos.User, {
+            as: "user_brotherhood",
+            foreignKey: "id"
+        });
 
+        Brotherhood_User.hasMany(modelos.Brotherhood, {
+            as: "brotherhood_user",
+            foreignKey: "id"
+        });
+    }
     return Brotherhood_User
 };
