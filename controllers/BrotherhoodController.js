@@ -172,17 +172,17 @@ const BrotherhoodController = {
 
     deleteMember: async (req, res)=>{
       await BrotherhoodService.deleteMember(req, res)
-      res.send('ok');      
+      res.redirect('/confraria/id');      
 
     }, 
 
     
     delete: async (req, res) =>{ 
       let { id } = req.params; 
-      const deleteMembers = await db.Brotherhood_User.delete({
+      const deleteMembers = await db.Brotherhood_User.destroy({
         where:{brotherhood_id: id}
       });
-      const deleteBrotherhood = await db.Brotherhood.delete({
+      const deleteBrotherhood = await db.Brotherhood.destroy({
         where:{id}
       });
       return res.redirect('/dashboard');
