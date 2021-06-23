@@ -18,20 +18,35 @@ const BrotherhoodService = {
     },
 
     addMembers: async(req, res)=>{
-        let { members } = req.body;
-        let { id } = req.params;
+
+      let { members } = req.body;
+      let { id } = req.params;
+
+      if(Array.isArray(members)){
         for(member of members){
-            await db.User.findOne({
-              where:{email:member},
-              attributes: ['id']
-            }).then(async(result) =>{
-              await db.Brotherhood_User.create({
-                brotherhood_id: id,
-                users_id: result.id,
-                chancellor: false
-              })
+          await db.User.findOne({
+            where:{email:member},
+            attributes: ['id']
+          }).then(async(result) =>{
+            await db.Brotherhood_User.create({
+              brotherhood_id: id,
+              users_id: result.id,
+              chancellor: false
             })
+          })
         }
+      }else{
+        await db.User.findOne({
+          where:{email:members},
+          attributes:['id']
+        }).then(async(result) =>{
+          await db.Brotherhood_User.create({
+            brotherhood_id: id,
+            users_id: result.id,
+            chancellor: false
+          })
+        })
+      }
         return res.redirect('/dashboard') 
     },
 
