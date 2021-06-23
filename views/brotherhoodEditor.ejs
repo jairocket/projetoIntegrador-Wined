@@ -43,10 +43,11 @@
         <form action="adicionar/<%= id %>" method="POST" class="formulario">
           <div id='addMember'>
 
-            <div>
-              "<label for='members'>
+            <div id='member'>
+              <label for='members'>
                 <input type= 'email' name='members' id='members' placeholder='Informe o e-mail do seu ou sua confrade'>
-              </label> 
+              </label>
+            </div>
             </div>
 
             <div id='newInput'></div>
@@ -65,7 +66,6 @@
         <div id="call-text">
           <h2>Gerenciar confrades</h2><br>
         </div> 
-
         <table>
           <% members.forEach((member)=>{ %>
               <tr id="memberOptions">
@@ -73,14 +73,20 @@
                   <span><%= member.name %> <%= member.surname %></span>   
                 </td>
                 <td id='chancellor'>
-                  <a href ="/perfil/<%= member.id %>">Tornar Chanceler</a>
+                  <form action="" method="POST">
+                    <button type="submit">Tornar Chanceler</button>
+                  </form>
                 </td>
                 <td id='remove'>
-                  <a href ="/perfil/<%= member.id %>">Remover</a>
+                  <form action="/confraria/editar/delete/<%= id %>/<%= member.id %>?_method=DELETE" method="POST">
+                    <button type="submit">Remover</button>
+                  </form>
                 </td>
               </tr>
           <% }) %>
         </table>
+
+
       </section>
 
       <section class="registerForm">

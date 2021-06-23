@@ -170,6 +170,12 @@ const BrotherhoodController = {
 
     addMembers: BrotherhoodService.addMembers,
 
+    deleteMember: async (req, res)=>{
+      await BrotherhoodService.deleteMember(req, res)
+      res.send('ok');      
+
+    }, 
+
     
     delete: async (req, res) =>{ 
       let { id } = req.params; 

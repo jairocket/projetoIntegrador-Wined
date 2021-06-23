@@ -1,4 +1,5 @@
 const db = require('../database/models');
+const {Op} = require('sequelize');
 
 const BrotherhoodService = {
 
@@ -35,12 +36,12 @@ const BrotherhoodService = {
     },
 
     deleteMember: async(req, res)=>{
-        let { b_id, m_id } = req.params;
-        const deleted = await db.Brotherhood_User.delete({
+        let { id, m_id } = req.params;
+        const deleted = await db.Brotherhood_User.destroy({
             where: {
                 [Op.and]: [
-                    {users_id: m_id}, 
-                    {brotherhood_id: b_id}
+                  {brotherhood_id: Number(id)},
+                    {users_id: Number(m_id)}, 
                 ]
             }
         })
