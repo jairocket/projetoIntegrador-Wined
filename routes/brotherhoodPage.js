@@ -20,6 +20,9 @@ router.post('/criar', brotherhoodController.brotherhoodCreator);
 //GET brotherhoodEditor
 router.get('/editar/:id', auth, membershipCheck, brotherhoodController.updateView);
 
+//UPDATE member's access
+router.put('/editar/chancellor/:id/:m_id', brotherhoodController.chancellorSwitch) 
+
 /* UPDATE brotherhoodPage */
 router.put('/editar/:id', brotherhoodController.update);
 

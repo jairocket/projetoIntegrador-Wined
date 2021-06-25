@@ -160,8 +160,7 @@ const BrotherhoodController = {
       res.redirect(`/confraria/${id}`);      
 
     }, 
-
-    
+ 
     delete: async (req, res) =>{ 
       let { id } = req.params; 
       const deleteMembers = await db.Brotherhood_User.destroy({
@@ -172,9 +171,17 @@ const BrotherhoodController = {
       });
       return res.redirect('/dashboard');
   },
+
+  chancellorSwitch: async(req, res)=>{
+    await BrotherhoodService.chancellorSwitch(req, res)
+    const { id } = req.params;
+    return res.redirect(`/confraria/${id}`)
+
+
+  },
  
 //GET brotherhood's members
-getMembers: async (req, res) =>{
+  getMembers: async (req, res) =>{
     let id = req.params.id;
     const brotherhoodMembers = await db.User.findAll({
       include: [

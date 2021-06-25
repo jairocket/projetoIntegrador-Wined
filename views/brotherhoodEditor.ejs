@@ -73,7 +73,7 @@
                   <span><%= member.name %> <%= member.surname %></span>   
                 </td>
                 <td id='chancellor'>
-                  <form action="" method="POST">
+                  <form action="/confraria/editar/chancellor/<%= id %>/<%= member.id %>?_method=PUT" method="POST">
                     <button type="submit">Tornar Chanceler</button>
                   </form>
                 </td>
