@@ -46,7 +46,9 @@
             <div class="brotherhoodMenu">
                 <a href="#"><p>Agenda</p></a>
                 <a href="editar/<%= brotherhood.id %>"><p>Editar</p></a>
-                <a href="#"><p>Deixar Confraria</p></a>
+                <form action="/confraria/editar/delete/<%= brotherhood.id %>/<%= user.id %>?_method=DELETE" method="POST">
+                    <button type="submit" id='leaveBrotherhood'>Deixar Confraria</button>
+                </form>
             </div>
             <!-- <div class="confraria-members">
                 <img src="../images/mobile-confraria-members.svg" alt="membros">

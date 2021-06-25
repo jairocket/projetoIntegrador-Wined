@@ -103,28 +103,7 @@ const BrotherhoodController = {
       })
     }
     
-
-    // const membersIds = members.map(async(member)=> {
-    //   await db.User.findOne({
-    //     where:{
-    //       email: member
-    //     },
-       
-    //   })
-    // });
-
-    //Promise.all(membersIds).then(valores => console.log(valores))
-
-    // Promise.resolve(membersIds).then(membersIds.forEach(async(memberId) => {
-    //   await db.Brotherhood_User.create({
-    //     brotherhood_id,
-    //     users_id: memberId.id,
-    //     chancellor: false
-    //   })
-      
-    // })) ;   
-
-      return res.redirect('/dashboard')
+      return res.redirect(`/confraria/${brotherhood_id}`)
     },
 
     updateView: async (req, res)=>{
@@ -168,11 +147,17 @@ const BrotherhoodController = {
       res.redirect('/dashboard')
     },
 
-    addMembers: BrotherhoodService.addMembers,
+    addMembers: async (req, res) =>{
+
+      await BrotherhoodService.addMembers(req, res);
+      const {id} = req.params
+      res.redirect(`/confraria/${id}`)
+    },
 
     deleteMember: async (req, res)=>{
       await BrotherhoodService.deleteMember(req, res)
-      res.redirect('/confraria/id');      
+      const { id } = req.params
+      res.redirect(`/confraria/${id}`);      
 
     }, 
 

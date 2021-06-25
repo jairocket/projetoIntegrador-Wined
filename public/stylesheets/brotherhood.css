@@ -109,7 +109,7 @@ main {
     display: flex;
     flex-direction: row;
 }
-.brotherhoodMenu > button, .brotherhoodMenu > a {
+#leaveBrotherhood, .brotherhoodMenu > button, .brotherhoodMenu > a {
     background: #287A5C;
     border-radius: 25px;
     height: 40px;
