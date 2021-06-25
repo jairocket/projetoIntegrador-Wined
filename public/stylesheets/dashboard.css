@@ -7,27 +7,27 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.profileInfo, .myBrotherhoods{
-    width: 19.5%;
+.profileInfo {
+    width: 23.5%;
     background-color: whitesmoke;  
 }
 
 .myBrotherhoods{
     padding: 30px;
+    width: 23.5%;
+    background-color: whitesmoke;  
 }
 
 .notifications{
-    width: 59.5%;
+    width: 51.5%;
     background-color: whitesmoke;
     padding: 30px;
     
 }
 
 .brotherhood{
-    font-size: 14px;
-    margin-left: 20px;
-    
-    padding: 10px;
+    font-size: 14px;  
+    padding: 10px 0px 10px 0px;
 }
 
 h5{

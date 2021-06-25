@@ -5,7 +5,7 @@ const db = require('../database/models');
 const Sequelize = require('sequelize');
 const brotherhoodController = require('../controllers/BrotherhoodController')
 const membershipCheck = require('../middlewares/membershipCheck');
-const notAMemberCheck =require('../middlewares/notAMemberCheck');
+
 
 
 

@@ -37,7 +37,6 @@ let UserController = {
                 backgroundPicture, 
                 
             })
-            console.log(results)
             req.flash('success', "Cadastro realizado com sucesso!")
             res.render('login')
         }else{
