@@ -17,7 +17,7 @@ const BrotherhoodController = {
       name: bhood.name,
       since: bhood.since,
       createdAt: `${bhood.createdAt.getDate()}/${bhood.createdAt.getMonth()+1}/${bhood.createdAt.getFullYear()}`,
-      //since: `${bhood.since.getDate()}/${bhood.since.getMonth()}/${bhood.since.getFullYear()}`,
+      since: `${bhood.since.getDate()}/${bhood.since.getMonth()+1}/${bhood.since.getFullYear()}`,
       description: bhood.description,
       id: bhood.id
     }
@@ -74,36 +74,109 @@ const BrotherhoodController = {
         brotherhood_picture_id,
         since,
         members
-        } = req.body;  
+    } = req.body;
+
+    let fmembers = [];  
         
-        const brotherhood = await db.Brotherhood.create({
+    const brotherhood = await db.Brotherhood.create({
         name,  
         description, 
         brotherhood_picture_id, 
         since
     });
 
-    let brotherhood_id = brotherhood.id
+    let id = brotherhood.id
+
     const brotherhoodChancellor = await db.Brotherhood_User.create({
-        brotherhood_id,
+        brotherhood_id: id,
         users_id: req.session.user.id,
         chancellor: true
     });
-    
-    for(member of members){
+
+    if(Array.isArray(members)){
+      for(member of members){
+        await db.User.findOne({
+          where:{ email: member },
+          attributes: ['id'],
+          include: [
+            {
+              model: db.Brotherhood,
+              where: { id },
+              required: true
+            }
+          ]
+        }).then((result)=>{
+          if(!result){
+            fmembers.push(member)
+          }
+        });
+      }
+      if (fmembers.length === 0){
+        req.flash('errorMessage', 'Confrade(s) já faz(em) parte desta confraria!');
+        res.redirect(`/confraria/${id}`);
+      }else{
+        for(member of fmembers){
+          await db.User.findOne({
+            where:{email:member},
+            attributes: ['id']
+          }).then(async(result) =>{
+            await db.Brotherhood_User.create({
+              brotherhood_id: id,
+              users_id: result.id,
+              chancellor: false
+            })
+            req.flash('successMessage', 'Confrade(s) adicionado(s) com sucesso!');
+            return res.redirect(`/confraria/${id}`);
+          })
+        }
+      }
+    }else{
       await db.User.findOne({
-        where:{email:member},
-        attributes: ['id']
-      }).then(async(result) =>{
-        await db.Brotherhood_User.create({
-          brotherhood_id,
-          users_id: result.id,
-          chancellor: false
-        })
-      })
+        where:{ email: members },
+        attributes: ['id'],
+        include: [
+          {
+            model: db.Brotherhood,
+            where: { id },
+            required: true
+          }
+        ]
+      }).then(async(result)=>{
+          if(result){
+            req.flash('errorMessage', 'Confrade(s) já faz(em) parte desta confraria!');
+            return res.redirect(`/confraria/${id}`)
+          }else{
+            await db.User.findOne({
+              where: {email: members},
+              attributes: ['id']
+            }).then(async(results)=>{
+              await db.Brotherhood_User.create({
+                brotherhood_id: id,
+                users_id: results.id,
+                chancellor:false
+              })
+              req.flash('successMessage', 'Confrade(s) adicionado(s) com sucesso!');
+              return res.redirect(`/confraria/${id}`) 
+          }) 
+        }
+      })    
     }
+  
     
-      return res.redirect(`/confraria/${brotherhood_id}`)
+    // for(member of members){
+    //   await db.User.findOne({
+    //     where:{email:member},
+    //     attributes: ['id']
+    //   }).then(async(result) =>{
+    //     await db.Brotherhood_User.create({
+    //       brotherhood_id,
+    //       users_id: result.id,
+    //       chancellor: false
+    //     })
+    //   })
+    // }
+    
+      return res.redirect(`/confraria/${id}`)
     },
 
     updateView: async (req, res)=>{
@@ -121,11 +194,22 @@ const BrotherhoodController = {
           ],
           attributes: ['id', 'name', 'surname', 'profile_picture_id']
         });
+        
+        
+      const chancellors = await db.Brotherhood_User.findAll({
+        attributes: ['chancellor', 'users_id'],
+        where:{
+          brotherhood_id: id
+        }
+      });
+
+      console.log(chancellors)
   
       res.render('brotherhoodEditor', {
           id: req.params.id,
           user: req.session.user, 
           members: members,
+          chancellors,
           title: 'Editar Confraria', 
           style: 'register'})
   },
@@ -175,7 +259,7 @@ const BrotherhoodController = {
   chancellorSwitch: async(req, res)=>{
     await BrotherhoodService.chancellorSwitch(req, res)
     const { id } = req.params;
-    return res.redirect(`/confraria/${id}`)
+    return res.redirect(`/confraria/editar/${id}`)
 
 
   },
