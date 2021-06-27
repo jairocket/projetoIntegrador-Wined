@@ -9,7 +9,7 @@
             </div>
             <div class="members">
                 <h5>Confrades</h5>
-                <% members.forEach((member)=>{ %>
+                <% brotherhood.members.forEach((member)=>{ %>
                     <div class="member">
                         <a href ="/perfil/<%= member.id %>">
                             <img src="" alt="">
@@ -21,16 +21,6 @@
                 <% }) %>
 
             </div>
-             <!-- <div class= dashMenu>
-                <div class="brotherhoodMenu">
-                    <a href="#"><p>Adega</p></a>
-                    <a href="http://localhost:3000/favorites"><p>Favoritos</p></a>
-                </div>
-                <div class="brotherhoodMenu"> 
-                    <a href="#"><p>Criar Confraria</p></a>
-                    <a href="#"><p>Editar Confraria</p></a> 
-                </div>
-            </div> -->
         </section>
         <section class="confraria">
         <img class="confraria-cover" src="../images/confraria-cover.svg" alt="confraria-cover">
@@ -38,7 +28,7 @@
             <div class="confraria-title">
                 <h2><%= brotherhood.name %> ></h2>
                 <div>
-                    <p>Since: <%= brotherhood.createdAt %></p>
+                    <p>Since: <%= brotherhood.since %></p>
                     <img src="../images/dot.svg" alt="dot-separation">
                     <p><%= count %> Confrades</p>
                 </div>
@@ -50,13 +40,8 @@
                     <button type="submit" id='leaveBrotherhood'>Deixar Confraria</button>
                 </form>
             </div>
-            <!-- <div class="confraria-members">
-                <img src="../images/mobile-confraria-members.svg" alt="membros">
-                <img src="../images/settings-icon.svg" alt="settings-icon">
-            </div> -->
         </section>
 
-        
             <div class="description">
                 <p><%= brotherhood.description %></p>
             </div>
@@ -67,7 +52,8 @@
             </div>
             <div class="write-post">
                 <img src="../images/avatar-icon.svg" alt="avatar">
-                <div class="write-postPrompt" 
+                <div 
+                class="write-postPrompt" 
                 aria-label="post-text" 
                 aria-multiline="true" 
                 role="textbox" 
@@ -75,8 +61,7 @@
                 aria-placeholder="Compartilhe sua experiência">
                     
                 </div>
-                
-                
+
             </div>
             <div class="upload-media-post">
                 <div>

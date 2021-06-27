@@ -13,6 +13,7 @@ const DashboardController ={
             include: [
                 {
                     model: db.User,
+                    as: 'users',
                     where: {id},
                     required:true,
                     attributes: [],

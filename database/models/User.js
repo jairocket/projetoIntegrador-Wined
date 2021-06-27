@@ -50,8 +50,13 @@
     User.associate = function(modelos){
         User.belongsToMany(modelos.Brotherhood, {
             through: modelos.Brotherhood_User,
-            foreignKey: "users_id"
+            foreignKey: "users_id",
+            as: 'brotherhoods'
         });
+        User.hasMany(modelos.Brotherhood_User,{
+            foreignKey: "users_id",
+            as: "chancellor"
+        })
         User.hasOne(modelos.Profile_Picture, {
             as: "profile_pictures",
             foreignKey: "profile_picture_id"

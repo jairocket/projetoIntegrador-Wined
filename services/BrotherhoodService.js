@@ -8,6 +8,7 @@ const BrotherhoodService = {
             include: [
               {
                 model: db.Brotherhood,
+                as: 'brotherhoods',
                 where: {id},
                 required: true,
                 attributes: []
@@ -31,6 +32,7 @@ const BrotherhoodService = {
             include: [
               {
                 model: db.Brotherhood,
+                as: 'brotherhoods',
                 where: { id },
                 required: true
               }
@@ -67,6 +69,7 @@ const BrotherhoodService = {
           include: [
             {
               model: db.Brotherhood,
+              as: 'brotherhoods',
               where: { id },
               required: true
             }
@@ -93,13 +96,49 @@ const BrotherhoodService = {
       }
     },
 
+    chancellorSwitch: async(req, res)=>{
+      let { id, m_id } = req.params;
+
+      const member = await db.Brotherhood_User.findOne({
+        attributes: [ 'chancellor' ],
+        where: {
+          [Op.and]: [
+            { brotherhood_id: Number(id) },
+            { users_id: Number(m_id) }
+          ]
+        }
+      });
+
+      if(member.chancellor){
+        await db.Brotherhood_User.update({
+          chancellor: false},{
+          where:  {
+            [Op.and]: [
+              { brotherhood_id: Number(id) },
+              { users_id: Number(m_id) }
+            ]
+          }
+        })
+      }else{
+        await db.Brotherhood_User.update({
+          chancellor: true},{
+          where:  {
+            [Op.and]: [
+              { brotherhood_id: Number(id) },
+              { users_id: Number(m_id) }
+            ]
+          }
+        })
+      }
+    },
+
     deleteMember: async(req, res)=>{
         let { id, m_id } = req.params;
         const deleted = await db.Brotherhood_User.destroy({
             where: {
                 [Op.and]: [
                   {brotherhood_id: Number(id)},
-                    {users_id: Number(m_id)}, 
+                  {users_id: Number(m_id)}, 
                 ]
             }
         })
