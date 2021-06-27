@@ -70,15 +70,21 @@
           <% members.forEach((member)=>{ %>
               <tr id="memberOptions">
                 <td id="memberName">
-                  <span><%= member.name %> <%= member.surname %></span>   
+                  <span><%= member.users.name %> <%= member.users.surname %></span>   
                 </td>
                 <td id='chancellor'>
-                  <form action="/confraria/editar/chancellor/<%= id %>/<%= member.id %>?_method=PUT" method="POST">
-                    <button type="submit">Chanceleria</button>
+                  <form action="/confraria/editar/chancellor/<%= id %>/<%= member.users.id %>?_method=PUT" method="POST">
+                    <button type="submit">
+                      <% if(!member.chancellor){ %>
+                        Tornar Chanceler
+                      <% } else { %>
+                        Remover Chanceler
+                      <% } %>
+                    </button>
                   </form>
                 </td>
                 <td id='remove'>
-                  <form action="/confraria/editar/delete/<%= id %>/<%= member.id %>?_method=DELETE" method="POST">
+                  <form action="/confraria/editar/delete/<%= id %>/<%= member.users.id %>?_method=DELETE" method="POST">
                     <button type="submit">Remover</button>
                   </form>
                 </td>

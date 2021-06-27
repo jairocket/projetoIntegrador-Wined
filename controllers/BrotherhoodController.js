@@ -71,14 +71,14 @@ const BrotherhoodController = {
     ]
   });
 
-  res.json(brotherhood)
-    // res.render('brotherhoodPage', { 
-    //   title: "Confraria",
-    //   style: "brotherhood", 
-    //   user: user,
-    //   brotherhood:brotherhood,
-    //   count: count.count
-    //  });  
+  // res.json(brotherhood)
+    res.render('brotherhoodPage', { 
+      title: "Confraria",
+      style: "brotherhood", 
+      user: user,
+      brotherhood:brotherhood,
+      count: count.count
+     });  
   },
 
   /*Creates a brotherhood */
@@ -185,19 +185,39 @@ const BrotherhoodController = {
     updateView: async (req, res)=>{
 
       let { id } = req.params;
+
+      const members = await db.Brotherhood_User.findAll({
+        where:{ brotherhood_id: id },
+        attributes:['chancellor'],
+        include: [
+          {
+            model: db.User,
+            as: 'users',
+            attributes: ['id', 'name', 'surname', 'profile_picture_id']
+          }
+        ]
+      });
+
+      console.log(members)
       
-      const members = await db.User.findAll({
-          include: [
-            {
-              model: db.Brotherhood,
-              as: 'brotherhoods',
-              where: {id},
-              required: true,
-              attributes: []
-            }
-          ],
-          attributes: ['id', 'name', 'surname', 'profile_picture_id']
-        });
+      // const members = await db.User.findAll({
+      //     include: [
+      //       {
+      //         model: db.Brotherhood,
+      //         as: 'brotherhoods',
+      //         where: {id},
+      //         attributes: ['id'],           
+      //         include: {
+      //           model: db.Brotherhood_User,
+      //           as: "chancellor",
+      //           where: {brotherhood_id: id},
+      //           //attributes: ['chancellor'],
+                
+      //         }
+      //       }
+      //     ],
+      //     attributes: ['id', 'name', 'surname', 'profile_picture_id']
+      //   });
         
         
       const chancellors = await db.Brotherhood_User.findAll({
@@ -207,13 +227,12 @@ const BrotherhoodController = {
         }
       });
 
-      console.log(chancellors)
+      // res.json(members)
   
       res.render('brotherhoodEditor', {
           id: req.params.id,
           user: req.session.user, 
           members: members,
-          chancellors,
           title: 'Editar Confraria', 
           style: 'register'})
   },
