@@ -19,14 +19,14 @@ module.exports = (sequelize, DataTypes)=>{
         timestamps: false
     });
     Brotherhood_User.associate = function(modelos){
-        Brotherhood_User.hasMany(modelos.User, {
+        Brotherhood_User.belongsTo(modelos.User, {
             as: "users",
-            foreignKey: "id"
+            foreignKey: "users_id"
         });
 
-        Brotherhood_User.hasMany(modelos.Brotherhood, {
+        Brotherhood_User.belongsTo(modelos.Brotherhood, {
             as: "brotherhoods",
-            foreignKey: "id"
+            foreignKey: "brotherhood_id"
         });
     }
     return Brotherhood_User

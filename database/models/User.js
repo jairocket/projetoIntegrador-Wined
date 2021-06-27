@@ -53,6 +53,10 @@
             foreignKey: "users_id",
             as: 'brotherhoods'
         });
+        User.hasMany(modelos.Brotherhood_User,{
+            foreignKey: "users_id",
+            as: "chancellors"
+        })
         User.hasOne(modelos.Profile_Picture, {
             as: "profile_pictures",
             foreignKey: "profile_picture_id"
