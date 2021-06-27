@@ -55,7 +55,7 @@
         });
         User.hasMany(modelos.Brotherhood_User,{
             foreignKey: "users_id",
-            as: "chancellors"
+            as: "chancellor"
         })
         User.hasOne(modelos.Profile_Picture, {
             as: "profile_pictures",

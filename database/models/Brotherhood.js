@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes)=>{
         });
         Brotherhood.hasMany(modelos.Brotherhood_User, {
             foreignKey: "brotherhood_id",
-            as: 'chancellors'
+            as: 'chancellor'
         })
         Brotherhood.hasOne(modelos.Brotherhood_Picture, {
             as: "brotherhood_pictures",
