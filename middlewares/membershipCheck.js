@@ -8,6 +8,7 @@ async function membershipCheck(req, res, next){
         include: [
            {
                model: db.Brotherhood,
+               as: 'brotherhoods',
                where: {id: brotherhood_id},
                required: true
             }

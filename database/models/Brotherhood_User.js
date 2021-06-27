@@ -20,12 +20,12 @@ module.exports = (sequelize, DataTypes)=>{
     });
     Brotherhood_User.associate = function(modelos){
         Brotherhood_User.hasMany(modelos.User, {
-            as: "user_brotherhood",
+            as: "users",
             foreignKey: "id"
         });
 
         Brotherhood_User.hasMany(modelos.Brotherhood, {
-            as: "brotherhood_user",
+            as: "brotherhoods",
             foreignKey: "id"
         });
     }

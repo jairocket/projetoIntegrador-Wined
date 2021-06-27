@@ -12,20 +12,28 @@ const BrotherhoodController = {
     const user_id = req.session.user.id;
 
     const bhood = await db.Brotherhood.findByPk(id, {
-      attributes:['name', 'since', 'createdAt', 'description', 'id']});
+      attributes:['name', 'since', 'createdAt', 'description', 'id'],
+      include: {model: db.User,  as: 'users', attributes:['name', 'surname', 'id', 'description'] } 
+    });
+
+
+    console.log(bhood.users.name)
+    
+
     const brotherhood ={
       name: bhood.name,
       since: bhood.since,
       createdAt: `${bhood.createdAt.getDate()}/${bhood.createdAt.getMonth()+1}/${bhood.createdAt.getFullYear()}`,
       since: `${bhood.since.getDate()}/${bhood.since.getMonth()+1}/${bhood.since.getFullYear()}`,
       description: bhood.description,
-      id: bhood.id
-    }
+      id: bhood.id,
+    }  
     
     const count = await db.User.findAndCountAll({
       include: [
         {
           model: db.Brotherhood,
+          as: 'brotherhoods',
           where: {id},
           required: true,
           attributes: []
@@ -38,6 +46,7 @@ const BrotherhoodController = {
       include: [
         {
           model: db.Brotherhood,
+          as: 'brotherhoods',
           where: {id},
           required: true,
           attributes: []
@@ -45,8 +54,10 @@ const BrotherhoodController = {
       ],
       attributes: ['id', 'name', 'surname', 'profile_picture_id']
     });
+    
 
-    const user = await db.User.findByPk(user_id, {attributes: [
+    const user = await db.User.findByPk(user_id, {
+      attributes: [
       'id',
       'name',
       'surname', 
@@ -55,14 +66,16 @@ const BrotherhoodController = {
       'background_picture_id'
     ]
   });
-    res.render('brotherhoodPage', { 
-      title: "Confraria",
-      style: "brotherhood", 
-      user,
-      brotherhood:brotherhood,
-      members: members,
-      count: count.count
-     });
+
+  res.json(bhood)
+    // res.render('brotherhoodPage', { 
+    //   title: "Confraria",
+    //   style: "brotherhood", 
+    //   user,
+    //   brotherhood:brotherhood,
+    //   members: members,
+    //   count: count.count
+    //  });
      
   },
 
@@ -101,6 +114,7 @@ const BrotherhoodController = {
           include: [
             {
               model: db.Brotherhood,
+              as: 'brotherhoods',
               where: { id },
               required: true
             }
@@ -137,6 +151,7 @@ const BrotherhoodController = {
         include: [
           {
             model: db.Brotherhood,
+            as: 'brotherhoods',
             where: { id },
             required: true
           }
@@ -161,21 +176,7 @@ const BrotherhoodController = {
         }
       })    
     }
-  
-    
-    // for(member of members){
-    //   await db.User.findOne({
-    //     where:{email:member},
-    //     attributes: ['id']
-    //   }).then(async(result) =>{
-    //     await db.Brotherhood_User.create({
-    //       brotherhood_id,
-    //       users_id: result.id,
-    //       chancellor: false
-    //     })
-    //   })
-    // }
-    
+      
       return res.redirect(`/confraria/${id}`)
     },
 
@@ -187,6 +188,7 @@ const BrotherhoodController = {
           include: [
             {
               model: db.Brotherhood,
+              as: 'brotherhoods',
               where: {id},
               required: true,
               attributes: []
@@ -261,7 +263,6 @@ const BrotherhoodController = {
     const { id } = req.params;
     return res.redirect(`/confraria/editar/${id}`)
 
-
   },
  
 //GET brotherhood's members
@@ -271,6 +272,7 @@ const BrotherhoodController = {
       include: [
         {
           model: db.Brotherhood,
+          as: 'brotherhoods',
           where: {id},
           required: true,
           attributes: []

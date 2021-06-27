@@ -8,6 +8,7 @@ const BrotherhoodService = {
             include: [
               {
                 model: db.Brotherhood,
+                as: 'brotherhoods',
                 where: {id},
                 required: true,
                 attributes: []
@@ -31,6 +32,7 @@ const BrotherhoodService = {
             include: [
               {
                 model: db.Brotherhood,
+                as: 'brotherhoods',
                 where: { id },
                 required: true
               }
@@ -67,6 +69,7 @@ const BrotherhoodService = {
           include: [
             {
               model: db.Brotherhood,
+              as: 'brotherhoods',
               where: { id },
               required: true
             }
@@ -135,7 +138,7 @@ const BrotherhoodService = {
             where: {
                 [Op.and]: [
                   {brotherhood_id: Number(id)},
-                    {users_id: Number(m_id)}, 
+                  {users_id: Number(m_id)}, 
                 ]
             }
         })
