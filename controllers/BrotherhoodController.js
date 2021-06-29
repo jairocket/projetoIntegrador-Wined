@@ -4,6 +4,34 @@ const { check, validationResult, body } = require('express-validator');
 const { promiseImpl } = require('ejs');
 const BrotherhoodService = require('../services/BrotherhoodService');
 
+const nodemailer = require('nodemailer');
+
+async function main() {
+  let testAcount = await nodemailer.createTestAccount();
+
+  let transporter = nodemailer.createTransport({
+    host: "smtp.ethereal.email",
+    port: 587,
+    secure: false,
+    auth:{
+      user: testAcount.user,
+      pass: testAcount.pass
+    }
+  });
+  let info = await transporter.sendMail({
+    from: '"Wined+" <wined@wined.com>',
+    to: "member@digitalhouse.com",
+    subject: "Convite Wined+",
+    text: "Olá! <wined@wined.com> está de convidando para participar da Wined+, uma rede social para amantes de vinho! Para participar, acesse http://localhost:3000/",
+
+  });
+
+  console.log("Message sent: %s", info.messageId);
+  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+}
+
+main().catch(console.error)
+
 const BrotherhoodController = {
 
   //Get brotherhood page
@@ -56,9 +84,7 @@ const BrotherhoodController = {
         }
       ],
      attributes: [] 
-    });  
-
-    
+    });     
 
     const user = await db.User.findByPk(user_id, {
       attributes: [
@@ -196,36 +222,7 @@ const BrotherhoodController = {
             attributes: ['id', 'name', 'surname', 'profile_picture_id']
           }
         ]
-      });
-
-      console.log(members)
-      
-      // const members = await db.User.findAll({
-      //     include: [
-      //       {
-      //         model: db.Brotherhood,
-      //         as: 'brotherhoods',
-      //         where: {id},
-      //         attributes: ['id'],           
-      //         include: {
-      //           model: db.Brotherhood_User,
-      //           as: "chancellor",
-      //           where: {brotherhood_id: id},
-      //           //attributes: ['chancellor'],
-                
-      //         }
-      //       }
-      //     ],
-      //     attributes: ['id', 'name', 'surname', 'profile_picture_id']
-      //   });
-        
-        
-      const chancellors = await db.Brotherhood_User.findAll({
-        attributes: ['chancellor', 'users_id'],
-        where:{
-          brotherhood_id: id
-        }
-      });
+      });    
 
       // res.json(members)
   
