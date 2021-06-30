@@ -14,7 +14,7 @@ const BrotherhoodService = {
                 attributes: []
               }
             ],
-            attributes: ['id', 'name', 'surname', 'profile_picture_id']
+            attributes: ['id', 'name', 'surname', 'avatar_picture']
         });
     },
 
@@ -108,6 +108,18 @@ const BrotherhoodService = {
           ]
         }
       });
+
+      const status = parseInt(member.chancelor) === 1
+
+      // await db.Brotherhood_User.update({
+      //   chancellor: !status},{
+      //   where:  {
+      //     [Op.and]: [
+      //       { brotherhood_id: Number(id) },
+      //       { users_id: Number(m_id) }
+      //     ]
+      //   }
+      // })
 
       if(member.chancellor){
         await db.Brotherhood_User.update({

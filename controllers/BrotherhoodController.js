@@ -3,34 +3,8 @@ const Sequelize = require('sequelize');
 const { check, validationResult, body } = require('express-validator');
 const { promiseImpl } = require('ejs');
 const BrotherhoodService = require('../services/BrotherhoodService');
+const nodemailer = require('../services/nodemailerService');
 
-const nodemailer = require('nodemailer');
-
-async function main() {
-  let testAcount = await nodemailer.createTestAccount();
-
-  let transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false,
-    auth:{
-      user: testAcount.user,
-      pass: testAcount.pass
-    }
-  });
-  let info = await transporter.sendMail({
-    from: '"Wined+" <wined@wined.com>',
-    to: "member@digitalhouse.com",
-    subject: "Convite Wined+",
-    text: "Olá! <wined@wined.com> está de convidando para participar da Wined+, uma rede social para amantes de vinho! Para participar, acesse http://localhost:3000/",
-
-  });
-
-  console.log("Message sent: %s", info.messageId);
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-}
-
-main().catch(console.error)
 
 const BrotherhoodController = {
 
@@ -50,8 +24,8 @@ const BrotherhoodController = {
           'surname', 
           'id', 
           'description', 
-          'profile_picture_id', 
-          'background_picture_id'
+          'avatar_picture', 
+          'background_picture'
         ],
         include: {
           model: db.Brotherhood_User,
@@ -92,8 +66,8 @@ const BrotherhoodController = {
       'name',
       'surname', 
       'description', 
-      'profile_picture_id', 
-      'background_picture_id'
+      'avatar_picture', 
+      'background_picture'
     ]
   });
 
@@ -112,7 +86,7 @@ const BrotherhoodController = {
     let {
         name,  
         description, 
-        brotherhood_picture_id,
+        brotherhood_picture,
         since,
         members
     } = req.body;
@@ -122,7 +96,7 @@ const BrotherhoodController = {
     const brotherhood = await db.Brotherhood.create({
         name,  
         description, 
-        brotherhood_picture_id, 
+        brotherhood_picture, 
         since
     });
 
@@ -154,7 +128,7 @@ const BrotherhoodController = {
         });
       }
       if (fmembers.length === 0){
-        req.flash('errorMessage', 'Confrade(s) já faz(em) parte desta confraria!');
+        req.flash('errorMessage', 'Confrade(s) já faz(em) parte desta confraria!')
         res.redirect(`/confraria/${id}`);
       }else{
         for(member of fmembers){
@@ -162,15 +136,23 @@ const BrotherhoodController = {
             where:{email:member},
             attributes: ['id']
           }).then(async(result) =>{
-            await db.Brotherhood_User.create({
-              brotherhood_id: id,
-              users_id: result.id,
-              chancellor: false
-            })
-            req.flash('successMessage', 'Confrade(s) adicionado(s) com sucesso!');
-            return res.redirect(`/confraria/${id}`);
+            if(!result){
+              await nodemailer({
+                to: member,
+                subject: "Convite Wined+",
+                text: `Olá! ${member} está de convidando para participar da Wined+, uma rede social para amantes de vinho! Para participar, acesse http://localhost:3000/`,
+              });
+            }else{
+              await db.Brotherhood_User.create({
+                brotherhood_id: id,
+                users_id: result.id,
+                chancellor: false
+              });
+            }
           })
         }
+              req.flash('successMessage', 'Confrade(s) adicionado(s) com sucesso!');
+              return res.redirect(`/confraria/${id}`);
       }
     }else{
       await db.User.findOne({
@@ -219,7 +201,7 @@ const BrotherhoodController = {
           {
             model: db.User,
             as: 'users',
-            attributes: ['id', 'name', 'surname', 'profile_picture_id']
+            attributes: ['id', 'name', 'surname', 'avatar_picture']
           }
         ]
       });    
@@ -296,7 +278,7 @@ const BrotherhoodController = {
           attributes: []
         }
       ],
-      attributes: ['id', 'name', 'surname', 'email', 'profile_picture_id']
+      attributes: ['id', 'name', 'surname', 'email', 'avatar_picture']
     })
     
     return res.json(brotherhoodMembers)

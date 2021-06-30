@@ -19,8 +19,8 @@ let UserController = {
                 terms, 
                 birthday, 
                 description, 
-                profilePicture, 
-                backgroundPicture, 
+                avatar_picture, 
+                background_picture, 
                 
             } = req.body;
             let hashedPassword = bcrypt.hashSync(password, 10);
@@ -33,8 +33,8 @@ let UserController = {
                 password: hashedPassword, 
                 birthday, 
                 description, 
-                profilePicture, 
-                backgroundPicture, 
+                avatar_picture, 
+                background_picture, 
                 
             })
             req.flash('success', "Cadastro realizado com sucesso!")

@@ -27,8 +27,8 @@ const DashboardController ={
                 'name',
                 'surname', 
                 'description', 
-                'profile_picture_id', 
-                'background_picture_id'
+                'avatar_picture', 
+                'background_picture'
             ]
         })
        
