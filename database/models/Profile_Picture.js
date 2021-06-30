@@ -18,9 +18,9 @@ module.exports = (sequelize, DataTypes) => {
     tableName: "profile_pictures"
   });
 
-  Profile_Picture.associate = function(models) {
-    Profile_Picture.belongsTo(models.User)
-  }
+  // Profile_Picture.associate = function(models) {
+  //   Profile_Picture.belongsTo(models.User)
+  // }
 
   return Profile_Picture;
 };

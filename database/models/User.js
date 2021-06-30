@@ -26,11 +26,11 @@
             type: DataTypes.STRING(255),
             allowNull: false
         },
-        profile_picture_id: {
-            type: DataTypes.INTEGER
+        avatar_picture: {
+            type: DataTypes.STRING(255),
         },  
-        background_picture_id: {
-            type: DataTypes.INTEGER
+        background_picture: {
+            type: DataTypes.STRING(255)
         },
         description: {
             type: DataTypes.STRING(1024),
@@ -57,14 +57,14 @@
             foreignKey: "users_id",
             as: "chancellor"
         })
-        User.hasOne(modelos.Profile_Picture, {
-            as: "profile_pictures",
-            foreignKey: "profile_picture_id"
-        });
-        User.hasOne(modelos.Background_Picture, {
-            as: "background_pictures",
-            foreignKey: "background_picture_id"
-        });
+        // User.hasOne(modelos.Profile_Picture, {
+        //     as: "profile_pictures",
+        //     foreignKey: "profile_picture_id"
+        // });
+        // User.hasOne(modelos.Background_Picture, {
+        //     as: "background_pictures",
+        //     foreignKey: "background_picture_id"
+        // });
         User.belongsToMany(modelos.Event, {
             through: modelos.User_Event,
             foreignKey: "users_id"

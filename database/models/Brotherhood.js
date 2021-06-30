@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes)=>{
             type: DataTypes.STRING(50),
             allowNull: false
         },
-        brotherhood_picture_id: {
-            type: DataTypes.INTEGER,
+        brotherhood_picture: {
+            type: DataTypes.STRING(255),
         },
         description: {
             type: DataTypes.STRING(255),
@@ -32,10 +32,10 @@ module.exports = (sequelize, DataTypes)=>{
             foreignKey: "brotherhood_id",
             as: 'chancellor'
         })
-        Brotherhood.hasOne(modelos.Brotherhood_Picture, {
-            as: "brotherhood_pictures",
-            foreignKey: "brotherhood_picture_id"
-        });
+        // Brotherhood.hasOne(modelos.Brotherhood_Picture, {
+        //     as: "brotherhood_pictures",
+        //     foreignKey: "brotherhood_picture_id"
+        // });
         Brotherhood.hasMany(modelos.Event, {
             as: "events",
             foreignKey: "brotherhood_id"
