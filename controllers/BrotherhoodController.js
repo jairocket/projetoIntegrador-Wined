@@ -71,7 +71,6 @@ const BrotherhoodController = {
     ]
   });
 
-  // res.json(brotherhood)
     res.render('brotherhoodPage', { 
       title: "Confraria",
       style: "brotherhood", 
@@ -108,6 +107,10 @@ const BrotherhoodController = {
         chancellor: true
     });
 
+    const inviter = await db.User.findByPk(brotherhoodChancellor.users_id, {
+      attributes:['name', 'surname']
+    });
+    
     if(Array.isArray(members)){
       for(member of members){
         await db.User.findOne({
@@ -140,7 +143,7 @@ const BrotherhoodController = {
               await nodemailer({
                 to: member,
                 subject: "Convite Wined+",
-                text: `Olá! ${member} está de convidando para participar da Wined+, uma rede social para amantes de vinho! Para participar, acesse http://localhost:3000/`,
+                text: `Olá, ${member}! ${inviter.name} ${inviter.surname} está te convidando para participar da Wined+, uma rede social para amantes de vinho! Para participar, acesse http://localhost:3000/`,
               });
             }else{
               await db.Brotherhood_User.create({
@@ -175,11 +178,19 @@ const BrotherhoodController = {
               where: {email: members},
               attributes: ['id']
             }).then(async(results)=>{
-              await db.Brotherhood_User.create({
-                brotherhood_id: id,
-                users_id: results.id,
-                chancellor:false
-              })
+              if(!results){
+                await nodemailer({
+                  to: members,
+                  subject: "Convite Wined+",
+                  text: `Olá, ${members}! ${inviter.name} ${inviter.surname} está te convidando para participar da Wined+, uma rede social para amantes de vinho! Para participar, acesse http://localhost:3000/`,
+                });
+              }else{
+                await db.Brotherhood_User.create({
+                  brotherhood_id: id,
+                  users_id: results.id,
+                  chancellor:false
+                })
+              }      
               req.flash('successMessage', 'Confrade(s) adicionado(s) com sucesso!');
               return res.redirect(`/confraria/${id}`) 
           }) 
@@ -187,7 +198,6 @@ const BrotherhoodController = {
       })    
     }
       
-      return res.redirect(`/confraria/${id}`)
     },
 
     updateView: async (req, res)=>{
@@ -205,8 +215,6 @@ const BrotherhoodController = {
           }
         ]
       });    
-
-      // res.json(members)
   
       res.render('brotherhoodEditor', {
           id: req.params.id,
@@ -214,7 +222,7 @@ const BrotherhoodController = {
           members: members,
           title: 'Editar Confraria', 
           style: 'register'})
-  },
+    },
 
     update: async (req, res) =>{
       let { id } = req.params;
@@ -283,7 +291,5 @@ const BrotherhoodController = {
     
     return res.json(brotherhoodMembers)
     }
-
-
 }
 module.exports = BrotherhoodController
