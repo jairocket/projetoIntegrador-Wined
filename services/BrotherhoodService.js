@@ -1,7 +1,72 @@
 const db = require('../database/models');
 const {Op} = require('sequelize');
+const nodemailer = require('../services/nodemailerService');
 
 const BrotherhoodService = {
+  // accessBrotherhood: async(req, res)=>{
+  //   const{id} = req.params;
+  //   const user_id = req.session.user.id;
+
+  //   const bhood = await db.Brotherhood.findByPk(id, {
+  //     attributes:['name', 'since', 'createdAt', 'description', 'id'],
+      
+  //     include: {
+  //       model: db.User,
+  //       as: 'users', 
+  //       attributes:[
+  //         'name', 
+  //         'surname', 
+  //         'id', 
+  //         'description', 
+  //         'avatar_picture', 
+  //         'background_picture'
+  //       ],
+  //       include: {
+  //         model: db.Brotherhood_User,
+  //         where: {brotherhood_id: id},
+  //         as: "chancellor",
+  //         attributes: ['chancellor']
+  //       }
+  //     } 
+  //   });
+
+  //   const brotherhood ={
+  //     name: bhood.name,
+  //     since: bhood.since,
+  //     createdAt: `${bhood.createdAt.getDate()}/${bhood.createdAt.getMonth()+1}/${bhood.createdAt.getFullYear()}`,
+  //     since: `${bhood.since.getDate()}/${bhood.since.getMonth()+1}/${bhood.since.getFullYear()}`,
+  //     description: bhood.description,
+  //     id: bhood.id,
+  //     members: bhood.users,
+  //     chancellor: bhood.users.chancellor
+  //   }  
+    
+  //   const count = await db.User.findAndCountAll({
+  //     include: [
+  //       {
+  //         model: db.Brotherhood,
+  //         as: 'brotherhoods',
+  //         where: {id},
+  //         required: true,
+  //         attributes: []
+  //       }
+  //     ],
+  //    attributes: [] 
+  //   });     
+
+  //   const user = await db.User.findByPk(user_id, {
+  //     attributes: [
+  //     'id',
+  //     'name',
+  //     'surname', 
+  //     'description', 
+  //     'avatar_picture', 
+  //     'background_picture'
+  //   ]
+  // });
+
+
+    // },
 
     getMembers: async(req, res)=>{
         await db.User.findAll({
@@ -23,6 +88,11 @@ const BrotherhoodService = {
       let { members } = req.body;
       let { id } = req.params;
       let fmembers = [];
+      let users_id = req.session.user.id;
+
+      const inviter = await db.User.findByPk(users_id, {
+        attributes:['name', 'surname']
+      });
 
       if(Array.isArray(members)){
         for(member of members){
@@ -52,13 +122,19 @@ const BrotherhoodService = {
               where:{email:member},
               attributes: ['id']
             }).then(async(result) =>{
-              await db.Brotherhood_User.create({
-                brotherhood_id: id,
-                users_id: result.id,
-                chancellor: false
-              })
-              req.flash('successMessage', 'Confrade(s) adicionado(s) com sucesso!');
-              return res.redirect(`/confraria/${id}`);
+              if(!result){
+                await nodemailer({
+                  to: member,
+                  subject: "Convite Wined+",
+                  text: `Olá, ${member}! ${inviter.name} ${inviter.surname} está te convidando para participar da Wined+, uma rede social para amantes de vinho! Para participar, acesse http://localhost:3000/`,
+                });
+              }else{
+                await db.Brotherhood_User.create({
+                  brotherhood_id: id,
+                  users_id: result.id,
+                  chancellor: false
+                });
+              }
             })
           }
         }
@@ -83,14 +159,22 @@ const BrotherhoodService = {
                 where: {email: members},
                 attributes: ['id']
               }).then(async(results)=>{
-                await db.Brotherhood_User.create({
-                  brotherhood_id: id,
-                  users_id: results.id,
-                  chancellor:false
-                })
+                if(!results){
+                  await nodemailer({
+                    to: members,
+                    subject: "Convite Wined+",
+                    text: `Olá, ${members}! ${inviter.name} ${inviter.surname} está te convidando para participar da Wined+, uma rede social para amantes de vinho! Para participar, acesse http://localhost:3000/`,
+                  });
+                }else{
+                  await db.Brotherhood_User.create({
+                    brotherhood_id: id,
+                    users_id: results.id,
+                    chancellor:false
+                  })
+                }      
                 req.flash('successMessage', 'Confrade(s) adicionado(s) com sucesso!');
                 return res.redirect(`/confraria/${id}`) 
-            }) 
+            })
           }
         })    
       }
@@ -109,7 +193,7 @@ const BrotherhoodService = {
         }
       });
 
-      const status = parseInt(member.chancelor) === 1
+      // const status = parseInt(member.chancellor) === 1
 
       // await db.Brotherhood_User.update({
       //   chancellor: !status},{
