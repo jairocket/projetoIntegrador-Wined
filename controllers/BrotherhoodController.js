@@ -272,6 +272,12 @@ const BrotherhoodController = {
     return res.redirect(`/confraria/editar/${id}`)
 
   },
+
+  postContent: async(req, res)=>{
+    let {id} = req.params;
+    let  users_id = req.session.user.id;
+
+  },
  
 //GET brotherhood's members
   getMembers: async (req, res) =>{
