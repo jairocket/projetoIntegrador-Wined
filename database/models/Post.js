@@ -22,11 +22,18 @@ module.exports = (sequelize, DataTypes) => {
     });
   
     Post.associate = function(models) {
+
       Post.belongsTo(models.User, {
         as: 'author',
         foreignKey: "users_id"
       });
-      Post.hasMany(models.Reaction)
+
+      Post.belongsTo(models.Brotherhood,{
+        as: "brotherhood",
+        foreignKey: "brotherhood_id"
+      });
+
+      Post.hasMany(models.Reaction);
     }
   
     return Post;

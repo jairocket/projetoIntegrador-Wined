@@ -66,7 +66,7 @@ const BrotherhoodService = {
   // });
 
 
-    // },
+  //   },
 
     getMembers: async(req, res)=>{
         await db.User.findAll({
