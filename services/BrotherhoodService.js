@@ -3,84 +3,91 @@ const {Op} = require('sequelize');
 const nodemailer = require('../services/nodemailerService');
 
 const BrotherhoodService = {
-  // accessBrotherhood: async(req, res)=>{
-  //   const{id} = req.params;
-  //   const user_id = req.session.user.id;
+    getBrotherhood: async(req, res)=>{
+      const{id} = req.params;
 
-  //   const bhood = await db.Brotherhood.findByPk(id, {
-  //     attributes:['name', 'since', 'createdAt', 'description', 'id'],
+      const bhood = await db.Brotherhood.findByPk(id, {
+      attributes:['name', 'since', 'createdAt', 'description', 'id'],
       
-  //     include: {
-  //       model: db.User,
-  //       as: 'users', 
-  //       attributes:[
-  //         'name', 
-  //         'surname', 
-  //         'id', 
-  //         'description', 
-  //         'avatar_picture', 
-  //         'background_picture'
-  //       ],
-  //       include: {
-  //         model: db.Brotherhood_User,
-  //         where: {brotherhood_id: id},
-  //         as: "chancellor",
-  //         attributes: ['chancellor']
-  //       }
-  //     } 
-  //   });
+        include: {
+          model: db.User,
+          as: 'users', 
+          attributes:[
+            'name', 
+            'surname', 
+            'id', 
+            'description', 
+            'avatar_picture', 
+            'background_picture'
+          ],
+          include: {
+            model: db.Brotherhood_User,
+            where: {brotherhood_id: id},
+            as: "chancellor",
+            attributes: ['chancellor']
+          }
+        }  
+      });
 
-  //   const brotherhood ={
-  //     name: bhood.name,
-  //     since: bhood.since,
-  //     createdAt: `${bhood.createdAt.getDate()}/${bhood.createdAt.getMonth()+1}/${bhood.createdAt.getFullYear()}`,
-  //     since: `${bhood.since.getDate()}/${bhood.since.getMonth()+1}/${bhood.since.getFullYear()}`,
-  //     description: bhood.description,
-  //     id: bhood.id,
-  //     members: bhood.users,
-  //     chancellor: bhood.users.chancellor
-  //   }  
-    
-  //   const count = await db.User.findAndCountAll({
-  //     include: [
-  //       {
-  //         model: db.Brotherhood,
-  //         as: 'brotherhoods',
-  //         where: {id},
-  //         required: true,
-  //         attributes: []
-  //       }
-  //     ],
-  //    attributes: [] 
-  //   });     
+      const brotherhood ={
+        name: bhood.name,
+        since: bhood.since,
+        createdAt: `${bhood.createdAt.getDate()}/${bhood.createdAt.getMonth()+1}/${bhood.createdAt.getFullYear()}`,
+        since: `${bhood.since.getDate()}/${bhood.since.getMonth()+1}/${bhood.since.getFullYear()}`,
+        description: bhood.description,
+        id: bhood.id,
+        members: bhood.users,
+        chancellor: bhood.users.chancellor
+      };
+      return brotherhood
+    },
 
-  //   const user = await db.User.findByPk(user_id, {
-  //     attributes: [
-  //     'id',
-  //     'name',
-  //     'surname', 
-  //     'description', 
-  //     'avatar_picture', 
-  //     'background_picture'
-  //   ]
-  // });
-
-
-  //   },
+    getCount: async(req, res)=>{
+      const{id} = req.params;
+      
+      const count = await db.User.findAndCountAll({
+        include: [
+          {
+            model: db.Brotherhood,
+            as: 'brotherhoods',
+            where: {id},
+            required: true,
+            attributes: []
+          }
+        ],
+       attributes: [] 
+      });
+      return count
+    },
 
     getMembers: async(req, res)=>{
-        await db.User.findAll({
-            include: [
-              {
-                model: db.Brotherhood,
-                as: 'brotherhoods',
-                where: {id},
-                required: true,
-                attributes: []
-              }
-            ],
+      let { id } = req.params;
+      const members = await db.Brotherhood_User.findAll({
+        where:{ brotherhood_id: id },
+        attributes:['chancellor'],
+        include: [
+          {
+            model: db.User,
+            as: 'users',
             attributes: ['id', 'name', 'surname', 'avatar_picture']
-        });
+          }
+        ]
+      });
+      return members;    
+    
+    // async(req, res)=>{
+    //     await db.User.findAll({
+    //         include: [
+    //           {
+    //             model: db.Brotherhood,
+    //             as: 'brotherhoods',
+    //             where: {id},
+    //             required: true,
+    //             attributes: []
+    //           }
+    //         ],
+    //         attributes: ['id', 'name', 'surname', 'avatar_picture']
+    //     });
     },
 
     addMembers: async(req, res)=>{
