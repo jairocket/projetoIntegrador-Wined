@@ -89,6 +89,21 @@ const BrotherhoodService = {
     //         attributes: ['id', 'name', 'surname', 'avatar_picture']
     //     });
     },
+    update: async(req,res)=>{
+      let { id } = req.params;
+      let {
+        name,  
+        description, 
+        since,
+        } = req.body;
+      const brotherhood = await db.Brotherhood.update({
+        name,
+        description,
+        since
+      },{ 
+        where:{ id }
+      });
+    },
 
     addMembers: async(req, res)=>{
 
