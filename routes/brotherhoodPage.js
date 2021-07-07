@@ -7,8 +7,6 @@ const brotherhoodController = require('../controllers/BrotherhoodController')
 const membershipCheck = require('../middlewares/membershipCheck');
 
 
-
-
 /*GET a form to create a brotherhood */
 router.get('/criar', auth, (req, res) =>{
     res.render('brotherhoodCreator', {user: req.session.user, title: 'Cadastrar Confraria', style: 'register' })
@@ -40,7 +38,9 @@ router.get('/confrades/:id', auth, brotherhoodController.getMembers);
 
 router.get('/eventos/:id', auth, (req, res) =>{
     res.render('eventCreator', {user: req.session.user, title: 'Cadastrar Eventos', style: 'register'})
-}); 
+});
+
+router.post('/post-content/', brotherhoodController.postContent )
 
 /* GET brotherhoodPage. */
 router.get('/:id', auth, membershipCheck, brotherhoodController.accessBrotherhood);

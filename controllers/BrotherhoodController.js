@@ -201,7 +201,7 @@ const BrotherhoodController = {
   },
 
   postContent: async(req, res)=>{
-    let {id} = req.params;
+    await BrotherhoodService.postText(req, res)
 
   },
  
