@@ -238,15 +238,20 @@ const BrotherhoodService = {
     },
 
     postText: async(req, res)=>{
-      let {id} = req.params;
+      
       let  users_id = req.session.user.id;
-      let content;
+      let {content, brotherhood_id} = req.body
+      
       const post = await db.Post.create({
         content,
-        brotherhood_id: id,
-        users_id
+        brotherhood_id,
+        users_id,
+        comment: false
       })
-
+      console.log(content)
+      console.log(users_id)
+      console.log(brotherhood_id)
+      res.redirect(`/confraria/${brotherhood_id}`)
     },
 
     deleteMember: async(req, res)=>{
