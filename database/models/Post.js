@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
       },
       content:{
         type: DataTypes.STRING(5120)
-      }
+      },
+      response: DataTypes.BOOLEAN
     },
     {
       tableName: "posts"
@@ -34,7 +35,12 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       Post.hasMany(models.Reaction);
+
+      Post.hasMany(models.Post_Comment);
+
+      Post.hasMany(models.Post_Midia);
     }
+
   
     return Post;
   };

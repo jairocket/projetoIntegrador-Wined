@@ -3,7 +3,6 @@ const Sequelize = require('sequelize');
 const { check, validationResult, body } = require('express-validator');
 const { promiseImpl } = require('ejs');
 const BrotherhoodService = require('../services/BrotherhoodService');
-const UserController = require('../services/UserService')
 const nodemailer = require('../services/nodemailerService');
 const UserService = require('../services/UserService');
 
@@ -152,7 +151,6 @@ const BrotherhoodController = {
       const members = await BrotherhoodService.getMembers(req, res);
       const brotherhood = await BrotherhoodService.getBrotherhood(req, res);
 
-  
       res.render('brotherhoodEditor', {
           id: req.params.id,
           user: req.session.user,
@@ -204,7 +202,6 @@ const BrotherhoodController = {
 
   postContent: async(req, res)=>{
     let {id} = req.params;
-    let  users_id = req.session.user.id;
 
   },
  

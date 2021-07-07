@@ -74,21 +74,8 @@ const BrotherhoodService = {
         ]
       });
       return members;    
-    
-    // async(req, res)=>{
-    //     await db.User.findAll({
-    //         include: [
-    //           {
-    //             model: db.Brotherhood,
-    //             as: 'brotherhoods',
-    //             where: {id},
-    //             required: true,
-    //             attributes: []
-    //           }
-    //         ],
-    //         attributes: ['id', 'name', 'surname', 'avatar_picture']
-    //     });
     },
+
     update: async(req,res)=>{
       let { id } = req.params;
       let {
@@ -250,6 +237,18 @@ const BrotherhoodService = {
       }
     },
 
+    postText: async(req, res)=>{
+      let {id} = req.params;
+      let  users_id = req.session.user.id;
+      let content;
+      const post = await db.Post.create({
+        content,
+        brotherhood_id: id,
+        users_id
+      })
+
+    },
+
     deleteMember: async(req, res)=>{
         let { id, m_id } = req.params;
         const deleted = await db.Brotherhood_User.destroy({
@@ -265,3 +264,18 @@ const BrotherhoodService = {
 }
 
 module.exports = BrotherhoodService
+
+
+    // async(req, res)=>{
+    //     await db.User.findAll({
+    //         include: [
+    //           {
+    //             model: db.Brotherhood,
+    //             as: 'brotherhoods',
+    //             where: {id},
+    //             required: true,
+    //             attributes: []
+    //           }
+    //         ],
+    //         attributes: ['id', 'name', 'surname', 'avatar_picture']
+    //     });
