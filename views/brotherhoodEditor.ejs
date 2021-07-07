@@ -19,15 +19,15 @@
         <form action='<%= id %>?_method=PUT'method="POST" class="formulario">
 
           <label for="name">
-            <input type="text" name="name" id="name" placeholder="Escolha um nome para sua confraria" value="<%= locals.old && old.name %>">
+            <input type="text" name="name" id="name" placeholder="Escolha um nome para sua confraria" value="<%= brotherhood.name %>">
           </label>
   
           <label for="description">
-              <textarea name="description" id="description" cols="1" rows="3" placeholder="Descreva sua confraria" value="<%= locals.old && old.name %>" ></textarea>
+              <textarea name="description" id="description" cols="1" rows="3" placeholder="Descreva sua confraria" value="<%= brotherhood.description %>" ></textarea>
           </label>
   
           <label for="since">
-              <input type="text" onfocus="(this.type='date')" name="since" id="since" placeholder="Data de criação" value="<%= locals.old && old.birthday %>">
+              <input type="text" onfocus="(this.type='date')" name="since" id="since" placeholder="Data de criação" value="<%= brotherhood.since %>" >
           </label>
 
           <button class="button btn-form" type="submit">Editar Confraria</button>

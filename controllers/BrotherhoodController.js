@@ -3,7 +3,6 @@ const Sequelize = require('sequelize');
 const { check, validationResult, body } = require('express-validator');
 const { promiseImpl } = require('ejs');
 const BrotherhoodService = require('../services/BrotherhoodService');
-const UserController = require('../services/UserService')
 const nodemailer = require('../services/nodemailerService');
 const UserService = require('../services/UserService');
 
@@ -149,31 +148,23 @@ const BrotherhoodController = {
 
     updateView: async (req, res)=>{
 
-      const members = await BrotherhoodService.getMembers(req, res)   
-  
+      const members = await BrotherhoodService.getMembers(req, res);
+      const brotherhood = await BrotherhoodService.getBrotherhood(req, res);
+
       res.render('brotherhoodEditor', {
           id: req.params.id,
-          user: req.session.user, 
+          user: req.session.user,
+          brotherhood:brotherhood, 
           members: members,
           title: 'Editar Confraria', 
           style: 'register'})
     },
 
     update: async (req, res) =>{
-      let { id } = req.params;
-      let {
-        name,  
-        description, 
-        since,
-        } = req.body;
-      const brotherhood = await db.Brotherhood.update({
-        name,
-        description,
-        since
-      },{ 
-        where:{ id }
-      });
-      res.redirect('/dashboard')
+     
+      await BrotherhoodService.update(req, res);
+      res.redirect('/dashboard');
+
     },
 
     addMembers: async (req, res) =>{
@@ -181,6 +172,7 @@ const BrotherhoodController = {
       await BrotherhoodService.addMembers(req, res);
       const {id} = req.params
       res.redirect(`/confraria/${id}`)
+      
     },
 
     deleteMember: async (req, res)=>{
@@ -210,7 +202,6 @@ const BrotherhoodController = {
 
   postContent: async(req, res)=>{
     let {id} = req.params;
-    let  users_id = req.session.user.id;
 
   },
  
