@@ -70,7 +70,8 @@
             foreignKey: "users_id"
         });
         User.hasMany(modelos.Post, {
-            as: "posts"
+            as: "posts",
+            foreignKey: "users_id"
         });
         User.hasMany(modelos.Reaction, {
             as: "reactions"

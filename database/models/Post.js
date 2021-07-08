@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       content:{
         type: DataTypes.STRING(5120)
       },
-      response: DataTypes.BOOLEAN
+      comment: DataTypes.BOOLEAN
     },
     {
       tableName: "posts"

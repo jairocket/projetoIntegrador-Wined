@@ -80,7 +80,23 @@
             </div>
         </section>
         <section class="posts-filter">
-            <p>Atividades Recentes</p>
+            <div >
+                <% posts.forEach((post)=>{ %>
+                    <div class="post">
+                        <div>
+                            <%= post.author.avatar_picture %>
+                            <h6><%= post.author.name %> <%= post.author.surname %></h6>
+                        </div>
+                        <div>
+                            <p><%= post.content %></p>
+                        </div>
+                        <div class='postMenu'>
+                            <button>Cheers!</button>
+                            <button>Comentar</button>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
         </section>
     </section>
     </main>
