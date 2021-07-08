@@ -8,6 +8,11 @@ h5{
     margin: 30px;
     font-weight: 500;
 }
+
+h6{
+    font-weight: 500;
+    margin: 10px;
+}
 h2{
     font-size: 22px;
     font-weight: 500;
@@ -27,6 +32,30 @@ main {
     flex-direction: row;
     justify-content: space-evenly;
     background: whitesmoke;
+}
+
+.post {
+    margin-top: 10px;
+    padding: 10px;
+    background: white;
+    border-radius: 25px;
+    width: 870px;
+}
+
+.post > div > p {
+    margin-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+
+.postMenu {
+    padding: 5px;
+}
+
+.postMenu > button{
+    font-size: 15px;
+    padding: 5px;
 }
 
 .confraria{

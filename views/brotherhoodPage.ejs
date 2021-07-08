@@ -80,16 +80,20 @@
             </div>
         </section>
         <section class="posts-filter">
-            <div>
+            <div >
                 <% posts.forEach((post)=>{ %>
-                    <div>
+                    <div class="post">
                         <div>
                             <%= post.author.avatar_picture %>
-                            <%= post.author.name %> <%= post.author.surname %>
+                            <h6><%= post.author.name %> <%= post.author.surname %></h6>
                         </div>
-                        
-                        <%= post.content %>
-
+                        <div>
+                            <p><%= post.content %></p>
+                        </div>
+                        <div class='postMenu'>
+                            <button>Cheers!</button>
+                            <button>Comentar</button>
+                        </div>
                     </div>
                 <% }) %>
             </div>
