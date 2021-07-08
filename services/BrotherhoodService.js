@@ -254,6 +254,22 @@ const BrotherhoodService = {
       res.redirect(`/confraria/${brotherhood_id}`)
     },
 
+    getPosts: async(req, res)=>{
+      let {id} = req.params;
+      const posts = await db.Post.findAll({
+        include:{
+          model: db.User,
+          as: 'author',
+          attributes: ['name', 'surname', 'avatar_picture']
+        },
+        where: {brotherhood_id: id}
+      });
+
+      console.log(posts)
+      return(posts)
+
+    },
+
     deleteMember: async(req, res)=>{
         let { id, m_id } = req.params;
         const deleted = await db.Brotherhood_User.destroy({

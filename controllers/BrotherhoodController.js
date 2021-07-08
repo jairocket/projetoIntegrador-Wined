@@ -16,13 +16,19 @@ const BrotherhoodController = {
     const brotherhood = await BrotherhoodService.getBrotherhood(req, res); 
     const count = await BrotherhoodService.getCount(req, res);
     const user = await UserService.getSessionUser(req,res);
+    const posts = await BrotherhoodService.getPosts(req, res);
+    console.log(posts)
+    console.log(count)
+
+    // res.json(posts)
     
     res.render('brotherhoodPage', { 
       title: "Confraria",
       style: "brotherhood", 
       user: user,
       brotherhood:brotherhood,
-      count: count.count
+      count: count.count,
+      posts: posts
      });  
   },
 
@@ -204,6 +210,8 @@ const BrotherhoodController = {
     await BrotherhoodService.postText(req, res)
 
   },
+
+
  
 //GET brotherhood's members
   getMembers: async (req, res) =>{
