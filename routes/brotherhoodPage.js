@@ -40,7 +40,9 @@ router.get('/eventos/:id', auth, (req, res) =>{
     res.render('eventCreator', {user: req.session.user, title: 'Cadastrar Eventos', style: 'register'})
 });
 
-router.post('/post-content/', brotherhoodController.postContent )
+router.post('/post-content/', brotherhoodController.postContent);
+
+router.post('/post-comment', brotherhoodController.postComment);
 
 /* GET brotherhoodPage. */
 router.get('/:id', auth, membershipCheck, brotherhoodController.accessBrotherhood);
