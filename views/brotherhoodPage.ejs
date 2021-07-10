@@ -61,7 +61,6 @@
                     aria-placeholder="Compartilhe sua experiência">
                     
                 </div>
-
             </div>
             <div class="upload-media-post">
                 <div>
@@ -83,6 +82,7 @@
             <div >
                 <% posts.forEach((post)=>{ %>
                     <div class="post">
+                        <div class="hidden"><%= post.id %></div>
                         <div>
                             <%= post.author.avatar_picture %>
                             <h6><%= post.author.name %> <%= post.author.surname %></h6>
@@ -92,8 +92,41 @@
                         </div>
                         <div class='postMenu'>
                             <button>Cheers!</button>
-                            <button>Comentar</button>
+                            <button type="button">Comentários</button>
+                            <button>Editar</button>
+                            <button>Deletar</button>
                         </div>
+                    </div>
+                    <div class="comments">
+                        <div class="create-comment">
+                            <div class="write-comment">
+                                <img src="../images/avatar-icon.svg" alt="avatar">
+                                <div 
+                                    class="write-commentPrompt" 
+                                    aria-labelledby="write-comment" 
+                                    aria-multiline="true" 
+                                    role="textbox" 
+                                    contenteditable="true"
+                                    aria-placeholder="Compartilhe sua experiência"
+                                    id ="commentPrompt">        
+                                </div>
+                                <div>
+                                    <button type="button" class="c-btn"> <img src="../images/post.svg" alt="add-video">Enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <!-- <div>
+                                <%= post.author.avatar_picture %>
+                                <h6><%= post.author.name %> <%= post.author.surname %></h6>
+                            </div>
+                            <div>
+                                <p><%= post.content %></p>
+                            </div> -->
+
+                        </div>
+
+
                     </div>
                 <% }) %>
             </div>

@@ -240,23 +240,47 @@ const BrotherhoodService = {
     postText: async(req, res)=>{
       
       let  users_id = req.session.user.id;
-      let {content, brotherhood_id} = req.body
+      let {content, brotherhood_id, comment} = req.body
       
       const post = await db.Post.create({
         content,
         brotherhood_id,
         users_id,
-        comment: false
-      })
+        comment
+      });
       console.log(content)
       console.log(users_id)
       console.log(brotherhood_id)
       res.redirect(`/confraria/${brotherhood_id}`)
     },
 
+    postComment: async(req, res)=>{
+      let  users_id = req.session.user.id;
+      let {content, brotherhood_id, comment} = req.body
+
+      const post = await db.Post.create({
+        content,
+        brotherhood_id,
+        users_id,
+        comment
+      });
+
+      const commentary = await db.Post_Comment({
+        post_id,
+        response: false
+      });
+
+
+
+    },
+
     getPosts: async(req, res)=>{
       let {id} = req.params;
       const posts = await db.Post.findAll({
+        order:[
+          ['createdAt', 
+          'DESC']
+        ],
         include:{
           model: db.User,
           as: 'author',
