@@ -10,19 +10,30 @@ module.exports = (sequelize, DataTypes) => {
           type: DataTypes.INTEGER,
 
       },
+
+      ref_post_id:{
+        type: DataTypes.INTEGER,
+
+    },
   
       response: DataTypes.BOOLEAN
     },
 
     {
-      tableName: "post_comments"
+      tableName: "post_comments",
+      timestamps: false
     });
   
     Post_Comment.associate = function(models) {
 
       Post_Comment.belongsTo(models.Post, {
-        as: 'comments',
+        as: 'comments1',
         foreignKey: "post_id"
+      });
+
+      Post_Comment.belongsTo(models.Post, {
+        as: 'comments',
+        foreignKey: "ref_post_id"
       });
     }
   

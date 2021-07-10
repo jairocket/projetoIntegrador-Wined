@@ -256,7 +256,7 @@ const BrotherhoodService = {
 
     postComment: async(req, res)=>{
       let  users_id = req.session.user.id;
-      let {content, brotherhood_id, comment} = req.body
+      let {content, brotherhood_id, comment, ref_post_id} = req.body
 
       const post = await db.Post.create({
         content,
@@ -265,13 +265,10 @@ const BrotherhoodService = {
         comment
       });
 
-      const commentary = await db.Post_Comment({
-        post_id,
-        response: false
+      const commentary = await db.Post_Comment.create({
+        ref_post_id,
+        post_id: post.id
       });
-
-
-
     },
 
     getPosts: async(req, res)=>{
@@ -281,14 +278,24 @@ const BrotherhoodService = {
           ['createdAt', 
           'DESC']
         ],
-        include:{
+        include:[{
+          model: db.Post_Comment,
+          as: 'comments',
+          
+        },{
           model: db.User,
           as: 'author',
           attributes: ['name', 'surname', 'avatar_picture']
-        },
-        where: {brotherhood_id: id}
-      });
+        }
+      ],
+        
 
+        where: {
+          [Op.and]: [
+            {brotherhood_id: id},
+            {comment: false}
+          ]}
+      });
       console.log(posts)
       return(posts)
 

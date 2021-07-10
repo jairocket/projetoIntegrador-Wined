@@ -239,10 +239,14 @@ main {
 }
 
 .comments{
-    display: flex;
+    display: none;
     justify-content: right;
     margin-left: 50px;
     flex-direction: column;
+}
+
+.show{
+    display: flex;
 }
 
 .create-comment{
