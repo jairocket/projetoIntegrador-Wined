@@ -2,7 +2,8 @@ window.onload = ()=>{
 
     const btn = document.getElementById('btn');
     const brotherhood_id = window.location.pathname.split('/')[2];
-    const cbtn = document.getElementsByClassName('c-btn')
+    const cbtn = document.getElementsByClassName('c-btn');
+    const hbtn = document.getElementsByClassName('h-btn');
     
     console.log(window.location.pathname.split('/')[2])  
 
@@ -36,9 +37,17 @@ window.onload = ()=>{
         }
 
     }
-    
-
+    const commentsSwitch = ()=>{
         
+    }
+    for (let i=0; i< cbtn.length; i++){
+        hbtn[i].onclick = async function(event){
+            let commentList= document.getElementsByClassName('comments');
+            commentList[i].classList.toggle('show')
+            console.log(event)
+        }
+
+    }
         
     
 

@@ -278,18 +278,25 @@ const BrotherhoodService = {
           ['createdAt', 
           'DESC']
         ],
-        include:{
+        include:[{
+          model: db.Post_Comment,
+          as: 'comments',
+          
+        },{
           model: db.User,
           as: 'author',
           attributes: ['name', 'surname', 'avatar_picture']
-        },
+        }
+      ],
+        
+
         where: {
           [Op.and]: [
             {brotherhood_id: id},
             {comment: false}
           ]}
       });
-
+      console.log(posts)
       return(posts)
 
     },

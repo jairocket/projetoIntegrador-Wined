@@ -27,12 +27,12 @@ module.exports = (sequelize, DataTypes) => {
     Post_Comment.associate = function(models) {
 
       Post_Comment.belongsTo(models.Post, {
-        as: 'comments',
+        as: 'comments1',
         foreignKey: "post_id"
       });
 
       Post_Comment.belongsTo(models.Post, {
-        as: 'reference post',
+        as: 'comments',
         foreignKey: "ref_post_id"
       });
     }
