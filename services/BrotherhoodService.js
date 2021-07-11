@@ -275,21 +275,17 @@ const BrotherhoodService = {
       let {id} = req.params;
       const posts = await db.Post.findAll({
         order:[
-          ['createdAt', 
-          'DESC']
+          [
+            'createdAt', 
+            'DESC'
+          ]
         ],
-        include:[{
-          model: db.Post_Comment,
-          as: 'comments',
-          
-        },{
+        include:
+        {
           model: db.User,
           as: 'author',
           attributes: ['name', 'surname', 'avatar_picture']
-        }
-      ],
-        
-
+        },
         where: {
           [Op.and]: [
             {brotherhood_id: id},
@@ -298,6 +294,14 @@ const BrotherhoodService = {
       });
       console.log(posts)
       return(posts)
+
+    },
+
+    getComments: async(req, res)=>{
+      let {post_id} = req.body
+      const comments = await db.Post.findAll({
+        where: post_id,
+      })
 
     },
 

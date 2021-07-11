@@ -44,8 +44,10 @@ window.onload = ()=>{
         hbtn[i].onclick = async function(event){
             let commentList= document.getElementsByClassName('comments');
             commentList[i].classList.toggle('show')
-            console.log(event)
         }
+        // hbtn[i].onclick = async function(){
+        //     const {data} = await axios.get()
+        // }
 
     }
         
