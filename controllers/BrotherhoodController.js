@@ -213,6 +213,16 @@ const BrotherhoodController = {
     const posts = await BrotherhoodService.postComment(req, res)
     
   },
+
+  editComment: async(req, res)=>{
+    const changedPosts = await BrotherhoodService.editPosts(req, res);
+   
+  },
+
+  deleteComment: async(req, res)=>{
+    const changedPosts = await BrotherhoodService.deletePosts(req, res);
+   
+  },
  
 //GET brotherhood's members
   getMembers: async (req, res) =>{

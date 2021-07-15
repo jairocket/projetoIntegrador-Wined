@@ -245,9 +245,29 @@ main {
     flex-direction: column;
 }
 
-.show{
+.show-comments{
     display: flex;
 }
+
+.edit-comment{
+    display: none;
+    width: 95%;
+    border-radius: 25px;
+    align-items: center;
+    margin-top: 10px;
+    padding: 10px;
+    justify-content:space-around;
+    height: 70px;
+    background:#9B0000;
+    justify-self: right;
+
+}
+
+.show-edit-comment{
+    display: flex;
+}
+
+
 
 .create-comment{
     display: flex;
@@ -293,7 +313,7 @@ main {
     display: none;
 }
 
-.write-postPrompt, .write-commentPrompt{
+.write-postPrompt, .write-commentPrompt, .edit-commentPrompt{
     background: whitesmoke;
     width: 85%;
     border-radius: 22px;

@@ -44,6 +44,10 @@ router.post('/post-content/', brotherhoodController.postContent);
 
 router.post('/post-comment', brotherhoodController.postComment);
 
+router.put('/edit-comment/:id', brotherhoodController.editComment);
+
+router.delete('/post-delete/', brotherhoodController.deleteComment);
+
 /* GET brotherhoodPage. */
 router.get('/:id', auth, membershipCheck, brotherhoodController.accessBrotherhood);
 

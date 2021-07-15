@@ -316,7 +316,27 @@ const BrotherhoodService = {
 
     },
 
+    editPosts: async(req, res)=>{
+      
+      let {content, brotherhood_id, comment, ref_post_id} = req.body
+      console.log(content);
+      console.log(ref_post_id.trim());
+      const changedPosts = await db.Post.findByPk(ref_post_id.trim()).then(
+        post => post.update({
+          content,
+          brotherhood_id,
+          comment,
+          ref_post_id
+        })
+      );
+      
+      console.log(changedPosts)
+      
+    },
 
+    deletePosts: async(req, res)=>{
+
+    },
 
     deleteMember: async(req, res)=>{
         let { id, m_id } = req.params;
