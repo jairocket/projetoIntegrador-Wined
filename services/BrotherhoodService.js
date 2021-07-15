@@ -266,7 +266,7 @@ const BrotherhoodService = {
       });
 
       const commentary = await db.Post_Comment.create({
-        ref_post_id,
+        ref_post_id: Number(ref_post_id),
         post_id: post.id
       });
     },
@@ -280,18 +280,37 @@ const BrotherhoodService = {
             'DESC'
           ]
         ],
-        include:
+        include: 
+        [
+          {
+            model: db.User,
+            as: 'author',
+            attributes: ['name', 'surname', 'avatar_picture']
+          },
         {
-          model: db.User,
-          as: 'author',
-          attributes: ['name', 'surname', 'avatar_picture']
-        },
+          model: db.Post_Comment,
+          as: "comments",
+          include: {
+            model: db.Post,
+            as: 'contents',
+            attributes: ['content'],
+            include: {
+              model: db.User,
+              as: "author",
+              attributes: ['name', 'surname', 'avatar_picture']
+            }
+          },
+          
+        }
+      ],
         where: {
           [Op.and]: [
             {brotherhood_id: id},
             {comment: false}
-          ]}
+          ]},
+          nested: true
       });
+
       console.log(posts)
       return(posts)
 
@@ -299,9 +318,7 @@ const BrotherhoodService = {
 
     getComments: async(req, res)=>{
       let {post_id} = req.body
-      const comments = await db.Post.findAll({
-        where: post_id,
-      })
+      
 
     },
 
