@@ -109,10 +109,22 @@
                             </div>
                             <div class='postMenu'>
                                 <button>Cheers!</button>
-                                <button type="button" class="h-btn">Comentários</button>
-                                <button>Editar</button>
-                                <button>Deletar</button>                               
+                                <button type="button" class= "h-btn">Comentários</button>
+                                <button type="button" class= "e-btn">Editar</button>
+                                <button type="button" class= "d-btn">Deletar</button>                               
                             </div>
+                        </div>
+                        <div class="edit-comment">
+                            <img src="../images/avatar-icon.svg" alt="avatar">
+                            <div class="edit-commentPrompt" aria-labelledby="edit-comment"
+                                aria-multiline="true" role="textbox" contenteditable="true"
+                                aria-placeholder="Compartilhe sua experiência" id="commentPrompt">
+                            </div>
+                            <div>
+                                <button type="button" class="edit-btn"> <img src="../images/post.svg"
+                                        alt="add-video">Enviar</button>
+                            </div>
+
                         </div>
                         <div class="comments">
                             <div class="create-comment">
@@ -130,6 +142,7 @@
                                 </div>
 
                             </div>
+
                             <div>
                                 <% if(post.comments.length> 0){ %>
                                     <% post.comments.forEach((comment)=>{ %>
@@ -156,10 +169,8 @@
                                         </div>
                                         <%})%>
                                     <%}%>
+                                </div>
                             </div>
-
-
-                        </div>
                         <% }) %>
                 </div>
             </section>
