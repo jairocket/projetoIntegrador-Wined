@@ -1,140 +1,172 @@
-
-<%- include('./partials/header')  %>
+<%- include('./partials/header') %>
 
     <main>
         <section class="dash">
             <%- include('./partials/topview') %>
-            <div class="userDescription">
-                <p><%= user.description %></p>
-            </div>
-            <div class="members">
-                <h5>Confrades</h5>
-                <% brotherhood.members.forEach((member)=>{ %>
-                    <div class="member">
-                        <a href ="/perfil/<%= member.id %>">
-                            <img src="" alt="">
-                        </a>
-                        <div>
-                            <a href ="/perfil/<%= member.id %>"><%= member.name %> <%= member.surname %></a><br>
-                        </div>
-                    </div>
-                <% }) %>
-
-            </div>
-        </section>
-        <section class="confraria">
-        <img class="confraria-cover" src="../images/confraria-cover.svg" alt="confraria-cover">
-        <section class="settings">
-            <div class="confraria-title">
-                <h2><%= brotherhood.name %> ></h2>
-                <div>
-                    <p>Since: <%= brotherhood.since %></p>
-                    <img src="../images/dot.svg" alt="dot-separation">
-                    <p><%= count %> Confrades</p>
+                <div class="userDescription">
+                    <p>
+                        <%= user.description %>
+                    </p>
                 </div>
-            </div>
-            <div class="brotherhoodMenu">
-                <a href="#"><p>Agenda</p></a>
-                <a href="editar/<%= brotherhood.id %>"><p>Editar</p></a>
-                <form action="/confraria/editar/delete/<%= brotherhood.id %>/<%= user.id %>?_method=DELETE" method="POST">
-                    <button type="submit" id='leaveBrotherhood'>Deixar Confraria</button>
-                </form>
-            </div>
-        </section>
-
-            <div class="description">
-                <p><%= brotherhood.description %></p>
-            </div>
-        
-        <section class="create-post-section">
-            <div class="create-post-buttons">
-
-            </div>
-            <div class="write-post">
-                <img src="../images/avatar-icon.svg" alt="avatar">
-                <div 
-                    class="write-postPrompt" 
-                    aria-labelledby="write-post" 
-                    aria-multiline="true" 
-                    role="textbox" 
-                    contenteditable="true"
-                    aria-placeholder="Compartilhe sua experiência">
-                    
-                </div>
-            </div>
-            <div class="upload-media-post">
-                <div>
-                    <img src="../images/add-picture.svg" alt="add-picture">
-                    <p>Foto</p>
-                </div>
-                <section class="upload-media-separator"></section>
-                <div>
-                    <img src="../images/add-video.svg" alt="add-video">
-                    <p>Vídeo</p>
-                </div>
-                <section class="upload-media-separator"></section>
-                <div>
-                    <button type="button" id="btn"> <img src="../images/post.svg" alt="add-video">Enviar</button>
-                </div>
-            </div>
-        </section>
-        <section class="posts-filter">
-            <div >
-                <% posts.forEach((post)=>{ %>
-                    <div class="post">
-                        <div class="hidden"><%= post.id %></div>
-                        <div>
-                            <%= post.author.avatar_picture %>
-                            <h6><%= post.author.name %> <%= post.author.surname %></h6>
-                        </div>
-                        <div>
-                            <p><%= post.content %></p>
-                        </div>
-                        <div class='postMenu'>
-                            <button>Cheers!</button>
-                            <button type="button" class="h-btn">Comentários</button>
-                            <button>Editar</button>
-                            <button>Deletar</button>
-                        </div>
-                    </div>
-                    <div class="comments">
-                        <div class="create-comment">
-                            <div class="write-comment">
-                                <img src="../images/avatar-icon.svg" alt="avatar">
-                                <div 
-                                    class="write-commentPrompt" 
-                                    aria-labelledby="write-comment" 
-                                    aria-multiline="true" 
-                                    role="textbox" 
-                                    contenteditable="true"
-                                    aria-placeholder="Compartilhe sua experiência"
-                                    id ="commentPrompt">        
-                                </div>
-                                <div>
-                                    <button type="button" class="c-btn"> <img src="../images/post.svg" alt="add-video">Enviar</button>
-                                </div>
+                <div class="members">
+                    <h5>Confrades</h5>
+                    <% brotherhood.members.forEach((member)=>{ %>
+                        <div class="member">
+                            <a href="/perfil/<%= member.id %>">
+                                <img src="" alt="">
+                            </a>
+                            <div>
+                                <a href="/perfil/<%= member.id %>">
+                                    <%= member.name %>
+                                        <%= member.surname %>
+                                </a><br>
                             </div>
                         </div>
-                        <div>
-                            <!-- <div>
-                                <%= post.author.avatar_picture %>
-                                <h6><%= post.author.name %> <%= post.author.surname %></h6>
-                            </div> -->
-                            <!-- <div>
-                                <p><%= post.comments.content %></p>
-                            </div> -->
+                        <% }) %>
 
-                        </div>
+                </div>
+        </section>
+        <section class="confraria">
+            <img class="confraria-cover" src="../images/confraria-cover.svg" alt="confraria-cover">
+            <section class="settings">
+                <div class="confraria-title">
+                    <h2>
+                        <%= brotherhood.name %> >
+                    </h2>
+                    <div>
+                        <p>Since: <%= brotherhood.since %>
+                        </p>
+                        <img src="../images/dot.svg" alt="dot-separation">
+                        <p>
+                            <%= count %> Confrades
+                        </p>
+                    </div>
+                </div>
+                <div class="brotherhoodMenu">
+                    <a href="#">
+                        <p>Agenda</p>
+                    </a>
+                    <a href="editar/<%= brotherhood.id %>">
+                        <p>Editar</p>
+                    </a>
+                    <form action="/confraria/editar/delete/<%= brotherhood.id %>/<%= user.id %>?_method=DELETE"
+                        method="POST">
+                        <button type="submit" id='leaveBrotherhood'>Deixar Confraria</button>
+                    </form>
+                </div>
+            </section>
 
+            <div class="description">
+                <p>
+                    <%= brotherhood.description %>
+                </p>
+            </div>
+
+            <section class="create-post-section">
+                <div class="create-post-buttons">
+
+                </div>
+                <div class="write-post">
+                    <img src="../images/avatar-icon.svg" alt="avatar">
+                    <div class="write-postPrompt" aria-labelledby="write-post" aria-multiline="true" role="textbox"
+                        contenteditable="true" aria-placeholder="Compartilhe sua experiência">
 
                     </div>
-                <% }) %>
-            </div>
+                </div>
+                <div class="upload-media-post">
+                    <div>
+                        <img src="../images/add-picture.svg" alt="add-picture">
+                        <p>Foto</p>
+                    </div>
+                    <section class="upload-media-separator"></section>
+                    <div>
+                        <img src="../images/add-video.svg" alt="add-video">
+                        <p>Vídeo</p>
+                    </div>
+                    <section class="upload-media-separator"></section>
+                    <div>
+                        <button type="button" id="btn"> <img src="../images/post.svg" alt="add-video">Enviar</button>
+                    </div>
+                </div>
+            </section>
+            <section class="posts-filter">
+                <div>
+                    <% posts.forEach((post)=>{ %>
+                        <div class="post">
+                            <div class="hidden">
+                                <%= post.id %>
+                            </div>
+                            <div>
+                                <%= post.author.avatar_picture %>
+                                    <h6>
+                                        <%= post.author.name %> <%= post.author.surname %>
+                                    </h6>
+                            </div>
+                            <div>
+                                <p>
+                                    <%= post.content %>
+                                </p>
+                            </div>
+                            <div class='postMenu'>
+                                <button>Cheers!</button>
+                                <button type="button" class="h-btn">Comentários</button>
+                                <button>Editar</button>
+                                <button>Deletar</button>                               
+                            </div>
+                        </div>
+                        <div class="comments">
+                            <div class="create-comment">
+                                <div class="write-comment">
+                                    <img src="../images/avatar-icon.svg" alt="avatar">
+                                    <div class="write-commentPrompt" aria-labelledby="write-comment"
+                                        aria-multiline="true" role="textbox" contenteditable="true"
+                                        aria-placeholder="Compartilhe sua experiência" id="commentPrompt">
+                                    </div>
+                                    <div>
+                                        <button type="button" class="c-btn"> <img src="../images/post.svg"
+                                                alt="add-video">Enviar</button>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div>
+                                <% if(post.comments.length> 0){ %>
+                                    <% post.comments.forEach((comment)=>{ %>
+
+                                        <div class="post">
+                                          
+                                            <div>
+                                                <%= comment.contents.author.avatar_picture %>
+                                                    <h6>
+                                                        <%= comment.contents.author.name %> <%= comment.contents.author.surname %>
+                                                    </h6>
+                                            </div>
+                                            <div>
+                                                <p>
+                                                    <%= comment.contents.content %>
+                                                </p>
+                                            </div>
+                                            <div class='postMenu'>
+                                                <button>Cheers!</button>
+                                                <button type="button">Comentários</button>
+                                                <button>Editar</button>
+                                                <button>Deletar</button>                               
+                                            </div>
+                                        </div>
+                                        <%})%>
+                                    <%}%>
+                            </div>
+
+
+                        </div>
+                        <% }) %>
+                </div>
+            </section>
         </section>
-    </section>
     </main>
 
-  <script src = '../js/postCreator.js'></script>  
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  
-<%- include('./partials/footer')  %>  
+    <script src='../js/postCreator.js'></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script>console.log("<%= JSON.stringify(posts) %>")</script> -->
+    <%- include('./partials/footer') %>

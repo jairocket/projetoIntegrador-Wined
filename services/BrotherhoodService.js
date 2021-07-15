@@ -266,40 +266,57 @@ const BrotherhoodService = {
       });
 
       const commentary = await db.Post_Comment.create({
-        ref_post_id,
+        ref_post_id: Number(ref_post_id),
         post_id: post.id
       });
+
+      res.redirect(`/confraria/${brotherhood_id}`)
     },
 
     getPosts: async(req, res)=>{
       let {id} = req.params;
       const posts = await db.Post.findAll({
         order:[
-          ['createdAt', 
-          'DESC']
+          [
+            'createdAt', 
+            'DESC'
+          ]
         ],
-        include:[{
+        include: 
+        [
+          {
+            model: db.User,
+            as: 'author',
+            attributes: ['name', 'surname', 'avatar_picture', 'id']
+          },
+        {
           model: db.Post_Comment,
-          as: 'comments',
-          
-        },{
-          model: db.User,
-          as: 'author',
-          attributes: ['name', 'surname', 'avatar_picture']
+          as: "comments",
+          include: {
+            model: db.Post,
+            as: 'contents',
+            attributes: ['content'],
+            include: {
+              model: db.User,
+              as: "author",
+              attributes: ['name', 'surname', 'avatar_picture', 'id']
+            }
+          }, 
         }
       ],
-        
-
         where: {
           [Op.and]: [
             {brotherhood_id: id},
             {comment: false}
-          ]}
+          ]},
+          nested: true
       });
-      console.log(posts)
+
       return(posts)
 
     },
+
+
 
     deleteMember: async(req, res)=>{
         let { id, m_id } = req.params;

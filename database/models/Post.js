@@ -36,10 +36,17 @@ module.exports = (sequelize, DataTypes) => {
 
       Post.hasMany(models.Reaction);
 
-      Post.hasMany(models.Post_Comment,{
+      Post.hasMany(models.Post_Comment, {    
+        foreignKey: "ref_post_id",
         as: "comments",
-        foreignKey: "ref_post_id"
       });
+
+      Post.hasMany(models.Post_Comment, {
+        foreignKey: "post_id",
+        as: "contents"
+      })
+
+
       
 
       Post.hasMany(models.Post_Midia);
