@@ -211,7 +211,7 @@ const BrotherhoodController = {
 
   postComment: async(req, res)=>{
     const posts = await BrotherhoodService.postComment(req, res)
-    return res.json(posts)
+    
   },
  
 //GET brotherhood's members

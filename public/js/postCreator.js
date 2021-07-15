@@ -34,20 +34,17 @@ window.onload = ()=>{
     
                 }
             )
+            window.location.href = `/confraria/${brotherhood_id}`;
         }
 
     }
-    const commentsSwitch = ()=>{
-        
-    }
+
     for (let i=0; i< cbtn.length; i++){
         hbtn[i].onclick = async function(event){
             let commentList= document.getElementsByClassName('comments');
             commentList[i].classList.toggle('show')
         }
-        // hbtn[i].onclick = async function(){
-        //     const {data} = await axios.get()
-        // }
+
 
     }
         

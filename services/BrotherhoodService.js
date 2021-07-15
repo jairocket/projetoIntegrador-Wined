@@ -269,6 +269,8 @@ const BrotherhoodService = {
         ref_post_id: Number(ref_post_id),
         post_id: post.id
       });
+
+      res.redirect(`/confraria/${brotherhood_id}`)
     },
 
     getPosts: async(req, res)=>{
@@ -285,7 +287,7 @@ const BrotherhoodService = {
           {
             model: db.User,
             as: 'author',
-            attributes: ['name', 'surname', 'avatar_picture']
+            attributes: ['name', 'surname', 'avatar_picture', 'id']
           },
         {
           model: db.Post_Comment,
@@ -297,10 +299,9 @@ const BrotherhoodService = {
             include: {
               model: db.User,
               as: "author",
-              attributes: ['name', 'surname', 'avatar_picture']
+              attributes: ['name', 'surname', 'avatar_picture', 'id']
             }
-          },
-          
+          }, 
         }
       ],
         where: {
@@ -311,16 +312,11 @@ const BrotherhoodService = {
           nested: true
       });
 
-      console.log(posts)
       return(posts)
 
     },
 
-    getComments: async(req, res)=>{
-      let {post_id} = req.body
-      
 
-    },
 
     deleteMember: async(req, res)=>{
         let { id, m_id } = req.params;
