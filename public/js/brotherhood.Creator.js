@@ -1,4 +1,4 @@
-console.log('funfando');
+
 
 function addNewInput(){
     var newInput = document.createElement('div');
