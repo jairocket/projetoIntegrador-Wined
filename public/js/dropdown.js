@@ -1,5 +1,3 @@
-console.log('funfando');
-
 
 function myFunction() {
 document.getElementById("myDropdown").classList.toggle("show");

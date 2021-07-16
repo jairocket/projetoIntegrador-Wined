@@ -46,6 +46,7 @@
                     <a href="#">
                         <p>Agenda</p>
                     </a>
+                    
                     <a href="editar/<%= brotherhood.id %>">
                         <p>Editar</p>
                     </a>
@@ -115,8 +116,8 @@
                                     <button type="button" class= "e-btn">Editar</button>
                                     <button type="button" class= "d-btn">Deletar</button>   
                                 <% }else{ %>
-                                    <button type="button" class= "hidden3">Editar</button>
-                                    <button type="button" class= "hidden3">Deletar</button> 
+                                    <button type="button" class= "e-btn" id="hidden3">Editar</button>
+                                    <button type="button" class= "d-btn" id="hidden3">Deletar</button> 
                                 <% } %>
                                                             
                             </div>
@@ -177,8 +178,8 @@
                                                     <button type="button" >Editar</button>
                                                     <button type="button" >Deletar</button>   
                                                 <% }else{ %>
-                                                    <button type="button" class= "hidden3">Editar</button>
-                                                    <button type="button" class= "hidden3">Deletar</button> 
+                                                    <button type="button" class= "" id="hidden3">Editar</button>
+                                                    <button type="button" class= "" id="hidden3">Deletar</button> 
                                                 <% } %>                               
                                             </div>
                                         </div>
