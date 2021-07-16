@@ -84,7 +84,7 @@ window.onload = ()=>{
         }
     }
 
-    for (let i=0; i< cbtn.length; i++){
+    for (let i=0; i< ebtn.length; i++){
         ebtn[i].onclick = async function(event){
             let commentList= document.getElementsByClassName('edit-comment');
             commentList[i].classList.toggle('show-edit-comment');

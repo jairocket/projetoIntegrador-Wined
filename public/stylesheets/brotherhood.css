@@ -309,7 +309,7 @@ main {
     padding: 15px;
 }
 
-.hidden{
+.hidden, .hidden2, .hidden3{
     display: none;
 }
 
