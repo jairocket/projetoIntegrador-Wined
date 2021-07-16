@@ -17,8 +17,9 @@ const BrotherhoodController = {
     const count = await BrotherhoodService.getCount(req, res);
     const user = await UserService.getSessionUser(req,res);
     const posts = await BrotherhoodService.getPosts(req, res);
+    console.log(brotherhood)
 
-    // res.json(posts)
+    // res.json(brotherhood)
     
     res.render('brotherhoodPage', { 
       title: "Confraria",

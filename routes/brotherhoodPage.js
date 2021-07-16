@@ -48,6 +48,13 @@ router.put('/edit-comment/:id', brotherhoodController.editComment);
 
 router.delete('/post-delete/', brotherhoodController.deleteComment);
 
+router.get('/chancellorRequired', (req, res)=>{
+    res.render('chancellorRequired', {
+        user: req.session.user, 
+        title: "Chanceler requerido", 
+        style: "register"})
+    });
+
 /* GET brotherhoodPage. */
 router.get('/:id', auth, membershipCheck, brotherhoodController.accessBrotherhood);
 

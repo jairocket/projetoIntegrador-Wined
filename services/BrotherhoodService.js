@@ -248,9 +248,7 @@ const BrotherhoodService = {
         users_id,
         comment
       });
-      console.log(content)
-      console.log(users_id)
-      console.log(brotherhood_id)
+
       res.redirect(`/confraria/${brotherhood_id}`)
     },
 
@@ -292,6 +290,10 @@ const BrotherhoodService = {
         {
           model: db.Post_Comment,
           as: "comments",
+          order: [
+            'createdAt', 
+            'DESC'
+          ],
           include: {
             model: db.Post,
             as: 'contents',
@@ -346,14 +348,34 @@ const BrotherhoodService = {
 
     deleteMember: async(req, res)=>{
         let { id, m_id } = req.params;
-        const deleted = await db.Brotherhood_User.destroy({
-            where: {
-                [Op.and]: [
-                  {brotherhood_id: Number(id)},
-                  {users_id: Number(m_id)}, 
-                ]
-            }
+        const chancellor = await db.Brotherhood_User.findOne({
+          where: { [Op.and]: [
+            {brotherhood_id: Number(id)},
+            {users_id: Number(m_id)}, 
+          ]},
+          attributes: ['chancellor']
+        });
+
+        const chancellors = await db.Brotherhood_User.findAndCountAll({
+          where: { [Op.and]: [
+            {brotherhood_id: Number(id)},
+            {chancellor: true}, 
+          ]},
         })
+
+        if((chancellor.chancellor == true) && (chancellors.count == 1)){
+          return res.redirect('/confraria/chancellorRequired')
+        }else{
+          const deleted = await db.Brotherhood_User.destroy({
+            where: {
+              [Op.and]: [
+                {brotherhood_id: Number(id)},
+                {users_id: Number(m_id)}
+              ]
+            }
+          })
+      }
+
     }
     
 }
