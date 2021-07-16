@@ -142,10 +142,12 @@
                                 </div>
 
                             </div>
-
                             <div>
                                 <% if(post.comments.length> 0){ %>
                                     <% post.comments.forEach((comment)=>{ %>
+                                        <div class="hidden2">
+                                            <%= comment.post_id %>
+                                        </div>
 
                                         <div class="post">
                                           
