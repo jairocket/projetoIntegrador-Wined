@@ -41,7 +41,7 @@ window.onload = ()=>{
     }
     for (let i=0; i< dbtn.length; i++){
         dbtn[i].onclick = async function(event){
-            
+            let ref_post_id = document.getElementsByClassName('hidden')[i].innerText;
             console.log(ref_post_id);
             const {data} = await axios.delete(
                 `http://localhost:3000/confraria/post-delete/`, { 
