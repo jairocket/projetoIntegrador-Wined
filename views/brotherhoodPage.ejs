@@ -107,11 +107,18 @@
                                     <%= post.content %>
                                 </p>
                             </div>
+                            
                             <div class='postMenu'>
                                 <button>Cheers!</button>
                                 <button type="button" class= "h-btn">Comentários</button>
-                                <button type="button" class= "e-btn">Editar</button>
-                                <button type="button" class= "d-btn">Deletar</button>                               
+                                <% if( post.author.id == user.id ){ %>
+                                    <button type="button" class= "e-btn">Editar</button>
+                                    <button type="button" class= "d-btn">Deletar</button>   
+                                <% }else{ %>
+                                    <button type="button" class= "hidden3">Editar</button>
+                                    <button type="button" class= "hidden3">Deletar</button> 
+                                <% } %>
+                                                            
                             </div>
                         </div>
                         <div class="edit-comment">
@@ -165,8 +172,14 @@
                                             <div class='postMenu'>
                                                 <button>Cheers!</button>
                                                 <button type="button">Comentários</button>
-                                                <button>Editar</button>
-                                                <button>Deletar</button>                               
+
+                                                <% if( comment.contents.author.id == user.id ){ %>
+                                                    <button type="button" >Editar</button>
+                                                    <button type="button" >Deletar</button>   
+                                                <% }else{ %>
+                                                    <button type="button" class= "hidden3">Editar</button>
+                                                    <button type="button" class= "hidden3">Deletar</button> 
+                                                <% } %>                               
                                             </div>
                                         </div>
                                         <%})%>
