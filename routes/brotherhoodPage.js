@@ -52,7 +52,7 @@ router.get('/chancellorRequired', (req, res)=>{
     res.render('chancellorRequired', {
         user: req.session.user, 
         title: "Chanceler requerido", 
-        style: "register"})
+        style: "chancellorsRequired"})
     });
 
 /* GET brotherhoodPage. */
