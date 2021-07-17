@@ -1,0 +1,20 @@
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-image: url("../images/pxfuel.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+}
+
+#message{
+    padding: 30px;
+    background-color: white;
+    border-radius: 25px;
+    max-height: 60rem;
+    margin-left: 30px;
+}

@@ -1,6 +1,7 @@
 const db = require('../database/models');
-const {Op} = require('sequelize');
+const {Op, fn} = require('sequelize');
 const nodemailer = require('../services/nodemailerService');
+const { sequelize } = require('../database/models');
 
 const BrotherhoodService = {
     getBrotherhood: async(req, res)=>{
@@ -202,38 +203,52 @@ const BrotherhoodService = {
         }
       });
 
-      // const status = parseInt(member.chancellor) === 1
+      const chancellors = await db.Brotherhood_User.findAndCountAll({
+        where: {
+          [Op.and]: [
+            {brotherhood_id: Number(id)},
+            {chancellor: true}
+          ]
+        } 
+      })
+    
+      if(chancellors.count > 1){
+        if(member.chancellor){
+          await db.Brotherhood_User.update({
+            chancellor: false},{
+            where:  {
+              [Op.and]: [
+                { brotherhood_id: Number(id) },
+                { users_id: Number(m_id) }
+              ]
+            }
+          })
+        }else{
+          await db.Brotherhood_User.update({
+            chancellor: true},{
+            where:  {
+              [Op.and]: [
+                { brotherhood_id: Number(id) },
+                { users_id: Number(m_id) }
+              ]
+            }
+          })
+        }
 
-      // await db.Brotherhood_User.update({
-      //   chancellor: !status},{
-      //   where:  {
-      //     [Op.and]: [
-      //       { brotherhood_id: Number(id) },
-      //       { users_id: Number(m_id) }
-      //     ]
-      //   }
-      // })
-
-      if(member.chancellor){
-        await db.Brotherhood_User.update({
-          chancellor: false},{
-          where:  {
-            [Op.and]: [
-              { brotherhood_id: Number(id) },
-              { users_id: Number(m_id) }
-            ]
-          }
-        })
-      }else{
-        await db.Brotherhood_User.update({
-          chancellor: true},{
-          where:  {
-            [Op.and]: [
-              { brotherhood_id: Number(id) },
-              { users_id: Number(m_id) }
-            ]
-          }
-        })
+      }else if(chancellors.count == 1){
+        if(!member.chancellor){
+          await db.Brotherhood_User.update({
+            chancellor: true},{
+            where:  {
+              [Op.and]: [
+                { brotherhood_id: Number(id) },
+                { users_id: Number(m_id) }
+              ]
+            }
+          });
+        }else{
+          return res.redirect('/confraria/chancellorRequired')
+        }
       }
     },
 
@@ -396,3 +411,15 @@ module.exports = BrotherhoodService
     //         ],
     //         attributes: ['id', 'name', 'surname', 'avatar_picture']
     //     });
+
+         // const status = parseInt(member.chancellor) === 1
+
+      // await db.Brotherhood_User.update({
+      //   chancellor: !status},{
+      //   where:  {
+      //     [Op.and]: [
+      //       { brotherhood_id: Number(id) },
+      //       { users_id: Number(m_id) }
+      //     ]
+      //   }
+      // })
