@@ -46,10 +46,16 @@
                     <a href="#">
                         <p>Agenda</p>
                     </a>
+                    <% user.chancellor.forEach((chancellor)=>{ %>
+                        <% if (chancellor.chancellor){ %>
+                            <a href="editar/<%= brotherhood.id %>">
+                                <p>Editar</p>
+                            </a>
+                        <% } %>
+                    <% }) %>
                     
-                    <a href="editar/<%= brotherhood.id %>">
-                        <p>Editar</p>
-                    </a>
+                    <p>  </p> 
+
                     <form action="/confraria/editar/delete/<%= brotherhood.id %>/<%= user.id %>?_method=DELETE"
                         method="POST">
                         <button type="submit" id='leaveBrotherhood'>Deixar Confraria</button>
