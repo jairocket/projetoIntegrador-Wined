@@ -46,6 +46,8 @@ router.post('/post-comment', brotherhoodController.postComment);
 
 router.put('/edit-comment/:id', brotherhoodController.editComment);
 
+router.post('/react', brotherhoodController.reactionsSwitch);
+
 router.delete('/post-delete/', brotherhoodController.deletePosts);
 
 router.delete('/comment-delete/', brotherhoodController.deleteComments);

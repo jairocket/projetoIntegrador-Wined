@@ -3,13 +3,18 @@ window.onload = ()=>{
     const brotherhood_id = window.location.pathname.split('/')[2];
 
     const btn = document.getElementById('btn');
+
     const cbtn = document.getElementsByClassName('c-btn');
     const hbtn = document.getElementsByClassName('h-btn');
     const ebtn = document.getElementsByClassName('e-btn');
     const dbtn = document.getElementsByClassName('d-btn');
+    const rbtn = document.getElementsByClassName('r-btn');
+
     const editBtn = document.getElementsByClassName('edit-btn'); 
        
     const ecbtn = document.getElementsByClassName('ec-btn');
+
+    console.log(rbtn)
 
 
 
@@ -57,6 +62,18 @@ window.onload = ()=>{
                 }
             )
             window.location.href = `/confraria/${brotherhood_id}`;
+        }
+    }
+
+    for(let i=0; i< rbtn.length; i++){
+        rbtn[i].onclick = async function(event){
+            let post_id = document.getElementsByClassName('hidden')[i].innerText;
+            console.log(post_id)
+            const {data} = await axios.post(
+                `http://localhost:3000/confraria/react/`,{
+                    post_id
+                }
+            )
         }
     }
 

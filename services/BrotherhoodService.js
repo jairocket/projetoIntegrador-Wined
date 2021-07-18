@@ -190,6 +190,35 @@ const BrotherhoodService = {
       }
     },
 
+    reactionsSwitch: async(req, res)=>{
+      let users_id = req.session.user.id;
+      let {post_id} = req.body;
+      const reacted = await db.Reaction.findOne({
+        attributes: ['id'],
+        where: {
+          [Op.and]: [
+            { post_id: post_id.trim() },
+            { users_id }
+          ]
+        }
+      });
+      if(!reacted){
+        await db.Reaction.create({
+          users_id,
+          post_id: post_id.trim()
+        });
+      }else{
+        await db.Reaction.destroy({
+          where: {
+            [Op.and]: [
+              { users_id },
+              { post_id: post_id.trim() }
+            ]
+          }
+        })
+      }
+    },
+
     chancellorSwitch: async(req, res)=>{
       let { id, m_id } = req.params;
 
