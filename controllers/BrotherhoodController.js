@@ -220,9 +220,14 @@ const BrotherhoodController = {
    
   },
 
-  deleteComment: async(req, res)=>{
-    const changedPosts = await BrotherhoodService.deletePosts(req, res);
+  deleteComments: async(req, res)=>{
+    const deleteComment = await BrotherhoodService.deletePosts(req, res);
    
+  },
+
+  deletePosts: async(req, res)=>{
+    const deleteComments = await BrotherhoodService.deleteComments(req, res);
+    const deletePosts = await BrotherhoodService.deletePosts(req, res);
   },
  
 //GET brotherhood's members

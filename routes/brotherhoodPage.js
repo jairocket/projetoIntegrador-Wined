@@ -46,7 +46,9 @@ router.post('/post-comment', brotherhoodController.postComment);
 
 router.put('/edit-comment/:id', brotherhoodController.editComment);
 
-router.delete('/post-delete/', brotherhoodController.deleteComment);
+router.delete('/post-delete/', brotherhoodController.deletePosts);
+
+router.delete('/comment-delete/', brotherhoodController.deleteComments);
 
 router.get('/chancellorRequired', (req, res)=>{
     res.render('chancellorRequired', {

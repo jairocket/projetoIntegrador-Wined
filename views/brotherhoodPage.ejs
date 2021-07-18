@@ -177,15 +177,13 @@
                                                 </p>
                                             </div>
                                             <div class='postMenu'>
-                                                <button>Cheers!</button>
-                                                <button type="button">Comentários</button>
-
+                                                <button>Cheers!</button>                                                
                                                 <% if( comment.contents.author.id == user.id ){ %>
                                                     <button type="button" >Editar</button>
                                                     <button type="button" >Deletar</button>   
                                                 <% }else{ %>
-                                                    <button type="button" class= "" id="hidden3">Editar</button>
-                                                    <button type="button" class= "" id="hidden3">Deletar</button> 
+                                                    <button type="button" class= "ec-btn" id="hidden3">Editar</button>
+                                                    <button type="button" class= "dcbtn" id="hidden3">Deletar</button> 
                                                 <% } %>                               
                                             </div>
                                         </div>

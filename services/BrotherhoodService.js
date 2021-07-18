@@ -351,11 +351,16 @@ const BrotherhoodService = {
       
     },
 
-    deletePosts: async(req, res)=>{
-      let {id} = req.body
+    deleteComments: async(req, res)=>{
+      let {id} = req.body;
       const deleteComments = await db.Post_Comment.destroy({
         where: {ref_post_id: id.trim()}
-      })
+      });
+
+    },
+
+    deletePosts: async(req, res)=>{
+      let {id} = req.body; 
       const deleted = await db.Post.destroy({
         where: {id: id.trim()}
       })
