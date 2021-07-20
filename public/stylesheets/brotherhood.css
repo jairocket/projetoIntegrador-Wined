@@ -236,7 +236,24 @@ main {
     width: 95%;
     background: #9B0000;
     border-radius: 25px;
+    padding-top: 15px;
 }
+
+.postPicForm{
+    display: none;
+    width: 95%;
+    height: 100px;
+    padding: 30px;
+    justify-content: space-around;
+    margin-top: 10px;
+    background: white;
+    border-radius: 25px;
+}
+
+.show-postPicForm{
+    display: flex;
+}
+
 
 .comments{
     display: none;
@@ -313,7 +330,7 @@ main {
     display: none;
 }
 
-.write-postPrompt, .write-commentPrompt, .edit-commentPrompt{
+.write-postPrompt, .write-commentPrompt, .edit-commentPrompt, #content {
     background: whitesmoke;
     width: 85%;
     border-radius: 22px;
@@ -323,6 +340,11 @@ main {
     min-height: 35px;
     padding: 10px;
     overflow-wrap: break-word;
+}
+
+#content{
+    margin-bottom: 10px;
+
 }
 
 .write-postPrompt > div{

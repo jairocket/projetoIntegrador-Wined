@@ -70,20 +70,17 @@
             </div>
 
             <section class="create-post-section">
-                <div class="create-post-buttons">
 
-                </div>
                 <div class="write-post">
                     <img src="../images/avatar-icon.svg" alt="avatar">
                     <div class="write-postPrompt" aria-labelledby="write-post" aria-multiline="true" role="textbox"
                         contenteditable="true" aria-placeholder="Compartilhe sua experiência">
-
                     </div>
                 </div>
+
                 <div class="upload-media-post">
                     <div>
-                        <img src="../images/add-picture.svg" alt="add-picture">
-                        <p>Foto</p>
+                        <button type="button" id="p-btn"> <img src="../images/add-picture.svg" alt="add-video">Foto</button>
                     </div>
                     <section class="upload-media-separator"></section>
                     <div>
@@ -96,6 +93,20 @@
                     </div>
                 </div>
             </section>
+            <div id="postPicForm" class="postPicForm">
+                <form action="/confraria/post/pictures" method="POST" enctype="multipart/form-data">
+                    <label for="content" id ="content">
+                        <input type="text" name="content" id="content">
+                    </label>
+                    <div>
+                        <label for="pictures">
+                            <input type="file" name="pictures" id="pictures" multiple>
+                        </label>
+                        <button type="submit">Enviar</button>
+                    </div>                    
+                </form>
+            </div>
+            
             <section class="posts-filter">
                 <div>
                     <% posts.forEach((post)=>{ %>
@@ -116,7 +127,7 @@
                             </div>
                             
                             <div class='postMenu'>
-                                <button>Cheers!</button>
+                                <button type="button" class= "r-btn">Cheers!</button>
                                 <button type="button" class= "h-btn">Comentários</button>
                                 <% if( post.author.id == user.id ){ %>
                                     <button type="button" class= "e-btn">Editar</button>
@@ -183,7 +194,7 @@
                                                     <button type="button" >Deletar</button>   
                                                 <% }else{ %>
                                                     <button type="button" class= "ec-btn" id="hidden3">Editar</button>
-                                                    <button type="button" class= "dcbtn" id="hidden3">Deletar</button> 
+                                                    <button type="button" class= "dc-btn" id="hidden3">Deletar</button> 
                                                 <% } %>                               
                                             </div>
                                         </div>
@@ -199,5 +210,5 @@
 
     <script src='../js/postCreator.js'></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <!-- <script>console.log("<%= JSON.stringify(posts) %>")</script> -->
+    <script>console.log("<%= JSON.stringify(posts) %>")</script>
     <%- include('./partials/footer') %>

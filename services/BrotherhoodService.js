@@ -2,6 +2,7 @@ const db = require('../database/models');
 const {Op, fn} = require('sequelize');
 const nodemailer = require('../services/nodemailerService');
 const { sequelize } = require('../database/models');
+const Post = require('../database/models/Post');
 
 const BrotherhoodService = {
     getBrotherhood: async(req, res)=>{
@@ -190,6 +191,35 @@ const BrotherhoodService = {
       }
     },
 
+    reactionsSwitch: async(req, res)=>{
+      let users_id = req.session.user.id;
+      let {post_id} = req.body;
+      const reacted = await db.Reaction.findOne({
+        attributes: ['id'],
+        where: {
+          [Op.and]: [
+            { post_id: post_id.trim() },
+            { users_id }
+          ]
+        }
+      });
+      if(!reacted){
+        await db.Reaction.create({
+          users_id,
+          post_id: post_id.trim()
+        });
+      }else{
+        await db.Reaction.destroy({
+          where: {
+            [Op.and]: [
+              { users_id },
+              { post_id: post_id.trim() }
+            ]
+          }
+        })
+      }
+    },
+
     chancellorSwitch: async(req, res)=>{
       let { id, m_id } = req.params;
 
@@ -301,31 +331,31 @@ const BrotherhoodService = {
             model: db.User,
             as: 'author',
             attributes: ['name', 'surname', 'avatar_picture', 'id']
-          },
-        {
-          model: db.Post_Comment,
-          as: "comments",
-          order: [
-            'createdAt', 
-            'DESC'
-          ],
-          include: {
-            model: db.Post,
-            as: 'contents',
-            attributes: ['content'],
+          },{
+            model: db.Post_Comment,
+            as: "comments",
+            order: [
+              'createdAt', 
+              'DESC'
+            ],
             include: {
-              model: db.User,
-              as: "author",
-              attributes: ['name', 'surname', 'avatar_picture', 'id']
-            }
-          }, 
-        }
-      ],
+              model: db.Post,
+              as: 'contents',
+              attributes: ['content'],
+              include: {
+                model: db.User,
+                as: "author",
+                attributes: ['name', 'surname', 'avatar_picture', 'id']
+              }
+            }, 
+          },
+        ],
         where: {
           [Op.and]: [
             {brotherhood_id: id},
             {comment: false}
           ]},
+
           nested: true
       });
 

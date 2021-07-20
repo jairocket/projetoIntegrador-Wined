@@ -8,6 +8,7 @@ const UserService = require('../services/UserService');
 
 
 
+
 const BrotherhoodController = {
 
   //Get brotherhood page
@@ -19,7 +20,7 @@ const BrotherhoodController = {
     const posts = await BrotherhoodService.getPosts(req, res);
     
 
-    // res.json(user)
+    // res.json(posts)
     
     res.render('brotherhoodPage', { 
       title: "Confraria",
@@ -228,6 +229,10 @@ const BrotherhoodController = {
   deletePosts: async(req, res)=>{
     const deleteComments = await BrotherhoodService.deleteComments(req, res);
     const deletePosts = await BrotherhoodService.deletePosts(req, res);
+  },
+
+  reactionsSwitch: async(req, res)=>{
+    const reaction = await BrotherhoodService.reactionsSwitch(req, res);
   },
  
 //GET brotherhood's members
