@@ -2,6 +2,7 @@ const db = require('../database/models');
 const {Op, fn} = require('sequelize');
 const nodemailer = require('../services/nodemailerService');
 const { sequelize } = require('../database/models');
+const Post = require('../database/models/Post');
 
 const BrotherhoodService = {
     getBrotherhood: async(req, res)=>{
@@ -330,31 +331,31 @@ const BrotherhoodService = {
             model: db.User,
             as: 'author',
             attributes: ['name', 'surname', 'avatar_picture', 'id']
-          },
-        {
-          model: db.Post_Comment,
-          as: "comments",
-          order: [
-            'createdAt', 
-            'DESC'
-          ],
-          include: {
-            model: db.Post,
-            as: 'contents',
-            attributes: ['content'],
+          },{
+            model: db.Post_Comment,
+            as: "comments",
+            order: [
+              'createdAt', 
+              'DESC'
+            ],
             include: {
-              model: db.User,
-              as: "author",
-              attributes: ['name', 'surname', 'avatar_picture', 'id']
-            }
-          }, 
-        }
-      ],
+              model: db.Post,
+              as: 'contents',
+              attributes: ['content'],
+              include: {
+                model: db.User,
+                as: "author",
+                attributes: ['name', 'surname', 'avatar_picture', 'id']
+              }
+            }, 
+          },
+        ],
         where: {
           [Op.and]: [
             {brotherhood_id: id},
             {comment: false}
           ]},
+
           nested: true
       });
 

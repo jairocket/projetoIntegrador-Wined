@@ -17,8 +17,10 @@ const favoritesRouter = require('./routes/favoritesPage');
 const privacyPolicyRouter = require('./routes/privacyPolicy');
 const termsOfUseRouter = require('./routes/termsOfUse');
 const profileEditorRouter = require('./routes/profileEditor');
+const multer = require('multer');
+const storages = require('./middlewares/multer2');
 
-
+const upload = multer({storage: storages})
 
 const app = express();
 

@@ -5,6 +5,10 @@ const db = require('../database/models');
 const Sequelize = require('sequelize');
 const brotherhoodController = require('../controllers/BrotherhoodController')
 const membershipCheck = require('../middlewares/membershipCheck');
+const multer = require('multer');
+const storages = require('../middlewares/multer2');
+const upload = multer({storage: storages})
+
 
 
 /*GET a form to create a brotherhood */
@@ -57,7 +61,12 @@ router.get('/chancellorRequired', (req, res)=>{
         user: req.session.user, 
         title: "Chanceler requerido", 
         style: "chancellorsRequired"})
-    });
+});
+
+router.post('/post/pictures', upload.single('pictures'), function(req, res, next){
+    console.log(req.files)
+    res.send('Archivos subidos correctamente')
+})
 
 /* GET brotherhoodPage. */
 router.get('/:id', auth, membershipCheck, brotherhoodController.accessBrotherhood);

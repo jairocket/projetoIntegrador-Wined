@@ -20,7 +20,8 @@ module.exports = (sequelize, DataTypes)=>{
             foreignKey: "users_id"
         });
         Reaction.belongsTo(models.Post, {
-            foreignKey: "post_id"
+            foreignKey: "post_id",
+            as: 'reactions'
         })
     }
 

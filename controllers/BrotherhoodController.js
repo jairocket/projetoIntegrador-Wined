@@ -8,6 +8,7 @@ const UserService = require('../services/UserService');
 
 
 
+
 const BrotherhoodController = {
 
   //Get brotherhood page
@@ -19,7 +20,7 @@ const BrotherhoodController = {
     const posts = await BrotherhoodService.getPosts(req, res);
     
 
-    // res.json(user)
+    // res.json(posts)
     
     res.render('brotherhoodPage', { 
       title: "Confraria",

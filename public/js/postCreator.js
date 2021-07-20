@@ -3,6 +3,7 @@ window.onload = ()=>{
     const brotherhood_id = window.location.pathname.split('/')[2];
 
     const btn = document.getElementById('btn');
+    const pbtn = document.getElementById('p-btn');
 
     const cbtn = document.getElementsByClassName('c-btn');
     const hbtn = document.getElementsByClassName('h-btn');
@@ -14,9 +15,12 @@ window.onload = ()=>{
        
     const ecbtn = document.getElementsByClassName('ec-btn');
 
-    console.log(rbtn)
+    console.log(pbtn)
 
-
+    pbtn.onclick = async function(event){
+        let postPicForm = document.getElementsByClassName('postPicForm');
+        postPicForm[0].classList.toggle('show-postPicForm')
+    }
 
     btn.onclick = async function(event){
         let text = document.querySelector('[role=textbox]').innerText; 
