@@ -2,19 +2,30 @@
 <section class=topp>
     <div class="top">
         <div class="backgroundPic">
-            <img alt="foto de fundo" src="../../images/background-1430057_640.jpg">
+            <label for="backgroundFileInput">
+                <img src="../../images/background-picture.svg" alt="Foto de capa" id="backgroundPicture">
+            </label>
+            <input 
+                type="file" 
+                name="backgroundFile" 
+                id="backgroundFileInput" 
+                accept="image/png, image/jpeg"
+            >
         </div>   
     </div>
     
     <div class ="topOptions">
-        <form action="/perfil" method="POST" enctype="multipart/form-data">
-            
-            <button type="submit"><div class ="profilePic">
-                <input type="file" name="avatarFile" id="file" multiple>
-            </div></button>
-        </form>
-                       
+        <div class ="profilePic">
+            <label for="avatarFileInput">
+                <img src="../../images/profile-picture.svg" alt="Foto de perfil" id="avatarPicture">
+            </label>
+            <input 
+                type="file" 
+                name="avatarFile" 
+                id="avatarFileInput" 
+                accept="image/png, image/jpeg"
+            >
+        </div>         
     </div>
     <div class="userName"><a href="http://localhost:3000/perfil/<%=user.id%>"><h5><%= user.name + " " + user.surname %></h5></a></div> 
 </section>
-
