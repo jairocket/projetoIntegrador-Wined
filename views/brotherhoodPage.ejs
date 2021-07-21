@@ -94,7 +94,7 @@
                 </div>
             </section>
             <div id="postPicForm" class="postPicForm">
-                <form action="/confraria/post/pictures" method="POST" enctype="multipart/form-data">
+                <form action="/confraria/post/pictures/<%= brotherhood.id %>" method="POST" enctype="multipart/form-data">
                     <label for="content" id ="content">
                         <input type="text" name="content" id="content">
                     </label>
@@ -107,7 +107,7 @@
                 </form>
             </div>
             
-            <section class="posts-filter">
+            <section class="posts-filter" id="posts-filter">
                 <div>
                     <% posts.forEach((post)=>{ %>
                         <div class="post">
@@ -188,10 +188,10 @@
                                                 </p>
                                             </div>
                                             <div class='postMenu'>
-                                                <button>Cheers!</button>                                                
+                                                <button type="button" data-type="react-comment">Cheers!</button>                                                
                                                 <% if( comment.contents.author.id == user.id ){ %>
-                                                    <button type="button" >Editar</button>
-                                                    <button type="button" >Deletar</button>   
+                                                    <button type="button" data-type = "edit-comment" >Editar</button>
+                                                    <button type="button" data-type = "delete-comment">Deletar</button>   
                                                 <% }else{ %>
                                                     <button type="button" class= "ec-btn" id="hidden3">Editar</button>
                                                     <button type="button" class= "dc-btn" id="hidden3">Deletar</button> 

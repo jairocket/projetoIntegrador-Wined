@@ -211,6 +211,27 @@ const BrotherhoodController = {
 
   },
 
+  postMidia: async(req, res)=>{
+    let {content} = req.body;
+    let {id} = req.params
+    console.log(id)
+    let comment = false
+    let users_id = req.session.user.id
+    const post = await db.Post.create({
+      content,
+      brotherhood_id: id,
+      users_id,
+      comment
+    });;
+    let {filename, mimetype} = req.file;
+    const postMidia = await db.Post_Midia.create({    
+      midia_type: mimetype.split('/')[0],
+      post_id: post.id,
+      midia_path: filename
+    })
+    return res.status(200).json({mensagem:'salvo com sucesso'})
+  },
+
   postComment: async(req, res)=>{
     const posts = await BrotherhoodService.postComment(req, res)
     
@@ -218,17 +239,21 @@ const BrotherhoodController = {
 
   editComment: async(req, res)=>{
     const changedPosts = await BrotherhoodService.editPosts(req, res);
+    res.status(200).json({mensagem: 'atualizado com sucesso!'})
    
   },
 
   deleteComments: async(req, res)=>{
     const deleteComment = await BrotherhoodService.deletePosts(req, res);
+    res.status(204).json({mensagem: 'atualizado com sucesso!'})
    
   },
 
   deletePosts: async(req, res)=>{
     const deleteComments = await BrotherhoodService.deleteComments(req, res);
+    const deleteReactions = await BrotherhoodService.deleteReactions(req, res)
     const deletePosts = await BrotherhoodService.deletePosts(req, res);
+    res.status(204).json({mensagem: 'atualizado com sucesso!'})
   },
 
   reactionsSwitch: async(req, res)=>{

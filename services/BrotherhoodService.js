@@ -334,14 +334,14 @@ const BrotherhoodService = {
           },{
             model: db.Post_Comment,
             as: "comments",
-            order: [
-              'createdAt', 
-              'DESC'
-            ],
             include: {
               model: db.Post,
               as: 'contents',
               attributes: ['content'],
+              order: [
+                'createdAt', 
+                'DESC'
+              ],
               include: {
                 model: db.User,
                 as: "author",
@@ -381,12 +381,20 @@ const BrotherhoodService = {
       
     },
 
+    deleteReactions: async(req, res)=>{
+      let {id} = req.body;
+      const deleteReactions = await db.Reaction.destroy({
+        where: {post_id: id.trim()}
+      })
+      return
+    },
+
     deleteComments: async(req, res)=>{
       let {id} = req.body;
       const deleteComments = await db.Post_Comment.destroy({
         where: {ref_post_id: id.trim()}
       });
-
+      return
     },
 
     deletePosts: async(req, res)=>{
@@ -394,6 +402,7 @@ const BrotherhoodService = {
       const deleted = await db.Post.destroy({
         where: {id: id.trim()}
       })
+      return
     },
 
     deleteMember: async(req, res)=>{
