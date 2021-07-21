@@ -332,6 +332,10 @@ const BrotherhoodService = {
             as: 'author',
             attributes: ['name', 'surname', 'avatar_picture', 'id']
           },{
+            model: db.Post_Midia,
+            as: 'midia',
+            attributes: ['midia_type', 'midia_path']
+          },{
             model: db.Post_Comment,
             as: "comments",
             include: {
@@ -399,6 +403,9 @@ const BrotherhoodService = {
 
     deletePosts: async(req, res)=>{
       let {id} = req.body; 
+      const deleteMidia = await db.Post_Midia.destroy({
+        where: {post_id: id.trim()}
+      })
       const deleted = await db.Post.destroy({
         where: {id: id.trim()}
       })

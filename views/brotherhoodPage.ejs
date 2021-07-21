@@ -120,10 +120,21 @@
                                         <%= post.author.name %> <%= post.author.surname %>
                                     </h6>
                             </div>
-                            <div>
+                            <div class="post-content">
                                 <p>
                                     <%= post.content %>
                                 </p>
+                                <!-- <img src= "../images/uploads/pictures-1626871953302.png"/> -->
+                                <% if(post.midia){ %>
+                                    <% if(post.midia.midia_type == 'image'){ %>
+                                        <img src="../images/uploads/<%= post.midia.midia_path %>" alt="">
+                                    <% } %>
+                                    
+
+                                <% } %>
+                                    
+                                
+                                
                             </div>
                             
                             <div class='postMenu'>
@@ -210,5 +221,5 @@
 
     <script src='../js/postCreator.js'></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script>console.log("<%= JSON.stringify(posts) %>")</script>
+    
     <%- include('./partials/footer') %>
