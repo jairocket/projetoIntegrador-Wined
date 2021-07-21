@@ -49,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
         as: "contents"
       })
 
-      Post.hasMany(models.Post_Midia, {
+      Post.hasOne(models.Post_Midia, {
         foreignKey: "post_id",
         as: "midia"
       });

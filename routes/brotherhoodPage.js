@@ -63,18 +63,7 @@ router.get('/chancellorRequired', (req, res)=>{
         style: "chancellorsRequired"})
 });
 
-router.post('/post/pictures/:id', upload.single('pictures'), brotherhoodController.postMidia
-
-// function(req, res, next){
-//     console.log(req.file)
-//     console.log(req.body)
-//     let {filename} = req.file;
-//     let {content} = req.body;
-//     console.log(content)
-//     console.log(filename)
-//     res.send('Archivos subidos correctamente')
-//}
-)
+router.post('/post/pictures/:id', upload.single('pictures'), brotherhoodController.postMidia);
 
 /* GET brotherhoodPage. */
 router.get('/:id', auth, membershipCheck, brotherhoodController.accessBrotherhood);

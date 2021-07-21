@@ -250,6 +250,10 @@ main {
     border-radius: 25px;
 }
 
+.postPicForm >form {
+    width:95%
+}
+
 .show-postPicForm{
     display: flex;
 }

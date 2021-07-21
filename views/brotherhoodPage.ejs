@@ -124,7 +124,14 @@
                                 <p>
                                     <%= post.content %>
                                 </p>
-                                <img src= "../images/uploads/pictures-1626871953302.png"/>
+                                <!-- <img src= "../images/uploads/pictures-1626871953302.png"/> -->
+                                <% if(post.midia){ %>
+                                    <% if(post.midia.midia_type == 'image'){ %>
+                                        <img src="../images/uploads/<%= post.midia.midia_path %>" alt="">
+                                    <% } %>
+                                    
+
+                                <% } %>
                                     
                                 
                                 

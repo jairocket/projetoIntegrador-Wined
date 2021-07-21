@@ -214,7 +214,6 @@ const BrotherhoodController = {
   postMidia: async(req, res)=>{
     let {content} = req.body;
     let {id} = req.params
-    console.log(id)
     let comment = false
     let users_id = req.session.user.id
     const post = await db.Post.create({
@@ -222,14 +221,15 @@ const BrotherhoodController = {
       brotherhood_id: id,
       users_id,
       comment
-    });;
+    });
     let {filename, mimetype} = req.file;
     const postMidia = await db.Post_Midia.create({    
       midia_type: mimetype.split('/')[0],
       post_id: post.id,
       midia_path: filename
-    })
-    return res.status(200).json({mensagem:'salvo com sucesso'})
+    });
+    
+    return res.redirect(`/confraria/${id}`)
   },
 
   postComment: async(req, res)=>{
