@@ -24,7 +24,7 @@ const UserService ={
               ]}
           }
         });
-        console.log(user)
+        
         return user;
     },
 

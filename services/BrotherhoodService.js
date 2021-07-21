@@ -403,6 +403,9 @@ const BrotherhoodService = {
 
     deletePosts: async(req, res)=>{
       let {id} = req.body; 
+      const deleteMidia = await db.Post_Midia.destroy({
+        where: {post_id: id.trim()}
+      })
       const deleted = await db.Post.destroy({
         where: {id: id.trim()}
       })
