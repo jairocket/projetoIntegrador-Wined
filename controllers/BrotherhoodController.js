@@ -230,10 +230,9 @@ const BrotherhoodController = {
 
   deletePosts: async(req, res)=>{
     const deleteComments = await BrotherhoodService.deleteComments(req, res);
+    const deleteReactions = await BrotherhoodService.deleteReactions(req, res)
     const deletePosts = await BrotherhoodService.deletePosts(req, res);
-    // const deleteReactions = await db.Reaction.destroy({
-    //   where:
-    // })
+ 
     res.status(204).json({mensagem: 'atualizado com sucesso!'})
   },
 

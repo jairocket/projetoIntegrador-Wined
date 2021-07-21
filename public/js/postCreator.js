@@ -16,8 +16,6 @@ window.onload = ()=>{
        
     const ecbtn = document.getElementsByClassName('ec-btn');
 
-    console.log(dbtn)
-
     postsFilter.onclick = function(event){
         console.log(event.target);
         console.log(event.target.dataset.type);
@@ -85,6 +83,7 @@ window.onload = ()=>{
                     post_id
                 }
             )
+            window.location.reload();
         }
     }
 
