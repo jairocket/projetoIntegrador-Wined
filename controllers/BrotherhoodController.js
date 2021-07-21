@@ -218,17 +218,23 @@ const BrotherhoodController = {
 
   editComment: async(req, res)=>{
     const changedPosts = await BrotherhoodService.editPosts(req, res);
+    res.status(200).json({mensagem: 'atualizado com sucesso!'})
    
   },
 
   deleteComments: async(req, res)=>{
     const deleteComment = await BrotherhoodService.deletePosts(req, res);
+    res.status(204).json({mensagem: 'atualizado com sucesso!'})
    
   },
 
   deletePosts: async(req, res)=>{
     const deleteComments = await BrotherhoodService.deleteComments(req, res);
     const deletePosts = await BrotherhoodService.deletePosts(req, res);
+    // const deleteReactions = await db.Reaction.destroy({
+    //   where:
+    // })
+    res.status(204).json({mensagem: 'atualizado com sucesso!'})
   },
 
   reactionsSwitch: async(req, res)=>{

@@ -334,14 +334,14 @@ const BrotherhoodService = {
           },{
             model: db.Post_Comment,
             as: "comments",
-            order: [
-              'createdAt', 
-              'DESC'
-            ],
             include: {
               model: db.Post,
               as: 'contents',
               attributes: ['content'],
+              order: [
+                'createdAt', 
+                'DESC'
+              ],
               include: {
                 model: db.User,
                 as: "author",
@@ -386,7 +386,7 @@ const BrotherhoodService = {
       const deleteComments = await db.Post_Comment.destroy({
         where: {ref_post_id: id.trim()}
       });
-
+      return
     },
 
     deletePosts: async(req, res)=>{
@@ -394,6 +394,20 @@ const BrotherhoodService = {
       const deleted = await db.Post.destroy({
         where: {id: id.trim()}
       })
+      return
+    },
+
+    postMidia: async(req, res)=>{
+      let {filename, mimetype} = req.file;
+      let {content} = req.body;
+      let  users_id = req.session.user.id;
+      const postMidia = await db.Post_Midia.create({
+        
+        midia_type: mimetype.split('/')[0],
+        post_id: post.id,
+        midia_path: filename
+      })
+      return postMidia
     },
 
     deleteMember: async(req, res)=>{

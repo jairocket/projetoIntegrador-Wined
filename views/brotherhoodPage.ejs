@@ -107,7 +107,7 @@
                 </form>
             </div>
             
-            <section class="posts-filter">
+            <section class="posts-filter" id="posts-filter">
                 <div>
                     <% posts.forEach((post)=>{ %>
                         <div class="post">
@@ -190,8 +190,8 @@
                                             <div class='postMenu'>
                                                 <button>Cheers!</button>                                                
                                                 <% if( comment.contents.author.id == user.id ){ %>
-                                                    <button type="button" >Editar</button>
-                                                    <button type="button" >Deletar</button>   
+                                                    <button type="button" data-type = "edit-comment" >Editar</button>
+                                                    <button type="button" data-type = "delete-comment">Deletar</button>   
                                                 <% }else{ %>
                                                     <button type="button" class= "ec-btn" id="hidden3">Editar</button>
                                                     <button type="button" class= "dc-btn" id="hidden3">Deletar</button> 

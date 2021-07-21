@@ -64,7 +64,12 @@ router.get('/chancellorRequired', (req, res)=>{
 });
 
 router.post('/post/pictures', upload.single('pictures'), function(req, res, next){
+    console.log(req.file)
     console.log(req.body)
+    let {filename} = req.file;
+    let {content} = req.body;
+    console.log(content)
+    console.log(filename)
     res.send('Archivos subidos correctamente')
 })
 

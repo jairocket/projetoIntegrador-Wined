@@ -12,10 +12,17 @@ window.onload = ()=>{
     const rbtn = document.getElementsByClassName('r-btn');
 
     const editBtn = document.getElementsByClassName('edit-btn'); 
+    const postsFilter = document.getElementById('posts-filter')
        
     const ecbtn = document.getElementsByClassName('ec-btn');
 
-    console.log(pbtn)
+    console.log(dbtn)
+
+    postsFilter.onclick = function(event){
+        console.log(event.target);
+        console.log(event.target.dataset.type);
+        //fazer if para comentar editar e deletar comentários
+    }
 
     pbtn.onclick = async function(event){
         let postPicForm = document.getElementsByClassName('postPicForm');
@@ -65,7 +72,7 @@ window.onload = ()=>{
                     }                  
                 }
             )
-            window.location.href = `/confraria/${brotherhood_id}`;
+            window.location.reload();
         }
     }
 
@@ -80,6 +87,7 @@ window.onload = ()=>{
             )
         }
     }
+
 
     // for (let i=0; i < dcbtn.length; i++){
     //     dcbtn[i].onclick = async function(event){
@@ -97,6 +105,7 @@ window.onload = ()=>{
 
     for (let i=0; i< ebtn.length; i++){
         editBtn[i].onclick = async function(event){
+            event.preventDefault()
             let text = document.getElementsByClassName('edit-commentPrompt')[i].innerText;
             let ref_post_id = document.getElementsByClassName('hidden')[i].innerText;
             console.log(text);
@@ -107,9 +116,9 @@ window.onload = ()=>{
                     brotherhood_id,
                     comment: false,
                     ref_post_id
-    
                 }
-            )     
+            )   
+            window.location.reload()  
         }
     }
 
