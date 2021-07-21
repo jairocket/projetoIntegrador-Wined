@@ -19,7 +19,9 @@ module.exports = (sequelize, DataTypes) => {
     
 
     {
-      tableName: "posts_midia"
+      tableName: "posts_midia",
+      timestamps: false
+
     });
   
     Post_Midia.associate = function(models) {

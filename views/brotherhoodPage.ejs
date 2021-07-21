@@ -94,7 +94,7 @@
                 </div>
             </section>
             <div id="postPicForm" class="postPicForm">
-                <form action="/confraria/post/pictures" method="POST" enctype="multipart/form-data">
+                <form action="/confraria/post/pictures/<%= brotherhood.id %>" method="POST" enctype="multipart/form-data">
                     <label for="content" id ="content">
                         <input type="text" name="content" id="content">
                     </label>
@@ -188,7 +188,7 @@
                                                 </p>
                                             </div>
                                             <div class='postMenu'>
-                                                <button>Cheers!</button>                                                
+                                                <button type="button" data-type="react-comment">Cheers!</button>                                                
                                                 <% if( comment.contents.author.id == user.id ){ %>
                                                     <button type="button" data-type = "edit-comment" >Editar</button>
                                                     <button type="button" data-type = "delete-comment">Deletar</button>   

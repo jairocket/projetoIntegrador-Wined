@@ -405,19 +405,6 @@ const BrotherhoodService = {
       return
     },
 
-    postMidia: async(req, res)=>{
-      let {filename, mimetype} = req.file;
-      let {content} = req.body;
-      let  users_id = req.session.user.id;
-      const postMidia = await db.Post_Midia.create({
-        
-        midia_type: mimetype.split('/')[0],
-        post_id: post.id,
-        midia_path: filename
-      })
-      return postMidia
-    },
-
     deleteMember: async(req, res)=>{
         let { id, m_id } = req.params;
         const chancellor = await db.Brotherhood_User.findOne({
