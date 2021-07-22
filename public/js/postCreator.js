@@ -4,6 +4,7 @@ window.onload = ()=>{
 
     const btn = document.getElementById('btn');
     const pbtn = document.getElementById('p-btn');
+    const cancel = document.getElementById('cancel');
 
     const cbtn = document.getElementsByClassName('c-btn');
     const hbtn = document.getElementsByClassName('h-btn');
@@ -25,7 +26,14 @@ window.onload = ()=>{
     pbtn.onclick = async function(event){
         let postPicForm = document.getElementsByClassName('postPicForm');
         let createPostSection = document.getElementsByClassName('create-post-section');
-        // createPostSection[0].classList.toggle('hide-create-post-section');
+        createPostSection[0].classList.toggle('hide-create-post-section');
+        postPicForm[0].classList.toggle('show-postPicForm')
+    }
+
+    cancel.onclick = async (event)=>{
+        let createPostSection = document.getElementsByClassName('create-post-section');
+        let postPicForm = document.getElementsByClassName('postPicForm');
+        createPostSection[0].classList.toggle('hide-create-post-section');
         postPicForm[0].classList.toggle('show-postPicForm')
     }
 

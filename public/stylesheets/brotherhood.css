@@ -163,6 +163,28 @@ main {
     text-decoration: none;
 }
 
+input[type='file']{
+    display: none;
+}
+
+#text-box{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+
+
+/* #picture, #submit{
+    
+    color:white;
+
+} */
+
+#midia-menu{
+    display: flex;
+    justify-content: space-between;
+}
 .member{
     display: flex;
     flex-direction: row;
@@ -252,12 +274,13 @@ main {
 .postPicForm{
     display: none;
     width: 95%;
-    height: 100px;
     padding: 30px;
     justify-content: space-around;
     margin-top: 10px;
     background: white;
     border-radius: 25px;
+    background: #9B0000;
+    height: 115px;
 }
 
 .postPicForm >form {
@@ -344,7 +367,7 @@ main {
     display: none;
 }
 
-.write-postPrompt, .write-commentPrompt, .edit-commentPrompt, #content {
+.write-postPrompt, .write-commentPrompt, .edit-commentPrompt {
     background: whitesmoke;
     width: 85%;
     border-radius: 22px;
@@ -358,7 +381,15 @@ main {
 
 #content{
     margin-bottom: 10px;
-
+    background: whitesmoke;
+    border-radius: 22px;
+    font-size: 12px;
+    text-align: justify;
+    line-height: 1;
+    min-height: 35px;
+    padding: 10px;
+    overflow-wrap: break-word;
+    width: 750px;
 }
 
 .write-postPrompt > div{
