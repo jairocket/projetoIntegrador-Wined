@@ -1,3 +1,14 @@
+input[type='file']{
+  display: none;
+}
+
+#bhood_picture{
+  padding: 10px 30px;
+  display: flex;
+  justify-content: center;
+}
+
+
 .btn-form1 {
     margin: 24px 0px 14px;
     width: 30%;
@@ -10,7 +21,12 @@
     color: #FFFFFF;
   }
 
-  .btn-add {
+  #form{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .btn-add, #bhood_picture{
     margin: 24px 0px 14px;
     width: 30%;
     height: 40px;
