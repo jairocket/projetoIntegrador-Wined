@@ -250,7 +250,7 @@ const BrotherhoodController = {
   },
 
   deleteComments: async(req, res)=>{
-    const deleteComment = await BrotherhoodService.deletePosts(req, res);
+    const deleteComment = await BrotherhoodService.deleteComments(req, res);
     res.status(204).json({mensagem: 'atualizado com sucesso!'})
    
   },

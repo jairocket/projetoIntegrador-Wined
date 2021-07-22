@@ -299,13 +299,21 @@ const BrotherhoodService = {
     },
 
     postBackground: async(req, res)=>{
-      let {id} = req.params
-      let {filename} = req.file;
-      await db.Brotherhood.update({
-        brotherhood_picture: filename
-      },{
-        where: {id}
-      })
+
+      const file = req.file;
+      if(!file){
+        const error = new Error('Por favor, escolha uma foto!');
+        error.httpStatusCode = 400
+        return res.status(400)
+      }else{
+        let {id} = req.params
+        let {filename} = req.file;
+        await db.Brotherhood.update({
+          brotherhood_picture: filename
+        },{
+          where: {id}
+        });
+      }
 
     },
 
@@ -393,7 +401,6 @@ const BrotherhoodService = {
         })
       );
       
-      console.log(changedPosts)
       
     },
 
@@ -408,7 +415,7 @@ const BrotherhoodService = {
     deleteComments: async(req, res)=>{
       let {id} = req.body;
       const deleteComments = await db.Post_Comment.destroy({
-        where: {ref_post_id: id.trim()}
+        where: {post_id: id.trim()}
       });
       return
     },

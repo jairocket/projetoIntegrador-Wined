@@ -11,16 +11,28 @@ window.onload = ()=>{
     const ebtn = document.getElementsByClassName('e-btn');
     const dbtn = document.getElementsByClassName('d-btn');
     const rbtn = document.getElementsByClassName('r-btn');
+    const dcbtn = document.getElementsByClassName('dc-btn');
+    const rcbtn = document.getElementsByClassName('rc-btn');
+    
 
     const editBtn = document.getElementsByClassName('edit-btn'); 
     const postsFilter = document.getElementById('posts-filter')
        
-    const ecbtn = document.getElementsByClassName('ec-btn');
+
+
+    console.log(rcbtn)
 
     postsFilter.onclick = function(event){
-        console.log(event.target);
+        
         console.log(event.target.dataset.type);
         //fazer if para comentar editar e deletar comentários
+        if(event.target.dataset.type == 'react-comment'){
+
+        }else if(event.target.dataset.type == 'edit-comment'){
+
+        }else if(event.target.dataset.type == 'delete-comment'){
+
+        }
     }
 
     pbtn.onclick = async function(event){
@@ -97,22 +109,36 @@ window.onload = ()=>{
         }
     }
 
+    for(let i=0; i< rcbtn.length; i++){
+        rcbtn[i].onclick = async function(event){
+            let post_id = document.getElementsByClassName('hidden2')[i].innerText;
+            console.log(post_id)
+            const {data} = await axios.post(
+                `http://localhost:3000/confraria/react/`,{
+                    post_id
+                }
+            )
+            window.location.reload();
+        }
+    }
 
-    // for (let i=0; i < dcbtn.length; i++){
-    //     dcbtn[i].onclick = async function(event){
-    //         let post_id = document.getElementsByClassName('hidden2')[i].innerText;
-    //         console.log(post_id)
-    //         const {data} = await axios.delete(
-    //             `http://localhost:3000/confraria/comment-delete/`, { 
-    //                 data:{
-    //                     id: post_id
-    //                 }                  
-    //             }
-    //         )
-    //     }
-    // }
 
-    for (let i=0; i< ebtn.length; i++){
+    for (let i=0; i < dcbtn.length; i++){
+        dcbtn[i].onclick = async function(event){
+            let post_id = document.getElementsByClassName('hidden2')[i].innerText;
+            console.log(post_id)
+            const {data} = await axios.delete(
+                `http://localhost:3000/confraria/comment-delete/`, { 
+                    data:{
+                        id: post_id
+                    }                  
+                }
+            );
+            window.location.reload();
+        }
+    }
+
+    for (let i=0; i< editBtn.length; i++){
         editBtn[i].onclick = async function(event){
             event.preventDefault()
             let text = document.getElementsByClassName('edit-commentPrompt')[i].innerText;
@@ -129,16 +155,12 @@ window.onload = ()=>{
             )   
             window.location.reload()  
         }
-    }
-
-    
+    }   
 
     for (let i=0; i< cbtn.length; i++){
         hbtn[i].onclick = async function(event){
             let commentList= document.getElementsByClassName('comments');
             commentList[i].classList.toggle('show-comments')
-            const dcbtn = document.getElementsByClassName('dc-btn');
-            console.log(dcbtn)
         }
     }
 

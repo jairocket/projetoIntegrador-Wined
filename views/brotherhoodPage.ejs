@@ -208,10 +208,10 @@
                                                 </p>
                                             </div>
                                             <div class='postMenu'>
-                                                <button type="button" data-type="react-comment">Cheers!</button>                                                
+                                                <button type="button" class = "rc-btn"data-type="react-comment">Cheers!</button>                                                
                                                 <% if( comment.contents.author.id == user.id ){ %>
-                                                    <button type="button" data-type = "edit-comment" >Editar</button>
-                                                    <button type="button" data-type = "delete-comment">Deletar</button>   
+                                                    <button type="button" class = "ec-btn" id= "hidden3"data-type = "edit-comment" >Editar</button>
+                                                    <button type="button" class = "dc-btn" data-type = "delete-comment">Deletar</button>   
                                                 <% }else{ %>
                                                     <button type="button" class= "ec-btn" id="hidden3">Editar</button>
                                                     <button type="button" class= "dc-btn" id="hidden3">Deletar</button> 
