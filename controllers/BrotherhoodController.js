@@ -222,20 +222,27 @@ const BrotherhoodController = {
     let {id} = req.params
     let comment = false
     let users_id = req.session.user.id
-    const post = await db.Post.create({
-      content,
-      brotherhood_id: id,
-      users_id,
-      comment
+    if(content.trim().length > 0){
+      const post = await db.Post.create({
+        content,
+        brotherhood_id: id,
+        users_id,
+        comment
+      });
+    }
+
+    let file = req.file;
+    if(!file){
+      return res.redirect(`/confraria/${id}`)
+    }else{
+      let {filename, mimetype} = req.file;
+      const postMidia = await db.Post_Midia.create({    
+        midia_type: mimetype.split('/')[0],
+        post_id: post.id,
+        midia_path: filename
     });
-    let {filename, mimetype} = req.file;
-    const postMidia = await db.Post_Midia.create({    
-      midia_type: mimetype.split('/')[0],
-      post_id: post.id,
-      midia_path: filename
-    });
-    
     return res.redirect(`/confraria/${id}`)
+    } 
   },
 
   postComment: async(req, res)=>{
@@ -250,7 +257,7 @@ const BrotherhoodController = {
   },
 
   deleteComments: async(req, res)=>{
-    const deleteComment = await BrotherhoodService.deletePosts(req, res);
+    const deleteComment = await BrotherhoodService.deleteComments(req, res);
     res.status(204).json({mensagem: 'atualizado com sucesso!'})
    
   },
