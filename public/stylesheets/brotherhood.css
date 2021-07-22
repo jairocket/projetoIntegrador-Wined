@@ -173,8 +173,6 @@ input[type='file']{
     justify-content: space-between;
 }
 
-
-
 /* #picture, #submit{
     
     color:white;
@@ -189,6 +187,18 @@ input[type='file']{
     display: flex;
     flex-direction: row;
     margin-left: 15px;
+
+}
+
+.members{
+    background: white;
+    border-radius: 25px;
+    padding-bottom: 15px;
+    
+}
+
+.members > h5{
+    padding-top: 15px;
 }
 
 .member > a{
