@@ -211,6 +211,12 @@ const BrotherhoodController = {
 
   },
 
+  postBackground: async(req, res)=>{
+    let {id} = req.params
+    await BrotherhoodService.postBackground(req, res)
+    res.redirect(`/confraria/${id}`)
+  },
+
   postMidia: async(req, res)=>{
     let {content} = req.body;
     let {id} = req.params
