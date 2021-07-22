@@ -65,6 +65,8 @@ router.get('/chancellorRequired', (req, res)=>{
 
 router.post('/post/pictures/:id', upload.single('pictures'), brotherhoodController.postMidia);
 
+router.put('/post/background/:id', upload.single('brotherhood_picture'), brotherhoodController.postBackground)
+
 /* GET brotherhoodPage. */
 router.get('/:id', auth, membershipCheck, brotherhoodController.accessBrotherhood);
 

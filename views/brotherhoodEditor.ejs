@@ -8,7 +8,7 @@
 
   <body>  
     <main>
-      <section class = registerForm>
+      <section class= registerForm>
         <div id="call">
           Personalize sua confraria <h1 id="logo">Wined+</h1>
         </div>
@@ -16,6 +16,20 @@
           <h2>Deixe sua confraria do seu jeito</h2>
         </div>      
         <br>
+        <br>
+        <form action="/confraria/post/background/<%= brotherhood.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+          <div>
+              <label for="pictures">
+                  <input type="file" name="brotherhood_picture" id="brotherhood_picture" multiple>
+              </label>
+              <button class="button btn-form" type="submit">Enviar</button>
+          </div>                    
+        </form>
+
+      </section>
+      
+      <section class = registerForm>
+
         <form action='<%= id %>?_method=PUT'method="POST" class="formulario">
 
           <label for="name">

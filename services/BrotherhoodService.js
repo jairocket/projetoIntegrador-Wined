@@ -9,7 +9,7 @@ const BrotherhoodService = {
       const{id} = req.params;
 
       const bhood = await db.Brotherhood.findByPk(id, {
-      attributes:['name', 'since', 'createdAt', 'description', 'id'],
+      attributes:['name', 'since', 'createdAt', 'description', 'id', 'brotherhood_picture'],
       
         include: {
           model: db.User,
@@ -39,7 +39,8 @@ const BrotherhoodService = {
         description: bhood.description,
         id: bhood.id,
         members: bhood.users,
-        chancellor: bhood.users.chancellor
+        chancellor: bhood.users.chancellor,
+        brotherhood_picture: bhood.brotherhood_picture
       };
       return brotherhood
     },
@@ -295,6 +296,17 @@ const BrotherhoodService = {
       });
 
       res.redirect(`/confraria/${brotherhood_id}`)
+    },
+
+    postBackground: async(req, res)=>{
+      let {id} = req.params
+      let {filename} = req.file;
+      await db.Brotherhood.update({
+        brotherhood_picture: filename
+      },{
+        where: {id}
+      })
+
     },
 
     postComment: async(req, res)=>{
