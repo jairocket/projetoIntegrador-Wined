@@ -11,7 +11,11 @@ const storage = require('../middlewares/multer');
 const upload = multer({storage: storage});
 
 router.get('/:id', auth, userController.profileEditorForm);
-router.put('/:id', upload.any(), userController.profileEditor);
+router.put('/:id', userController.profileEditor);
 router.delete('/:id', userController.delete)
+
+router.put('/upload/profile-picture/:id', upload.single('profile-picture'), (req, res) => {
+    res.send('Enviado!')
+})
 
 module.exports = router

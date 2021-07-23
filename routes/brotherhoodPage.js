@@ -6,8 +6,8 @@ const Sequelize = require('sequelize');
 const brotherhoodController = require('../controllers/BrotherhoodController')
 const membershipCheck = require('../middlewares/membershipCheck');
 const multer = require('multer');
-const storages = require('../middlewares/multer2');
-const upload = multer({storage: storages})
+const storage = require('../middlewares/multer');
+const upload = multer({storage: storage})
 
 
 

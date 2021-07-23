@@ -279,13 +279,13 @@ form > label > textarea {
   align-items: center;
 }
 
-.profilePic > label > img,
-.backgroundPic > label > img {
+.profilePic > form > label > img,
+.backgroundPic > form > label > img {
     width: 100%;
 }
 
-.profilePic > input,
-.backgroundPic > input {
+.profilePic > form > input,
+.backgroundPic > form > input {
     display: none;
 }
 
@@ -328,6 +328,25 @@ form > label > textarea {
 
 .errors {
   color:#9B0000;
+}
+
+.btn-align {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-form2 {
+  margin: 4px 4px 14px;
+  background: #9B0000;
+  border-radius: 30px;
+  line-height: 20px;
+  color: #FFFFFF;
+  padding: 6px;
+}
+
+#background-btn,
+#profile-btn {
+  visibility: hidden;
 }
 
 @media (min-width: 769px) {

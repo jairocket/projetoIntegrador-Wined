@@ -18,9 +18,9 @@ const privacyPolicyRouter = require('./routes/privacyPolicy');
 const termsOfUseRouter = require('./routes/termsOfUse');
 const profileEditorRouter = require('./routes/profileEditor');
 const multer = require('multer');
-const storages = require('./middlewares/multer2');
+const storage = require('./middlewares/multer');
 
-const upload = multer({storage: storages})
+const upload = multer({storage: storage})
 
 const app = express();
 
