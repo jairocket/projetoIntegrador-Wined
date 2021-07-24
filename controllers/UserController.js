@@ -3,6 +3,7 @@ const db = require('../database/models');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 const { check, validationResult, body } = require('express-validator');
+const UserService = require('../services/UserService');
 
 let UserController = {
     registerForm: (req, res)=>{
@@ -117,8 +118,15 @@ let UserController = {
     })
         console.log(results)
         return res.json(results)
+    },
+    uploadProfilePicture: async(req, res)=>{
+        await UserService.uploadProfilePicture(req, res)
+        res.redirect('/dashboard')
+    },
+    uploadBackgroundPicture: async(req, res)=>{
+        await UserService.uploadBackgroundPicture(req, res)
+        res.redirect('/dashboard')
     }
-
 }
 
 module.exports = UserController;

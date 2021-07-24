@@ -27,8 +27,38 @@ const UserService ={
         
         return user;
     },
-
-
+    uploadProfilePicture: async(req, res)=>{
+        const file = req.file;
+        if(!file){
+          const error = new Error('Por favor, escolha uma foto!');
+          error.httpStatusCode = 400
+          return res.status(400)
+        }else{
+          let {id} = req.params
+          let {filename} = req.file;
+          await db.User.update({
+            avatar_picture: filename
+          },{
+            where: {id}
+          });
+        }
+    },
+    uploadBackgroundPicture: async(req, res)=>{
+        const file = req.file;
+        if(!file){
+          const error = new Error('Por favor, escolha uma foto!');
+          error.httpStatusCode = 400
+          return res.status(400)
+        }else{
+          let {id} = req.params
+          let {filename} = req.file;
+          await db.User.update({
+            background_picture: filename
+          },{
+            where: {id}
+          });
+        }
+    }
 }
 
 module.exports = UserService;

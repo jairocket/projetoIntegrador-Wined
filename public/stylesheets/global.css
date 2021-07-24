@@ -166,7 +166,7 @@ footer > img{
 }
 
 #profile-pic {
-  width: 64px;
+  width: 100%;
 }
 
 .separador, 
@@ -258,14 +258,9 @@ form > label > textarea {
   color: #9B0000;
 }
 
-.backgroundPic, .backgroundPic > img{
-  width: 100%;
-  min-height: 20vh;
-}
-
 .backgroundPic {
-  overflow: hidden;
-  align-items: center;
+  width: 100%;
+  position: relative;
 }
 
 .profilePic{
@@ -273,29 +268,41 @@ form > label > textarea {
   height: 125px;
   border-radius: 50%;
   margin-left: 10px;
-  position: relative;
-  bottom: 7.5vh;
+  position: absolute;
+  bottom: -45%;
   overflow: hidden;
   align-items: center;
 }
 
-.profilePic > label > img,
-.backgroundPic > label > img {
+.backgroundPic > form > label > div {
+  overflow: hidden;
+  max-height: 169px;
+}
+
+.profilePic > form > label > img,
+.backgroundPic > form > label > div > img {
     width: 100%;
 }
 
-.profilePic > input,
-.backgroundPic > input {
+.profilePic > form > input,
+.backgroundPic > form > input {
     display: none;
 }
 
 .dropbtn {
-  padding: 16px;
+  /* padding: 16px; */
 }
 
 .dropdown {
   position: relative;
   display: inline-block;
+}
+
+.dropdown > button > div {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 64px;
+  margin: 16px;
 }
 
 .dropdown-content {
@@ -328,6 +335,36 @@ form > label > textarea {
 
 .errors {
   color:#9B0000;
+}
+
+.btn-align {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-form2 {
+  margin: 4px 4px 14px;
+  background: #9B0000;
+  border-radius: 30px;
+  line-height: 20px;
+  color: #FFFFFF;
+  padding: 6px;
+}
+
+#background-picture-src, 
+#profile-picture-src {
+  cursor: pointer; 
+}
+
+#background-btn,
+#profile-btn {
+  visibility: hidden;
+}
+
+#profile-btn {
+  position: absolute;
+  bottom: -40px;
+  margin-left: 10px;
 }
 
 @media (min-width: 769px) {
@@ -413,7 +450,7 @@ form > label > textarea {
   }
 
   #profile-pic {
-    width: 10rem;
+    /* width: 10rem; */
     /* height: 10rem; */
   }
 
