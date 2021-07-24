@@ -14,8 +14,7 @@ router.get('/:id', auth, userController.profileEditorForm);
 router.put('/:id', userController.profileEditor);
 router.delete('/:id', userController.delete)
 
-router.put('/upload/profile-picture/:id', upload.single('profile-picture'), (req, res) => {
-    res.send('Enviado!')
-})
+router.put('/upload/profile-picture/:id', upload.single('profile-picture'), userController.uploadProfilePicture);
+router.put('/upload/background-picture/:id', upload.single('background-picture'), userController.uploadBackgroundPicture);
 
 module.exports = router
