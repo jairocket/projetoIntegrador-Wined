@@ -2,9 +2,11 @@
 <section class=topp>
     <div class="top">
         <div class="backgroundPic">
-            <form action="editarperfil/upload/background-picture/<%=user.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <form action="editarperfil/upload/background-picture/<%=user.id%>?_method=PUT" method="POST" enctype="multipart/form-data" id='background-picture-form'>
                 <label for="background-picture">
-                    <img src="../../images/background-picture.svg" alt="Foto de capa" id="background-picture-src">
+                    <div>
+                        <img src="../../images/background-picture.svg" alt="Foto de capa" id="background-picture-src">
+                    </div>
                 </label>
                 <input 
                     type="file" 
@@ -12,27 +14,26 @@
                     id="background-picture" 
                     accept="image/png, image/jpeg"
                 >
-                <div class="btn-align">
-                    <button type="submit" class="button btn-form2" id='background-btn'>Trocar foto de capa</button>              
-                </div>
             </form>
-        </div>   
+            <div class ="profilePic">
+                <form action="editarperfil/upload/profile-picture/<%=user.id%>?_method=PUT" method="POST" enctype="multipart/form-data" id='profile-picture-form'>
+                    <label for="profile-picture">
+                        <img src="../../images/profile-picture.svg" alt="Foto de perfil" id="profile-picture-src">
+                    </label>
+                    <input 
+                        type="file" 
+                        name="profile-picture" 
+                        id="profile-picture" 
+                        accept="image/png, image/jpeg"
+                    >
+                </form>
+            </div>
+        </div>
+        <div class="btn-align">
+            <button type="submit" class="button btn-form2" id='background-btn'>Trocar foto de capa</button>              
+        </div>
     </div>
-    
-    <div class ="topOptions">
-        <div class ="profilePic">
-            <form action="editarperfil/upload/profile-picture/<%=user.id%>?_method=PUT" method="POST" enctype="multipart/form-data" id='profile-picture-form'>
-                <label for="profile-picture">
-                    <img src="../../images/profile-picture.svg" alt="Foto de perfil" id="profile-picture-src">
-                </label>
-                <input 
-                    type="file" 
-                    name="profile-picture" 
-                    id="profile-picture" 
-                    accept="image/png, image/jpeg"
-                >
-            </form>
-        </div>  
+    <div class ="topOptions">  
         <div>
             <button type="submit" class="button btn-form2" id='profile-btn'>Trocar foto de perfil</button>              
         </div>

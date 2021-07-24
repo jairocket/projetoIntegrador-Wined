@@ -4,7 +4,8 @@ const profilePictureInput = document.getElementById('profile-picture');
     const backgroundBtn = document.getElementById('background-btn');
     const profilePicture = document.getElementById('profile-picture-src');
     const backgroundPicture = document.getElementById('background-picture-src');
-    const form = document.getElementById('profile-picture-form');
+    const profileForm = document.getElementById('profile-picture-form');
+    const backgroundForm = document.getElementById('background-picture-form');
 
     showBtn = btn => btn.style.visibility = 'visible';
 
@@ -25,4 +26,5 @@ const profilePictureInput = document.getElementById('profile-picture');
         showBtn(backgroundBtn);
     };
 
-    profileBtn.onclick = function() { form.submit(); }
+    profileBtn.onclick = function() { profileForm.submit(); }
+    backgroundBtn.onclick = function() { backgroundForm.submit(); }

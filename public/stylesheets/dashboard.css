@@ -51,8 +51,13 @@ a{
     
 }
 
-.topOptions{
-    height: 15vh;
+.topOptions {
+    /* height: 15vh; */
+}
+
+.topOptions > div {
+    position: relative;
+    margin-top: 10%;
 }
 
 .topp{

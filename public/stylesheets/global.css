@@ -258,14 +258,9 @@ form > label > textarea {
   color: #9B0000;
 }
 
-.backgroundPic, .backgroundPic > img{
-  width: 100%;
-  min-height: 20vh;
-}
-
 .backgroundPic {
-  overflow: hidden;
-  align-items: center;
+  width: 100%;
+  position: relative;
 }
 
 .profilePic{
@@ -273,14 +268,19 @@ form > label > textarea {
   height: 125px;
   border-radius: 50%;
   margin-left: 10px;
-  position: relative;
-  bottom: 7.5vh;
+  position: absolute;
+  bottom: -45%;
   overflow: hidden;
   align-items: center;
 }
 
+.backgroundPic > form > label > div {
+  overflow: hidden;
+  max-height: 169px;
+}
+
 .profilePic > form > label > img,
-.backgroundPic > form > label > img {
+.backgroundPic > form > label > div > img {
     width: 100%;
 }
 
@@ -347,6 +347,12 @@ form > label > textarea {
 #background-btn,
 #profile-btn {
   visibility: hidden;
+}
+
+#profile-btn {
+  position: absolute;
+  bottom: -40px;
+  margin-left: 10px;
 }
 
 @media (min-width: 769px) {
