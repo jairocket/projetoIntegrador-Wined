@@ -182,12 +182,9 @@ input[type='file']{
     justify-content: space-between;
 }
 
-.r-btn, .rc-btn{
-    text-decoration: none;
-}
 
-.reacted{
-    text-decoration: underline;
+
+#reacted{
     font-weight: 600;
     color: #9B0000;
 }
