@@ -166,7 +166,7 @@ footer > img{
 }
 
 #profile-pic {
-  width: 64px;
+  width: 100%;
 }
 
 .separador, 
@@ -290,12 +290,19 @@ form > label > textarea {
 }
 
 .dropbtn {
-  padding: 16px;
+  /* padding: 16px; */
 }
 
 .dropdown {
   position: relative;
   display: inline-block;
+}
+
+.dropdown > button > div {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 64px;
+  margin: 16px;
 }
 
 .dropdown-content {
@@ -342,6 +349,11 @@ form > label > textarea {
   line-height: 20px;
   color: #FFFFFF;
   padding: 6px;
+}
+
+#background-picture-src, 
+#profile-picture-src {
+  cursor: pointer; 
 }
 
 #background-btn,
@@ -438,7 +450,7 @@ form > label > textarea {
   }
 
   #profile-pic {
-    width: 10rem;
+    /* width: 10rem; */
     /* height: 10rem; */
   }
 

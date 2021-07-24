@@ -5,7 +5,11 @@
             <form action="editarperfil/upload/background-picture/<%=user.id%>?_method=PUT" method="POST" enctype="multipart/form-data" id='background-picture-form'>
                 <label for="background-picture">
                     <div>
-                        <img src="../../images/background-picture.svg" alt="Foto de capa" id="background-picture-src">
+                        <% if(user.background_picture) { %>
+                            <img src="../../images/uploads/<%=user.background_picture%>" alt="Foto de capa" id="background-picture-src">
+                        <% } else { %>
+                            <img src="../../images/background-picture.svg" alt="Foto de capa" id="background-picture-src">
+                        <% } %>
                     </div>
                 </label>
                 <input 
@@ -18,7 +22,11 @@
             <div class ="profilePic">
                 <form action="editarperfil/upload/profile-picture/<%=user.id%>?_method=PUT" method="POST" enctype="multipart/form-data" id='profile-picture-form'>
                     <label for="profile-picture">
-                        <img src="../../images/profile-picture.svg" alt="Foto de perfil" id="profile-picture-src">
+                        <% if(user.avatar_picture) { %>
+                            <img src="../../images/uploads/<%=user.avatar_picture%>" alt="Foto de capa" id="profile-picture-src">
+                        <% } else { %>
+                            <img src="../../images/profile-picture.svg" alt="Foto de capa" id="profile-picture-src">
+                        <% } %>
                     </label>
                     <input 
                         type="file" 

@@ -19,7 +19,13 @@
       </a>
       <div class="dropdown">
           <button onclick="myFunction()" >
-            <img id="profile-pic" src="../../images/profile-picture-white.svg" alt="User Picture" class="dropbtn">
+            <div>
+              <% if(user.avatar_picture) { %>
+                <img id="profile-pic" src="../../images/uploads/<%=user.avatar_picture%>" alt="User Picture" class="dropbtn">
+              <% } else { %>
+                <img id="profile-pic" src="../../images/profile-picture-white.svg" alt="User Picture" class="dropbtn">
+              <% } %>
+            </div>
           </button>
           <div id="myDropdown" class="dropdown-content">
             <a href="http://localhost:3000/dashboard">Home</a>
