@@ -215,8 +215,11 @@
                                                     <% if(comment.contents.reactions.length > 0){ %>
                                                         <p><%= comment.contents.reactions.length %></p>
                                                     <%}%>
-                                                    
-                                                    <button type="button" class = "rc-btn"data-type="react-comment">Cheers!</button>
+                                                    <% if(comment.contents.reactions.some(reaction => reaction.users_id === user.id )){ %>
+                                                        <button type="button" class= "rc-btn" id= "reacted">Cheers!</button> 
+                                                    <% } else { %>                                
+                                                        <button type="button" class = "rc-btn"data-type="react-comment">Cheers!</button>
+                                                    <% } %>  
                                                 </div>
                                                                                                 
                                                 <% if( comment.contents.author.id == user.id ){ %>
