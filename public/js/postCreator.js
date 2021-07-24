@@ -16,11 +16,7 @@ window.onload = ()=>{
     
 
     const editBtn = document.getElementsByClassName('edit-btn'); 
-    const postsFilter = document.getElementById('posts-filter')
-       
-
-
-    console.log(rcbtn)
+    const postsFilter = document.getElementById('posts-filter');
 
     postsFilter.onclick = function(event){
         
@@ -99,12 +95,16 @@ window.onload = ()=>{
     for(let i=0; i< rbtn.length; i++){
         rbtn[i].onclick = async function(event){
             let post_id = document.getElementsByClassName('hidden')[i].innerText;
-            console.log(post_id)
+            
+            
             const {data} = await axios.post(
                 `http://localhost:3000/confraria/react/`,{
-                    post_id
+                    post_id,
+                    brotherhood_id
                 }
-            )
+            );
+
+
             window.location.reload();
         }
     }
@@ -115,7 +115,8 @@ window.onload = ()=>{
             console.log(post_id)
             const {data} = await axios.post(
                 `http://localhost:3000/confraria/react/`,{
-                    post_id
+                    post_id,
+                    brotherhood_id
                 }
             )
             window.location.reload();

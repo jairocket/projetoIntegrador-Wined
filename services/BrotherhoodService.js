@@ -219,6 +219,7 @@ const BrotherhoodService = {
           }
         })
       }
+      return
     },
 
     chancellorSwitch: async(req, res)=>{
@@ -366,13 +367,23 @@ const BrotherhoodService = {
                 'createdAt', 
                 'DESC'
               ],
-              include: {
+              include: [{
                 model: db.User,
                 as: "author",
                 attributes: ['name', 'surname', 'avatar_picture', 'id']
-              }
+              },{
+                model: db.Reaction,
+                as: 'reactions',
+                attributes: ['users_id']
+              },
+            ]
             }, 
-          },
+          },{
+              model: db.Reaction,
+              as: 'reactions',
+              attributes: ['users_id']
+            }
+          
         ],
         where: {
           [Op.and]: [

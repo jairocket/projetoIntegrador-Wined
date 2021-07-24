@@ -56,12 +56,21 @@ main {
 }
 
 .postMenu {
+    display: flex;
     padding: 5px;
 }
 
 .postMenu > button{
     font-size: 15px;
     padding: 5px;
+}
+.cheers{
+    display: flex;
+    flex-direction: row;
+    padding: 5px
+}
+.cheers > p{
+    margin-right: 5px;
 }
 
 .confraria{
@@ -173,11 +182,15 @@ input[type='file']{
     justify-content: space-between;
 }
 
-/* #picture, #submit{
-    
-    color:white;
+.r-btn, .rc-btn{
+    text-decoration: none;
+}
 
-} */
+.reacted{
+    text-decoration: underline;
+    font-weight: 600;
+    color: #9B0000;
+}
 
 #midia-menu{
     display: flex;
