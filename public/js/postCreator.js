@@ -14,7 +14,6 @@ window.onload = ()=>{
     const dcbtn = document.getElementsByClassName('dc-btn');
     const rcbtn = document.getElementsByClassName('rc-btn');
     
-
     const editBtn = document.getElementsByClassName('edit-btn'); 
     const postsFilter = document.getElementById('posts-filter');
 
@@ -94,17 +93,13 @@ window.onload = ()=>{
 
     for(let i=0; i< rbtn.length; i++){
         rbtn[i].onclick = async function(event){
-            let post_id = document.getElementsByClassName('hidden')[i].innerText;
-            
-            
+            let post_id = document.getElementsByClassName('hidden')[i].innerText;          
             const {data} = await axios.post(
                 `http://localhost:3000/confraria/react/`,{
                     post_id,
                     brotherhood_id
                 }
             );
-
-
             window.location.reload();
         }
     }

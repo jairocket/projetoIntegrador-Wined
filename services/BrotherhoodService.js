@@ -383,7 +383,6 @@ const BrotherhoodService = {
               as: 'reactions',
               attributes: ['users_id']
             }
-          
         ],
         where: {
           [Op.and]: [

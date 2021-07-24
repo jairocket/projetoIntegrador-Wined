@@ -271,6 +271,8 @@ const BrotherhoodController = {
 
   reactionsSwitch: async(req, res)=>{
     const reaction = await BrotherhoodService.reactionsSwitch(req, res);
+    let brotherhood_id = req.body
+    return res.redirect(`/confraria/${brotherhood_id}`)
   },
  
 //GET brotherhood's members

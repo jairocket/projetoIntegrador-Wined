@@ -143,8 +143,12 @@
                                 <div class="cheers">
                                     <% if(post.reactions.length > 0){ %>
                                         <p><%= post.reactions.length %></p>
-                                    <% } %>                                  
-                                    <button type="button" class= "r-btn" >Cheers!</button>    
+                                    <% } %>  
+                                    <% if(post.reactions.some(reaction => reaction.users_id === user.id )){ %>
+                                        <button type="button" class= "r-btn" id= "reacted">Cheers!</button> 
+                                    <% } else { %>                                
+                                        <button type="button" class= "r-btn" >Cheers!</button> 
+                                    <% } %>   
                                 </div>
 
                                 <button type="button" class= "h-btn">Comentários</button>
@@ -211,8 +215,11 @@
                                                     <% if(comment.contents.reactions.length > 0){ %>
                                                         <p><%= comment.contents.reactions.length %></p>
                                                     <%}%>
-                                                    
-                                                    <button type="button" class = "rc-btn"data-type="react-comment">Cheers!</button>
+                                                    <% if(comment.contents.reactions.some(reaction => reaction.users_id === user.id )){ %>
+                                                        <button type="button" class= "rc-btn" id= "reacted">Cheers!</button> 
+                                                    <% } else { %>                                
+                                                        <button type="button" class = "rc-btn"data-type="react-comment">Cheers!</button>
+                                                    <% } %>  
                                                 </div>
                                                                                                 
                                                 <% if( comment.contents.author.id == user.id ){ %>
