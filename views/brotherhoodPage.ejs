@@ -116,11 +116,11 @@
                             <div class="hidden">
                                 <%= post.id %>
                             </div>
-                            <div>
-                                <%= post.author.avatar_picture %>
-                                    <h6>
-                                        <%= post.author.name %> <%= post.author.surname %>
-                                    </h6>
+                            <div class="post-header">
+                                <img src="../images/uploads/<%= post.author.avatar_picture %>" alt="">
+                                <h6>
+                                    <%= post.author.name %> <%= post.author.surname %>
+                                </h6>
                             </div>
                             <div class="post-content">
                                 <p>
@@ -131,7 +131,7 @@
                                     <% if(post.midia.midia_type == 'image'){ %>
                                         <img src="../images/uploads/<%= post.midia.midia_path %>" alt="">
                                     <% }else if(post.midia.midia_type == 'video'){ %>
-                                        <video width="850" height="568" controls>
+                                        <video width="820" height="478" controls>
                                             <source src="../images/uploads/<%= post.midia.midia_path %>" type ="video/mp4">
                                         </video>
                                     <% } %>

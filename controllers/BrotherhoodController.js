@@ -222,14 +222,14 @@ const BrotherhoodController = {
     let {id} = req.params
     let comment = false
     let users_id = req.session.user.id
-    if(content.trim().length > 0){
+    
       const post = await db.Post.create({
         content,
         brotherhood_id: id,
         users_id,
         comment
       });
-    }
+    
 
     let file = req.file;
     if(!file){
