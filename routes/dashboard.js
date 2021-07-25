@@ -10,6 +10,8 @@ router.get('/', auth, DashboardController.getBrotherhoods);
 router.get('/sair', function(req, res){
   req.session.destroy();
   res.redirect('/login');
-})
+});
+
+router.get('/wines', DashboardController.getWines);
 
   module.exports = router;

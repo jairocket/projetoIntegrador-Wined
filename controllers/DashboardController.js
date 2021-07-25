@@ -2,6 +2,7 @@ const db = require('../database/models');
 const Sequelize = require('sequelize');
 const { check, validationResult, body } = require('express-validator');
 
+const DashboardService = require('../services/DashboardService')
 
 const DashboardController ={
 
@@ -41,7 +42,12 @@ const DashboardController ={
         
         }
      )
-}
+    },
+
+    getWines: async (req, res)=>{
+        const wines = await DashboardService.getWines(req, res);
+        res.json(wines);     
+    }
 
 }
 

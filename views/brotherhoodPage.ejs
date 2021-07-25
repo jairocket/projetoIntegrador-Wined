@@ -13,7 +13,7 @@
                     <% brotherhood.members.forEach((member)=>{ %>
                         <div class="member">
                             <a href="/perfil/<%= member.id %>">
-                                <img src="" alt="">
+                                <img src="../images/uploads/<%= member.avatar_picture %>" alt="">
                             </a>
                             <div>
                                 <a href="/perfil/<%= member.id %>">
@@ -199,11 +199,11 @@
 
                                         <div class="post">
                                           
-                                            <div>
-                                                <%= comment.contents.author.avatar_picture %>
-                                                    <h6>
-                                                        <%= comment.contents.author.name %> <%= comment.contents.author.surname %>
-                                                    </h6>
+                                            <div class="post-header">
+                                                <img src="../images/uploads/<%= comment.contents.author.avatar_picture %>" alt="">
+                                                <h6>
+                                                    <%= comment.contents.author.name %> <%= comment.contents.author.surname %>
+                                                </h6>
                                             </div>
                                             <div>
                                                 <p>
