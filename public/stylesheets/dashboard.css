@@ -123,13 +123,13 @@ a{
     padding: 30px;
 }
 
-/* #divBusca{
+#divBusca{
     border: solid 1px;
     border-radius: 15px;
-    width: 300px;
+    width: 640px;
     
     
-} */
+}
 
 #txtBusca{
     float: left;
@@ -139,7 +139,12 @@ a{
     font-size: 18px;
     border: none;
     height: 32px;
-    width: 260px;
-    border: solid 1px;
-    border-radius: 15px;
+    width: 600px;
+    
+    
+}
+
+#btnBusca{
+    width: 32px;
+    height: 32px;
 }

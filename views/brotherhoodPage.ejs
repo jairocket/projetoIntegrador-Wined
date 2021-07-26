@@ -216,7 +216,7 @@
                                                         <p><%= comment.contents.reactions.length %></p>
                                                     <%}%>
                                                     <% if(comment.contents.reactions.some(reaction => reaction.users_id === user.id )){ %>
-                                                        <button type="button" class= "rc-btn" id= "reacted">Cheers!</button> 
+                                                        <button type="button" class= "rc-btn" id= "reacted" data-type="react-comment">Cheers!</button> 
                                                     <% } else { %>                                
                                                         <button type="button" class = "rc-btn"data-type="react-comment">Cheers!</button>
                                                     <% } %>  
