@@ -11,8 +11,10 @@ window.onload = ()=>{
     const ebtn = document.getElementsByClassName('e-btn');
     const dbtn = document.getElementsByClassName('d-btn');
     const rbtn = document.getElementsByClassName('r-btn');
+    const sbtn = document.getElementsByClassName('s-btn');
     const dcbtn = document.getElementsByClassName('dc-btn');
     const rcbtn = document.getElementsByClassName('rc-btn');
+    const scbtn = document.getElementsByClassName('sc-btn');
     
     const editBtn = document.getElementsByClassName('edit-btn'); 
     const postsFilter = document.getElementById('posts-filter');
@@ -56,6 +58,30 @@ window.onload = ()=>{
         }
         window.location.href = `/confraria/${brotherhood_id}`;
     }
+
+    // for(let i=0; i < sbtn.length; i++){
+    //     sbtn[i].onclick = async function(event){
+    //         let ref_post_id = document.getElementsByClassName('hidden')[i].innerText;
+    //         const { data } = await axios.post(
+    //             `http://localhost:3000/confraria/post-content/`,{
+    //                 ref_post_id
+    //             }
+    //         );
+    //         window.location.reload();
+    //     }
+    // }
+    // for(let i=0; i< scbtn.length; i++){
+    //     scbtn[i].onclick = async function(event){
+    //         let post_id = document.getElementsByClassName('hidden2')[i].innerText;
+    //         console.log(post_id)
+    //         const {data} = await axios.post(
+    //             `http://localhost:3000/confraria/react/`,{
+    //                 post_id
+    //             }
+    //         );
+    //         window.location.reload();
+    //     }
+    // }
 
     for (let i=0; i< cbtn.length; i++){
         cbtn[i].onclick = async function(event){

@@ -17,7 +17,8 @@ module.exports = (sequelize, DataTypes)=>{
     });
     Reaction.associate = function(models){
         Reaction.belongsTo(models.User, {
-            foreignKey: "users_id"
+            foreignKey: "users_id",
+            as: 'users'
         });
         Reaction.belongsTo(models.Post, {
             foreignKey: "post_id",

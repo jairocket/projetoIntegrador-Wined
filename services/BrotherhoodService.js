@@ -374,14 +374,24 @@ const BrotherhoodService = {
               },{
                 model: db.Reaction,
                 as: 'reactions',
-                attributes: ['users_id']
+                attributes: ['users_id'],
+                include: [{
+                  model: db.User,
+                  as: 'users',
+                  attributes: ['name', 'surname']
+                }]
               },
             ]
             }, 
           },{
               model: db.Reaction,
               as: 'reactions',
-              attributes: ['users_id']
+              attributes: ['users_id'],
+              include: [{
+                model: db.User,
+                as: 'users',
+                attributes: ['name', 'surname']
+              }]
             }
         ],
         where: {
