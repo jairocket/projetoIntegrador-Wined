@@ -13,7 +13,7 @@ router.get('/sair', function(req, res){
   res.redirect('/login');
 });
 
-router.get('/wines', DashboardController.getWines);
+router.post('/wines', DashboardController.getWines);
 
 router.post('/wines/favorite/:id', DashboardController.favorite);
 

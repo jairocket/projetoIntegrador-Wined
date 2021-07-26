@@ -5,6 +5,7 @@ const nodemailer = require('../services/nodemailerService');
 const DashboardService = {
     getWines: async (req, res) =>{
         let {parameter} = req.body;
+        console.log(parameter)
         if(!parameter){
             const wines = await db.Wine.findAll()
             return(wines)
