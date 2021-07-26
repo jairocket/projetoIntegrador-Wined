@@ -15,6 +15,13 @@ window.onload = ()=>{
                     }
                 );
             console.log(data);
+            // var div = document.createElement('div');
+            // data.array.forEach(wine => {
+            //     div.innerHTML = "<p><%= wine.wine %></p>"
+            //     document.getElementById('div').appendChild
+            // });
+            
+            
         }
     }
 }

@@ -142,7 +142,7 @@
                             <div class='postMenu'>
                                 <div class="cheers">
                                     <% if(post.reactions.length > 0){ %>
-                                        <p><%= post.reactions.length %></p>
+                                        <button type="button" class= "s-btn"><%= post.reactions.length %></button>
                                     <% } %>  
                                     <% if(post.reactions.some(reaction => reaction.users_id === user.id )){ %>
                                         <button type="button" class= "r-btn" id= "reacted">Cheers!</button> 
@@ -172,7 +172,11 @@
                                 <button type="button" class="edit-btn"> <img src="../images/post.svg"
                                         alt="add-video">Enviar</button>
                             </div>
-
+                        </div>
+                        <div class="reactions">
+                            <% post.reactions.forEach(user => {%>
+                                <p><%= user.users.name %></p>
+                            <% }) %>
                         </div>
                         <div class="comments">
                             <div class="create-comment">
@@ -213,7 +217,7 @@
                                             <div class='postMenu'>
                                                 <div class= 'cheers'>
                                                     <% if(comment.contents.reactions.length > 0){ %>
-                                                        <p><%= comment.contents.reactions.length %></p>
+                                                        <button type="button" class="sc-btn"><%= comment.contents.reactions.length %></button>
                                                     <%}%>
                                                     <% if(comment.contents.reactions.some(reaction => reaction.users_id === user.id )){ %>
                                                         <button type="button" class= "rc-btn" id= "reacted" data-type="react-comment">Cheers!</button> 
@@ -231,12 +235,19 @@
                                                 <% } %>                               
                                             </div>
                                         </div>
+                                        <div class="reactions">
+                                            <% comment.contents.reactions.forEach(user => {%>
+                                                <p><%= user.users.name %></p>
+                                            <% }) %>
+                                        </div>
                                         <%})%>
                                     <%}%>
                                 </div>
                             </div>
+
                         <% }) %>
                 </div>
+
             </section>
         </section>
     </main>

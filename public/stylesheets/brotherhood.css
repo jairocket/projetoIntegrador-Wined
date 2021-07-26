@@ -460,3 +460,24 @@ input[type='file']{
     margin-left: 5%;
     margin-bottom: 200px;
 }
+
+.s-btn, .sc-btn{
+    margin-right: 3px;
+}
+
+.reactions {
+    display: none;
+    justify-content: right;
+    margin-left: 50px;
+    flex-direction: column;
+    background: white;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 10px;
+
+}
+
+.show-reactions {
+    display: flex;
+    
+}
