@@ -47,6 +47,14 @@ const DashboardController ={
     getWines: async (req, res)=>{
         const wines = await DashboardService.getWines(req, res);
         res.json(wines);     
+    },
+
+    favorite: async(req, res)=>{
+        await DashboardService.favoriteWine(req, res);
+    },
+
+    wish: async(req, res)=>{
+        await DashboardService.wishWine(req, res);
     }
 
 }

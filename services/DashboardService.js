@@ -38,6 +38,24 @@ const DashboardService = {
             }
         });
         return(wines)
+    },
+    favoriteWine: async (req, res)=>{
+        let {id} = req.params;
+        let users_id = req.session.user.id;
+        const favorited = await db.Favorite_Wine.create({
+            users_id,
+            wine_id: id
+        });
+        return 
+    },
+    wishWine: async (req, res)=>{
+        let {id} = req.params;
+        let users_id = req.session.user.id;
+        const wished = await db.Wished_Wine.create({
+            users_id,
+            wine_id: id
+        });
+        return
     }
 
 }
