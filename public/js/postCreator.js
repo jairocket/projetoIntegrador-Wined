@@ -59,6 +59,20 @@ window.onload = ()=>{
         window.location.href = `/confraria/${brotherhood_id}`;
     }
 
+    for (let i=0; i< sbtn.length; i++){
+        sbtn[i].onclick = async function(event){
+            let reactionsList= document.getElementsByClassName('reactions');
+            reactionsList[i].classList.toggle('show-reactions')
+        }
+    }
+
+    for (let i=0; i< scbtn.length; i++){
+        scbtn[i].onclick = async function(event){
+            let reactionsList= document.getElementsByClassName('reactions');
+            reactionsList[i].classList.toggle('show-reactions')
+        }
+    }
+
     // for(let i=0; i < sbtn.length; i++){
     //     sbtn[i].onclick = async function(event){
     //         let ref_post_id = document.getElementsByClassName('hidden')[i].innerText;
@@ -179,7 +193,7 @@ window.onload = ()=>{
         }
     }   
 
-    for (let i=0; i< cbtn.length; i++){
+    for (let i=0; i< hbtn.length; i++){
         hbtn[i].onclick = async function(event){
             let commentList= document.getElementsByClassName('comments');
             commentList[i].classList.toggle('show-comments')
