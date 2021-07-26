@@ -22,6 +22,7 @@
             <div class ="profilePic">
                 <form action="editarperfil/upload/profile-picture/<%=user.id%>?_method=PUT" method="POST" enctype="multipart/form-data" id='profile-picture-form'>
                     <label for="profile-picture">
+                            
                         <% if(user.avatar_picture) { %>
                             <img src="../../images/uploads/<%=user.avatar_picture%>" alt="Foto de capa" id="profile-picture-src">
                         <% } else { %>

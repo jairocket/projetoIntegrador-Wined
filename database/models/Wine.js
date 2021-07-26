@@ -11,10 +11,10 @@ module.exports = (sequelize, DataTypes )=>{
         wine_slug: {
             type: DataTypes.STRING(255),
         },
-        appelation: {
+        appellation: {
             type: DataTypes.STRING(255),
         },
-        appelation_slug: {
+        appellation_slug: {
             type: DataTypes.STRING(255)
         },
         color: {
