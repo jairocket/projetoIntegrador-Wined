@@ -75,7 +75,22 @@ let UserController = {
             console.log(errorsList)
             res.render("login", {errors: errorsList.errors, old: req.body});
         }   
+    }, getUser: async (req, res) =>{
+        let id = req.session.user.id;
+        const user = await db.User.findByPk(id, {
+            attributes: [
+                'id',
+                'name',
+                'surname', 
+                'description', 
+                'avatar_picture', 
+                'background_picture'
+            ]
+        });
+        return user
+
     },
+
     getProfile: async (req, res) =>{
         const {id} = req.params
         const profile = await db.User.findByPk(id);

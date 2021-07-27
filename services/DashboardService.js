@@ -1,10 +1,11 @@
 const db = require('../database/models');
 const {Op, fn} = require('sequelize');
-const nodemailer = require('../services/nodemailerService');
+
 
 const DashboardService = {
     getWines: async (req, res) =>{
-        let {parameter} = req.body;
+        // let {parameter} = req.body;
+        let { parameter } = req.query
         console.log(parameter)
         if(!parameter){
             const wines = await db.Wine.findAll()
@@ -64,6 +65,23 @@ const DashboardService = {
             wine_id: id
         });
         return
+    },
+    getMembers: async(req,res)=>{
+        let id = req.session.user.id;
+        const membersBrotherhoods = await db.Brotherhood.findAll({
+            attributes: ['id', 'name', 'description', 'since', 'createdAt'],
+            include: [
+                {
+                    model: db.User,
+                    as: 'users',
+                    where: {id},
+                    required:true,
+                    attributes: [],
+                },  
+            ], 
+
+        });
+        return membersBrotherhoods
     }
 
 }

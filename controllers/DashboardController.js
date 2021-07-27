@@ -2,25 +2,15 @@ const db = require('../database/models');
 const Sequelize = require('sequelize');
 const { check, validationResult, body } = require('express-validator');
 
-const DashboardService = require('../services/DashboardService')
+const DashboardService = require('../services/DashboardService');
+const UserController = require('./UserController');
 
 const DashboardController ={
 
     // GET member's brotherhoods
     getBrotherhoods: async(req,res)=>{
         let id = req.session.user.id;
-        const membersBrotherhoods = await db.Brotherhood.findAll({
-            attributes: ['id', 'name', 'description', 'since', 'createdAt'],
-            include: [
-                {
-                    model: db.User,
-                    as: 'users',
-                    where: {id},
-                    required:true,
-                    attributes: [],
-                },  
-            ],     
-        })
+        const membersBrotherhoods = await DashboardService.getMembers(req, res);
 
         const user = await db.User.findByPk(id, {
             attributes: [
@@ -31,7 +21,7 @@ const DashboardController ={
                 'avatar_picture', 
                 'background_picture'
             ]
-        })
+        });
        
     return res.render(
         'dashboard', {
@@ -45,8 +35,19 @@ const DashboardController ={
     },
 
     getWines: async (req, res)=>{
+        const membersBrotherhoods = await DashboardService.getMembers(req, res);
         const wines = await DashboardService.getWines(req, res);
-        res.json(wines);     
+        const user = await UserController.getUser(req, res);
+        return res.render(
+            'wines', {
+            title: "Dashboard",
+            style: "dashboard",
+            brotherhoods: membersBrotherhoods,
+            user,
+            wines
+            
+            }
+         )     
     },
 
     favorite: async(req, res)=>{
