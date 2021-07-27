@@ -1,0 +1,65 @@
+<head><link rel="stylesheet" href="../../stylesheets/dashboard.css"></head>
+<%- include('./partials/header') %>
+
+<main>
+    <div class="main">
+        <section class="profileInfo">
+            <%- include('./partials/topview') %>
+            <div class="userDescription">
+                <p><%= user.description %></p>
+            </div>
+            <div class= dashMenu>
+            <div class="brotherhoodMenu">
+                <a href="#"><p>Adega</p></a>
+                <a href='/confraria/criar'><p>Criar Confraria</p></a>
+                
+            </div>
+            <!-- <div class="brotherhoodMenu"> 
+                <a href="http://localhost:3000/favorites"><p>Favoritos</p></a>
+                
+            </div> -->
+        </section>
+
+        <section class="adega" id="adega">
+            <h4>Adega</h4>
+            <div id="divBusca">
+                <input type="text" id="txtBusca" placeholder="Buscar...">
+                <img src="../images/search.svg" id="btnBusca"  data-type="get-wines" alt="Buscar">
+            </div>
+            <form action="http://localhost:3000/dashboard/wines" method="GET">
+                <label for="parameter"></label>
+                <input type="text" name="parameter" id="txtBusca" placeholder="Buscar...">
+                <button type="submit" data-type="get-wines"><img src="../images/search.svg" id="btnBusca"  data-type="get-wines" alt="Buscar"></button>
+            </form>
+
+            <div class="wines">
+                <% if(wines){ %>
+                    <% wines.forEach(wine=> { %>
+                     <div class='wine'>
+                         <img src="../images/wines/<%= wine.picture_path %>" alt="wine">
+                         <p><%= wine.wine %></p>
+                     </div>
+                     <% }) %>
+     
+                 <% } %> 
+            </div>
+
+
+        </section>
+
+        <section class="myBrotherhoods">
+            <h4>Confrarias</h4>
+            <% brotherhoods.forEach((brotherhood)=>{ %>
+                <a href ="/confraria/<%= brotherhood.id %>"><div class="brotherhood"><%= brotherhood.name %></div></a><br>
+            <% }) %>
+        </section>
+
+
+    </div>
+
+</main>
+
+<%- include('./partials/footer')  %>  
+
+<script src='../js/dashboard.js'></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>

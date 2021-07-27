@@ -148,3 +148,19 @@ a{
     width: 32px;
     height: 32px;
 }
+
+/* .wines{
+    display: flex;
+
+} */
+
+.wine{
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+}
+
+.wine > img{
+    width: 150px;
+    margin: 25px;
+}
