@@ -19,6 +19,9 @@ window.onload = ()=>{
     const editBtn = document.getElementsByClassName('edit-btn'); 
     const postsFilter = document.getElementById('posts-filter');
 
+    console.log(sbtn)
+    console.log(scbtn)
+
     postsFilter.onclick = function(event){
         
         console.log(event.target.dataset.type);
@@ -61,14 +64,17 @@ window.onload = ()=>{
 
     for (let i=0; i< sbtn.length; i++){
         sbtn[i].onclick = async function(event){
+            
             let reactionsList= document.getElementsByClassName('reactions');
+            console.log(reactionsList.length)
+            console.log(sbtn.length)
             reactionsList[i].classList.toggle('show-reactions')
         }
     }
 
     for (let i=0; i< scbtn.length; i++){
         scbtn[i].onclick = async function(event){
-            let reactionsList= document.getElementsByClassName('reactions');
+            let reactionsList= document.getElementsByClassName('c-reactions');
             reactionsList[i].classList.toggle('show-reactions')
         }
     }

@@ -157,10 +157,11 @@ a{
 .wine{
     display: flex;
     justify-items: center;
-    flex-direction: column;
+    flex-direction: column; 
 }
 
 .wine > img{
-    width: 150px;
+
+    
     margin: 25px;
 }
