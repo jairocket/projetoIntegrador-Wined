@@ -15,10 +15,10 @@ router.get('/sair', function(req, res){
 
 // router.post('/wines', DashboardController.getWines);
 
-router.get('/wines', DashboardController.getWines);
+router.get('/wines', auth, DashboardController.getWines);
 
-router.post('/wines/favorite/:id', DashboardController.favorite);
+router.post('/wines/favorite/', DashboardController.favorite);
 
-router.post('/wines/wish/:id', DashboardController.wish); 
+router.post('/wines/wish/', DashboardController.wish); 
 
   module.exports = router;

@@ -75,6 +75,8 @@ window.onload = ()=>{
     for (let i=0; i< scbtn.length; i++){
         scbtn[i].onclick = async function(event){
             let reactionsList= document.getElementsByClassName('c-reactions');
+            console.log(reactionsList.length)
+            console.log(scbtn.length)
             reactionsList[i].classList.toggle('show-reactions')
         }
     }

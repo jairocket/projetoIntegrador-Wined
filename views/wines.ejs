@@ -36,11 +36,13 @@
                 <% if(wines){ %>
                     <% wines.forEach(wine=> { %>
                      <div class='wine'>
-                        <img src="../images/wines/<%= wine.picture_path %>" alt="wine">
-                         
-                    <div>
-                        <button type="button">Favoritos</button>
-                        <button type="button">Desejados</button>
+                         <div class='id'><%= wine.id %></div>
+                         <div class='wine-pic'>
+                            <img src="../images/wines/<%= wine.picture_path %>" alt="wine">
+                         </div>
+                    <div class="wine-menu">
+                        <button type="button" class="fvrt">Favoritos</button>
+                        <button type="button" class="wish">Desejados</button>
                     </div>
                          
                      </div>

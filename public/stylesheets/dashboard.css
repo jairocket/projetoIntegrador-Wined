@@ -20,7 +20,7 @@
 
 .adega{
     width: 51.5%;
-    background-color: whitesmoke;
+    background-color: white;
     padding: 30px;
     
 }
@@ -123,6 +123,20 @@ a{
     padding: 30px;
 }
 
+.wine-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.wine-menu > button{
+    padding: 10px;
+    background: #287A5C;
+    border-radius: 12px;
+    color: white;
+    font-weight: 500;
+}
+
 #divBusca{
     border: solid 1px;
     border-radius: 15px;
@@ -158,10 +172,15 @@ a{
     display: flex;
     justify-items: center;
     flex-direction: column; 
+    margin: 25px;
 }
 
 .wine > img{
 
     
     margin: 25px;
+}
+
+.id {
+    display: none;
 }
