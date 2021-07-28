@@ -143,7 +143,9 @@
                                 <div class="cheers">
                                     <% if(post.reactions.length > 0){ %>
                                         <button type="button" class= "s-btn"><%= post.reactions.length %></button>
-                                    <% } %>  
+                                    <% } else{%>
+                                        <button type="button" class="s-btn" id="hidden3"><%= post.reactions.length %></button>
+                                    <% } %>   
                                     <% if(post.reactions.some(reaction => reaction.users_id === user.id )){ %>
                                         <button type="button" class= "r-btn" id= "reacted">Cheers!</button> 
                                     <% } else { %>                                
@@ -173,11 +175,16 @@
                                         alt="add-video">Enviar</button>
                             </div>
                         </div>
+                        <% if(post.reactions){ %>
                         <div class="reactions">
                             <% post.reactions.forEach(user => {%>
                                 <p><%= user.users.name %></p>
                             <% }) %>
                         </div>
+                        <% }else{ %>
+                            <div class="reactions"></div>
+
+                        <%}%>
                         <div class="comments">
                             <div class="create-comment">
                                 <div class="write-comment">
@@ -218,7 +225,9 @@
                                                 <div class= 'cheers'>
                                                     <% if(comment.contents.reactions.length > 0){ %>
                                                         <button type="button" class="sc-btn"><%= comment.contents.reactions.length %></button>
-                                                    <%}%>
+                                                    <%}else{%>
+                                                        <button type="button" class="sc-btn" id="hidden3"><%= comment.contents.reactions.length %></button>
+                                                    <% } %>  
                                                     <% if(comment.contents.reactions.some(reaction => reaction.users_id === user.id )){ %>
                                                         <button type="button" class= "rc-btn" id= "reacted" data-type="react-comment">Cheers!</button> 
                                                     <% } else { %>                                
@@ -235,7 +244,7 @@
                                                 <% } %>                               
                                             </div>
                                         </div>
-                                        <div class="reactions">
+                                        <div class="c-reactions">
                                             <% comment.contents.reactions.forEach(user => {%>
                                                 <p><%= user.users.name %></p>
                                             <% }) %>

@@ -52,10 +52,12 @@ const DashboardController ={
 
     favorite: async(req, res)=>{
         await DashboardService.favoriteWine(req, res);
+        return res.status(200)
     },
 
     wish: async(req, res)=>{
         await DashboardService.wishWine(req, res);
+        res.status(200)
     }
 
 }

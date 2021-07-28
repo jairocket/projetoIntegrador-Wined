@@ -20,7 +20,7 @@ module.exports = {
       wine_id:{
         type: Sequelize.INTEGER(10),
         references: {
-          model: "favorite_wines",
+          model: "wines",
           allowNull: false,
           key: "id"
         }

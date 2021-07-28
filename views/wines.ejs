@@ -10,7 +10,7 @@
             </div>
             <div class= dashMenu>
             <div class="brotherhoodMenu">
-                <a href="#"><p>Adega</p></a>
+                
                 <a href='/confraria/criar'><p>Criar Confraria</p></a>
                 
             </div>
@@ -22,10 +22,10 @@
 
         <section class="adega" id="adega">
             <h4>Adega</h4>
-            <div id="divBusca">
+            <!-- <div id="divBusca">
                 <input type="text" id="txtBusca" placeholder="Buscar...">
                 <img src="../images/search.svg" id="btnBusca"  data-type="get-wines" alt="Buscar">
-            </div>
+            </div> -->
             <form action="http://localhost:3000/dashboard/wines" method="GET">
                 <label for="parameter"></label>
                 <input type="text" name="parameter" id="txtBusca" placeholder="Buscar...">
@@ -36,9 +36,17 @@
                 <% if(wines){ %>
                     <% wines.forEach(wine=> { %>
                      <div class='wine'>
-                         <img src="../images/wines/<%= wine.picture_path %>" alt="wine">
-                         <p><%= wine.wine %></p>
+                         <div class='id'><%= wine.id %></div>
+                         <div class='wine-pic'>
+                            <img src="../images/wines/<%= wine.picture_path %>" alt="wine">
+                         </div>
+                    <div class="wine-menu">
+                        <button type="button" class="fvrt">Favoritos</button>
+                        <button type="button" class="wish">Desejados</button>
+                    </div>
+                         
                      </div>
+                     <p><%= wine.wine %></p>
                      <% }) %>
      
                  <% } %> 
