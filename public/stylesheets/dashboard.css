@@ -168,11 +168,12 @@ a{
 
 } */
 
-.wine{
+.wines{
     display: flex;
     justify-items: center;
     flex-direction: column; 
     margin: 25px;
+    align-items: center;
 }
 
 .wine > img{

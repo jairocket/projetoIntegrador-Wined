@@ -100,7 +100,9 @@ let UserController = {
             surname: profile.surname,
             description: profile.description, 
             id: profile.id, 
-            email: profile.email
+            email: profile.email,
+            avatar_picture: profile.avatar_picture,
+            background_picture: profile.background_picture
         }
         return res.render('profile', { title: "Meu Perfil", style: "profile", user: user })
 

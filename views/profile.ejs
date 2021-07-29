@@ -2,10 +2,23 @@
 <%- include('./partials/header') %>
 
     <main>
-    <section class="topProfile">
-        <section class = "topView">
-            <%- include('./partials/topView') %>
+        <section class = "top-view">
+            <div class="background-picture">
+                <% if(user.background_picture) { %>
+                    <img src="../../images/uploads/<%=user.background_picture%>" alt="Foto de capa" id="background-picture-src">
+                <% } else { %>
+                    <img src="../../images/background-picture.svg" alt="Foto de capa" id="background-picture-src">
+                <% } %>
+            </div>
+            <div class="avatar-picture">
+                <% if(user.avatar_picture) { %>
+                    <img src="../images/uploads/<%= user.avatar_picture %>" alt="Foto de capa" id="profile-picture-src">
+                <% } else { %>
+                    <img src="../images/profile-picture.svg" alt="Foto de capa" id="profile-picture-src">
+                <% } %>
 
+            </div>
+            <div class="userName"><h5><%= user.name + " " + user.surname %></h5></div>
                 <div class="profileInfo">
                     <div class="dashboardSection">   
                         <p>
@@ -13,24 +26,11 @@
                         </p>
                 </div>    
         </section>
-        <!-- <section class="dash">
-            <div class="navbarMenu">
-                <div>
-                    <button class="button btn-form" type="submit">Seguir Perfil</button>
-                </div>
-                <div>
-                    <button class="button btn-form" type="submit">Convidar para Confraria</button>
-                </div>
-                <div>
-                    <button class="button btn-form" type="submit">Enviar Mensagem</button>
-                </div>
-                
-        </section> -->
-    </section>
-        <section class="wines">
-            <%- include('./partials/wishFav') %> 
-        </section>
 
+    <section class="wines">
+        <%- include('./partials/wishFav') %> 
+    </section>
+        
     </main>
 
     <%- include('./partials/footer')  %>
