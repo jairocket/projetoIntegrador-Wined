@@ -85,7 +85,8 @@ let UserController = {
                 'description', 
                 'avatar_picture', 
                 'background_picture'
-            ]
+            ],
+  
         });
         return user
 
@@ -93,7 +94,21 @@ let UserController = {
 
     getProfile: async (req, res) =>{
         const {id} = req.params
-        const profile = await db.User.findByPk(id);
+        const profile = await db.User.findByPk(id,
+             {
+            include: [{
+                model: db.Wine,
+                as: 'favorites',
+                attributes: [ 'wine', 'picture_path']
+                
+            }, {
+                model: db.Wine,
+                as: 'wished',
+                attributes: ['wine', 'picture_path']
+            }]
+        }
+        );
+
         console.log(profile)
         const user = {
             name: profile.name,
@@ -102,9 +117,13 @@ let UserController = {
             id: profile.id, 
             email: profile.email,
             avatar_picture: profile.avatar_picture,
-            background_picture: profile.background_picture
+            background_picture: profile.background_picture,
+            favorites: profile.favorites,
+            wished: profile.wished
+
         }
-        return res.render('profile', { title: "Meu Perfil", style: "profile", user: user })
+        // return res.json(user)
+        return res.render('profile', { title: "Perfil", style: "profile", user: user })
 
     },
     profileEditorForm: async (req, res)=>{

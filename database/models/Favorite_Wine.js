@@ -15,16 +15,16 @@ module.exports = (sequelize, DataTypes)=>{
         tableName: "favorite_wines",
         timestamps: false
     });
-    Favorite_Wine.associate = function(models){
-        Favorite_Wine.belongsTo(models.User, {
-            as: 'favorites',
-            foreign_key: 'users_id'
-        });
-        Favorite_Wine.belongsTo(models.Wine, {
-            as: 'oenophile',
-            foreign_key: 'wine_id'
-        });
-    }
+    // Favorite_Wine.associate = function(models){
+    //     Favorite_Wine.belongsTo(models.User, {
+    //         as: 'favorites',
+    //         foreign_key: 'users_id'
+    //     });
+    //     Favorite_Wine.belongsTo(models.Wine, {
+    //         as: 'oenophile',
+    //         foreign_key: 'wine_id'
+    //     });
+    // }
     return Favorite_Wine
 
 }

@@ -28,7 +28,26 @@
         </section>
 
     <section class="wines">
-        <%- include('./partials/wishFav') %> 
+        <section class="favoritesList">
+            <h3>VINHOS FAVORITOS</h3>
+            
+                <% user.favorites.forEach(wine=>{ %>
+                    <div>
+                        <img src="../../images/uploads/<%= wine.picture_path %>" alt="">
+                    </div>
+                    <div><%= wine.wine %></div>
+                <%})%>
+            
+        </section>
+        <section class="wishList">
+            <h3>VINHOS DESEJADOS</h3>
+            <% user.wished.forEach(wine=>{ %>
+                <div>
+                    <img src="../images/uploads/<%= wine.picture_path %>" alt="">
+                </div>
+                <div><%= wine.wine %></div>
+            <%})%>
+        </section> 
     </section>
         
     </main>
