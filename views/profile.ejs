@@ -33,7 +33,7 @@
             
                 <% user.favorites.forEach(wine=>{ %>
                     <div>
-                        <img src="../../images/uploads/<%= wine.picture_path %>" alt="">
+                        <img src="../../images/wines/<%= wine.picture_path %>" alt="">
                     </div>
                     <div><%= wine.wine %></div>
                 <%})%>
@@ -43,7 +43,7 @@
             <h3>VINHOS DESEJADOS</h3>
             <% user.wished.forEach(wine=>{ %>
                 <div>
-                    <img src="../images/uploads/<%= wine.picture_path %>" alt="">
+                    <img src="../images/wines/<%= wine.picture_path %>" alt="">
                 </div>
                 <div><%= wine.wine %></div>
             <%})%>
