@@ -481,6 +481,24 @@ const BrotherhoodService = {
           })
       }
 
+    },
+    eventCreator: async(req, res)=>{
+      let { brotherhood_id } = req.params;
+      let users_id = req.session.user.id;
+      let { name, date, local, time } = req.body
+
+      const event = await db.Event.create({
+        name,
+        date,
+        adress,
+        time,
+        brotherhood_id
+      });
+      const participants = await db.User_Event.create({
+        event_id: event.id,
+        users_id
+      });
+      return
     }
     
 }

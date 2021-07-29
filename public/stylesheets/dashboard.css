@@ -163,23 +163,38 @@ a{
     height: 32px;
 }
 
-/* .wines{
-    display: flex;
-
-} */
-
 .wines{
     display: flex;
     justify-items: center;
-    flex-direction: column; 
+    flex-direction: row; 
     margin: 25px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
-.wine > img{
+.wine{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
 
-    
+.wine-pic{
+    overflow: hidden;
+    height: 200px;
+    width: 200px;
     margin: 25px;
+}
+
+.wine-pic > img {
+    height: 100%;
+}
+
+.wine-name {
+    margin: 15px;
+}
+
+.wine-menu > img{
+    margin: 30px;
 }
 
 .id {

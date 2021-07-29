@@ -293,7 +293,7 @@ h5 {
     }
 
     .favoritesList > h3, .wishList > h3{
-        padding: 15px;
+        padding: 10px;
     }
     
     .top-view {
@@ -311,5 +311,39 @@ h5 {
         bottom: 75px;
         left: 30px;
         border-radius: 50%;
+    }
+    .favoritesList {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        
+        
+    }
+    .wishList {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .wine{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        margin-top: 50px;
+    }
+    .wine-pic{
+        overflow: hidden;
+        height: 180px;
+        width: 180px;
+        margin: 25px;
+    }
+    .wine-pic > img {
+        height: 100%;
+    }
+    
+    .wine-name {
+        /* margin: 15px; */
+        width: 200px;
+        text-align: center;
+        height: 50px;
     }
 }
