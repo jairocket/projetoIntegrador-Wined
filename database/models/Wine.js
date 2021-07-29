@@ -48,22 +48,22 @@ module.exports = (sequelize, DataTypes )=>{
     Wine.associate = function(models){
         Wine.belongsToMany(models.User, {
             through: models.Favorite_Wine,
-            as: "favorite_wines",
+            as: "favorites",
             foreignKey: "wine_id"
         });
-        Wine.hasMany(models.Favorite_Wine,{
-            as: "oenophiles",
-            foreignKey: "wine_id"
-        });
+        // Wine.hasMany(models.Favorite_Wine,{
+        //     as: "oenophiles",
+        //     foreignKey: "wine_id"
+        // });
         Wine.belongsToMany(models.User, {
             through: models.Wished_Wine,
-            as: "wished_wines",
+            as: "wished",
             foreignKey: "wine_id"
         });
-        Wine.hasMany(models.Wished_Wine,{
-            as: "oenophiless",
-            foreignKey: "wine_id"
-        });
+        // Wine.hasMany(models.Wished_Wine,{
+        //     as: "oenophiless",
+        //     foreignKey: "wine_id"
+        // });
     }
 
     return Wine

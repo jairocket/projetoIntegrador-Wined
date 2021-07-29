@@ -60,21 +60,21 @@
         User.belongsToMany(modelos.Wine, {
             through: modelos.Favorite_Wine,
             foreignKey: "users_id",
-            as: "oenophiles"
-        });
-        User.hasMany(modelos.Favorite_Wine, {
-            foreignKey: "users_id",
             as: "favorites"
         });
+        // User.hasMany(modelos.Favorite_Wine, {
+        //     foreignKey: "users_id",
+        //     as: "favorites"
+        // });
         User.belongsToMany(modelos.Wine,{
             through: modelos.Wished_Wine,
             foreignKey: "users_id",
-            as: "oenophiless"
-        });
-        User.hasMany(modelos.Wished_Wine,{
-            foreignKey: "users_id",
             as: "wished"
-        })
+        });
+        // User.hasMany(modelos.Wished_Wine,{
+        //     foreignKey: "users_id",
+        //     as: "wished"
+        // })
         // User.hasOne(modelos.Profile_Picture, {
         //     as: "profile_pictures",
         //     foreignKey: "profile_picture_id"

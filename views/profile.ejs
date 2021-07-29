@@ -2,10 +2,23 @@
 <%- include('./partials/header') %>
 
     <main>
-    <section class="topProfile">
-        <section class = "topView">
-            <%- include('./partials/topView') %>
+        <section class = "top-view">
+            <div class="background-picture">
+                <% if(user.background_picture) { %>
+                    <img src="../../images/uploads/<%=user.background_picture%>" alt="Foto de capa" id="background-picture-src">
+                <% } else { %>
+                    <img src="../../images/background-picture.svg" alt="Foto de capa" id="background-picture-src">
+                <% } %>
+            </div>
+            <div class="avatar-picture">
+                <% if(user.avatar_picture) { %>
+                    <img src="../images/uploads/<%= user.avatar_picture %>" alt="Foto de capa" id="profile-picture-src">
+                <% } else { %>
+                    <img src="../images/profile-picture.svg" alt="Foto de capa" id="profile-picture-src">
+                <% } %>
 
+            </div>
+            <div class="userName"><h5><%= user.name + " " + user.surname %></h5></div>
                 <div class="profileInfo">
                     <div class="dashboardSection">   
                         <p>
@@ -13,24 +26,30 @@
                         </p>
                 </div>    
         </section>
-        <!-- <section class="dash">
-            <div class="navbarMenu">
-                <div>
-                    <button class="button btn-form" type="submit">Seguir Perfil</button>
-                </div>
-                <div>
-                    <button class="button btn-form" type="submit">Convidar para Confraria</button>
-                </div>
-                <div>
-                    <button class="button btn-form" type="submit">Enviar Mensagem</button>
-                </div>
-                
-        </section> -->
-    </section>
-        <section class="wines">
-            <%- include('./partials/wishFav') %> 
-        </section>
 
+    <section class="wines">
+        <section class="favoritesList">
+            <h3>VINHOS FAVORITOS</h3>
+            
+                <% user.favorites.forEach(wine=>{ %>
+                    <div>
+                        <img src="../../images/uploads/<%= wine.picture_path %>" alt="">
+                    </div>
+                    <div><%= wine.wine %></div>
+                <%})%>
+            
+        </section>
+        <section class="wishList">
+            <h3>VINHOS DESEJADOS</h3>
+            <% user.wished.forEach(wine=>{ %>
+                <div>
+                    <img src="../images/uploads/<%= wine.picture_path %>" alt="">
+                </div>
+                <div><%= wine.wine %></div>
+            <%})%>
+        </section> 
+    </section>
+        
     </main>
 
     <%- include('./partials/footer')  %>
