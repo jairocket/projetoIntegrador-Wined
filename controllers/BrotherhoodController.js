@@ -292,6 +292,10 @@ const BrotherhoodController = {
     })
     
     return res.json(brotherhoodMembers)
+    },
+    eventCreator: async (req, res) =>{
+      let { brotherhood_id } = req.params;
+      let event = await BrotherhoodService.eventCreator(req, res)
     }
 }
 module.exports = BrotherhoodController
