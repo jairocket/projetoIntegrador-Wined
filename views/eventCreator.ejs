@@ -1,3 +1,7 @@
+<head>
+  <link rel="stylesheet" href="../../stylesheets/event.css">
+</head>
+
 <%- include('./partials/header') %>
 
 <body>
@@ -9,23 +13,47 @@
     </div>
     <form action='/eventos'method="POST" class="formulario">
 
-      <p>Nome</p>
+      
       <label for="name">
         <input type="text" name="name" id="name" placeholder="Nome do evento">
       </label>
-      <p>Data</p>
-      <label for="Data">
-        <input type="date" name="date" id="date" placeholder="Digite a Data do Evento">
-      </label>
-      <p>Endereço</p>
-      <label for="endereço">
-        <input type="text" name="local" id="local" placeholder="Digite o endereço">
-      </label>
-      <p>Hora</p>
-      <label for="Hora">
-        <input type="datetime" name="time" id="time" placeholder="Digite a Hora">
-      </label>
-      <button class="button btn-form" type="submit">Cadastre seu evento</button>
+     
+      <div>
+        <label for="cep">
+          <input type="text" name="cep" id="cep" placeholder="CEP">
+        </label>
+        
+        <label for="street">
+          <input type="text" name="street" id="street" placeholder="Endereço">
+        </label>
+        
+        <label for="number">
+          <input type="text" name="number" id="number" placeholder="Número">
+        </label>
+        <label for="complement">
+          <input type="text" name="complement" id="complement" placeholder="Complemento">
+        </label>
+        <label for="city">
+          <input type="text" name="city" id="city" placeholder="Cidade">
+        </label>
+        
+        <label for="state">
+          <input type="text" name="state" id="state" placeholder="Estado">
+        </label>
+        
+      </div>      
+      
+      <div>
+        <label for="date">
+          <input type="date" name="date" id="date" placeholder="Digite a Data do Evento">
+        </label>
+        <label for="Hora">
+          <input type="datetime" name="time" id="time" placeholder="Hora">
+        </label>
+      </div>
+
+      <button class="button btn-form" type="submit">Cadastrar</button>
+
     </form>
     </div>
 </section>
@@ -33,4 +61,5 @@
 </body>
 
 <%- include('./partials/footer')  %>  
+<script type="text/javascript" src="../../js/dropdown.js"></script> 
 </html>
