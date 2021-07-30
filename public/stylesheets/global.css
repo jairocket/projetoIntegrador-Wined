@@ -276,7 +276,7 @@ form > label > textarea {
 
 .backgroundPic > form > label > div {
   overflow: hidden;
-  max-height: 169px;
+  max-height: 180px;
 }
 
 .profilePic > form > label > img,
@@ -366,6 +366,15 @@ form > label > textarea {
   position: absolute;
   bottom: -40px;
   margin-left: 10px;
+}
+
+.cover {
+  max-height: 360px;
+  overflow: hidden;
+}
+
+.confraria-cover {
+  width: 100%;
 }
 
 @media (min-width: 769px) {

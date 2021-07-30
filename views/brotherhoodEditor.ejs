@@ -26,7 +26,13 @@
               <button class="button btn-form1" type="submit">Enviar</button>
           </div>                    
         </form>
-
+        <div class="cover" id="cover">
+          <% if(brotherhood.brotherhood_picture) { %>
+              <img class="confraria-cover" src="../../images/uploads/<%= brotherhood.brotherhood_picture %>" alt="confraria-cover" id="brotherhood-picture-src">
+          <% } else { %>
+              <img class="confraria-cover" src="../../images/brotherhood-picture.svg" alt="confraria-cover" id="brotherhood-picture-src">
+          <% } %>
+      </div>
       </section>
       
       <section class = registerForm>
@@ -132,4 +138,5 @@
       </section>
     </main>
     <%- include('./partials/footer')  %>   
+  <script type="text/javascript" src="../../js/brotherhoodEditor.js"></script>
   </body>

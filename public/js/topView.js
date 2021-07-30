@@ -1,4 +1,4 @@
-const profilePictureInput = document.getElementById('profile-picture');
+    const profilePictureInput = document.getElementById('profile-picture');
     const backgroundPictureInput = document.getElementById('background-picture');
     const profileBtn = document.getElementById('profile-btn');
     const backgroundBtn = document.getElementById('background-btn');
@@ -14,7 +14,7 @@ const profilePictureInput = document.getElementById('profile-picture');
         picture.readAsDataURL(input.files[0]);
 
         picture.onload = e => image.src = e.target.result;
-    }
+    };
 
     profilePictureInput.onchange = function(){
         picturePreview(profilePictureInput, profilePicture);
