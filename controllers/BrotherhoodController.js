@@ -13,7 +13,7 @@ const BrotherhoodController = {
 
   //Get brotherhood page
   accessBrotherhood: async function(req, res) {
-
+    const avatar = req.session.user.avatar_picture
     const brotherhood = await BrotherhoodService.getBrotherhood(req, res); 
     const count = await BrotherhoodService.getCount(req, res);
     const user = await UserService.getSessionUser(req,res);
@@ -28,7 +28,8 @@ const BrotherhoodController = {
       user,
       brotherhood:brotherhood,
       count: count.count,
-      posts: posts
+      posts: posts,
+      avatar
      });  
   },
 
@@ -153,7 +154,7 @@ const BrotherhoodController = {
     },
 
     updateView: async (req, res)=>{
-
+      const avatar = req.session.user.avatar_picture;
       const members = await BrotherhoodService.getMembers(req, res);
       const brotherhood = await BrotherhoodService.getBrotherhood(req, res);
 
@@ -162,6 +163,7 @@ const BrotherhoodController = {
           user: req.session.user,
           brotherhood:brotherhood, 
           members: members,
+          avatar,
           title: 'Editar Confraria', 
           style: 'register'})
     },

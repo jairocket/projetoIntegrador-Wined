@@ -21,7 +21,7 @@
           <button onclick="myFunction()" >
             <div>
               <% if(user.avatar_picture) { %>
-                <img id="profile-pic" src="../../images/uploads/<%=user.avatar_picture%>" alt="User Picture" class="dropbtn">
+                <img id="profile-pic" src="../../images/uploads/<%= avatar %>" alt="User Picture" class="dropbtn">
               <% } else { %>
                 <img id="profile-pic" src="../../images/profile-picture-white.svg" alt="User Picture" class="dropbtn">
               <% } %>

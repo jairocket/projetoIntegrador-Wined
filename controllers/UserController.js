@@ -58,14 +58,15 @@ let UserController = {
             });
 
             if ((usr.email == email) && (bcrypt.compareSync(password, usr.password))){
-                    const user = {
+                    const profile = {
                         name: usr.name,
                         surname: usr.surname,
                         description: usr.description, 
                         id: usr.id, 
-                        email: usr.email
+                        email: usr.email,
+                        avatar_picture: usr.avatar_picture
                     }
-                    req.session.user = user;
+                    req.session.user = profile;
                     res.redirect('/dashboard');
             } else {
                 req.flash('error', "Senha incorreta!")
@@ -94,6 +95,7 @@ let UserController = {
 
     getProfile: async (req, res) =>{
         const {id} = req.params
+        const avatar = req.session.user.avatar_picture;
         const profile = await db.User.findByPk(id,
              {
             include: [{
@@ -109,7 +111,6 @@ let UserController = {
         }
         );
 
-        console.log(profile)
         const user = {
             name: profile.name,
             surname: profile.surname,
@@ -123,7 +124,7 @@ let UserController = {
 
         }
         // return res.json(user)
-        return res.render('profile', { title: "Perfil", style: "profile", user: user })
+        return res.render('profile', { title: "Perfil", style: "profile", user: user, avatar })
 
     },
     profileEditorForm: async (req, res)=>{
