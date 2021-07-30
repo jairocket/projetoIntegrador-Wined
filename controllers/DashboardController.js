@@ -10,6 +10,7 @@ const DashboardController ={
     // GET member's brotherhoods
     getBrotherhoods: async(req,res)=>{
         let id = req.session.user.id;
+        let avatar = req.session.user.avatar_picture
         const membersBrotherhoods = await DashboardService.getMembers(req, res);
 
         const user = await db.User.findByPk(id, {
@@ -29,12 +30,13 @@ const DashboardController ={
         style: "dashboard",
         brotherhoods: membersBrotherhoods,
         user,
-        
+        avatar
         }
      )
     },
 
     getWines: async (req, res)=>{
+        const avatar = req.session.user.avatar_picture
         const membersBrotherhoods = await DashboardService.getMembers(req, res);
         const wines = await DashboardService.getWines(req, res);
         const user = await UserController.getUser(req, res);
@@ -44,8 +46,8 @@ const DashboardController ={
             style: "dashboard",
             brotherhoods: membersBrotherhoods,
             user,
-            wines
-            
+            wines, 
+            avatar            
             }
          )     
     },

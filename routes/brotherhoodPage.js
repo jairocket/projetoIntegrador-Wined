@@ -13,7 +13,8 @@ const upload = multer({storage: storage})
 
 /*GET a form to create a brotherhood */
 router.get('/criar', auth, (req, res) =>{
-    res.render('brotherhoodCreator', {user: req.session.user, title: 'Cadastrar Confraria', style: 'register' })
+    let avatar = req.session.user.avatar_picture
+    res.render('brotherhoodCreator', {user: req.session.user, avatar, title: 'Cadastrar Confraria', style: 'register' })
 });
 
 /*Creates a brotherhood */
@@ -41,10 +42,12 @@ router.delete('/delete/:id', brotherhoodController.delete);
 router.get('/confrades/:id', auth, brotherhoodController.getMembers);
 
 router.get('/eventos/:id', auth, (req, res) =>{
-    res.render('eventCreator', {user: req.session.user, title: 'Cadastrar Eventos', style: 'register'})
+    let avatar = req.session.user.avatar_picture
+    const brotherhood = req.params.id
+    res.render('eventCreator', {user: req.session.user, avatar, brotherhood, title: 'Cadastrar Eventos', style: 'register'})
 });
 
-router.post('/eventos/:id'), auth, brotherhoodController.eventCreator
+router.post('/eventos/:id', auth, brotherhoodController.eventCreator)
 
 router.post('/post-content/', brotherhoodController.postContent);
 
@@ -59,8 +62,10 @@ router.delete('/post-delete/', brotherhoodController.deletePosts);
 router.delete('/comment-delete/', brotherhoodController.deleteComments);
 
 router.get('/chancellorRequired', (req, res)=>{
-    res.render('chancellorRequired', {
-        user: req.session.user, 
+    let avatar = req.session.user.avatar_picture
+    res.render('chancellorRequired',  {
+        user: req.session.user,
+        avatar, 
         title: "Chanceler requerido", 
         style: "chancellorsRequired"})
 });

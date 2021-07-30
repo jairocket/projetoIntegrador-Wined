@@ -1,0 +1,51 @@
+form > div > label > input{
+    background: #E5E5E5;
+    height: 30px;
+    border-radius: 4px;
+    padding-left: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    
+}
+
+#name {
+    margin-bottom: 15px;
+}
+
+form > div {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#cep, #number {
+    width: 78px;
+}
+
+#cep, #city{
+    margin-right: 4px;
+}
+
+#street{
+    width: 550px;
+    margin-right: 4px;
+}
+
+#date {
+    text-align: center;
+}
+
+#datetime{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#date, #time{
+    width: 230px;
+}
+
+#city, #complement, #state{
+    width: 230px;
+}

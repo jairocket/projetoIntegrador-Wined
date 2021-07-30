@@ -13,17 +13,39 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         allowNull: false
       },
-      address:{
+      street:{
           type: DataTypes.STRING(255),
           allowNull:false
       },
+      cep:{
+        type: DataTypes.STRING(255),
+        allowNull:false
+      },
+      complement:{
+        type: DataTypes.STRING(255),
+        allowNull:false
+      },
+      number:{
+        type: DataTypes.STRING(255),
+        allowNull:false
+      },
+      city:{
+        type: DataTypes.STRING(255),
+        allowNull:false
+      },
+      state:{
+        type: DataTypes.STRING(255),
+        allowNull:false
+      },
+
       brotherhood_id:{
           type: DataTypes.INTEGER,
           allowNull: false
       }
     },
     {
-      tableName: "events"
+      tableName: "events",
+      timestamps: false
     });
   
     Event.associate = function(models) {

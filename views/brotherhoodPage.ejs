@@ -40,8 +40,7 @@
                         <%= brotherhood.name %> >
                     </h2>
                     <div>
-                        <p>Since: <%= brotherhood.since %>
-                        </p>
+                        <p>Since: <%= brotherhood.since %></p>
                         <img src="../images/dot.svg" alt="dot-separation">
                         <p>
                             <%= count %> Confrades
@@ -87,6 +86,10 @@
                 <div class="upload-media-post">
                     <div>
                         <button type="button" id="p-btn"> <img src="../images/add-picture.svg" alt="add-video">Midia</button>
+                    </div>
+                    <section class="upload-media-separator"></section>
+                    <div>
+                        <a href="/confraria/eventos/<%= brotherhood.id %>" id="event-btn"> <img src="../images/event.svg" alt="add-event">Evento</a>
                     </div>
                     <section class="upload-media-separator"></section>
                     <div>

@@ -475,3 +475,11 @@ input[type='file']{
     display: flex;
     
 }
+
+.upload-media-post > div > button > img, .upload-media-post > div > a > img{
+    margin-right: 8px;
+}
+
+#midia-menu > button > img, #midia-menu > label > img {
+    margin-right: 8px;
+}

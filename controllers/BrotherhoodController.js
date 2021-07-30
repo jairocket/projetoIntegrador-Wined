@@ -13,7 +13,7 @@ const BrotherhoodController = {
 
   //Get brotherhood page
   accessBrotherhood: async function(req, res) {
-
+    const avatar = req.session.user.avatar_picture
     const brotherhood = await BrotherhoodService.getBrotherhood(req, res); 
     const count = await BrotherhoodService.getCount(req, res);
     const user = await UserService.getSessionUser(req,res);
@@ -28,7 +28,8 @@ const BrotherhoodController = {
       user,
       brotherhood:brotherhood,
       count: count.count,
-      posts: posts
+      posts: posts,
+      avatar
      });  
   },
 
@@ -153,7 +154,7 @@ const BrotherhoodController = {
     },
 
     updateView: async (req, res)=>{
-
+      const avatar = req.session.user.avatar_picture;
       const members = await BrotherhoodService.getMembers(req, res);
       const brotherhood = await BrotherhoodService.getBrotherhood(req, res);
 
@@ -162,6 +163,7 @@ const BrotherhoodController = {
           user: req.session.user,
           brotherhood:brotherhood, 
           members: members,
+          avatar,
           title: 'Editar Confraria', 
           style: 'register'})
     },
@@ -293,9 +295,31 @@ const BrotherhoodController = {
     
     return res.json(brotherhoodMembers)
     },
+
     eventCreator: async (req, res) =>{
-      let { brotherhood_id } = req.params;
-      let event = await BrotherhoodService.eventCreator(req, res)
+      let { id } = req.params;
+  
+      const event = await BrotherhoodService.eventCreator(req, res);
+      const members = await BrotherhoodService.getMembers(req, res);
+      const date = new Date(req.body.date);
+      const postText = `Evento ${event.name} criado para o dia ${new Intl.DateTimeFormat("pt-BR").format(date)}, às ${ req.body.time }. \n
+Encontro vocês em ${event.street}, ${event.number}, ${event.complement}, ${event.city}/${event.state}
+CEP ${event.cep}.`
+      
+      members.forEach( async (member)=> {
+        await db.User_Event.create({
+          events_id: event.id,
+          users_id: member.users.id
+        });
+      });
+
+      await db.Post.create({
+        brotherhood_id: id,
+        users_id: req.session.user.id,
+        content: postText,
+        comment: false
+      })
+      return res.redirect(`/confraria/${id}`)
     }
 }
 module.exports = BrotherhoodController
