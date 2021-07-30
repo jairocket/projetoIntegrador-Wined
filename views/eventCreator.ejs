@@ -11,7 +11,7 @@
     <div id="call">
       Crie um evento e compartilhe momentos <h1 id="logo">Wined+</h1>
     </div>
-    <form action='/eventos'method="POST" class="formulario">
+    <form action='/confraria/eventos/<%= brotherhood %>'method="POST" class="formulario">
 
       
       <label for="name">
@@ -43,12 +43,12 @@
         
       </div>      
       
-      <div>
+      <div id="datetime">
         <label for="date">
           <input type="date" name="date" id="date" placeholder="Digite a Data do Evento">
         </label>
-        <label for="Hora">
-          <input type="datetime" name="time" id="time" placeholder="Hora">
+        <label for="time">
+          <input type="time" name="time" id="time" placeholder="Hora">
         </label>
       </div>
 

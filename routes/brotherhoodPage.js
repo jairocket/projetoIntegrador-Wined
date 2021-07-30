@@ -43,10 +43,11 @@ router.get('/confrades/:id', auth, brotherhoodController.getMembers);
 
 router.get('/eventos/:id', auth, (req, res) =>{
     let avatar = req.session.user.avatar_picture
-    res.render('eventCreator', {user: req.session.user, avatar, title: 'Cadastrar Eventos', style: 'register'})
+    const brotherhood = req.params.id
+    res.render('eventCreator', {user: req.session.user, avatar, brotherhood, title: 'Cadastrar Eventos', style: 'register'})
 });
 
-router.post('/eventos/:id'), auth, brotherhoodController.eventCreator
+router.post('/eventos/:id', auth, brotherhoodController.eventCreator)
 
 router.post('/post-content/', brotherhoodController.postContent);
 

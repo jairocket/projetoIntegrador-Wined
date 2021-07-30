@@ -37,8 +37,13 @@ form > div {
     text-align: center;
 }
 
+#datetime{
+    display: flex;
+    justify-content: space-evenly;
+}
+
 #date, #time{
-    width: 356.5px;
+    width: 230px;
 }
 
 #city, #complement, #state{
