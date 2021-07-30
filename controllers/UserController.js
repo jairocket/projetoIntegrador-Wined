@@ -129,8 +129,9 @@ let UserController = {
     },
     profileEditorForm: async (req, res)=>{
         const id = req.session.user.id;
+        const avatar = req.session.user.avatar_picture;
         const user = await db.User.findByPk(id);
-        return res.render('profileEditor', { title: "Editar Perfil", style: "register",  user})
+        return res.render('profileEditor', { title: "Editar Perfil", style: "register",  user, avatar})
     },
     profileEditor: async (req, res)=>{
         const id = req.session.user.id;
