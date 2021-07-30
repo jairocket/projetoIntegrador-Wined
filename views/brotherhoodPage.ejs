@@ -27,7 +27,13 @@
                 </div>
         </section>
         <section class="confraria">
-            <img class="confraria-cover" src="../images/uploads/<%= brotherhood.brotherhood_picture %>" alt="confraria-cover">
+            <div class="cover">
+                <% if(brotherhood.brotherhood_picture) { %>
+                    <img class="confraria-cover" src="../images/uploads/<%= brotherhood.brotherhood_picture %>" alt="confraria-cover">
+                <% } else { %>
+                    <img class="confraria-cover" src="../images/brotherhood-picture.svg" alt="confraria-cover">
+                <% } %>
+            </div>
             <section class="settings">
                 <div class="confraria-title">
                     <h2>

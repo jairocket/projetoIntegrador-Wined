@@ -85,3 +85,6 @@ input[type='file']{
     width: 250px;
   }
 
+#cover {
+  max-height: 258;
+}

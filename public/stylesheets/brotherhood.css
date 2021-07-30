@@ -100,12 +100,6 @@ main {
     width: 100%;
 }
 
-.confraria-cover {
-    width: 100%;
-    max-width: 1100 ;
-    height: auto;
-}
-
 .settings {
     display: flex;
     width: 100%;
