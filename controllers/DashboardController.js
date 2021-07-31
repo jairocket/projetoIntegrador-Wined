@@ -12,6 +12,8 @@ const DashboardController ={
         let id = req.session.user.id;
         let avatar = req.session.user.avatar_picture
         const membersBrotherhoods = await DashboardService.getMembers(req, res);
+        const events = await DashboardService.getUserEvents(req, res)
+        // res.json(events)
 
         const user = await db.User.findByPk(id, {
             attributes: [
@@ -26,11 +28,12 @@ const DashboardController ={
        
     return res.render(
         'dashboard', {
-        title: "Dashboard",
-        style: "dashboard",
-        brotherhoods: membersBrotherhoods,
-        user,
-        avatar
+            title: "Dashboard",
+            style: "dashboard",
+            brotherhoods: membersBrotherhoods,
+            user,
+            avatar,
+            events
         }
      )
     },
@@ -42,12 +45,12 @@ const DashboardController ={
         const user = await UserController.getUser(req, res);
         return res.render(
             'wines', {
-            title: "Dashboard",
-            style: "dashboard",
-            brotherhoods: membersBrotherhoods,
-            user,
-            wines, 
-            avatar            
+                title: "Dashboard",
+                style: "dashboard",
+                brotherhoods: membersBrotherhoods,
+                user,
+                wines, 
+                avatar            
             }
          )     
     },
@@ -60,6 +63,11 @@ const DashboardController ={
     wish: async(req, res)=>{
         await DashboardService.wishWine(req, res);
         res.status(200)
+    },
+
+    getUserEvents: async(req, res)=>{
+        
+        
     }
 
 }

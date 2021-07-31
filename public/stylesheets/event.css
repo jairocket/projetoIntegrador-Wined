@@ -33,17 +33,14 @@ form > div {
     margin-right: 4px;
 }
 
-#date {
-    text-align: center;
-}
-
 #datetime{
     display: flex;
     justify-content: space-evenly;
 }
 
 #date, #time{
-    width: 230px;
+    width: 200px;
+    text-align: center;
 }
 
 #city, #complement, #state{
