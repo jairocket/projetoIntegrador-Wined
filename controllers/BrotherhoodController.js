@@ -18,9 +18,10 @@ const BrotherhoodController = {
     const count = await BrotherhoodService.getCount(req, res);
     const user = await UserService.getSessionUser(req,res);
     const posts = await BrotherhoodService.getPosts(req, res);
+    const events = await BrotherhoodService.getEvents(req, res);
     
 
-    // res.json(posts)
+    // res.json(events)
     
     res.render('brotherhoodPage', { 
       title: "Confraria",
@@ -29,7 +30,8 @@ const BrotherhoodController = {
       brotherhood:brotherhood,
       count: count.count,
       posts: posts,
-      avatar
+      avatar,
+      events
      });  
   },
 
@@ -320,6 +322,11 @@ CEP ${event.cep}.`
         comment: false
       })
       return res.redirect(`/confraria/${id}`)
+    },
+    getEvents: async(req, res)=>{
+      let { id } = req.params;
+      
+
     }
 }
 module.exports = BrotherhoodController
