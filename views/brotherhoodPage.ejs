@@ -13,7 +13,11 @@
                     <% brotherhood.members.forEach((member)=>{ %>
                         <div class="member">
                             <a href="/perfil/<%= member.id %>">
-                                <img src="../images/uploads/<%= member.avatar_picture %>" alt="">
+                                <% if(member.avatar_picture) { %>
+                                    <img src="../images/uploads/<%= member.avatar_picture %>" alt="">
+                                <% } else { %>
+                                    <img src="../../images/profile-picture.svg" alt="Foto de perfil" id="profile-picture-src">
+                                <% } %>
                             </a>
                             <div>
                                 <a href="/perfil/<%= member.id %>">
