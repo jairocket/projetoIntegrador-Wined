@@ -302,8 +302,8 @@ const BrotherhoodController = {
       const event = await BrotherhoodService.eventCreator(req, res);
       const members = await BrotherhoodService.getMembers(req, res);
       const date = new Date(req.body.date);
-      const postText = `Evento ${event.name} criado para o dia ${new Intl.DateTimeFormat("pt-BR").format(date)}, às ${ req.body.time }. \n
-Encontro vocês em ${event.street}, ${event.number}, ${event.complement}, ${event.city}/${event.state}
+      const postText = `Evento ${event.name} criado para o dia ${new Intl.DateTimeFormat("pt-BR").format(date)}.
+Encontro vocês em ${event.street}, ${event.number}, ${event.complement}, ${event.city}/${event.state}, às ${ req.body.time }.
 CEP ${event.cep}.`
       
       members.forEach( async (member)=> {
