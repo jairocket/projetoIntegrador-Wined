@@ -502,6 +502,33 @@ const BrotherhoodService = {
       });
 
       return event
+    },
+
+    getEvents: async(req, res) =>{
+      let { id } = req.params;
+      const events = []
+      const raw_events = await db.Event.findAll({
+        where: {brotherhood_id: id}
+      });
+      raw_events.forEach(appointment => {
+            
+        let due_date = `${appointment.date.getDate()}/${appointment.date.getMonth()+1}/${appointment.date.getFullYear()}`
+        let due_time = `${appointment.date.getHours()}:${appointment.date.getMinutes()}`
+        const event = {
+            name: appointment.name,
+            street: appointment.street,
+            cep: appointment.cep,
+            complement: appointment.complement,
+            number: appointment.number,
+            city: appointment.city,
+            state: appointment.state,
+            date: due_date,
+            time: due_time  
+        }
+        events.push(event)
+
+    });          
+      return events
     }
     
 }

@@ -47,6 +47,8 @@ router.get('/eventos/:id', auth, (req, res) =>{
     res.render('eventCreator', {user: req.session.user, avatar, brotherhood, title: 'Cadastrar Eventos', style: 'register'})
 });
 
+// router.get('/events/:id', auth, )
+
 router.post('/eventos/:id', auth, brotherhoodController.eventCreator)
 
 router.post('/post-content/', brotherhoodController.postContent);
@@ -76,6 +78,8 @@ router.put('/post/background/:id', upload.single('brotherhood_picture'), brother
 
 /* GET brotherhoodPage. */
 router.get('/:id', auth, membershipCheck, brotherhoodController.accessBrotherhood);
+
+
 
 
 

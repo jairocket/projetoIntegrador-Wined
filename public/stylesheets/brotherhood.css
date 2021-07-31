@@ -210,17 +210,18 @@ input[type='file']{
     display: flex;
     flex-direction: row;
     margin-left: 15px;
-
+    align-items: center;
 }
 
-.members{
+.members, .events{
     background: white;
     border-radius: 25px;
     padding-bottom: 15px;
     
 }
 
-.members > h5{
+
+.members > h5, .events > h5{
     padding-top: 15px;
 }
 
@@ -228,9 +229,13 @@ input[type='file']{
     margin: 0.75px;
 }
 
-.member > div{
+.member > div #event > div{ 
     margin: 1px;
     padding: 15px 0px;
+}
+
+#event > div > p{
+    padding-left: 25px;
 }
 
 .member > div > a{

@@ -1,5 +1,6 @@
 const db = require('../database/models');
 const {Op} = require('sequelize');
+const bcrypt = require('bcryptjs');
 
 const UserService ={
     getSessionUser: async(req, res)=>{
@@ -58,6 +59,30 @@ const UserService ={
             where: {id}
           });
         }
+    },
+
+    passwordUpdator: async(req, res)=>{
+      let {new_password, old_password} = req.body
+      let hashedPassword = bcrypt.hashSync(new_password, 10);
+      const user = await db.User.findOne({
+        where: {
+          id: req.session.user.id
+        }
+      });
+      const validPassword = bcrypt.compareSync(old_password, user.password);
+      if(!validPassword){
+        return false
+      }
+      await db.User.update(
+        {
+          provider: false,
+          password: hashedPassword
+      }, {
+        where: {
+          id: req.session.user.id
+        }
+      });
+      return true
     }
 }
 

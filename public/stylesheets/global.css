@@ -143,7 +143,18 @@ footer > img{
   display: none;
 }
 
-.btn-form {
+#password{
+  display: flex;
+  align-content:center  ;
+  
+}
+
+#password > a {
+  text-align: center;
+
+}
+
+.btn-form, #password > a {
   margin: 24px 0px 14px;
   width: 100%;
   height: 40px;
@@ -154,8 +165,10 @@ footer > img{
   line-height: 20px;
   color: #FFFFFF;
 }
-
-
+/* 
+#password > a{
+  padding: 10px;
+} */
 
 #terms {
   color:#9B0000;
@@ -289,9 +302,9 @@ form > label > textarea {
     display: none;
 }
 
-.dropbtn {
+/* .dropbtn {
   /* padding: 16px; */
-}
+/* }  */
 
 .dropdown {
   position: relative;
@@ -459,10 +472,10 @@ form > label > textarea {
     color: #FFFFFF;
   }
 
-  #profile-pic {
+  /* #profile-pic {
     /* width: 10rem; */
     /* height: 10rem; */
-  }
+  /* }  */
 
 
   .errors {

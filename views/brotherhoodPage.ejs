@@ -27,7 +27,33 @@
                             </div>
                         </div>
                         <% }) %>
+                </div>
+                <div class="events  ">
+                    <h5>Reuniões</h5>
+                    <% events.forEach(event => { %>
+                        <div id='event'>
+                            <div id='event-title'>
+                                <h6>Evento <%= event.name %> </h6>
+                            </div>
+                            <div>
+                                <p>
+                                    <%= event.street %>, <%= event.number %>, <%= event.complement %>. <br>
+                                    <%= event.city %>/ <%= event.state %> <br>
+                                    CEP <%= event.cep %> 
+                                 </p>
+                            </div>
+                            <div>
+                                <p>
+                                    Nos vemos dia <%= event.date %> às <%= event.time %>
+                                </p>
+                            </div>
+                            <div>
+    
+                            </div>
+                        </div>
+    
 
+                    <% }); %>
                 </div>
         </section>
         <section class="confraria">
@@ -52,9 +78,9 @@
                     </div>
                 </div>
                 <div class="brotherhoodMenu">
-                    <a href="/confraria/eventos/<%= brotherhood.id %>">
+                    <!-- <a href="/confraria/eventos/<%= brotherhood.id %>">
                         <p>Agenda</p>
-                    </a>
+                    </a> -->
                     <% user.chancellor.forEach((chancellor)=>{ %>
                         <% if (chancellor.chancellor){ %>
                             <a href="editar/<%= brotherhood.id %>">

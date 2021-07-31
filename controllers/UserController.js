@@ -164,6 +164,20 @@ let UserController = {
     uploadBackgroundPicture: async(req, res)=>{
         await UserService.uploadBackgroundPicture(req, res)
         res.redirect('/dashboard')
+    },
+
+    passwordEditor: async(req, res)=>{
+        let avatar = req.session.user.avatar_picture
+        return res.render('passwordEditor', {
+            avatar, 
+            title: 'Alterar Senha', 
+            style: "register", 
+            user: req.session.user
+        })
+    },
+
+    passwordUpdator: async(req, res)=>{
+        await UserService.passwordUpdator(req, res)
     }
 }
 
