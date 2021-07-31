@@ -82,6 +82,40 @@ const DashboardService = {
 
         });
         return membersBrotherhoods
+    },
+
+    getUserEvents: async(req, res)=>{
+        let id = req.session.user.id;
+        const events = []
+        const raw_events = await db.Event.findAll({
+            include: {
+                model: db.User,
+                as: 'users',
+                where: {id},
+                required: true,
+                attributes: []
+            }
+        });
+        
+        raw_events.forEach(appointment => {
+            
+            let due_date = `${appointment.date.getDate()}/${appointment.date.getMonth()+1}/${appointment.date.getFullYear()}`
+            let due_time = `${appointment.date.getHours()}:${appointment.date.getMinutes()}`
+            const event = {
+                name: appointment.name,
+                street: appointment.street,
+                cep: appointment.cep,
+                complement: appointment.complement,
+                number: appointment.number,
+                city: appointment.city,
+                state: appointment.state,
+                date: due_date,
+                time: due_time  
+            }
+            events.push(event)
+
+        });          
+        return events
     }
 
 }

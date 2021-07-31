@@ -29,7 +29,10 @@
 
     <section class="wines">
         <section class="favoritesList">
-            <h3>VINHOS FAVORITOS</h3>
+            <div>
+                <h3>VINHOS FAVORITOS</h3>
+            </div>
+            
             
                 <% user.favorites.forEach(wine=>{ %>
                     <div class='wine'>
@@ -42,10 +45,11 @@
             
         </section>
         <section class="wishList">
-            <h3>VINHOS DESEJADOS</h3>
-            
+            <div>
+                <h3>VINHOS DESEJADOS</h3>
+            </div>            
             <% user.wished.forEach(wine=>{ %>
-                <div class="wine"></div>
+                <div class="wine">
                     <div class="wine-pic">
                         <img src="../images/wines/<%= wine.picture_path %>" alt="">
                     </div>
