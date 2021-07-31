@@ -42,11 +42,20 @@ main {
     width: 870px;
 }
 
-.post-content > img, .post-content > video {
+.post-content > img, 
+.post-content > video,
+.preview-posts > img, 
+.preview-posts > video {
     height: 478px;
     width: 820px;
     border-radius: 25px;
     margin-left: 30px;
+}
+
+.preview-posts,
+.preview-posts > img, 
+.preview-posts > video {
+    display: none;
 }
 
 .post > div > p {

@@ -121,7 +121,13 @@
                     </div>                    
                 </form>
             </div>
-            
+            <div class="preview-posts post" id="preview-posts">
+                <img src="" alt="" id="image-src">
+                
+                <video width="820" height="478" controls id="video-src">
+                    <source src="" type ="video/mp4">
+                </video>
+            </div>
             <section class="posts-filter" id="posts-filter">
                 <div>
                     <% posts.forEach((post)=>{ %>
@@ -276,5 +282,6 @@
 
     <script src='../js/postCreator.js'></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src='../js/brotherhoodPage.js'></script>
     
     <%- include('./partials/footer') %>

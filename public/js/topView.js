@@ -1,3 +1,4 @@
+window.onload = () => {
     const profilePictureInput = document.getElementById('profile-picture');
     const backgroundPictureInput = document.getElementById('background-picture');
     const profileBtn = document.getElementById('profile-btn');
@@ -28,3 +29,4 @@
 
     profileBtn.onclick = function() { profileForm.submit(); }
     backgroundBtn.onclick = function() { backgroundForm.submit(); }
+}
