@@ -13,7 +13,11 @@
                     <% brotherhood.members.forEach((member)=>{ %>
                         <div class="member">
                             <a href="/perfil/<%= member.id %>">
-                                <img src="../images/uploads/<%= member.avatar_picture %>" alt="">
+                                <% if(member.avatar_picture) { %>
+                                    <img src="../images/uploads/<%= member.avatar_picture %>" alt="">
+                                <% } else { %>
+                                    <img src="../../images/profile-picture.svg" alt="Foto de perfil" id="profile-picture-src">
+                                <% } %>
                             </a>
                             <div>
                                 <a href="/perfil/<%= member.id %>">
@@ -117,7 +121,13 @@
                     </div>                    
                 </form>
             </div>
-            
+            <div class="preview-posts post" id="preview-posts">
+                <img src="" alt="" id="image-src">
+                
+                <video width="820" height="478" controls id="video-src">
+                    <source src="" type ="video/mp4">
+                </video>
+            </div>
             <section class="posts-filter" id="posts-filter">
                 <div>
                     <% posts.forEach((post)=>{ %>
@@ -272,5 +282,6 @@
 
     <script src='../js/postCreator.js'></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src='../js/brotherhoodPage.js'></script>
     
     <%- include('./partials/footer') %>
