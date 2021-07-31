@@ -13,7 +13,7 @@ router.get('/sair', function(req, res){
   res.redirect('/login');
 });
 
-// router.post('/wines', DashboardController.getWines);
+
 
 router.get('/wines', auth, DashboardController.getWines);
 
