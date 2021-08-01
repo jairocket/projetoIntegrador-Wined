@@ -184,7 +184,7 @@ a{
 .wine-pic{
     overflow: hidden;
     height: 200px;
-    width: 200px;
+    width: 150px;
     margin: 25px;
 }
 
@@ -218,4 +218,23 @@ a{
 
 #event-title {
     margin-bottom: 10px;
+}
+
+.adega{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.wine-picture{
+    margin: 35px 0px;
+    overflow: hidden;
+    height: 500px;
+    width: 418px;  
+}
+
+
+.wine-picture > img{
+    height: 100%;
 }

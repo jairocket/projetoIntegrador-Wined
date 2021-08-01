@@ -29,13 +29,34 @@
             <form action="http://localhost:3000/dashboard/wines" method="GET">
                 <label for="parameter"></label>
                 <input type="text" name="parameter" id="txtBusca" placeholder="Buscar...">
-                <button type="submit" data-type="get-wines"><img src="../images/search.svg" id="btnBusca"  data-type="get-wines" alt="Buscar"></button>
+                <button type="submit" data-type="get-wines"><img src="../../images/search.svg" id="btnBusca"  data-type="get-wines" alt="Buscar"></button>
             </form>
 
-            <div class="wines">
-  
-            </div>
+            <div class="wine-details">
+                <div class='wine-picture'><img src="../../images/wines/<%= wine.picture_path %>" alt=""></div>
+                <div class="wine-data">
+                    <table>
+                        <tr>
+                            <th>Vinho: </th>
+                            <td><%= wine.wine %></td>                           
+                        </tr>
+                        <tr>
+                            <th>DOC*: </th>
+                            <td><%= wine.appellation %></td>  
+                        </tr>
+                        <tr>
+                            <th>Origem:</th>
+                            <td> <%= wine.regions %>, <%= wine.country %></td>
+                        </tr>
+                        <tr>
+                            <th>Safra:</th>
+                            <td> <%= wine.vintage %></td>
+                        </tr>
+                    </table>
+                    <p>* Denominação de Origem Controlada</p>
 
+                </div>
+            </div>
 
         </section>
 
@@ -54,4 +75,5 @@
 <%- include('./partials/footer')  %>  
 
 <script src='../js/dashboard.js'></script>
+<script type="text/javascript" src="../../js/dropdown.js"></script> 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

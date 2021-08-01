@@ -37,9 +37,12 @@
                     <% wines.forEach(wine=> { %>
                      <div class='wine'>
                          <div class='id'><%= wine.id %></div>
-                         <div class='wine-pic'>
-                            <img src="../images/wines/<%= wine.picture_path %>" alt="wine">
-                         </div>
+                         <a href="http://localhost:3000/dashboard/wine/<%= wine.id %>">
+                            <div class='wine-pic'>
+                                <img src="../images/wines/<%= wine.picture_path %>" alt="wine">
+                             </div>
+                        </a>
+                         
                         <div class="wine-menu">
                             <button type="button" class="fvrt">Favoritos</button>
                             <button type="button" class="wish">Desejados</button>
