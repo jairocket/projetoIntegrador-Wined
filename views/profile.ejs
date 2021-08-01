@@ -28,10 +28,11 @@
         </section>
 
     <section class="wines">
+        <h3>VINHOS FAVORITOS</h3>
         <section class="favoritesList">
-            <div>
-                <h3>VINHOS FAVORITOS</h3>
-            </div>
+            
+                
+          
             
             
                 <% user.favorites.forEach(wine=>{ %>
@@ -44,10 +45,9 @@
                 <%})%>
             
         </section>
+        <h3>VINHOS DESEJADOS</h3>
         <section class="wishList">
-            <div>
-                <h3>VINHOS DESEJADOS</h3>
-            </div>            
+                     
             <% user.wished.forEach(wine=>{ %>
                 <div class="wine">
                     <div class="wine-pic">
