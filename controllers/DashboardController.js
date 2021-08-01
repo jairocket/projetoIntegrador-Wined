@@ -65,9 +65,22 @@ const DashboardController ={
         res.status(200)
     },
 
-    getUserEvents: async(req, res)=>{
-        
-        
+    getWineDetails: async(req, res)=>{
+        const avatar = req.session.user.avatar_picture
+        const wine = await DashboardService.getWineDetails(req, res);
+        const membersBrotherhoods = await DashboardService.getMembers(req, res);
+        const user = await UserController.getUser(req, res);
+        // res.json(wine)
+        return res.render(
+            'wine', {
+                title: "Dashboard",
+                style: "dashboard",
+                brotherhoods: membersBrotherhoods,
+                user,
+                wine, 
+                avatar            
+            }
+         )
     }
 
 }
