@@ -34,7 +34,7 @@ let UserController = {
                 password: hashedPassword, 
                 birthday, 
                 description, 
-                avatar_picture, 
+                avatar_picture: 'profile-picture-white.svg', 
                 background_picture, 
                 
             })

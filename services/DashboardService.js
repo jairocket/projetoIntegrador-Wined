@@ -44,9 +44,10 @@ const DashboardService = {
                 }
             });
             return(wines)
-        }
-        
-        
+        }  
+    },
+    getWineDetails: async(req, res)=>{
+
     },
     favoriteWine: async (req, res)=>{
         let {wine_id} = req.body;
