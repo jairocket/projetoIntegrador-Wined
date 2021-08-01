@@ -17,6 +17,8 @@ router.get('/sair', function(req, res){
 
 router.get('/wines', auth, DashboardController.getWines);
 
+router.get('/wine/:id', auth, DashboardController.getWineDetails);
+
 router.post('/wines/favorite/', DashboardController.favorite);
 
 router.post('/wines/wish/', DashboardController.wish); 

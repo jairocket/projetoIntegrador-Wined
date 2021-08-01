@@ -6,7 +6,7 @@ const DashboardService = {
     getWines: async (req, res) =>{
         // let {parameter} = req.body;
         let { parameter } = req.query
-        console.log(parameter)
+        
         if(!parameter){
             const wines = await db.Wine.findAll()
             return(wines)
@@ -47,6 +47,9 @@ const DashboardService = {
         }  
     },
     getWineDetails: async(req, res)=>{
+        let { id } = req.params;
+        const wine = await db.Wine.findByPk(id);
+        return(wine)
 
     },
     favoriteWine: async (req, res)=>{
