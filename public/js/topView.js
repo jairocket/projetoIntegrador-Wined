@@ -1,4 +1,5 @@
 window.onload = () => {
+    console.log('funcionando')
     const profilePictureInput = document.getElementById('profile-picture');
     const backgroundPictureInput = document.getElementById('background-picture');
     const profileBtn = document.getElementById('profile-btn');
