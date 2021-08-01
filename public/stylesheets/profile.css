@@ -292,8 +292,8 @@ h5 {
         flex-direction: column;
     }
 
-    .favoritesList > h3, .wishList > h3{
-        padding: 10px;
+     h3{
+        padding: 20px;
     }
     
     .top-view {

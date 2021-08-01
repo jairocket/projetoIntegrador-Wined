@@ -441,7 +441,10 @@ const BrotherhoodService = {
     },
 
     deletePosts: async(req, res)=>{
-      let {id} = req.body; 
+      let {id} = req.body;
+      const deleteComments = await db.Post_Comment.destroy({
+        where: {ref_post_id: id.trim()}
+      }); 
       const deleteMidia = await db.Post_Midia.destroy({
         where: {post_id: id.trim()}
       })
@@ -483,10 +486,8 @@ const BrotherhoodService = {
 
     },
     eventCreator: async(req, res)=>{
-      let { id } = req.params;
-  
+      let { id } = req.params;  
       let { name, cep, street, number, complement, city, state, date, time } = req.body
-
       date = `${date} ${time}`
 
       const event = await db.Event.create({
@@ -515,6 +516,7 @@ const BrotherhoodService = {
         let due_date = `${appointment.date.getDate()}/${appointment.date.getMonth()+1}/${appointment.date.getFullYear()}`
         let due_time = `${appointment.date.getHours()}:${appointment.date.getMinutes()}`
         const event = {
+            id: appointment.id,
             name: appointment.name,
             street: appointment.street,
             cep: appointment.cep,
@@ -527,9 +529,19 @@ const BrotherhoodService = {
         }
         events.push(event)
 
-    });          
+    });      
       return events
-    }
+    },
+    deleteEvent: async(req, res)=>{
+      let { id } = req.params;
+      await db.User_Event.destroy({
+        where: { events_id: id }
+      });
+      await db.Event.destroy({
+        where: { id }
+      })
+      return
+    },
     
 }
 
