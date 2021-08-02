@@ -1,17 +1,37 @@
 <head>
-    <link rel="stylesheet" href="../../stylesheets/event.css">
+    <link rel="stylesheet" href="../../../stylesheets/event.css">
+    <head><link rel="stylesheet" href="../../../stylesheets/register.css"></head>
+    <link rel="stylesheet" href="../../../stylesheets/global.css">
   </head>
-  
-  <%- include('./partials/header') %>
-  
   <body>
-      
-    <main>
-      <section class = registerForm>
-      <div id="call">
-        Edite os dados da sua reunião <h1 id="logo">Wined+</h1>
+  <header>
+    <a id="init" href="/dashboard">
+      <img id="logo" src="../../../images/logo-wined-header.svg" alt="Wined logo">
+    </a>
+    <div class="dropdown">
+        <button onclick="myFunction()" >
+          <div>
+            <% if(user.avatar_picture) { %>
+              <img id="profile-pic" src="../../../images/uploads/<%= avatar %>" alt="User Picture" class="dropbtn">
+            <% } else { %>
+              <img id="profile-pic" src="../../../images/profile-picture-white.svg" alt="User Picture" class="dropbtn">
+            <% } %>
+          </div>
+        </button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="http://localhost:3000/dashboard">Home</a>
+          <a href="http://localhost:3000/editarperfil/<%=user.id%>">Editar Perfil</a>
+         
+          <a href="http://localhost:3000/dashboard/sair">Sair</a>
+        </div>
       </div>
-      <form action='/confraria/eventos/<%= event.id %>?_method=PUT'method="POST" class="formulario">
+</header>
+<main>
+    <section class = registerForm>
+      <div id="call">
+        Atualize as informações de sua reunião <h1 id="logo">Wined+</h1>
+      </div>
+      <form action='/confraria/evento/editar/<%= event.id %>?_method=PUT'method="POST" class="formulario">
   
         
         <label for="name">
@@ -32,7 +52,7 @@
           </label>
 
           <label for="complement">
-            <input type="text" name="complement" id="complement" placeholder="Bairro" value="<%=event.compliment%>">
+            <input type="text" name="complement" id="complement" placeholder="Bairro" value="<%=event.complement%>">
           </label>
 
           <label for="city">
@@ -62,8 +82,22 @@
     </main>
   </body>
   
-  <%- include('./partials/footer')  %>  
-  <script type="text/javascript" src="../../js/dropdown.js"></script>
+  <footer>
+    <div id="footer-menu">
+      <a class="logo-footer" href="#init"><img id="logo" src="../../images/logo-wined-header.svg" alt="Wined logo"></a>
+        <ul>
+            <li><a class="sobre" href="#">Sobre</a></li>
+            <li><a class="contato" href="#">Contato</a></li>
+            <li><a class="termos" href="/termos">Termos de Uso</a></li>
+            <li><a class="politica" href="/privacidade">Política de privacidade</a></li>
+            <li><a class="politica-cont" href="#">Política de conteúdo</a></li>
+        </ul>
+    </div>
+    <div id="copyright">
+        <img class="Copyscript" src="../../../images/copyscript.svg" alt="feito por wined+"/>    
+    </div>
+  </footer> 
+  <script type="text/javascript" src="../../../js/dropdown.js"></script> 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
-  <script type="text/javascript" src="../../js/eventCreator.js"></script>
+  <script type="text/javascript" src="../../../js/eventCreator.js"></script>
   </html>
