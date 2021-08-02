@@ -3,10 +3,11 @@ const DashboardController = require('../controllers/DashboardController');
 const router = express.Router();
 
 const auth = require('../middlewares/auth');
+const passwordCheck = require('../middlewares/passwordCheck');
 
 
 
-router.get('/', auth, DashboardController.getBrotherhoods);
+router.get('/', auth, passwordCheck, DashboardController.getBrotherhoods);
 
 router.get('/sair', function(req, res){
   req.session.destroy();
