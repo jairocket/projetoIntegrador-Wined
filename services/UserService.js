@@ -1,6 +1,7 @@
 const db = require('../database/models');
 const {Op} = require('sequelize');
 const bcrypt = require('bcryptjs');
+const nodemailer = require('../services/nodemailerService');
 
 const UserService ={
     getSessionUser: async(req, res)=>{
@@ -83,7 +84,40 @@ const UserService ={
         }
       });
       return true
-    }
+    },
+    passwordGenerator: async(req, res)=>{
+      let { email } = req.body;     
+      let new_password = Math.random().toString(36).slice(-8);
+      let hashedPassword = bcrypt.hashSync(new_password, 10);
+      console.log(new_password);
+      const user = await db.User.findOne({
+        where: {email}
+      });
+      console.log(new_password)
+      const temporary = db.User.update(
+        {
+          provider: true,
+          password: hashedPassword
+        },{
+          where: {
+            id: user.id
+          }
+      });
+      
+        await nodemailer({
+          to: email,
+          subject: 'Senha temporária Wined+',
+          text: `Olá ${user.name}! 
+
+Aqui está sua senha temporária: ${new_password}.
+Você vai precisar trocar a senha quando acessar sua conta novamente.
+
+Abraços <3, 
+Wined+ Team`
+        });
+        req.session.user = user
+        return
+    },
 }
 
 module.exports = UserService;

@@ -4,6 +4,7 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 const { check, validationResult, body } = require('express-validator');
 const UserService = require('../services/UserService');
+const { passwordGenerator } = require('../services/UserService');
 
 let UserController = {
     registerForm: (req, res)=>{
@@ -177,8 +178,18 @@ let UserController = {
     },
 
     passwordUpdator: async(req, res)=>{
-        await UserService.passwordUpdator(req, res)
-        res.redirect('/login');
+        await UserService.passwordUpdator(req, res);
+        res.redirect('/dashboard');
+    },
+
+    passwordGenerator: async(req, res)=>{
+        let new_password = await UserService.passwordGenerator(req, res);
+        res.redirect('/dashboard')
+        
+    },
+
+    passwordForm: async(req, res)=>{
+        return res.render('forgotPassword')
     }
 }
 
