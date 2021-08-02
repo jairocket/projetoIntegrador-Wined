@@ -98,7 +98,14 @@ const BrotherhoodController = {
               await nodemailer({
                 to: member,
                 subject: "Convite Wined+",
-                text: `Olá, ${member}! ${inviter.name} ${inviter.surname} está te convidando para participar da Wined+, uma rede social para amantes de vinho! Para participar, acesse http://localhost:3000/`,
+                text: `Olá, ${member}!
+${inviter.name} ${inviter.surname} está te convidando para participar da Wined+, uma rede social para amantes de vinho!
+
+ara participar, acesse http://localhost:3000/
+
+Um abraço <3
+
+Wined+ Team`,
               });
             }else{
               await db.Brotherhood_User.create({
@@ -137,7 +144,14 @@ const BrotherhoodController = {
                 await nodemailer({
                   to: members,
                   subject: "Convite Wined+",
-                  text: `Olá, ${members}! ${inviter.name} ${inviter.surname} está te convidando para participar da Wined+, uma rede social para amantes de vinho! Para participar, acesse http://localhost:3000/`,
+                  text: `Olá, ${members}! 
+${inviter.name} ${inviter.surname} está te convidando para participar da Wined+, uma rede social para amantes de vinho!
+
+Para participar, acesse http://localhost:3000/
+
+Um abraço <3
+
+Wined+ Team`,
                 });
               }else{
                 await db.Brotherhood_User.create({
