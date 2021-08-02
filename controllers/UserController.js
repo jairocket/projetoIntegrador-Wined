@@ -178,6 +178,7 @@ let UserController = {
 
     passwordUpdator: async(req, res)=>{
         await UserService.passwordUpdator(req, res)
+        res.redirect('/login');
     }
 }
 

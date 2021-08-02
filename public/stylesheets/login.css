@@ -2,10 +2,11 @@ main {
     padding: 6.4rem 2.4rem 2.4rem;
 }
 
-#togglePassword{
+/* #togglePassword{
     position: relative;
     left: 250px;
-}
+} */
+
 .logo {
     display: flex;
     justify-content: center;
