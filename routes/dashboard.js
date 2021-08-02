@@ -3,7 +3,7 @@ const DashboardController = require('../controllers/DashboardController');
 const router = express.Router();
 
 const auth = require('../middlewares/auth');
-const DashboardService = require('../services/DashboardService');
+
 
 
 router.get('/', auth, DashboardController.getBrotherhoods);
@@ -22,5 +22,7 @@ router.get('/wine/:id', auth, DashboardController.getWineDetails);
 router.post('/wines/favorite/', DashboardController.favorite);
 
 router.post('/wines/wish/', DashboardController.wish); 
+
+router.delete('/evento/sair/:id', auth, DashboardController.missEvent)
 
   module.exports = router;

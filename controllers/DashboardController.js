@@ -81,6 +81,11 @@ const DashboardController ={
                 avatar            
             }
          )
+    },
+
+    missEvent: async(req, res)=>{
+        await DashboardService.missEvent(req, res);
+        res.redirect('/dashboard');
     }
 
 }
