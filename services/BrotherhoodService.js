@@ -542,6 +542,26 @@ const BrotherhoodService = {
       })
       return
     },
+
+    updateEvent: async(req, res)=>{
+      let { id } = req.params;
+      let { name, cep, street, number, complement, city, state, date, time } = req.body
+      raw_date = `${date} ${time}`
+      date = new Date(raw_date)
+      await db.Event.update({
+        name,
+        cep,
+        street,
+        number,
+        complement,
+        city,
+        state,
+        date
+      },{
+        where: {id}
+      });
+      return
+    }
     
 }
 

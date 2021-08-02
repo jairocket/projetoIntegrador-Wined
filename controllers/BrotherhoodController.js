@@ -330,6 +330,22 @@ CEP ${event.cep}.`
       const deleted = await BrotherhoodService.deleteEvent(req, res);
       return res.redirect(`/confraria/${brotherhood_id}`)
 
+    },
+
+    editEvent: async(req, res)=>{
+      let { id } = req.params;
+      const avatar = req.session.user.avatar_picture;
+      const event = await db.Event.findByPk(id);
+      res.render('eventEditor',  {event, avatar, user: req.session.user, title: 'Cadastrar Eventos', style: 'register'})
+    },
+
+    updateEvent: async(req, res)=>{
+      let { id } = req.params;
+      const event = await db.Event.findByPk(id);
+      let brotherhood_id = event.brotherhood_id;
+      const updated = BrotherhoodService.updateEvent(req, res)
+      return res.redirect(`/confraria/${brotherhood_id}`)
+
     }
 }
 module.exports = BrotherhoodController

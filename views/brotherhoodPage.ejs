@@ -47,10 +47,11 @@
                                     Nos vemos dia <%= event.date %> às <%= event.time %>
                                 </p>
                             </div>
-                            <div>
+                            <div id='event-menu'>
                                 <form action="/confraria/evento/deletar/<%= event.id %>?_method=DELETE" method="POST">
                                     <button type="submit">Cancelar</button>                                
                                 </form>
+                                <a href="/confraria/evento/editar/<%= event.id %>">Editar</a>
                             </div>
                         </div>
     
