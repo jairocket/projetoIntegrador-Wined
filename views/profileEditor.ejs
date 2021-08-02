@@ -29,7 +29,7 @@
         <input type="text" name="surname" id="surname" value = "<%=user.surname%>">
       </label>
       <label for="description">
-        <input type="text" name="description" id="description" value = "<%=user.description%>">
+        <textarea name="description" id="description" cols="1" rows="3" placeholder="Conte um pouco sobre você e sua paixão por vinhos"><%=user.description%></textarea>
       </label>
       
       <button class="button btn-form" type="submit">Atualizar Perfil</button>
@@ -40,8 +40,9 @@
     </div>
     <br>
     <div id="password-change">
-      <br>
-      <a href="/cadastrar/password">Alterar Senha</a>
+      <button class="button btn-form">
+        <a href="/cadastrar/password">Alterar Senha</a>
+      </button>
     </div>
     <br>
     <form action='/editarperfil/<%= user.id %>?_method=DELETE'method="POST" class="formulario">

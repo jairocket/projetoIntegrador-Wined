@@ -143,18 +143,16 @@ footer > img{
   display: none;
 }
 
-#password-change{
+/* #password-change{
   display: flex;
-  align-content:center  ;
-  
-}
+  align-content: center;
+} */
 
-#password-change > a {
+/* #password-change > a {
   text-align: center;
+} */
 
-}
-
-.btn-form, #password-change > a {
+.btn-form, .btn-form > a {
   margin: 24px 0px 14px;
   width: 100%;
   height: 40px;
