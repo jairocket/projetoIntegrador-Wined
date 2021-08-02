@@ -47,9 +47,9 @@ router.get('/eventos/:id', auth, (req, res) =>{
     res.render('eventCreator', {user: req.session.user, avatar, brotherhood, title: 'Cadastrar Eventos', style: 'register'})
 });
 
-// router.get('/events/:id', auth, )
-
 router.post('/eventos/:id', auth, brotherhoodController.eventCreator)
+
+router.delete('/evento/deletar/:id', auth, brotherhoodController.deleteEvent)
 
 router.post('/post-content/', brotherhoodController.postContent);
 

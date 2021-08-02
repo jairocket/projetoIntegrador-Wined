@@ -171,9 +171,9 @@ const BrotherhoodController = {
     },
 
     update: async (req, res) =>{
-     
+     let{id }=req.params
       await BrotherhoodService.update(req, res);
-      res.redirect('/dashboard');
+       res.redirect(`/confraria/${id}`);
 
     },
 
@@ -267,7 +267,7 @@ const BrotherhoodController = {
   },
 
   deletePosts: async(req, res)=>{
-    const deleteComments = await BrotherhoodService.deleteComments(req, res);
+    // const deleteComments = await BrotherhoodService.deleteComments(req, res);
     const deleteReactions = await BrotherhoodService.deleteReactions(req, res)
     const deletePosts = await BrotherhoodService.deletePosts(req, res);
     res.status(204).json({mensagem: 'atualizado com sucesso!'})
@@ -323,9 +323,12 @@ CEP ${event.cep}.`
       })
       return res.redirect(`/confraria/${id}`)
     },
-    getEvents: async(req, res)=>{
+    deleteEvent: async(req, res)=>{
       let { id } = req.params;
-      
+      const event = await db.Event.findByPk(id);
+      let brotherhood_id = event.brotherhood_id;
+      const deleted = await BrotherhoodService.deleteEvent(req, res);
+      return res.redirect(`/confraria/${brotherhood_id}`)
 
     }
 }

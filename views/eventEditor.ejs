@@ -1,0 +1,69 @@
+<head>
+    <link rel="stylesheet" href="../../stylesheets/event.css">
+  </head>
+  
+  <%- include('./partials/header') %>
+  
+  <body>
+      
+    <main>
+      <section class = registerForm>
+      <div id="call">
+        Edite os dados da sua reunião <h1 id="logo">Wined+</h1>
+      </div>
+      <form action='/confraria/eventos/<%= event.id %>?_method=PUT'method="POST" class="formulario">
+  
+        
+        <label for="name">
+          <input type="text" name="name" id="name" placeholder="Nome do evento" value="<%=event.name%>">
+        </label>
+       
+        <div>
+          <label for="cep">
+            <input type="text" name="cep" id="cep" placeholder="CEP" value="<%=event.cep%>">
+          </label>
+          
+          <label for="street">
+            <input type="text" name="street" id="street" placeholder="Endereço" value="<%=event.street%>">
+          </label>
+          
+          <label for="number">
+            <input type="text" name="number" id="number" placeholder="Número" value="<%=event.number%>">
+          </label>
+
+          <label for="complement">
+            <input type="text" name="complement" id="complement" placeholder="Bairro" value="<%=event.compliment%>">
+          </label>
+
+          <label for="city">
+            <input type="text" name="city" id="city" placeholder="Cidade" value="<%=event.city%>">
+          </label>
+          
+          <label for="state">
+            <input type="text" name="state" id="state" placeholder="Estado" value="<%=event.state%>">
+          </label>
+          
+        </div>      
+        
+        <div id="datetime">
+          <label for="date">
+            <input type="date" name="date" id="date" placeholder="Digite a Data do Evento" value="<%=event.date%>">
+          </label>
+          <label for="time">
+            <input type="time" name="time" id="time" placeholder="Hora" value="<%=event.time%>">
+          </label>
+        </div>
+  
+        <button class="button btn-form" type="submit">Editar</button>
+  
+      </form>
+      </div>
+  </section>
+    </main>
+  </body>
+  
+  <%- include('./partials/footer')  %>  
+  <script type="text/javascript" src="../../js/dropdown.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
+  <script type="text/javascript" src="../../js/eventCreator.js"></script>
+  </html>
