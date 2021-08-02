@@ -106,6 +106,7 @@ const DashboardService = {
             let due_date = `${appointment.date.getDate()}/${appointment.date.getMonth()+1}/${appointment.date.getFullYear()}`
             let due_time = `${appointment.date.getHours()}:${appointment.date.getMinutes()}`
             const event = {
+                id: appointment.id,
                 name: appointment.name,
                 street: appointment.street,
                 cep: appointment.cep,
@@ -120,6 +121,19 @@ const DashboardService = {
 
         });          
         return events
+    },
+    missEvent: async (req, res)=>{
+        let users_id = req.session.user.id;
+        let { id } = req.params;
+        await db.User_Event.destroy({
+            where: {
+                [Op.and]: [
+                  { events_id: id },
+                  { users_id }
+                ]
+            }
+        });
+        return
     }
 
 }
