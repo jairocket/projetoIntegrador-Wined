@@ -171,9 +171,9 @@ const BrotherhoodController = {
     },
 
     update: async (req, res) =>{
-     
+     let{id }=req.params
       await BrotherhoodService.update(req, res);
-      res.redirect('/dashboard');
+       res.redirect(`/confraria/${id}`);
 
     },
 

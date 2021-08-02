@@ -84,12 +84,12 @@ const BrotherhoodService = {
       let {
         name,  
         description, 
-        since,
+        
         } = req.body;
       const brotherhood = await db.Brotherhood.update({
         name,
         description,
-        since
+        
       },{ 
         where:{ id }
       });
