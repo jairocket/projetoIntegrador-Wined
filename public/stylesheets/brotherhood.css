@@ -504,3 +504,17 @@ input[type='file']{
     padding: 10px;
     padding-right: 20px;
 }
+
+#event-menu >form >button, #event-menu > button {
+    background: #C41818;
+    width: 80px;
+    height: 30px;
+    border-radius: 20px;
+    color: white;
+    margin-top: 10px;
+}
+
+#event-menu > button > a{
+    text-align: center;
+    color: white;
+}

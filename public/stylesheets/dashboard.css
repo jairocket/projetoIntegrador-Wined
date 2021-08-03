@@ -238,3 +238,15 @@ a{
 .wine-picture > img{
     height: 100%;
 }
+
+#event-menu >form >button{
+    background: #C41818;
+    width: 80px;
+    height: 30px;
+    border-radius: 20px;
+    color: white;
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}

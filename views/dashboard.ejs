@@ -49,7 +49,7 @@
                                 Nos vemos dia <%= event.date %> às <%= event.time %>
                             </p>
                         </div>
-                        <div >
+                        <div id="event-menu">
                             <form action="/dashboard/evento/sair/<%= event.id %>?_method=DELETE" method="POST">
                                 <button type="submit">Faltar</button>
                             
