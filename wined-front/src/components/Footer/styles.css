@@ -1,0 +1,28 @@
+footer {
+    background-color: #9B0000;
+  }
+  
+footer > nav> a {
+    font-size: 12px;
+    font-weight: 400;
+    color: #612B2E;
+    line-height: 30px;
+  }
+
+#footer-menu {
+    display: flex;
+    height: 4rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+#footer-menu > ul {
+    display: flex;
+    gap: 3rem;
+    list-style-type: none;
+    padding-top: 1.5rem;
+  }
+
+  li > a {
+    color: white; 
+  }
