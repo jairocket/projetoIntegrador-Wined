@@ -1,4 +1,5 @@
 import './styles.css';
+import copyscript from './copyscript.svg';
 
 export default function Footer(){
     return (
@@ -10,7 +11,7 @@ export default function Footer(){
       </ul>
   </div>
   <div id="copyright">
-      <img className="Copyscript" src="../../images/copyscript.svg" alt="feito por wined+"/>    
+      <img className="Copyscript" src= {copyscript} alt="feito por wined+"/>    
   </div>
 </footer>
 

@@ -24,5 +24,10 @@ footer > nav> a {
   }
 
   li > a {
-    color: white; 
+    color: whitesmoke; 
+  }
+
+  #copyright > img{
+    height: 1.3rem;
+    padding-bottom: 0.5rem;
   }
