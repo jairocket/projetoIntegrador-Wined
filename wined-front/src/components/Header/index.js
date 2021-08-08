@@ -1,5 +1,5 @@
 import logo from  './logo-wined-header.svg';
-import avatar from './profile-picture-white.svg';
+import avatar from './profile-picture.svg';
 import './styles.css';
 
 export default function Header(){
