@@ -1,0 +1,11 @@
+.header-dropdown{
+    border-radius: 50%;
+    overflow: hidden;
+    width: 64px;
+    height: 64px;
+    margin: 16px;
+}
+
+#profile-pic{
+    width: 100%;
+}

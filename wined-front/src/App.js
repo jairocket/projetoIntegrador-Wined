@@ -2,12 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 import Teste from './components/Teste';
 import Footer from './components/Footer';
-import Header from './components/UnloggedHeader';
+import UnloggedHeader from './components/UnloggedHeader';
+import Header from './components/Header';
 
 function App() {
   return (
     
     <div className="App">
+      <UnloggedHeader />
       <Header />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
