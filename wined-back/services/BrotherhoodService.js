@@ -378,10 +378,6 @@ Wined+ Team`,
               model: db.Post,
               as: 'contents',
               attributes: ['content'],
-              order: [
-                'createdAt', 
-                'DESC'
-              ],
               include: [{
                 model: db.User,
                 as: "author",

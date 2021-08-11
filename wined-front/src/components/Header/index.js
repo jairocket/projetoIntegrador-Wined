@@ -7,13 +7,13 @@ export default function Header(){
         <header id="header-unlogged">
             <a id="init" href="/"><img id="logo" src={logo} alt="Wined logo"/></a>
             <div className="header-dropdown">
-                <button onclick="myFunction()" >
+                <button type="button" >
                     <div>
                     {/* <img id="profile-pic" src="../../images/uploads/<%= avatar %>" alt="User Picture" className="dropbtn"/> */}
                         <img id="profile-pic" src={avatar} alt="avatar" className="dropbtn"/>
                     </div>
                 </button>
-                <div id="myDropdown" className="dropdown-content">
+                <div id="myDropdown" className="header-dropdown-content">
                     <a href="http://localhost:3000/dashboard">Home</a>
                     <a href="http://localhost:3000/editarperfil/<%=user.id%>">Editar Perfil</a>
                     {/* <!-- <a href="#">Ajuda</a> --> */}
