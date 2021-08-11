@@ -1,0 +1,80 @@
+*{
+    box-sizing: border-box;
+    text-decoration: none;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    outline: 0;
+}
+
+.signup-main{
+    padding: 64px 24px 47px;
+}
+
+#call, #logo{
+    display: flex;
+    font-size: 26px;
+    line-height: 32px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#logo{
+    font-style: italic;
+    margin-left: 6px;
+    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #9B0000;
+    height: 3.2rem;
+}
+
+#call-text > h2{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: justify;
+}
+
+.signup-terms{
+    display: flex;
+    align-items: center;
+    margin: 24px 0px 24px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.signup-terms > label{
+    width: 15px;
+    height: 15px;
+}
+
+.signup-terms-text{
+    font-size: 12px;
+    line-height: 14px;
+    margin-left: 8px;
+}
+
+#terms{
+    color: #9B0000;
+  
+}
+
+form > label > input, form > label > textarea {
+    background: #E5E5E5;
+    border-radius: 4px;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+}
+
+form > label > input {
+    height: 30px;  
+    padding-left: 18px;
+    margin: 10px 0;
+}
+
+form > label > textarea{
+    padding: 18px;
+}
+
+.bi, .bi-eye-slash{
+    margin-left: -30px;
+}

@@ -42,7 +42,7 @@ export default function Login(){
         </div>  */}
         <div className="login-signup">
             <p>Não tem um Perfil?</p>
-            <a href="/cadastrar">Junte-se a Wined+</a>
+            <a href="/signup">Junte-se a Wined+</a>
         </div> 
     </section>
 
