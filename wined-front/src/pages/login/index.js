@@ -1,23 +1,25 @@
 
 import './styles.css'
+import logo from './assets/images/logo-wined.svg'
 import Button from '../../components/red-button'
+
 export default function Login(){
     return(
         <body>
             <main className="login-main">
                 <section className = "loginForm">
                     <div className="logo">
-                        <img src="images/logo-wined.svg" alt="logo-wined"/>
+                        <img src={logo} alt="logo-wined"/>
                     </div>
       
                     <form action="/login" method='POST' className="formulario">
-                        <div className="input-field">
+                        <div className="login-input">
                             <input type="text" name="email" id="email" placeholder="E-mail" />
                         </div>
-                    <div className="input-field">
+                    <div className="login-input">
                         <input type="password" name="password" id="password" placeholder="Senha"/><i className="bi bi-eye-slash" id="togglePassword"></i>
                     </div>
-                    <div id="forgot-password">
+                    <div id="login-forgot">
                         <a href="/login/password" className="text-montserrat">Esqueceu a senha?</a>
                     </div>
                     <Button/>
@@ -37,11 +39,11 @@ export default function Login(){
               <img src="images/google-icon.svg" alt="Entrar com o Google" />
               <p>Entrar com o Google</p>
             </a>
-        </div> 
-        <div className="criar-cadastro perfil-question text-montserrat">
+        </div>  */}
+        <div className="login-signup">
             <p>Não tem um Perfil?</p>
             <a href="/cadastrar">Junte-se a Wined+</a>
-        </div>  */}
+        </div> 
     </section>
 
     </main>
