@@ -1,9 +1,17 @@
 import './styles.css'
 
 import Button from '../../components/red-button'
+import PasswordInput from '../../components/password-input'
+import { useState } from 'react'
 
 
-export default function signup(){
+ function SignUp(){
+    const [terms, setTerms] = useState('');
+    const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
+    const [surname, setSurname] = useState('');
+    const [birthday, setBirthday] = useState('');
+    const [description, setDescription] = useState('');
     return(
         <html lang="pt-BR">
             <head>
@@ -28,31 +36,33 @@ export default function signup(){
                         <form action='/cadastrar'method="POST" className="formulario">
                             <div className="signup-terms">
                                 <label>
-                                    <input type="checkbox" name="terms" id="terms"/>
+                                    <input type="checkbox" value={ terms } onChange={(e)=> setTerms(e.target.value)} name="terms" id="terms"/>
                                 </label>
                                 <div className="signup-terms-text">
                                         Aceito os <a id ="terms"href="/termos">Termos de Uso</a> e <a id ="terms" href="/privacidade">Política de Privacidade</a>.
                                 </div>
                             </div>
                             <label for="email">
-                                <input type="email" name="email" id="email" placeholder="Digite seu e-mail" />
+                                <input type="email" name="email" value={ email } onChange={(e)=> setEmail(e.target.value)}id="email" placeholder="Digite seu e-mail" />
                             </label>
                             <label for="name">
-                                <input type="text" name="name" id="name" placeholder="Digite seu Nome" />
+                                <input type="text" name="name" value={ name } onChange={(e)=> setName(e.target.value)} id="name" placeholder="Digite seu Nome" />
                             </label>
                             <label for="surname">
-                                <input type="text" name="surname" id="surname" placeholder="Digite seu Sobrenome" />
+                                <input type="text" name="surname" value={ surname } onChange={(e)=> setSurname(e.target.value)} id="surname" placeholder="Digite seu Sobrenome" />
                             </label>
                             <label for="birthday">
-                                <input type="text" onfocus="(this.type='date')" name="birthday" id="birthday" placeholder="Data de Nascimento" required/>
+                                <input type="text" onfocus="(this.type='date')" value={ birthday } onChange={(e)=> setBirthday(e.target.value)} name="birthday" id="birthday" placeholder="Data de Nascimento" required/>
                             </label>
                             <label for="description">
-                                <textarea name="description" id="description" cols="1" rows="3" placeholder="Conte um pouco sobre você e sua paixão por vinhos"></textarea>
+                                <textarea name="description" value={ description } onChange={(e)=> setDescription(e.target.value)}id="description" cols="1" rows="3" placeholder="Conte um pouco sobre você e sua paixão por vinhos"></textarea>
                             </label>
-                            <label for="password">        
-                                <input className="password-form" type="password" name="password" id="password" placeholder="Defina uma senha"/><i className="bi bi-eye-slash" id="togglePassword"></i>
-                            </label>
-                                <Button />
+                            <PasswordInput />
+                            <Button />
+                            <div class="signup-login">
+                                <p>Você já tem um perfil?</p>
+                                <a href="/login">Faça login</a>
+                            </div>
                         </form>
                     </section>
                 </main>
@@ -61,3 +71,5 @@ export default function signup(){
 
     )
 }
+
+export default SignUp;

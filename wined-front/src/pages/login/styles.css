@@ -11,7 +11,7 @@
     padding: 6.4rem 2.4rem 2.4rem;
 }
 
-.login-input > input{
+.login-input > label > input{
     background: #E5E5E5;
     height: 30px;
     border-radius: 4px;
@@ -19,6 +19,10 @@
     padding-left: 18px;
     font-family: 'Roboto', sans-serif;
     margin: 10px 0;
+}
+
+.login-input{
+    margin-top: 40px;
 }
 
 .login-signup{
@@ -53,6 +57,3 @@
     font-weight: 500;   
 }
 
-.bi, .bi-eye-slash{
-    margin-left: -30px;
-}

@@ -2,8 +2,11 @@
 import './styles.css'
 import logo from './assets/images/logo-wined.svg'
 import Button from '../../components/red-button'
+import PasswordInput from '../../components/password-input'
+import { useState } from 'react'
 
 export default function Login(){
+    const [email, setEmail] = useState('')
     return(
         <body>
             <main className="login-main">
@@ -14,11 +17,12 @@ export default function Login(){
       
                     <form action="/login" method='POST' className="formulario">
                         <div className="login-input">
-                            <input type="text" name="email" id="email" placeholder="E-mail" />
+                            <label>
+                                <input type="text" name="email" value={ email } onChange={(e)=> setEmail(e.target.value)} id="email" placeholder="E-mail" />
+                            </label>   
                         </div>
-                    <div className="login-input">
-                        <input type="password" name="password" id="password" placeholder="Senha"/><i className="bi bi-eye-slash" id="togglePassword"></i>
-                    </div>
+                        <PasswordInput />
+
                     <div id="login-forgot">
                         <a href="/login/password" className="text-montserrat">Esqueceu a senha?</a>
                     </div>
