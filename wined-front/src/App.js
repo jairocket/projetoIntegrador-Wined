@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import Login from './pages/login'
 import SignUp from './pages/signUp'
+import Dashboard from './pages/dashboard';
 
 // import Teste from './components/Teste';
 // import Footer from './components/Footer';
@@ -21,9 +22,14 @@ function App() {
         <Route exact path='/signup'>
           <SignUp/>
         </Route>
-        <Route exact path='/'>
+        <Route exact path='/dashboard'>
+          <Dashboard/>
           
         </Route> 
+        <Route exact path='/'>
+          
+        </Route>
+
 
         <Route exact path='/404'>
           

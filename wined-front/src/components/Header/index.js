@@ -14,10 +14,10 @@ export default function Header(){
                     </div>
                 </button>
                 <div id="myDropdown" className="header-dropdown-content">
-                    <a href="http://localhost:3000/dashboard">Home</a>
-                    <a href="http://localhost:3000/editarperfil/<%=user.id%>">Editar Perfil</a>
+                    <a href="/dashboard">Home</a>
+                    <a href="/editarperfil">Editar Perfil</a>
                     {/* <!-- <a href="#">Ajuda</a> --> */}
-                    <a href="http://localhost:3000/dashboard/sair">Sair</a>
+                    <a href="/dashboard/sair">Sair</a>
                 </div>
             </div>
         </header> 
