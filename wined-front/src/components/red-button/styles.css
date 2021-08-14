@@ -9,3 +9,13 @@
     line-height: 20px;
     color: #FFFFFF;
   }
+
+  .btn-search {
+    width: 60px;
+    height: 35px;
+    background: #287A5C;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    color: white;
+    font-weight: 500;
+  }

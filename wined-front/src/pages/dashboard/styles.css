@@ -21,3 +21,9 @@
     margin-top: 35px;
     border-radius: 25px;
 }
+
+.dash-events > p{
+    margin: 0px 15px 10px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}

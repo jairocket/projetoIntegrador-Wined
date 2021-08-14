@@ -28,6 +28,11 @@ export default function Dashboard(){
                     <Header />
                     <TopView />
                     <div className='dash-menu'>
+                        <Button 
+                            name='Criar Confraria' 
+                            type='button'
+                            className='btn-form'
+                        />
                         <div>
                             <form action="http://localhost:3000/dashboard/wines" method="GET">
                                 <label for="parameter"></label>
@@ -37,26 +42,23 @@ export default function Dashboard(){
                                     value={parameter}
                                     onChange={(e)=> setParameter(e.target.value)}
                                     id="txtBusca" 
-                                    placeholder="Buscar vinhos..."/>
-                                <button 
-                                    type="submit" 
-                                    data-type="get-wines">
-                                        <img src="../images/search.svg" 
-                                            id="btnBusca"  
-                                            data-type="get-wines" 
-                                            alt="Buscar"/>
-                                </button>
+                                    placeholder="Buscar vinhos..."
+                                />
+                                <Button
+                                    name='Buscar'
+                                    type='submit'
+                                    className='btn-search'
+                                />
                             </form>
                         </div>
 
-                        <Button 
-                            name='Criar Confraria' 
-                            type='button'
-                            className='btn-form'
-                        />
+
                     </div>
 
                     <Brotherhoods />
+                    <div className= 'dash-events'>
+                        <p>Eventos</p>
+                    </div>
                     <Footer />
 
                 </main>
