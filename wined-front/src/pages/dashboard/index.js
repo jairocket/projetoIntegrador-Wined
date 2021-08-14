@@ -13,10 +13,10 @@ import Footer from '../../components/Footer'
 export default function Dashboard(){
     const [parameter, setParameter] = useState('')
     return(
-        <html pt-BR>
+        <html lang='pt-BR'>
             <head>
-                <meta charset="UTF-8"/>
-                <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+                <meta charSet="UTF-8"/>
+                <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <title>Dashboard</title>
                 <link rel="preconnect" href="https://fonts.gstatic.com"/>
