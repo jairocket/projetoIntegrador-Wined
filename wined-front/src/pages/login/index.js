@@ -36,7 +36,14 @@ export default function Login(){
                     <div id="login-forgot">
                         <a href="/login/password" className="text-montserrat">Esqueceu a senha?</a>
                     </div>
-                    <Button/>
+                    <div id="login-submit">
+                        <Button
+                            name='Entrar'
+                            type='submit'
+                            className='btn-form'
+                        />
+                    </div>
+                    
                 </form>
 
                 {/* <div className="separador">

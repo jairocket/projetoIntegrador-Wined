@@ -430,9 +430,7 @@ Wined+ Team`,
           comment,
           ref_post_id
         })
-      );
-      
-      
+      );  
     },
 
     deleteReactions: async(req, res)=>{

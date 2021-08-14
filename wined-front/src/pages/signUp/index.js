@@ -58,6 +58,13 @@ import { useState } from 'react'
                                 <textarea name="description" value={ description } onChange={(e)=> setDescription(e.target.value)}id="description" cols="1" rows="3" placeholder="Conte um pouco sobre você e sua paixão por vinhos"></textarea>
                             </label>
                             <PasswordInput />
+                            <div id="signup-submit">
+                                <Button
+                                    name='Entrar'
+                                    type='submit'
+                                    className='btn-form'
+                                />
+                            </div>
                             <Button />
                             <div class="signup-login">
                                 <p>Você já tem um perfil?</p>

@@ -1,12 +1,17 @@
+import './styles.css'
+
+import { useState } from 'react'
+
 import Header from '../../components/Header'
 import TopView from '../../components/top-view'
 import Brotherhoods from '../../components/brotherhoods'
+import Button from '../../components/red-button'
 import Footer from '../../components/Footer'
 
 
 
 export default function Dashboard(){
-
+    const [parameter, setParameter] = useState('')
     return(
         <html pt-BR>
             <head>
@@ -22,6 +27,35 @@ export default function Dashboard(){
                 <main>
                     <Header />
                     <TopView />
+                    <div className='dash-menu'>
+                        <div>
+                            <form action="http://localhost:3000/dashboard/wines" method="GET">
+                                <label for="parameter"></label>
+                                <input 
+                                    type="text"
+                                    name="parameter" 
+                                    value={parameter}
+                                    onChange={(e)=> setParameter(e.target.value)}
+                                    id="txtBusca" 
+                                    placeholder="Buscar vinhos..."/>
+                                <button 
+                                    type="submit" 
+                                    data-type="get-wines">
+                                        <img src="../images/search.svg" 
+                                            id="btnBusca"  
+                                            data-type="get-wines" 
+                                            alt="Buscar"/>
+                                </button>
+                            </form>
+                        </div>
+
+                        <Button 
+                            name='Criar Confraria' 
+                            type='button'
+                            className='btn-form'
+                        />
+                    </div>
+
                     <Brotherhoods />
                     <Footer />
 

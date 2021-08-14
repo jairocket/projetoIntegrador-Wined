@@ -24,7 +24,6 @@ function App() {
         </Route>
         <Route exact path='/dashboard'>
           <Dashboard/>
-          
         </Route> 
         <Route exact path='/'>
           

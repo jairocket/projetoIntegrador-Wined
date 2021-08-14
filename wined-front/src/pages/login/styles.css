@@ -21,6 +21,12 @@
     margin: 10px 0;
 }
 
+#login-submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .login-input{
     margin-top: 40px;
 }

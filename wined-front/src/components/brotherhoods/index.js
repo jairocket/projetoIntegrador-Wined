@@ -1,11 +1,19 @@
+import './styles.css'
+
 export default function Brotherhood(){
     return(
         <section className='brotherhood-section'>
             <p>Minhas Confrarias</p>
             <div className='brotherhood-list'>
-                Confraria 1
-                Confraria 2
-                Confraria 3
+                <div className='brotherhood-link'>
+                    <p>Confraria 1</p>
+                </div>
+                <div className='brotherhood-link'>
+                    <p>Confraria 2</p>
+                </div>
+                <div className='brotherhood-link'>
+                    <p>Confraria 3</p>
+                </div>  
             </div>
         </section>
     )

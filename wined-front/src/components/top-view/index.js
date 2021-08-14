@@ -5,7 +5,7 @@ export default function User(){
 
 
     return(
-        <section>
+        <section className='top-session'>
             <div>
                 <div className='top-background'>
                     <img

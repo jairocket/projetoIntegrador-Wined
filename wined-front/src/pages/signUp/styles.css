@@ -98,3 +98,9 @@ form > label > textarea{
     margin-top: 32px;
     font-family: 'Montserrat', sans-serif;
 }
+
+#signup-submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

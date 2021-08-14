@@ -1,7 +1,7 @@
 import './styles.css';
 
-export default function redButton(){
+export default function redButton(props){
     return(
-        <button className="btn-form" tyoe="submit">Entrar</button>
+        <button className={props.className} type={props.type}>{props.name}</button>
     )
 }
