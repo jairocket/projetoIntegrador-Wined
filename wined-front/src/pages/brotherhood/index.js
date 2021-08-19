@@ -40,24 +40,25 @@ export default function Dashboard(){
                                     <p>Tantos Confrades</p>
                                 </div>
                             </div>
+                            <div className='brotherhood-description'>
+                                <p>Descrição da confraria</p>
+                            </div>
                             <div className='brotherhood-menu'>
                                 {/* incluir validação para acesso apenas ao chanceler */}
                                 <Button 
                                     name='Editar' 
                                     type='button'
-                                    className='btn-form'
+                                    className='btn'
                                 />
                                 <form action="/confraria/editar/delete/<%= brotherhood.id %>/<%= user.id %>?_method=DELETE" method="POST">
                                     <Button 
                                         name='Deixar Confraria' 
                                         type='submit'
-                                        className='btn-form'
+                                        className='btn'
                                     />
                                 </form>
                             </div>
-                            <div className='brotherhood-description'>
-                                <p>Descrição da confraria</p>
-                            </div>
+                            
                         </div>
                     </section>
                     <section className='members'>
@@ -76,7 +77,7 @@ export default function Dashboard(){
                             <div className="brotherhood-media-post">
                                 <div>
                                     <button type="button" id="p-btn"> 
-                                        <img src= {Picture} alt="add-video"/>Midia
+                                        <img src= {Picture} alt="add-pic"/>Midia
                                     </button>
                                 </div>
                                 <section className="upload-media-separator"></section>
@@ -88,7 +89,7 @@ export default function Dashboard(){
                                 <section className="upload-media-separator"></section>
                                 <div>
                                     <button type="button" id="btn"> 
-                                        <img src={Video} alt="add-video"/>Enviar
+                                        <img src={Video} alt="send-message"/>Enviar
                                     </button>
                                 </div>
                             </div>
