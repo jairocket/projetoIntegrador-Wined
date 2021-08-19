@@ -57,6 +57,7 @@ input[type='file']{
   #memberOptions > td > span, #memberOptions > td > a {
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
+    
   }
 
   #memberOptions > td > a{
@@ -69,14 +70,23 @@ input[type='file']{
 
   #remove{
     background: #9B0000;
+    
   }
 
   #chancellor{
     background: #287A5C;
   }
 
+  #chancellor, #remove{
+    border-radius: 15px;
+  }
+#chancellor > form > button, #remove > form > button{
+  color: white;
+  font-weight: 700;
+  width: 135px;
+}
   td{
-    padding: 15px;
+    padding: 7px;
     margin: 1px;
   }
   

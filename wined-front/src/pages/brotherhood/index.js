@@ -60,6 +60,12 @@ export default function Dashboard(){
                             </div>
                         </div>
                     </section>
+                    <section className='members'>
+                        <h3>Confrades</h3>
+                    </section>
+                    <section className='events'>
+                        <h3>Eventos</h3>
+                    </section>
                     <section className='brotherhood-post'>
                         <div className='brotherhood-post-creator'>
                             <div className="brotherhood-post-write">
