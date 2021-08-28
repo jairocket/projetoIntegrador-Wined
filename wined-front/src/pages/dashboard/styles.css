@@ -22,8 +22,14 @@
     border-radius: 25px;
 }
 
+.dash-events{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
 .dash-events > p{
-    margin: 0px 15px 10px;
+    margin-right: 5px;
     font-size: 1.2rem;
     font-weight: 500;
 }

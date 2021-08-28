@@ -1,9 +1,12 @@
 import './styles.css'
+import {IoIosArrowDown} from 'react-icons/io'
+// import {IoIosArrowUp} from 'react-icons/io'
 
 export default function Brotherhood(){
     return(
         <section className='brotherhood-section'>
-            <p>Minhas Confrarias</p>
+            <div className='brotherhood-section-title'><p>Minhas Confrarias</p> <IoIosArrowDown/></div>
+            
             <div className='brotherhood-list'>
                 <div className='brotherhood-link'>
                     <p>Confraria 1</p>

@@ -8,6 +8,9 @@ import Brotherhoods from '../../components/brotherhoods'
 import Button from '../../components/red-button'
 import Footer from '../../components/Footer'
 
+import {IoIosArrowDown} from 'react-icons/io'
+// import {IoIosArrowUp} from 'react-icons/io'
+
 
 
 export default function Dashboard(){
@@ -28,12 +31,6 @@ export default function Dashboard(){
                     <Header />
                     <TopView />
                     <div className='dash-menu'>
-                    {/* <Button 
-                            name='Criar Confraria' 
-                            type='button'
-                            className='btn-form'
-                        /> */}
-                        
                         <div>
                             <form action="http://localhost:3000/dashboard/wines" method="GET">
                                 <label for="parameter"></label>
@@ -58,7 +55,7 @@ export default function Dashboard(){
 
                     <Brotherhoods />
                     <div className= 'dash-events'>
-                        <p>Eventos</p>
+                        <p>Eventos</p><IoIosArrowDown/>
                     </div>
                     <Footer />
 

@@ -5,7 +5,7 @@ export default function Footer(){
     return (
         <footer>
             <div id="footer-menu">
-                <ul>
+                <ul >
                     <li><a className="termos" href="/termos">Termos de Uso</a></li>
                     <li><a className="politica" href="/privacidade">Política de privacidade</a></li>
                 </ul>

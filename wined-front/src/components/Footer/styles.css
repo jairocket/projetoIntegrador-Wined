@@ -1,5 +1,8 @@
 footer {
     background-color: #9B0000;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
   
 footer > nav> a {
@@ -25,6 +28,7 @@ footer > nav> a {
 
   li > a {
     color: whitesmoke; 
+    font-size: 14px;
   }
 
   #copyright > img{
