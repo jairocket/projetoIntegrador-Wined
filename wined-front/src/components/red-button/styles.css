@@ -24,9 +24,10 @@
     margin: 24px 0px 14px;
     background: #287A5C;
     color: white;
-    width: 150px;
-    height: 45px;
-    font-weight: 500;
+    width: 125px;
+    height: 40px;
+    font-weight: 550;
     line-height: 20px;
     border-radius: 40px;
+    font-size: 12.5px;
   }

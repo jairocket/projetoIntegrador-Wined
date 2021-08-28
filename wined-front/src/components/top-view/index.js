@@ -1,6 +1,7 @@
 import './styles.css';
 import Background from './assets/images/background-picture.svg';
 import ProfilePicture from './assets/images/profile-picture.svg';
+
 export default function User(){
 
 
@@ -14,10 +15,12 @@ export default function User(){
                     />
                 </div>
                 <div className='top-avatar'>
+                  
                     <img
                         src={ ProfilePicture }
                         alt= 'Imagem - avatar do usuário'
                     />
+      
                 </div>
                 <div className='top-user'>
                     <p>Some User</p>

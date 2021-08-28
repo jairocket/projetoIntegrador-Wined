@@ -28,11 +28,12 @@ export default function Dashboard(){
                     <Header />
                     <TopView />
                     <div className='dash-menu'>
-                        <Button 
+                    {/* <Button 
                             name='Criar Confraria' 
                             type='button'
                             className='btn-form'
-                        />
+                        /> */}
+                        
                         <div>
                             <form action="http://localhost:3000/dashboard/wines" method="GET">
                                 <label for="parameter"></label>

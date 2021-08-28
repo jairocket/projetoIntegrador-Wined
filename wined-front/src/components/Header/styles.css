@@ -11,7 +11,8 @@
 }
 
 .header-dropdown-content {
-    display: none;
+    display: flex;
+    flex-direction: column;
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
@@ -20,6 +21,13 @@
     z-index: 1;
     right: 0;
 }
+
+.header-dropdown-content > a{
+    padding: 10px;
+}
+
+.header-dropdown-content > a:hover {background-color: #287A5C;}
+
 header {
     background-color: #9B0000;
     display: flex;
@@ -30,10 +38,10 @@ header {
     box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.25);
   }
 
-.dropdown a:hover {background-color: #ddd;}
 
 
-.show {display: block;}
+
+
 
 #profile-pic{
     width: 100%;

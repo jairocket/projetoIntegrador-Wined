@@ -9,6 +9,7 @@ import Dot from './assets/images/dot.svg'
 import Cover from './assets/images/brotherhood-picture.svg'
 import Video from './assets/images/add-video.svg'
 import Event from './assets/images/event.svg'
+import Send from './assets/images/post.svg'
 
 
 export default function Dashboard(){
@@ -77,7 +78,7 @@ export default function Dashboard(){
                             <div className="brotherhood-media-post">
                                 <div>
                                     <button type="button" id="p-btn"> 
-                                        <img src= {Picture} alt="add-pic"/>Midia
+                                        <img src= {Picture} alt="add-pic"/>Foto
                                     </button>
                                 </div>
                                 <section className="upload-media-separator"></section>
@@ -89,7 +90,12 @@ export default function Dashboard(){
                                 <section className="upload-media-separator"></section>
                                 <div>
                                     <button type="button" id="btn"> 
-                                        <img src={Video} alt="send-message"/>Enviar
+                                        <img src={Video} alt="send-message"/>Vídeo
+                                    </button>
+                                </div>
+                                <div>
+                                    <button type="button" id="btn"> 
+                                        <img src={Send} alt="send-message"/>Enviar
                                     </button>
                                 </div>
                             </div>
