@@ -7,6 +7,7 @@ const brotherhoodController = require('../controllers/BrotherhoodController')
 const membershipCheck = require('../middlewares/membershipCheck');
 const multer = require('multer');
 const storage = require('../middlewares/multer');
+const verifyJWT = require('../middlewares/verifyJWT');
 const upload = multer({storage: storage})
 
 
