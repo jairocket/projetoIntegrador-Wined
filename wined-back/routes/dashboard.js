@@ -4,10 +4,11 @@ const router = express.Router();
 
 const auth = require('../middlewares/auth');
 const passwordCheck = require('../middlewares/passwordCheck');
+const verifyJWT =require('../middlewares/verifyJWT')
 
 
 
-router.get('/', auth, passwordCheck, DashboardController.getBrotherhoods);
+router.get('/', verifyJWT, auth, passwordCheck, DashboardController.getBrotherhoods);
 
 router.get('/sair', function(req, res){
   req.session.destroy();

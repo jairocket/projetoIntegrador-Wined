@@ -4,7 +4,8 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 const { check, validationResult, body } = require('express-validator');
 const UserService = require('../services/UserService');
-const { passwordGenerator } = require('../services/UserService');
+const jwt = require('jsonwebtoken');
+require('dotenv-safe').config()
 
 let UserController = {
     registerForm: (req, res)=>{
@@ -68,9 +69,14 @@ let UserController = {
                         avatar_picture: usr.avatar_picture
                     }
                     req.session.user = profile;
+                    const token = jwt.sign({id: profile.id}, process.env.SECRET, {
+                        expiresIn: 300
+                    })
+                    return res.json({auth: true, token: token})
                     res.redirect('/dashboard');
             } else {
                 req.flash('error', "Senha incorreta!")
+                return res.status(500).json({message: 'Login Inválido'})
                 res.render('login', {old: req.body})
             }
         } else {
