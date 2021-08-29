@@ -2,11 +2,34 @@
 import './styles.css'
 import logo from './assets/images/logo-wined.svg'
 import Button from '../../components/red-button'
-import PasswordInput from '../../components/password-input'
-import { useState } from 'react'
+// import PasswordInput from '../../components/password-input'
+import { useState } from 'react';
+import axios from 'axios';
+
+
 
 export default function Login(){
-    const [email, setEmail] = useState('')
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [typePass, setTypePass] = useState('password'); 
+    console.log(email)
+    function togglePassword(){
+        if(typePass === 'password'){
+            setTypePass('text')
+        }else{
+            setTypePass('password')
+        }
+    }
+
+    function handleSubmit(e){
+        e.preventDefault()
+        axios.post('http://localhost:3333/login', {email, password})
+        .then(response=>console.log(response))
+        .catch(error => {if(error) {console.log(error)}})
+        console.log(email)
+        
+    }    
+
     return(
         <html lang="pt-BR">
             <head>
@@ -25,13 +48,37 @@ export default function Login(){
                         <img src={logo} alt="logo-wined"/>
                     </div>
       
-                    <form action="/login" method='POST' className="formulario">
+                    <form  className="formulario" onSubmit={handleSubmit} >
                         <div className="login-input">
                             <label>
-                                <input type="text" name="email" value={ email } onChange={(e)=> setEmail(e.target.value)} id="email" placeholder="E-mail" />
+                                <input 
+                                    type="text" 
+                                    name="email" 
+                                    value={ email } onChange={(e)=> setEmail(e.target.value)} 
+                                    id="email" placeholder="E-mail" 
+                                />
                             </label>   
                         </div>
-                        <PasswordInput />
+                        {/* <PasswordInput /> */}
+                        <div className="password-input">
+                            <label>
+                                <input 
+                                    name="password"
+                                    value={ password } 
+                                    onChange={(e)=> setPassword(e.target.value)}
+                                    id="password"
+                                    placeholder="Senha"
+                                    type={ typePass }
+                                />                   
+                                <i 
+                                    className="bi bi-eye-slash" 
+                                    id="togglePassword" 
+                                    onClick={togglePassword}
+                                >
+
+                                </i>
+                            </label>    
+                        </div>
 
                     <div id="login-forgot">
                         <a href="/login/password" className="text-montserrat">Esqueceu a senha?</a>
