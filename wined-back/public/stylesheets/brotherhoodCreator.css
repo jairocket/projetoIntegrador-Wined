@@ -1,0 +1,100 @@
+input[type='file']{
+  display: none;
+}
+
+#bhood_picture{
+  padding: 10px 30px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.btn-form1 {
+    margin: 24px 0px 14px;
+    width: 30%;
+    height: 40px;
+    background: #9B0000;
+    border-radius: 40px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+  }
+
+  #form{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .btn-add, #bhood_picture{
+    margin: 24px 0px 14px;
+    width: 30%;
+    height: 40px;
+    background: #287A5C;
+    border-radius: 40px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+  }
+
+  .registerForm{
+    margin-bottom: 10px;
+  }
+
+  #addMember-addInput{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  #memberOptions{
+    display: flex;
+    align-items: center;
+    height: 35px;
+    
+  }
+
+  #memberOptions > td > span, #memberOptions > td > a {
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    
+  }
+
+  #memberOptions > td > a{
+    
+    color: #FFFFFF;
+    font-weight: 500;
+    border-radius: 25px;
+    width: 50px;
+  }
+
+  #remove{
+    background: #9B0000;
+    
+  }
+
+  #chancellor{
+    background: #287A5C;
+  }
+
+  #chancellor, #remove{
+    border-radius: 15px;
+  }
+#chancellor > form > button, #remove > form > button{
+  color: white;
+  font-weight: 700;
+  width: 135px;
+}
+  td{
+    padding: 7px;
+    margin: 1px;
+  }
+  
+
+  #memberName{
+    width: 250px;
+  }
+
+#cover {
+  max-height: 258;
+}

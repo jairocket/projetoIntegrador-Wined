@@ -1,0 +1,15 @@
+.brotherhood-section-title{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.brotherhood-section-title > p{
+    margin-right: 5px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.brotherhood-link{
+    margin: 15px 30px;
+}
