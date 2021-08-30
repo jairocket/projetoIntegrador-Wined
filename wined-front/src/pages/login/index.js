@@ -6,7 +6,7 @@ import Button from '../../components/red-button'
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-
+import Cookie from "js-cookie"
 
 
 export default function Login(){
@@ -26,8 +26,11 @@ export default function Login(){
         e.preventDefault()
         axios.post('http://localhost:3333/login', {email, password})
         .then(response=>{
-            localStorage.setItem('token', response.data.token)
+            Cookie.set('token', response.data.token)
+            
             console.log(response.data.token);
+            let token = Cookie.get('token');
+            console.log(token)
             history.push('/dashboard')
 
         })
