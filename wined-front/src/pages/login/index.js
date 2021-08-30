@@ -4,6 +4,7 @@ import logo from './assets/images/logo-wined.svg'
 import Button from '../../components/red-button'
 // import PasswordInput from '../../components/password-input'
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -12,7 +13,7 @@ export default function Login(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [typePass, setTypePass] = useState('password'); 
-    console.log(email)
+    const history = useHistory()
     function togglePassword(){
         if(typePass === 'password'){
             setTypePass('text')
@@ -24,9 +25,14 @@ export default function Login(){
     function handleSubmit(e){
         e.preventDefault()
         axios.post('http://localhost:3333/login', {email, password})
-        .then(response=>console.log(response))
+        .then(response=>{
+            localStorage.setItem('token', response.data.token)
+            console.log(response.data.token);
+            history.push('/dashboard')
+
+        })
         .catch(error => {if(error) {console.log(error)}})
-        console.log(email)
+        
         
     }    
 

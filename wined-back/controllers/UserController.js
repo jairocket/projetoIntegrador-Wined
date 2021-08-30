@@ -72,7 +72,7 @@ let UserController = {
                     const token = jwt.sign({id: profile.id}, process.env.SECRET, {
                         expiresIn: 300
                     })
-                    return res.json({auth: true, token: token})
+                    return res.json({auth: true, token: token, user: req.session.user})
                     res.redirect('/dashboard');
             } else {
                 req.flash('error', "Senha incorreta!")
