@@ -1,6 +1,7 @@
 import './styles.css'
 
 import { useState } from 'react'
+import { useEffect } from 'react'
 
 import Header from '../../components/Header'
 import TopView from '../../components/top-view'
@@ -9,14 +10,24 @@ import Button from '../../components/red-button'
 import Footer from '../../components/Footer'
 
 import {IoIosArrowDown} from 'react-icons/io'
+import axios from 'axios'
 // import {IoIosArrowUp} from 'react-icons/io'
 
 
 
 export default function Dashboard(){
     const [parameter, setParameter] = useState('')
+    const [ user, setUser] = useState(null);
+    useEffect(()=>{
+        axios.get('http://localhost:3333/dashboard').then(
+            response => {
+                setUser(response.data)    
+        })
+    }, [])
+
+    
     return(
-        <html lang='pt-BR'>
+        <html lang='pt-BR' >
             <head>
                 <meta charSet="UTF-8"/>
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
@@ -28,8 +39,9 @@ export default function Dashboard(){
             </head>
             <body>
                 <main>
+                    <><span>{user}</span></>
                     <Header />
-                    <TopView />
+                    <TopView user= {user} />
                     <div className='dash-menu'>
                         <div>
                             <form action="http://localhost:3000/dashboard/wines" method="GET">

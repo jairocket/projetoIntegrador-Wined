@@ -5,10 +5,17 @@ const router = express.Router();
 const auth = require('../middlewares/auth');
 const passwordCheck = require('../middlewares/passwordCheck');
 const verifyJWT =require('../middlewares/verifyJWT')
+const DashboardService = require('../services/DashboardService')
 
 
 
-router.get('/', verifyJWT, auth, passwordCheck, DashboardController.getBrotherhoods);
+router.get('/',  auth, passwordCheck, DashboardController.getBrotherhoods);
+
+router.get('/brotherhoods', auth, passwordCheck, async (req, res)=>{
+  let id = req.session.user.id;
+  const brotherhoods = await DashboardService.getMembers(req, res);
+  res.json(brotherhoods)
+})
 
 router.get('/sair', function(req, res){
   req.session.destroy();

@@ -22,28 +22,22 @@ export default function Login(){
         }
     }
 
-    function handleSubmit(e){
+    async function handleSubmit(e){
         e.preventDefault()
-        axios.post('http://localhost:3333/login', {email, password})
-        .then(response=>{
-            Cookie.set('token', response.data.token)
-            
-            console.log(response.data.token);
-            let token = Cookie.get('token');
-            console.log(token)
-            history.push('/dashboard')
-
-        })
-        .catch(error => {if(error) {console.log(error)}})
-        
-        
+        try{
+            const result = await axios.post('http://localhost:3333/login', {email, password});
+            Cookie.set('token', result.token);            
+            history.push('/dashboard');
+        } catch(error) {
+             console.log(error)
+        }        
     }    
 
     return(
         <html lang="pt-BR">
             <head>
-                <meta charset="UTF-8"/>
-                <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+                <meta charSet="UTF-8"/>
+                <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <title>Login</title>
                 <link rel="preconnect" href="https://fonts.gstatic.com"/>

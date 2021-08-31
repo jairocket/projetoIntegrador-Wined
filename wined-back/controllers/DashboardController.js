@@ -25,17 +25,23 @@ const DashboardController ={
                 'background_picture'
             ]
         });
+    return res.json({
+        brotherhoods: membersBrotherhoods,
+        user,
+        avatar,
+        events
+    })
        
-    return res.render(
-        'dashboard', {
-            title: "Dashboard",
-            style: "dashboard",
-            brotherhoods: membersBrotherhoods,
-            user,
-            avatar,
-            events
-        }
-     )
+    // return res.render(
+    //     'dashboard', {
+    //         title: "Dashboard",
+    //         style: "dashboard",
+    //         brotherhoods: membersBrotherhoods,
+    //         user,
+    //         avatar,
+    //         events
+    //     }
+    //  )
     },
 
     getWines: async (req, res)=>{
