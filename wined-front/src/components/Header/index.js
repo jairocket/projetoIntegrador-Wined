@@ -1,13 +1,22 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import logo from  './logo-wined-header.svg';
 import avatar from './profile-picture.svg';
+import Cookies from 'js-cookie';
 import './styles.css';
 
 export default function Header(){
+    const history = useHistory()
     const[show, setShow] = useState(false);
     function showDropdown(){
         !show ? setShow(true): setShow(false)
     }
+    function logout(e){
+        e.preventDefault()
+        Cookies.remove('token') 
+        history.push('/login')
+    }
+
     return(
         <header id="header-unlogged">
             <a id="init" href="/"><img id="logo" src={logo} alt="Wined logo"/></a>
@@ -25,7 +34,7 @@ export default function Header(){
                         <a href="/editarperfil">Editar Perfil</a>
                         <a href="/confraria/criar">Criar Confraria</a>
                         {/* <!-- <a href="#">Ajuda</a> --> */}
-                        <a href="/dashboard/sair">Sair</a>
+                        <a href="/dashboard/sair" onClick={logout}>Sair</a>
                     </div>
                     </>
                 )}

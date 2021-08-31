@@ -6,6 +6,7 @@ import Login from './pages/login'
 import SignUp from './pages/signUp'
 import Dashboard from './pages/dashboard';
 import Brotherhood from './pages/brotherhood';
+import RouteWrapper from './routes/RouteWrapper';
 
 // import Teste from './components/Teste';
 // import Footer from './components/Footer';
@@ -23,9 +24,9 @@ function App() {
         <Route exact path='/signup'>
           <SignUp/>
         </Route>
-        <Route exact path='/dashboard'>
-          <Dashboard/>
-        </Route> 
+        <RouteWrapper exact path='/dashboard' isPrivate component={() =><Dashboard/>}>
+          
+        </RouteWrapper>
         <Route exact path ='/brotherhood/:id'>
           <Brotherhood/>
         </Route>
