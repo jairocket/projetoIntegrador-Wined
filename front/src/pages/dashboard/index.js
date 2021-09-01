@@ -11,6 +11,7 @@ import Footer from '../../components/Footer'
 
 import {IoIosArrowDown} from 'react-icons/io'
 import axios from 'axios'
+
 // import {IoIosArrowUp} from 'react-icons/io'
 
 
@@ -18,13 +19,25 @@ import axios from 'axios'
 export default function Dashboard(){
     const [parameter, setParameter] = useState('')
     const [ user, setUser] = useState(null);
-    useEffect(()=>{
-        axios.get('http://localhost:3333/dashboard').then(
-            response => {
-                setUser(response.data)    
-        })
+     useEffect( ()=>{
+       
+       axios.get('http://localhost:3333/dashboard').then(
+           response => {console.log(response.data)
+           setUser(response.data)}
+       )
+       
+       
     }, [])
 
+
+    // async function trazerDadosDoCadastro() {
+    //     const token = getToken()
+    //     const { data } = await api.get("/usuarios", {
+    //       headers: { authorization: `Bearer ${token}` }
+    //     })
+    //     setNome(data.nome)
+    //     setEmail(data.email)
+    //   }
     
     return(
         <html lang='pt-BR' >

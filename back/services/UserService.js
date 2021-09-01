@@ -1,7 +1,7 @@
 const db = require('../database/models');
 const {Op} = require('sequelize');
 const bcrypt = require('bcryptjs');
-const nodemailer = require('../services/nodemailerService');
+const nodemailer = require('./nodemailerService');
 
 const UserService ={
     getSessionUser: async(req, res)=>{

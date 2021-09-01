@@ -9,7 +9,7 @@ const DashboardService = require('../services/DashboardService')
 
 
 
-router.get('/',  auth, passwordCheck, DashboardController.getBrotherhoods);
+router.get('/', auth,  passwordCheck, DashboardController.getBrotherhoods);
 
 router.get('/brotherhoods', auth, passwordCheck, async (req, res)=>{
   let id = req.session.user.id;

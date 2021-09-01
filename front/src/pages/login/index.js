@@ -26,13 +26,14 @@ export default function Login(){
         e.preventDefault()
         try{
             const result = await axios.post('http://localhost:3333/login', {email, password});
-            Cookie.set('token', result.token);            
-            history.push('/dashboard');
+            Cookie.set('token', result.token);    
+            history.push('/dashboard')    
         } catch(error) {
              console.log(error)
-        }        
+        }  
+            
     }    
-
+    
     return(
         <html lang="pt-BR">
             <head>

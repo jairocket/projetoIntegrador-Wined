@@ -69,6 +69,7 @@ let UserController = {
                         avatar_picture: usr.avatar_picture
                     }
                     req.session.user = profile;
+                    console.log(req.session.user.id)
                     const token = jwt.sign({id: profile.id}, process.env.SECRET, {
                         expiresIn: 300
                     })
