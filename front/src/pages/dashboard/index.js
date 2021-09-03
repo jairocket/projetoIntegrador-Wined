@@ -1,7 +1,6 @@
 import './styles.css'
 
-import { useState } from 'react'
-// import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import Header from '../../components/Header'
 import TopView from '../../components/top-view'
@@ -24,36 +23,24 @@ export default function Dashboard(){
     const [ events, setEvents ] = useState(null);
     
     const token = Cookies.get('token')
-    async function dashData(){
+
+    useEffect(()=>{
+
+        axios.get('http://localhost:3333/dashboard', {
+             headers: {authorization: `Bearer ${token}`}
+         }).then(response=>{
+             setUser(response.data.user);
+             setBrotherhoods(response.data.brotherhoods);
+             setEvents(response.data.events)
+            
+         });
+         
         
-        
-        const response =  await axios.get('http://localhost:3333/dashboard', {
-            headers: {authorization: `Bearer ${token}`}
-        });
-        const res = response.data
-        console.log(res)
-        setBrotherhoods(res.brotherhoods);
-        setEvents(res.events);
-        setUser(response.data.user);
-        console.log(brotherhoods)
-        console.log(events)
-        //console.log(user)
-
-    }
- 
-
-
-    // async function trazerDadosDoCadastro() {
-    //     const token = getToken()
-    //     const { data } = await api.get("/usuarios", {
-    //       headers: { authorization: `Bearer ${token}` }
-    //     })
-    //     setNome(data.nome)
-    //     setEmail(data.email)
-    //   }
+    },[token]);
+    if(!user || !brotherhoods || !events) return null
     
     return(
-        <html lang='pt-BR' onLoad={dashData} >
+        <html lang='pt-BR'  >
             <head>
                 <meta charSet="UTF-8"/>
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
@@ -91,7 +78,7 @@ export default function Dashboard(){
 
                     </div>
 
-                    <Brotherhoods />
+                    <Brotherhoods brotherhoods={brotherhoods}/>
                     <div className= 'dash-events'>
                         <p>Eventos</p><IoIosArrowDown/>
                     </div>

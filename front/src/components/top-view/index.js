@@ -3,8 +3,8 @@ import Background from './assets/images/background-picture.svg';
 import ProfilePicture from './assets/images/profile-picture.svg';
 
 export default function User(props){
-
     console.log(props)
+
     return(
         <section className='top-session'>
             <div>
@@ -23,10 +23,10 @@ export default function User(props){
       
                 </div>
                 <div className='top-user'>
-                    <p>{props.name}</p>
+                    <p>{props.user.name} {props.user.surname}</p>
                 </div>
                 <div className='top-description'>
-                    <p>Some description</p>
+                    <p>{props.user.description}</p>
                 </div>
             </div>
         </section>

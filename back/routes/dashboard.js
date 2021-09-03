@@ -7,9 +7,9 @@ const passwordCheck = require('../middlewares/passwordCheck');
 const jwt =require('../middlewares/jwt')
 const DashboardService = require('../services/DashboardService')
 
-//passwordCheck,
+//passwordCheck,jwt,
 
-router.get('/', jwt,   DashboardController.getBrotherhoods);
+router.get('/', jwt,  DashboardController.getBrotherhoods);
 
 router.get('/brotherhoods', jwt, passwordCheck, async (req, res)=>{
   let id = req.headers.authorization.id;
