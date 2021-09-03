@@ -1,9 +1,10 @@
 const db = require("../database/models");
 
 async function passwordCheck(req, res, next){
-    let id = req.session.user.id;
+    const id = req.header.authorization
+    console.log(id)
     const user = await db.User.findByPk(id,{
-        atributes: ['provider']
+          atributes: ['provider']
     });
     console.log(user)
     user.provider ? res.redirect('/cadastrar/password') : next()

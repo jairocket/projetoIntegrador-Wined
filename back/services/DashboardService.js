@@ -71,7 +71,7 @@ const DashboardService = {
         return
     },
     getMembers: async(req,res)=>{
-        let id = req.session.user.id;
+        let id = req.headers.authorization.id;
         const membersBrotherhoods = await db.Brotherhood.findAll({
             attributes: ['id', 'name', 'description', 'since', 'createdAt'],
             include: [
@@ -89,7 +89,7 @@ const DashboardService = {
     },
 
     getUserEvents: async(req, res)=>{
-        let id = req.session.user.id;
+        let id = req.headers.authorization.id;
         const events = []
         const raw_events = await db.Event.findAll({
             include: {

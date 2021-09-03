@@ -1,7 +1,7 @@
 import './styles.css'
 
 import { useState } from 'react'
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 
 import Header from '../../components/Header'
 import TopView from '../../components/top-view'
@@ -11,6 +11,7 @@ import Footer from '../../components/Footer'
 
 import {IoIosArrowDown} from 'react-icons/io'
 import axios from 'axios'
+import Cookies from 'js-cookie'
 
 // import {IoIosArrowUp} from 'react-icons/io'
 
@@ -19,15 +20,27 @@ import axios from 'axios'
 export default function Dashboard(){
     const [parameter, setParameter] = useState('')
     const [ user, setUser] = useState(null);
-     useEffect( ()=>{
-       
-       axios.get('http://localhost:3333/dashboard').then(
-           response => {console.log(response.data)
-           setUser(response.data)}
-       )
-       
-       
-    }, [])
+    const [ brotherhoods, setBrotherhoods ] = useState(null);
+    const [ events, setEvents ] = useState(null);
+    
+    const token = Cookies.get('token')
+    async function dashData(){
+        
+        
+        const response =  await axios.get('http://localhost:3333/dashboard', {
+            headers: {authorization: `Bearer ${token}`}
+        });
+        const res = response.data
+        console.log(res)
+        setBrotherhoods(res.brotherhoods);
+        setEvents(res.events);
+        setUser(response.data.user);
+        console.log(brotherhoods)
+        console.log(events)
+        //console.log(user)
+
+    }
+ 
 
 
     // async function trazerDadosDoCadastro() {
@@ -40,7 +53,7 @@ export default function Dashboard(){
     //   }
     
     return(
-        <html lang='pt-BR' >
+        <html lang='pt-BR' onLoad={dashData} >
             <head>
                 <meta charSet="UTF-8"/>
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
@@ -52,7 +65,7 @@ export default function Dashboard(){
             </head>
             <body>
                 <main>
-                    <><span>{user}</span></>
+                    
                     <Header />
                     <TopView user= {user} />
                     <div className='dash-menu'>

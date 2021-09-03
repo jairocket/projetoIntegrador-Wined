@@ -9,26 +9,27 @@ const DashboardController ={
 
     // GET member's brotherhoods
     getBrotherhoods: async(req,res)=>{
-        let id = req.session.user.id;
-        let avatar = req.session.user.avatar_picture
+        
+        // let avatar = req.session.user.avatar_picture
         const membersBrotherhoods = await DashboardService.getMembers(req, res);
         const events = await DashboardService.getUserEvents(req, res)
         // res.json(events)
 
-        const user = await db.User.findByPk(id, {
-            attributes: [
-                'id',
-                'name',
-                'surname', 
-                'description', 
-                'avatar_picture', 
-                'background_picture'
-            ]
-        });
+        // const user = await db.User.findByPk(id, {
+        //     attributes: [
+        //         'id',
+        //         'name',
+        //         'surname', 
+        //         'description', 
+        //         'avatar_picture', 
+        //         'background_picture'
+        //     ]
+        // });
     return res.json({
+        
         brotherhoods: membersBrotherhoods,
-        user,
-        avatar,
+        // user,
+        // avatar,
         events
     })
        
