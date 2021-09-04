@@ -10,7 +10,6 @@ export default function User(props){
     const [user, setUser] = useState({})
     useEffect(()=>{
         setUser(props.user)
-        console.log(props)
     }, [props])
     return(
         <section className='top-session'>

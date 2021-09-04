@@ -1,6 +1,7 @@
 import './styles.css'
 
 import { useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import Header from '../../components/Header'
 import TopView from '../../components/top-view'
@@ -9,10 +10,9 @@ import Button from '../../components/red-button'
 import Footer from '../../components/Footer'
 
 import {IoIosArrowDown} from 'react-icons/io'
-import Cookies from 'js-cookie'
-import { useHistory } from 'react-router-dom'
-
 // import {IoIosArrowUp} from 'react-icons/io'
+
+import Cookies from 'js-cookie'
 
 export default function Dashboard(){
     const [parameter, setParameter] = useState('')
@@ -36,10 +36,6 @@ export default function Dashboard(){
     
 
     useEffect(()=>{
-        console.log(token)
-        // axios.get('http://localhost:3333/dashboard', {
-        //      headers: {authorization: `Bearer ${token}`}
-        //  })
         fetch('http://localhost:3333/dashboard',{
             headers: {authorization: `Bearer ${token}`}
         })
@@ -58,13 +54,12 @@ export default function Dashboard(){
         {loaded && 
         (
                 <main>
-                    
                     <Header />
                     <TopView user={user} />
                     <div className='dash-menu'>
                         <div>
                             <form action="http://localhost:3000/dashboard/wines" method="GET">
-                                <label for="parameter"></label>
+                                <label ></label>
                                 <input 
                                     type="text"
                                     name="parameter" 

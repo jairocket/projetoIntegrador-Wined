@@ -13,7 +13,6 @@ const DashboardController ={
         // let avatar = req.session.user.avatar_picture
         // let id = req.session.user.id;
         let id = req.headers.authorization.id
-        console.log(id)
         const membersBrotherhoods = await DashboardService.getMembers(req, res);
         const events = await DashboardService.getUserEvents(req, res)
         // res.json(events)
@@ -50,7 +49,7 @@ const DashboardController ={
     },
 
     getWines: async (req, res)=>{
-        const avatar = req.session.user.avatar_picture
+        // const avatar = req.session.user.avatar_picture
         const membersBrotherhoods = await DashboardService.getMembers(req, res);
         const wines = await DashboardService.getWines(req, res);
         const user = await UserController.getUser(req, res);

@@ -12,7 +12,6 @@ const DashboardService = require('../services/DashboardService')
 router.get('/', jwt,  DashboardController.getBrotherhoods);
 
 router.get('/brotherhoods', jwt, passwordCheck, async (req, res)=>{
-  let id = req.headers.authorization.id;
   const brotherhoods = await DashboardService.getMembers(req, res);
   res.json(brotherhoods)
 })
