@@ -11,6 +11,7 @@ function auth(req, res, next){
         return next();
     }
     else{
+        console.log(req.session.user)
         return res.redirect("/login");
     }
 }

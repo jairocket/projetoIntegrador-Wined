@@ -14,17 +14,6 @@ import Send from './assets/images/post.svg'
 
 export default function Dashboard(){
     return(
-        
-        <html lang='pt-BR'>
-            <head>
-                <meta charSet="UTF-8"/>
-                <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                <title>Brotherhood</title>
-                <link rel="preconnect" href="https://fonts.gstatic.com"/>
-                <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,700&family=Roboto:wght@400;500&display=swap" rel="stylesheet"/>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-            </head>
             <body>
                 <Header />
                 <main>
@@ -106,6 +95,6 @@ export default function Dashboard(){
                 </main>
                 <Footer />
             </body>
-        </html>
+        
     )
 }

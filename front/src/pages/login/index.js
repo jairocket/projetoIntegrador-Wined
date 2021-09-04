@@ -22,34 +22,22 @@ export default function Login(){
         }
     }
 
-    function handleSubmit(e){
+    async function handleSubmit(e){
         e.preventDefault()
-        axios.post('http://localhost:3333/login', {email, password})
-        .then(response=>{
-            Cookie.set('token', response.data.token)
+        try{
+            const result = await axios.post('http://localhost:3333/login', {email, password});
+            Cookie.set('token', result.data.token);
+            // let token = Cookie.get('token')
+            // window.sessionStorage.setItem('token', result.data.token)
+            // console.log(token)
+            history.push('/dashboard')    
+        } catch(error) {
+             console.log(error)
+        }  
             
-            console.log(response.data.token);
-            let token = Cookie.get('token');
-            console.log(token)
-            history.push('/dashboard')
-
-        })
-        .catch(error => {if(error) {console.log(error)}})
-        
-        
     }    
-
-    return(
-        <html lang="pt-BR">
-            <head>
-                <meta charset="UTF-8"/>
-                <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                <title>Login</title>
-                <link rel="preconnect" href="https://fonts.gstatic.com"/>
-                <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,700&family=Roboto:wght@400;500&display=swap" rel="stylesheet"/>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-            </head>
+    
+    return(   
         <body>
             <main className="login-main">
                 <section className = "loginForm">
@@ -126,7 +114,7 @@ export default function Login(){
     </main>
     <script type="text/javascript" src="../js/togglePassword.js"></script>
 </body>
-</html>
+
     )
 }
 

@@ -54,7 +54,7 @@ const DashboardService = {
     },
     favoriteWine: async (req, res)=>{
         let {wine_id} = req.body;
-        let users_id = req.session.user.id;
+        let users_id = req.headers.authorization.id;
         const favorited = await db.Favorite_Wine.create({
             users_id,
             wine_id
@@ -63,7 +63,7 @@ const DashboardService = {
     },
     wishWine: async (req, res)=>{
         let {wine_id} = req.body;
-        let users_id = req.session.user.id;
+        let users_id = req.headers.authorization.id;
         const wished = await db.Wished_Wine.create({
             users_id,
             wine_id
@@ -71,7 +71,7 @@ const DashboardService = {
         return
     },
     getMembers: async(req,res)=>{
-        let id = req.session.user.id;
+        let id = req.headers.authorization.id;
         const membersBrotherhoods = await db.Brotherhood.findAll({
             attributes: ['id', 'name', 'description', 'since', 'createdAt'],
             include: [
@@ -89,7 +89,7 @@ const DashboardService = {
     },
 
     getUserEvents: async(req, res)=>{
-        let id = req.session.user.id;
+        let id = req.headers.authorization.id;
         const events = []
         const raw_events = await db.Event.findAll({
             include: {
@@ -123,7 +123,7 @@ const DashboardService = {
         return events
     },
     missEvent: async (req, res)=>{
-        let users_id = req.session.user.id;
+        let users_id = req.headers.authorization.id;
         let { id } = req.params;
         await db.User_Event.destroy({
             where: {
