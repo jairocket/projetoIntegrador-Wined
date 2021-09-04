@@ -71,7 +71,7 @@ let UserController = {
                     req.session.user = profile;
                     
                     const token = jwt.sign({id: profile.id}, process.env.SECRET, {
-                        expiresIn: 300
+                        expiresIn: "20m"
                     })
                     return res.json({auth: true, token: token, user: req.session.user})
                     res.redirect('/dashboard');

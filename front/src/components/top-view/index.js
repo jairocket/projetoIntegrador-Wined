@@ -1,10 +1,17 @@
 import './styles.css';
 import Background from './assets/images/background-picture.svg';
 import ProfilePicture from './assets/images/profile-picture.svg';
+import { useState, useEffect } from 'react'
+
+
 
 export default function User(props){
-    console.log(props)
-
+    
+    const [user, setUser] = useState({})
+    useEffect(()=>{
+        setUser(props.user)
+        console.log(props)
+    }, [props])
     return(
         <section className='top-session'>
             <div>
@@ -23,10 +30,10 @@ export default function User(props){
       
                 </div>
                 <div className='top-user'>
-                    <p>{props.user.name} {props.user.surname}</p>
+                    <p>{user.name} {user.surname}</p>
                 </div>
                 <div className='top-description'>
-                    <p>{props.user.description}</p>
+                    <p>{user.description}</p>
                 </div>
             </div>
         </section>

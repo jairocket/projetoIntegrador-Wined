@@ -27,9 +27,11 @@ export default function Login(){
         try{
             const result = await axios.post('http://localhost:3333/login', {email, password});
             Cookie.set('token', result.data.token);
+            // let token = Cookie.get('token')
+            // window.sessionStorage.setItem('token', result.data.token)
                
-            let token = Cookie.get('token')
-            console.log(token)
+            
+            // console.log(token)
             history.push('/dashboard')    
         } catch(error) {
              console.log(error)

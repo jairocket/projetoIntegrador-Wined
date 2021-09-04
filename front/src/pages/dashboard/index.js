@@ -9,52 +9,58 @@ import Button from '../../components/red-button'
 import Footer from '../../components/Footer'
 
 import {IoIosArrowDown} from 'react-icons/io'
-import axios from 'axios'
 import Cookies from 'js-cookie'
+import { useHistory } from 'react-router-dom'
 
 // import {IoIosArrowUp} from 'react-icons/io'
 
-
-
 export default function Dashboard(){
     const [parameter, setParameter] = useState('')
-    const [ user, setUser] = useState(null);
-    const [ brotherhoods, setBrotherhoods ] = useState(null);
-    const [ events, setEvents ] = useState(null);
-    
-    const token = Cookies.get('token')
+    const [ user, setUser] = useState({name: '', surname: '', description:'', avatar_picture: '', background_picture: ''});
+    const [ brotherhoods, setBrotherhoods ] = useState([]);
+    const [ events, setEvents ] = useState([]);
+    const [ token, setToken ] = useState('');
+    const [ loaded, setLoad ] = useState(false);
+    const history = useHistory();
 
     useEffect(()=>{
+        setLoad(true)
+    }, [user, brotherhoods, events])
 
-        axios.get('http://localhost:3333/dashboard', {
-             headers: {authorization: `Bearer ${token}`}
-         }).then(response=>{
-             setUser(response.data.user);
-             setBrotherhoods(response.data.brotherhoods);
-             setEvents(response.data.events)
-            
-         });
-         
+
+     useEffect(()=>{
+
+        setToken(Cookies.get('token'));
         
-    },[token]);
-    if(!user || !brotherhoods || !events) return null
+     },[])
     
-    return(
-        <html lang='pt-BR'  >
-            <head>
-                <meta charSet="UTF-8"/>
-                <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                <title>Dashboard</title>
-                <link rel="preconnect" href="https://fonts.gstatic.com"/>
-                <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,700&family=Roboto:wght@400;500&display=swap" rel="stylesheet"/>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-            </head>
-            <body>
+
+    useEffect(()=>{
+        console.log(token)
+        // axios.get('http://localhost:3333/dashboard', {
+        //      headers: {authorization: `Bearer ${token}`}
+        //  })
+        fetch('http://localhost:3333/dashboard',{
+            headers: {authorization: `Bearer ${token}`}
+        })
+        .then(response => response.json())
+         .then(response=>{
+             setUser(response.user);
+             setBrotherhoods(response.brotherhoods);
+             setEvents(response.events)
+         }).catch(error => history.push('/login'));
+               
+    },[token, history]);
+        if(!user || !brotherhoods || !events) return null
+    
+    return (
+        <>
+        {loaded && 
+        (
                 <main>
                     
                     <Header />
-                    <TopView user= {user} />
+                    <TopView user={user} />
                     <div className='dash-menu'>
                         <div>
                             <form action="http://localhost:3000/dashboard/wines" method="GET">
@@ -75,7 +81,6 @@ export default function Dashboard(){
                             </form>
                         </div>
 
-
                     </div>
 
                     <Brotherhoods brotherhoods={brotherhoods}/>
@@ -85,13 +90,8 @@ export default function Dashboard(){
                     <Footer />
 
                 </main>
-            </body>
-            
-
-
-        
-
-        </html>
+        )
+    }</>
     )
 }
 
