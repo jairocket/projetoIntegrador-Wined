@@ -4,7 +4,6 @@ import {IoIosArrowDown} from 'react-icons/io'
 // import {IoIosArrowUp} from 'react-icons/io'
 
 export default function Brotherhood(props){
-    console.log(props)
 
     return(
         <section className='brotherhood-section'>
