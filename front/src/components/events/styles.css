@@ -1,0 +1,9 @@
+.event-list{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.event-link{
+    margin: 15px 30px;
+}

@@ -27,11 +27,9 @@ export default function Dashboard(){
         setLoad(true)
     }, [user, brotherhoods, events])
 
-
      useEffect(()=>{
-
         setToken(Cookies.get('token'));
-        
+   
      },[])
     
 
@@ -78,10 +76,18 @@ export default function Dashboard(){
 
                     </div>
 
-                    <Brotherhoods brotherhoods={brotherhoods}/>
-                    <div className= 'dash-events'>
-                        <p>Eventos</p><IoIosArrowDown/>
-                    </div>
+                    <section className="dash-brotherhoods">
+                        <div className='dash-brotherhoods-title'>
+                            <h4>Minhas Confrarias</h4> <IoIosArrowDown/>
+                        </div>
+                        <Brotherhoods brotherhoods={brotherhoods}/>
+                    </section>
+                    <section className= 'dash-events'>
+                        <div className='dash-events-title'>
+                            <h4>Próximos Encontros</h4> <IoIosArrowDown/>
+                        </div>
+                    </section>
+                    
                     <Footer />
 
                 </main>
