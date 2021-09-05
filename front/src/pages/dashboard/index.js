@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom'
 import Header from '../../components/Header'
 import TopView from '../../components/top-view'
 import Brotherhoods from '../../components/brotherhoods'
+import Events from '../../components/events'
 import Button from '../../components/red-button'
 import Footer from '../../components/Footer'
 
@@ -86,6 +87,7 @@ export default function Dashboard(){
                         <div className='dash-events-title'>
                             <h4>Próximos Encontros</h4> <IoIosArrowDown/>
                         </div>
+                        <Events events={events} />
                     </section>
                     
                     <Footer />
