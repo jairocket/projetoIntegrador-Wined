@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom'
 import Header from '../../components/Header'
 import TopView from '../../components/top-view'
 import Brotherhoods from '../../components/brotherhoods'
+import Events from '../../components/events'
 import Button from '../../components/red-button'
 import Footer from '../../components/Footer'
 
@@ -27,11 +28,9 @@ export default function Dashboard(){
         setLoad(true)
     }, [user, brotherhoods, events])
 
-
      useEffect(()=>{
-
         setToken(Cookies.get('token'));
-        
+   
      },[])
     
 
@@ -78,10 +77,19 @@ export default function Dashboard(){
 
                     </div>
 
-                    <Brotherhoods brotherhoods={brotherhoods}/>
-                    <div className= 'dash-events'>
-                        <p>Eventos</p><IoIosArrowDown/>
-                    </div>
+                    <section className="dash-brotherhoods">
+                        <div className='dash-brotherhoods-title'>
+                            <h4>Minhas Confrarias</h4> <IoIosArrowDown/>
+                        </div>
+                        <Brotherhoods brotherhoods={brotherhoods}/>
+                    </section>
+                    <section className= 'dash-events'>
+                        <div className='dash-events-title'>
+                            <h4>Próximos Encontros</h4> <IoIosArrowDown/>
+                        </div>
+                        <Events events={events} />
+                    </section>
+                    
                     <Footer />
 
                 </main>
