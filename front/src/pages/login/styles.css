@@ -65,4 +65,14 @@
 
 span{
     color: red;
+    font-style: oblique;
+    font-size: 12px;
+}
+
+.error{
+    display: none;
+}
+
+.show{
+    display: block;
 }

@@ -14,7 +14,7 @@ import { useState } from 'react'
     const [description, setDescription] = useState('');
     return(
         <html lang="pt-BR">
-            <head>
+            {/* <head>
                 <meta charset="UTF-8"/>
                 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -22,7 +22,7 @@ import { useState } from 'react'
                 <link rel="preconnect" href="https://fonts.gstatic.com"/>
                 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,700&family=Roboto:wght@400;500&display=swap" rel="stylesheet"/>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-            </head>
+            </head> */}
             <body>
                 <main className="signup-main">
                     <section>
