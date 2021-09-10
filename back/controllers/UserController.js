@@ -74,17 +74,22 @@ let UserController = {
                         expiresIn: "20m"
                     })
                     return res.json({auth: true, token: token, user: req.session.user})
-                    res.redirect('/dashboard');
+                    //res.redirect('/dashboard');
             } else {
                 req.flash('error', "Senha incorreta!")
-                return res.status(500).json({message: 'Login Inválido'})
-                res.render('login', {old: req.body})
+                return res.status(500).json({message: 'Senha incorreta!'})
+                //res.render('login', {old: req.body})
             }
         } else {
-            console.log(errorsList)
-            res.render("login", {errors: errorsList.errors, old: req.body});
+            // console.log(errorsList)
+            let error = errorsList.errors
+            console.log(error)
+            return res.status(500).json({message: 'E-mail não cadastrado!'})
+            // res.render("login", {errors: errorsList.errors, old: req.body});
         }   
-    }, getUser: async (req, res) =>{
+    }, 
+    
+    getUser: async (req, res) =>{
         let id = req.session.user.id;
         const user = await db.User.findByPk(id, {
             attributes: [
