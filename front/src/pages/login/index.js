@@ -13,7 +13,7 @@ export default function Login(){
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const [typePass, setTypePass] = useState('password'); 
+    const [typePass, setTypePass] = useState('password'); 
     const history = useHistory()
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] =useState('');
@@ -22,13 +22,13 @@ export default function Login(){
 
 
 
-    // function togglePassword(){
-    //     if(typePass === 'password'){
-    //         setTypePass('text')
-    //     }else{
-    //         setTypePass('password')
-    //     }
-    // }
+    function togglePassword(){
+        if(typePass === 'password'){
+            setTypePass('text')
+        }else{
+            setTypePass('password')
+        }
+    }
 
     async function HandleSubmit(e){
         e.preventDefault()
@@ -90,16 +90,18 @@ export default function Login(){
                                     onChange={(e)=> setPassword(e.target.value)}
                                     id="password"
                                     placeholder="Senha"
-                                    type="password"
-                                    // type={ typePass }
+                                    // type="password"
+                                    type={ typePass }
                                 />                   
-                                {/* <i 
-                                    className="bi bi-eye-slash" 
-                                    id="togglePassword" 
+                                <ion-icon 
+                                    name="eye-off-outline"
+                                    // className="bi bi-eye-slash" 
+                                    // id="togglePassword" 
                                     onClick={togglePassword}
+                                    
                                 >
 
-                                </i> */}
+                                </ion-icon>
      
                             </label>
                             <span>{passwordError}</span>
@@ -142,6 +144,8 @@ export default function Login(){
 
     </main>
     <script type="text/javascript" src="../js/togglePassword.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
     )
