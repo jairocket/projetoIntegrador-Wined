@@ -48,7 +48,7 @@
 }
 
 .login-signup > a{
-    color: #b71f39;;
+    color: #b71f39;
 }
 
 #login-forgot{
@@ -63,3 +63,6 @@
     font-weight: 500;   
 }
 
+span{
+    color: red;
+}

@@ -3,17 +3,21 @@ import './styles.css'
 import logo from './assets/images/logo-wined.svg'
 import Button from '../../components/red-button'
 // import PasswordInput from '../../components/password-input'
-import { useState } from 'react';
+import {  useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import Cookie from "js-cookie"
 
 
 export default function Login(){
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [typePass, setTypePass] = useState('password'); 
     const history = useHistory()
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] =useState('')
+
     function togglePassword(){
         if(typePass === 'password'){
             setTypePass('text')
@@ -22,19 +26,24 @@ export default function Login(){
         }
     }
 
-    async function handleSubmit(e){
+    async function HandleSubmit(e){
         e.preventDefault()
+        setEmailError('');
+        setPasswordError('');
         try{
             const result = await axios.post('http://localhost:3333/login', {email, password});
             Cookie.set('token', result.data.token);
-            // let token = Cookie.get('token')
-            // window.sessionStorage.setItem('token', result.data.token)
-            // console.log(token)
             history.push('/dashboard')    
-        } catch(error) {
-             console.log(error)
-        }  
-            
+        } 
+        catch(error) {
+            if(error.response.data.message === 'E-mail não cadastrado!'){
+                setEmailError(error.response.data.message);
+                
+            }
+            if(error.response.data.message === 'Senha incorreta!'){
+                setPasswordError(error.response.data.message);
+            }
+        }         
     }    
     
     return(   
@@ -45,7 +54,7 @@ export default function Login(){
                         <img src={logo} alt="logo-wined"/>
                     </div>
       
-                    <form  className="formulario" onSubmit={handleSubmit} >
+                    <form  className="formulario" onSubmit={HandleSubmit} >
                         <div className="login-input">
                             <label>
                                 <input 
@@ -54,7 +63,8 @@ export default function Login(){
                                     value={ email } onChange={(e)=> setEmail(e.target.value)} 
                                     id="email" placeholder="E-mail" 
                                 />
-                            </label>   
+                            </label> 
+                            <span>{emailError}</span>  
                         </div>
                         {/* <PasswordInput /> */}
                         <div className="password-input">
@@ -74,7 +84,9 @@ export default function Login(){
                                 >
 
                                 </i>
-                            </label>    
+                                
+                            </label>
+                            <span>{passwordError}</span>     
                         </div>
 
                     <div id="login-forgot">

@@ -10,6 +10,14 @@
     font-weight: 500;
 }
 
-.brotherhood-link{
-    margin: 15px 30px;
+.brotherhood-list{
+    display: flex;
+    flex-direction: column;
+    padding-left: 25px;
+}
+
+.brotherhood-list > a{
+    margin: 7.5px;
+    font-weight: 400;
+    
 }

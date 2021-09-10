@@ -30,22 +30,20 @@ export default function Dashboard(){
 
      useEffect(()=>{
         setToken(Cookies.get('token'));
-   
      },[])
     
-
     useEffect(()=>{
         fetch('http://localhost:3333/dashboard',{
             headers: {authorization: `Bearer ${token}`}
-        })
-        .then(response => response.json())
-         .then(response=>{
-             setUser(response.user);
-             setBrotherhoods(response.brotherhoods);
-             setEvents(response.events)
-         }).catch(error => history.push('/login'));
-               
+        }).then(
+            response => response.json()).then(
+                response=>{
+                    setUser(response.user);
+                    setBrotherhoods(response.brotherhoods);
+                    setEvents(response.events)}).catch(
+                        error => history.push('/login'));          
     },[token, history]);
+
         if(!user || !brotherhoods || !events) return null
     
     return (
