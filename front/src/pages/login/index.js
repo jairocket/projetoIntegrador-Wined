@@ -19,7 +19,7 @@ export default function Login(){
     const [passwordError, setPasswordError] =useState('');
     const [mailErr, setMailErr] = useState('error')
     const [passErr, setPassErr] = useState('error')
-
+    const [slash, setSlash] = useState('bi-eye-slash')
 
 
     function togglePassword(){
@@ -28,11 +28,11 @@ export default function Login(){
         }else{
             setTypePass('password')
         }
+        slash === 'bi-eye-slash'? setSlash('bi-eye'): setSlash('bi-eye-slash')
     }
 
     async function HandleSubmit(e){
         e.preventDefault()
-        
         setEmailError('');
         setPasswordError('');
         setMailErr('error');
@@ -61,53 +61,41 @@ export default function Login(){
     }    
     
     return(   
-        <body>
-            <main className="login-main">
-                <section className = "loginForm">
-                    <div className="logo">
-                        <img src={logo} alt="logo-wined"/>
-                    </div>
+        <div className="login-main">
+            <section className = "loginForm">
+                <div className="logo">
+                    <img src={logo} alt="logo-wined"/>
+                </div>
       
-                    <form  className="formulario" onSubmit={HandleSubmit} >
-                        <div className="login-input">
-                            <label>
-                                <input 
-                                    type="text" 
-                                    name="email" 
-                                    value={ email } onChange={(e)=> setEmail(e.target.value)} 
-                                    id="email" placeholder="E-mail" 
-                                />
-                            </label> 
-                            <span>{emailError}</span>
-                            <span className={mailErr}>Por favor, informe seu e-mail!</span>  
-                        </div>
-                        {/* <PasswordInput /> */}
-                        <div className="password-input">
-                            <label>
-                                <input 
-                                    name="password"
-                                    value={ password } 
-                                    onChange={(e)=> setPassword(e.target.value)}
-                                    id="password"
-                                    placeholder="Senha"
-                                    // type="password"
-                                    type={ typePass }
-                                />                   
-                                <ion-icon 
-                                    name="eye-off-outline"
-                                    // className="bi bi-eye-slash" 
-                                    // id="togglePassword" 
-                                    onClick={togglePassword}
-                                    
-                                >
-
-                                </ion-icon>
-     
-                            </label>
-                            <span>{passwordError}</span>
-                            <span className={passErr}>Por favor, informe sua senha!</span>      
-                        </div>
-
+                <form  className="formulario" onSubmit={HandleSubmit} >
+                    <div className="login-input">
+                        <label>
+                            <input 
+                                type="text" 
+                                name="email" 
+                                value={ email } onChange={(e)=> setEmail(e.target.value)} 
+                                id="email" placeholder="E-mail" 
+                            />
+                        </label> 
+                        <span>{emailError}</span>
+                        <span className={mailErr}>Por favor, informe seu e-mail!</span>  
+                    </div>
+                    {/* <PasswordInput /> */}
+                    <div className="password-input">
+                        <label>
+                            <input 
+                                name="password"
+                                value={ password } 
+                                onChange={(e)=> setPassword(e.target.value)}
+                                id="password"
+                                placeholder="Senha"
+                                type={ typePass }
+                            />                   
+                            <i className={slash} id="togglePassword" onClick={togglePassword}></i>
+                        </label>
+                        <span>{passwordError}</span>
+                        <span className={passErr}>Por favor, informe sua senha!</span>      
+                    </div>
                     <div id="login-forgot">
                         <a href="/login/password" className="text-montserrat">Esqueceu a senha?</a>
                     </div>
@@ -142,11 +130,9 @@ export default function Login(){
         </div> 
     </section>
 
-    </main>
-    <script type="text/javascript" src="../js/togglePassword.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</body>
+    </div>
+
+
 
     )
 }
