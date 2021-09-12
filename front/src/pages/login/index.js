@@ -1,12 +1,13 @@
-
 import './styles.css'
 import logo from './assets/images/logo-wined.svg'
+
 import Button from '../../components/red-button'
-// import PasswordInput from '../../components/password-input'
+
 import {  useState } from 'react';
 import { useHistory } from 'react-router-dom';
+
 import axios from 'axios';
-import Cookie from "js-cookie"
+import Cookie from "js-cookie";
 
 
 export default function Login(){
@@ -23,11 +24,7 @@ export default function Login(){
 
 
     function togglePassword(){
-        if(typePass === 'password'){
-            setTypePass('text')
-        }else{
-            setTypePass('password')
-        }
+        typePass === 'password'? setTypePass('text'): setTypePass('password')
         slash === 'bi-eye-slash'? setSlash('bi-eye'): setSlash('bi-eye-slash')
     }
 
@@ -80,7 +77,7 @@ export default function Login(){
                         <span>{emailError}</span>
                         <span className={mailErr}>Por favor, informe seu e-mail!</span>  
                     </div>
-                    {/* <PasswordInput /> */}
+                   
                     <div className="password-input">
                         <label>
                             <input 

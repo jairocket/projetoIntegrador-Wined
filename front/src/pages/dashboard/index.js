@@ -22,7 +22,12 @@ export default function Dashboard(){
     const [ events, setEvents ] = useState([]);
     const [ token, setToken ] = useState('');
     const [ loaded, setLoad ] = useState(false);
+    // const [ arrow, setArrow ] = useState('IoIosArrowDown');
     const history = useHistory();
+
+    // function arrowSetter(){
+    //     arrow === 'IoIosArrowDown'? setArrow('IoIosArrowUp'): setArrow('IoIosArrowDown')
+    // }
 
     useEffect(()=>{
         setLoad(true)
@@ -40,8 +45,9 @@ export default function Dashboard(){
                 response=>{
                     setUser(response.user);
                     setBrotherhoods(response.brotherhoods);
-                    setEvents(response.events)}).catch(
-                        error => history.push('/login'));          
+                    setEvents(response.events);                     
+                }).catch(
+                    error => history.push('/login'));          
     },[token, history]);
 
         if(!user || !brotherhoods || !events) return null
