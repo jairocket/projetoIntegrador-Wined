@@ -34,10 +34,14 @@ export default function Login(){
         setPasswordError('');
         setMailErr('error');
         setPassErr('error')
-        if(!email) {
+        if(!email && !password) {
             setMailErr('show')
+            setPassErr('show')
         }else if(!password){
             setPassErr('show')
+        }else if(!email){
+            setMailErr('show')
+            
         }else{
             try{
                 const result = await axios.post('http://localhost:3333/login', {email, password});

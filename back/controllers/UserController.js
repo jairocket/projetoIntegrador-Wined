@@ -58,7 +58,6 @@ let UserController = {
             const usr = await db.User.findOne({
                 where: {email}
             });
-
             if ((usr.email == email) && (bcrypt.compareSync(password, usr.password))){
                     const profile = {
                         name: usr.name,
@@ -73,19 +72,15 @@ let UserController = {
                     const token = jwt.sign({id: profile.id}, process.env.SECRET, {
                         expiresIn: "20m"
                     })
-                    return res.json({auth: true, token: token, user: req.session.user})
-                    //res.redirect('/dashboard');
+                    return res.json({auth: true, token: token}) //res.redirect('/dashboard');
             } else {
                 req.flash('error', "Senha incorreta!")
-                return res.status(500).json({message: 'Senha incorreta!'})
-                //res.render('login', {old: req.body})
+                return res.status(500).json({message: 'Senha incorreta!'}) //res.render('login', {old: req.body})   
             }
         } else {
-            // console.log(errorsList)
             let error = errorsList.errors
             console.log(error)
-            return res.status(500).json({message: 'E-mail não cadastrado!'})
-            // res.render("login", {errors: errorsList.errors, old: req.body});
+            return res.status(500).json({message: 'E-mail não cadastrado!'})  // res.render("login", {errors: errorsList.errors, old: req.body});  
         }   
     }, 
     
