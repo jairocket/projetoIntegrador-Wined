@@ -20,17 +20,9 @@ export default function Dashboard(){
     const [ user, setUser] = useState({name: '', surname: '', description:'', avatar_picture: '', background_picture: ''});
     const [ brotherhoods, setBrotherhoods ] = useState([]);
     const [ events, setEvents ] = useState([]);
-    const [ token, setToken ] = useState('');
-    const [ loaded, setLoad ] = useState(false);
+    const token = Cookies.get('token')
+
     const history = useHistory();
-
-    useEffect(()=>{
-        setLoad(true)
-    }, [user, brotherhoods, events])
-
-     useEffect(()=>{
-        setToken(Cookies.get('token'));
-     },[])
     
     useEffect(()=>{
         fetch('http://localhost:3333/dashboard',{
@@ -40,16 +32,15 @@ export default function Dashboard(){
                 response=>{
                     setUser(response.user);
                     setBrotherhoods(response.brotherhoods);
-                    setEvents(response.events)}).catch(
-                        error => history.push('/login'));          
+                    setEvents(response.events);                     
+                }).catch(
+                    error => history.push('/login'));          
     },[token, history]);
 
         if(!user || !brotherhoods || !events) return null
     
     return (
-        <>
-        {loaded && 
-        (
+       
                 <main>
                     <Header />
                     <TopView user={user} />
@@ -91,8 +82,7 @@ export default function Dashboard(){
                     <Footer />
 
                 </main>
-        )
-    }</>
+  
     )
 }
 

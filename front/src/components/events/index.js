@@ -6,8 +6,8 @@ export default function Events(props){
     return(  
             
             <div className='events-list'>
-               {props.events.map((item)=> 
-                <div>
+               {props.events.map((item, i)=> 
+                <div key={i}>
                     <div>
                         <h5 >{item.name}</h5>
                     </div>

@@ -13,12 +13,12 @@
 
 .login-input > label > input{
     background: #E5E5E5;
-    height: 30px;
+    height: 35px;
     border-radius: 4px;
     width: 100%;
     padding-left: 18px;
     font-family: 'Roboto', sans-serif;
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
 #login-submit{
@@ -65,4 +65,14 @@
 
 span{
     color: red;
+    font-style: oblique;
+    font-size: 12px;
+}
+
+.error{
+    display: none;
+}
+
+.show{
+    display: block;
 }
