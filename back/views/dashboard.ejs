@@ -4,7 +4,7 @@
 <main>
     <div class="main">
         <section class="profileInfo">
-            <%- include('partials/topView.ejs') %>
+            <%- include('./partials/topView.ejs') %>
             <div class="userDescription">
                 <p><%= user.description %></p>
             </div>
@@ -79,6 +79,6 @@
 
 <%- include('./partials/footer')  %>  
 
-<script src='../js/dashboard.js'></script>
-<script src='../views/partials/topView.ejs'></script>
+<script src='../public/js/dashboard.js'></script>
+<script src='../public/js/topView.js'></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

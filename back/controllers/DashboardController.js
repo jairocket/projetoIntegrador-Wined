@@ -44,7 +44,7 @@ const DashboardController = {
   },
 
   getWines: async (req, res) => {
-    // const avatar = req.session.user.avatar_picture
+    const avatar = req.session.user.avatar_picture;
     const membersBrotherhoods = await DashboardService.getMembers(req, res);
     const wines = await DashboardService.getWines(req, res);
     const user = await UserController.getUser(req, res);

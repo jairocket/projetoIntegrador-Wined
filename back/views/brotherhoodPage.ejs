@@ -1,319 +1,384 @@
 <%- include('./partials/header') %>
 
-    <main>
-        <section class="dash">
-            <%- include('./partials/topview') %>
-                <div class="userDescription">
-                    <p>
-                        <%= user.description %>
-                    </p>
-                </div>
-                <div class="members">
-                    <h5>Confrades</h5>
-                    <% brotherhood.members.forEach((member)=>{ %>
-                        <div class="member">
-                            <a href="/perfil/<%= member.id %>">
-                                <% if(member.avatar_picture) { %>
-                                    <img src="../images/uploads/<%= member.avatar_picture %>" alt="">
-                                <% } else { %>
-                                    <img src="../../images/profile-picture.svg" alt="Foto de perfil" id="profile-picture-src">
-                                <% } %>
-                            </a>
-                            <div>
-                                <a href="/perfil/<%= member.id %>">
-                                    <%= member.name %>
-                                        <%= member.surname %>
-                                </a><br>
-                            </div>
-                        </div>
-                        <% }) %>
-                </div>
-                <div class="events  ">
-                    <h5>Reuniões</h5>
-                    <% events.forEach(event => { %>
-                        <div id='event'>
-                            <div id='event-title'>
-                                <h6>Evento <%= event.name %> </h6>
-                            </div>
-                            <div>
-                                <p>
-                                    <%= event.street %>, <%= event.number %>, <%= event.complement %>. <br>
-                                    <%= event.city %>/ <%= event.state %> <br>
-                                    CEP <%= event.cep %> 
-                                 </p>
-                            </div>
-                            <div>
-                                <p>
-                                    Nos vemos dia <%= event.date %> às <%= event.time %>
-                                </p>
-                            </div>
-                            <div id='event-menu'>
-                                <form action="/confraria/evento/deletar/<%= event.id %>?_method=DELETE" method="POST">
-                                    <button type="submit">Cancelar</button>                                
-                                </form>
-                                <button>
-                                    <a href="/confraria/evento/editar/<%= event.id %>">Editar</a>
-                                </button>
-                                
-                            </div>
-                        </div>
-    
+<main>
+  <section class="dash">
+    <%- include('./partials/topView.ejs') %>
+    <div class="userDescription">
+      <p><%= user.description %></p>
+    </div>
+    <div class="members">
+      <h5>Confrades</h5>
+      <% brotherhood.members.forEach((member)=>{ %>
+      <div class="member">
+        <a href="/perfil/<%= member.id %>">
+          <% if(member.avatar_picture) { %>
+          <img src="../images/uploads/<%= member.avatar_picture %>" alt="" />
+          <% } else { %>
+          <img
+            src="../../images/profile-picture.svg"
+            alt="Foto de perfil"
+            id="profile-picture-src"
+          />
+          <% } %>
+        </a>
+        <div>
+          <a href="/perfil/<%= member.id %>">
+            <%= member.name %> <%= member.surname %> </a
+          ><br />
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <div class="events">
+      <h5>Reuniões</h5>
+      <% events.forEach(event => { %>
+      <div id="event">
+        <div id="event-title">
+          <h6>Evento <%= event.name %></h6>
+        </div>
+        <div>
+          <p>
+            <%= event.street %>, <%= event.number %>, <%= event.complement %>.
+            <br />
+            <%= event.city %>/ <%= event.state %> <br />
+            CEP <%= event.cep %>
+          </p>
+        </div>
+        <div>
+          <p>Nos vemos dia <%= event.date %> às <%= event.time %></p>
+        </div>
+        <div id="event-menu">
+          <form
+            action="/confraria/evento/deletar/<%= event.id %>?_method=DELETE"
+            method="POST"
+          >
+            <button type="submit">Cancelar</button>
+          </form>
+          <button>
+            <a href="/confraria/evento/editar/<%= event.id %>">Editar</a>
+          </button>
+        </div>
+      </div>
 
-                    <% }); %>
-                </div>
-        </section>
-        <section class="confraria">
-            <div class="cover">
-                <% if(brotherhood.brotherhood_picture) { %>
-                    <img class="confraria-cover" src="../images/uploads/<%= brotherhood.brotherhood_picture %>" alt="confraria-cover">
-                <% } else { %>
-                    <img class="confraria-cover" src="../images/brotherhood-picture.svg" alt="confraria-cover">
-                <% } %>
-            </div>
-            <section class="settings">
-                <div class="confraria-title">
-                    <h2>
-                        <%= brotherhood.name %> >
-                    </h2>
-                    <div>
-                        <p>Since: <%= brotherhood.since %></p>
-                        <img src="../images/dot.svg" alt="dot-separation">
-                        <p>
-                            <%= count %> Confrades
-                        </p>
-                    </div>
-                </div>
-                <div class="brotherhoodMenu">
-                    <!-- <a href="/confraria/eventos/<%= brotherhood.id %>">
+      <% }); %>
+    </div>
+  </section>
+  <section class="confraria">
+    <div class="cover">
+      <% if(brotherhood.brotherhood_picture) { %>
+      <img
+        class="confraria-cover"
+        src="../images/uploads/<%= brotherhood.brotherhood_picture %>"
+        alt="confraria-cover"
+      />
+      <% } else { %>
+      <img
+        class="confraria-cover"
+        src="../images/brotherhood-picture.svg"
+        alt="confraria-cover"
+      />
+      <% } %>
+    </div>
+    <section class="settings">
+      <div class="confraria-title">
+        <h2><%= brotherhood.name %> ></h2>
+        <div>
+          <p>Since: <%= brotherhood.since %></p>
+          <img src="../images/dot.svg" alt="dot-separation" />
+          <p><%= count %> Confrades</p>
+        </div>
+      </div>
+      <div class="brotherhoodMenu">
+        <!-- <a href="/confraria/eventos/<%= brotherhood.id %>">
                         <p>Agenda</p>
                     </a> -->
-                    <% user.chancellor.forEach((chancellor)=>{ %>
-                        <% if (chancellor.chancellor){ %>
-                            <a href="editar/<%= brotherhood.id %>">
-                                <p>Editar</p>
-                            </a>
-                        <% } %>
-                    <% }) %>
-                    
-                    <p>  </p> 
+        <% user.chancellor.forEach((chancellor)=>{ %> <% if
+        (chancellor.chancellor){ %>
+        <a href="editar/<%= brotherhood.id %>">
+          <p>Editar</p>
+        </a>
+        <% } %> <% }) %>
 
-                    <form action="/confraria/editar/delete/<%= brotherhood.id %>/<%= user.id %>?_method=DELETE"
-                        method="POST">
-                        <button type="submit" id='leaveBrotherhood'>Deixar Confraria</button>
-                    </form>
-                </div>
-            </section>
+        <p></p>
 
-            <div class="description">
-                <p>
-                    <%= brotherhood.description %>
-                </p>
+        <form
+          action="/confraria/editar/delete/<%= brotherhood.id %>/<%= user.id %>?_method=DELETE"
+          method="POST"
+        >
+          <button type="submit" id="leaveBrotherhood">Deixar Confraria</button>
+        </form>
+      </div>
+    </section>
+
+    <div class="description">
+      <p><%= brotherhood.description %></p>
+    </div>
+
+    <section class="create-post-section">
+      <div class="write-post">
+        <img src="../images/avatar-icon.svg" alt="avatar" />
+        <div
+          class="write-postPrompt"
+          aria-labelledby="write-post"
+          aria-multiline="true"
+          role="textbox"
+          contenteditable="true"
+          aria-placeholder="Compartilhe sua experiência"
+        ></div>
+      </div>
+
+      <div class="upload-media-post">
+        <div>
+          <button type="button" id="p-btn">
+            <img src="../images/add-picture.svg" alt="add-video" />Midia
+          </button>
+        </div>
+        <section class="upload-media-separator"></section>
+        <div>
+          <a href="/confraria/eventos/<%= brotherhood.id %>" id="event-btn">
+            <img src="../images/event.svg" alt="add-event" />Evento</a
+          >
+        </div>
+        <section class="upload-media-separator"></section>
+        <div>
+          <button type="button" id="btn">
+            <img src="../images/post.svg" alt="add-video" />Enviar
+          </button>
+        </div>
+      </div>
+    </section>
+    <div id="postPicForm" class="postPicForm">
+      <form
+        action="/confraria/post/pictures/<%= brotherhood.id %>"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div id="text-box">
+          <img src="../images/avatar-icon.svg" alt="avatar" />
+          <label for="content" id="contents">
+            <input type="text" name="content" id="content" />
+          </label>
+        </div>
+
+        <div id="midia-menu">
+          <button type="button" id="cancel">
+            <img src="../images/VectorX.svg" alt="avatar" />Cancelar
+          </button>
+          <section class="upload-media-separator"></section>
+          <label for="pictures" id="picture"
+            ><img src="../images/add-picture.svg" alt="add-midia" />Midia</label
+          >
+          <input
+            type="file"
+            name="pictures"
+            id="pictures"
+            accept=".mp4, image/*"
+          />
+          <section class="upload-media-separator"></section>
+          <button type="submit" id="submit">
+            <img src="../images/post.svg" alt="add-post" />Enviar
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="preview-posts post" id="preview-posts">
+      <img src="" alt="" id="image-src" />
+
+      <video width="820" height="478" controls id="video-src">
+        <source src="" type="video/mp4" />
+      </video>
+    </div>
+    <section class="posts-filter" id="posts-filter">
+      <div>
+        <% posts.forEach((post)=>{ %>
+        <div class="post">
+          <div class="hidden"><%= post.id %></div>
+          <div class="post-header">
+            <img
+              src="../images/uploads/<%= post.author.avatar_picture %>"
+              alt=""
+            />
+            <h6><%= post.author.name %> <%= post.author.surname %></h6>
+          </div>
+          <div class="post-content">
+            <p><%= post.content %></p>
+
+            <% if(post.midia){ %> <% if(post.midia.midia_type == 'image'){ %>
+            <img src="../images/uploads/<%= post.midia.midia_path %>" alt="" />
+            <% }else if(post.midia.midia_type == 'video'){ %>
+            <video width="820" height="478" controls>
+              <source
+                src="../images/uploads/<%= post.midia.midia_path %>"
+                type="video/mp4"
+              />
+            </video>
+            <% } %> <% } %>
+          </div>
+
+          <div class="postMenu">
+            <div class="cheers">
+              <% if(post.reactions.length > 0){ %>
+              <button type="button" class="s-btn">
+                <%= post.reactions.length %>
+              </button>
+              <% } else{%>
+              <button type="button" class="s-btn" id="hidden3">
+                <%= post.reactions.length %>
+              </button>
+              <% } %> <% if(post.reactions.some(reaction => reaction.users_id
+              === user.id )){ %>
+              <button type="button" class="r-btn" id="reacted">Cheers!</button>
+              <% } else { %>
+              <button type="button" class="r-btn">Cheers!</button>
+              <% } %>
             </div>
 
-            <section class="create-post-section">
+            <button type="button" class="h-btn">Comentários</button>
+            <% if( post.author.id == user.id ){ %>
+            <button type="button" class="e-btn">Editar</button>
+            <button type="button" class="d-btn">Deletar</button>
+            <% }else{ %>
+            <button type="button" class="e-btn" id="hidden3">Editar</button>
+            <button type="button" class="d-btn" id="hidden3">Deletar</button>
+            <% } %>
+          </div>
+        </div>
+        <div class="edit-comment">
+          <img src="../images/avatar-icon.svg" alt="avatar" />
+          <div
+            class="edit-commentPrompt"
+            aria-labelledby="edit-comment"
+            aria-multiline="true"
+            role="textbox"
+            contenteditable="true"
+            aria-placeholder="Compartilhe sua experiência"
+            id="commentPrompt"
+          ></div>
+          <div>
+            <button type="button" class="edit-btn">
+              <img src="../images/post.svg" alt="add-video" />Enviar
+            </button>
+          </div>
+        </div>
+        <% if(post.reactions){ %>
+        <div class="reactions">
+          <% post.reactions.forEach(user => {%>
+          <p><%= user.users.name %></p>
+          <% }) %>
+        </div>
+        <% }else{ %>
+        <div class="reactions"></div>
 
-                <div class="write-post">
-                    <img src="../images/avatar-icon.svg" alt="avatar">
-                    <div class="write-postPrompt" aria-labelledby="write-post" aria-multiline="true" role="textbox"
-                        contenteditable="true" aria-placeholder="Compartilhe sua experiência">
-                    </div>
-                </div>
-
-                <div class="upload-media-post">
-                    <div>
-                        <button type="button" id="p-btn"> <img src="../images/add-picture.svg" alt="add-video">Midia</button>
-                    </div>
-                    <section class="upload-media-separator"></section>
-                    <div>
-                        <a href="/confraria/eventos/<%= brotherhood.id %>" id="event-btn"> <img src="../images/event.svg" alt="add-event">Evento</a>
-                    </div>
-                    <section class="upload-media-separator"></section>
-                    <div>
-                        <button type="button" id="btn"> <img src="../images/post.svg" alt="add-video">Enviar</button>
-                    </div>
-                </div>
-            </section>
-            <div id="postPicForm" class="postPicForm">
-                
-                <form action="/confraria/post/pictures/<%= brotherhood.id %>" method="POST" enctype="multipart/form-data">
-                    <div id="text-box">
-                        <img src="../images/avatar-icon.svg" alt="avatar">
-                        <label for="content" id ="contents">
-                            <input type="text" name="content" id="content">
-                        </label>
-                    </div>
-
-                    <div id="midia-menu">
-                        <button type="button" id="cancel"><img src="../images/VectorX.svg" alt="avatar">Cancelar</button>
-                        <section class="upload-media-separator"></section>
-                        <label for="pictures" id="picture"><img src="../images/add-picture.svg" alt="add-midia">Midia</label>
-                            <input type="file" name="pictures" id="pictures" accept=".mp4, image/*" >
-                            <section class="upload-media-separator"></section>
-                        <button type="submit" id="submit"><img src="../images/post.svg" alt="add-post">Enviar</button>
-                    </div>                    
-                </form>
+        <%}%>
+        <div class="comments">
+          <div class="create-comment">
+            <div class="write-comment">
+              <img src="../images/avatar-icon.svg" alt="avatar" />
+              <div
+                class="write-commentPrompt"
+                aria-labelledby="write-comment"
+                aria-multiline="true"
+                role="textbox"
+                contenteditable="true"
+                aria-placeholder="Compartilhe sua experiência"
+                id="commentPrompt"
+              ></div>
+              <div>
+                <button type="button" class="c-btn">
+                  <img src="../images/post.svg" alt="add-video" />Enviar
+                </button>
+              </div>
             </div>
-            <div class="preview-posts post" id="preview-posts">
-                <img src="" alt="" id="image-src">
-                
-                <video width="820" height="478" controls id="video-src">
-                    <source src="" type ="video/mp4">
-                </video>
-            </div>
-            <section class="posts-filter" id="posts-filter">
-                <div>
-                    <% posts.forEach((post)=>{ %>
-                        <div class="post">
-                            <div class="hidden">
-                                <%= post.id %>
-                            </div>
-                            <div class="post-header">
-                                <img src="../images/uploads/<%= post.author.avatar_picture %>" alt="">
-                                <h6>
-                                    <%= post.author.name %> <%= post.author.surname %>
-                                </h6>
-                            </div>
-                            <div class="post-content">
-                                <p>
-                                    <%= post.content %>
-                                </p>
-                                
-                                <% if(post.midia){ %>
-                                    <% if(post.midia.midia_type == 'image'){ %>
-                                        <img src="../images/uploads/<%= post.midia.midia_path %>" alt="">
-                                    <% }else if(post.midia.midia_type == 'video'){ %>
-                                        <video width="820" height="478" controls>
-                                            <source src="../images/uploads/<%= post.midia.midia_path %>" type ="video/mp4">
-                                        </video>
-                                    <% } %>
-                                <% } %>
-                                       
-                            </div>
-                            
-                            <div class='postMenu'>
-                                <div class="cheers">
-                                    <% if(post.reactions.length > 0){ %>
-                                        <button type="button" class= "s-btn"><%= post.reactions.length %></button>
-                                    <% } else{%>
-                                        <button type="button" class="s-btn" id="hidden3"><%= post.reactions.length %></button>
-                                    <% } %>   
-                                    <% if(post.reactions.some(reaction => reaction.users_id === user.id )){ %>
-                                        <button type="button" class= "r-btn" id= "reacted">Cheers!</button> 
-                                    <% } else { %>                                
-                                        <button type="button" class= "r-btn" >Cheers!</button> 
-                                    <% } %>   
-                                </div>
+          </div>
+          <div>
+            <% if(post.comments.length> 0){ %> <%
+            post.comments.forEach((comment)=>{ %>
+            <div class="hidden2"><%= comment.post_id %></div>
 
-                                <button type="button" class= "h-btn">Comentários</button>
-                                <% if( post.author.id == user.id ){ %>
-                                    <button type="button" class= "e-btn">Editar</button>
-                                    <button type="button" class= "d-btn">Deletar</button>   
-                                <% }else{ %>
-                                    <button type="button" class= "e-btn" id="hidden3">Editar</button>
-                                    <button type="button" class= "d-btn" id="hidden3">Deletar</button> 
-                                <% } %>
-                                                            
-                            </div>
-                        </div>
-                        <div class="edit-comment">
-                            <img src="../images/avatar-icon.svg" alt="avatar">
-                            <div class="edit-commentPrompt" aria-labelledby="edit-comment"
-                                aria-multiline="true" role="textbox" contenteditable="true"
-                                aria-placeholder="Compartilhe sua experiência" id="commentPrompt">
-                            </div>
-                            <div>
-                                <button type="button" class="edit-btn"> <img src="../images/post.svg"
-                                        alt="add-video">Enviar</button>
-                            </div>
-                        </div>
-                        <% if(post.reactions){ %>
-                        <div class="reactions">
-                            <% post.reactions.forEach(user => {%>
-                                <p><%= user.users.name %></p>
-                            <% }) %>
-                        </div>
-                        <% }else{ %>
-                            <div class="reactions"></div>
-
-                        <%}%>
-                        <div class="comments">
-                            <div class="create-comment">
-                                <div class="write-comment">
-                                    <img src="../images/avatar-icon.svg" alt="avatar">
-                                    <div class="write-commentPrompt" aria-labelledby="write-comment"
-                                        aria-multiline="true" role="textbox" contenteditable="true"
-                                        aria-placeholder="Compartilhe sua experiência" id="commentPrompt">
-                                    </div>
-                                    <div>
-                                        <button type="button" class="c-btn"> <img src="../images/post.svg"
-                                                alt="add-video">Enviar</button>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div>
-                                <% if(post.comments.length> 0){ %>
-                                    <% post.comments.forEach((comment)=>{ %>
-                                        <div class="hidden2">
-                                            <%= comment.post_id %>
-                                        </div>
-
-                                        <div class="post">
-                                          
-                                            <div class="post-header">
-                                                <img src="../images/uploads/<%= comment.contents.author.avatar_picture %>" alt="">
-                                                <h6>
-                                                    <%= comment.contents.author.name %> <%= comment.contents.author.surname %>
-                                                </h6>
-                                            </div>
-                                            <div>
-                                                <p>
-                                                    <%= comment.contents.content %>
-                                                </p>
-                                            </div>
-                                            <div class='postMenu'>
-                                                <div class= 'cheers'>
-                                                    <% if(comment.contents.reactions.length > 0){ %>
-                                                        <button type="button" class="sc-btn"><%= comment.contents.reactions.length %></button>
-                                                    <%}else{%>
-                                                        <button type="button" class="sc-btn" id="hidden3"><%= comment.contents.reactions.length %></button>
-                                                    <% } %>  
-                                                    <% if(comment.contents.reactions.some(reaction => reaction.users_id === user.id )){ %>
-                                                        <button type="button" class= "rc-btn" id= "reacted" data-type="react-comment">Cheers!</button> 
-                                                    <% } else { %>                                
-                                                        <button type="button" class = "rc-btn"data-type="react-comment">Cheers!</button>
-                                                    <% } %>  
-                                                </div>
-                                                                                                
-                                                <% if( comment.contents.author.id == user.id ){ %>
-                                                    <button type="button" class = "ec-btn" id= "hidden3"data-type = "edit-comment" >Editar</button>
-                                                    <button type="button" class = "dc-btn" data-type = "delete-comment">Deletar</button>   
-                                                <% }else{ %>
-                                                    <button type="button" class= "ec-btn" id="hidden3">Editar</button>
-                                                    <button type="button" class= "dc-btn" id="hidden3">Deletar</button> 
-                                                <% } %>                               
-                                            </div>
-                                        </div>
-                                        <div class="c-reactions">
-                                            <% comment.contents.reactions.forEach(user => {%>
-                                                <p><%= user.users.name %></p>
-                                            <% }) %>
-                                        </div>
-                                        <%})%>
-                                    <%}%>
-                                </div>
-                            </div>
-
-                        <% }) %>
+            <div class="post">
+              <div class="post-header">
+                <img
+                  src="../images/uploads/<%= comment.contents.author.avatar_picture %>"
+                  alt=""
+                />
+                <h6>
+                  <%= comment.contents.author.name %> <%=
+                  comment.contents.author.surname %>
+                </h6>
+              </div>
+              <div>
+                <p><%= comment.contents.content %></p>
+              </div>
+              <div class="postMenu">
+                <div class="cheers">
+                  <% if(comment.contents.reactions.length > 0){ %>
+                  <button type="button" class="sc-btn">
+                    <%= comment.contents.reactions.length %>
+                  </button>
+                  <%}else{%>
+                  <button type="button" class="sc-btn" id="hidden3">
+                    <%= comment.contents.reactions.length %>
+                  </button>
+                  <% } %> <% if(comment.contents.reactions.some(reaction =>
+                  reaction.users_id === user.id )){ %>
+                  <button
+                    type="button"
+                    class="rc-btn"
+                    id="reacted"
+                    data-type="react-comment"
+                  >
+                    Cheers!
+                  </button>
+                  <% } else { %>
+                  <button
+                    type="button"
+                    class="rc-btn"
+                    data-type="react-comment"
+                  >
+                    Cheers!
+                  </button>
+                  <% } %>
                 </div>
 
-            </section>
-        </section>
-    </main>
+                <% if( comment.contents.author.id == user.id ){ %>
+                <button
+                  type="button"
+                  class="ec-btn"
+                  id="hidden3"
+                  data-type="edit-comment"
+                >
+                  Editar
+                </button>
+                <button type="button" class="dc-btn" data-type="delete-comment">
+                  Deletar
+                </button>
+                <% }else{ %>
+                <button type="button" class="ec-btn" id="hidden3">
+                  Editar
+                </button>
+                <button type="button" class="dc-btn" id="hidden3">
+                  Deletar
+                </button>
+                <% } %>
+              </div>
+            </div>
+            <div class="c-reactions">
+              <% comment.contents.reactions.forEach(user => {%>
+              <p><%= user.users.name %></p>
+              <% }) %>
+            </div>
+            <%})%> <%}%>
+          </div>
+        </div>
 
-    <script src='../js/postCreator.js'></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src='../js/brotherhoodPage.js'></script>
-    
-    <%- include('./partials/footer') %>
+        <% }) %>
+      </div>
+    </section>
+  </section>
+</main>
+
+<script src="../js/postCreator.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="../js/brotherhoodPage.js"></script>
+
+<%- include('./partials/footer') %>
