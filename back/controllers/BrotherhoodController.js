@@ -93,7 +93,7 @@ const BrotherhoodController = {
                 text: `Olá, ${member}!
 ${inviter.name} ${inviter.surname} está te convidando para participar da Wined+, uma rede social para amantes de vinho!
 
-ara participar, acesse http://localhost:3000/
+ara participar, acesse http://localhost:3333/
 
 Um abraço <3
 
@@ -142,7 +142,7 @@ Wined+ Team`,
                 text: `Olá, ${members}! 
 ${inviter.name} ${inviter.surname} está te convidando para participar da Wined+, uma rede social para amantes de vinho!
 
-Para participar, acesse http://localhost:3000/
+Para participar, acesse http://localhost:3333/
 
 Um abraço <3
 

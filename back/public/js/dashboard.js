@@ -11,7 +11,7 @@ window.onload = () => {
       let wine_id = document.getElementsByClassName("id")[i].innerText;
       console.log(wine_id);
       const { data } = await axios.post(
-        `http://localhost:3000/dashboard/wines/favorite`,
+        `http://localhost:3333/dashboard/wines/favorite`,
         {
           wine_id,
         }
@@ -22,7 +22,7 @@ window.onload = () => {
     wish[i].onclick = async (event) => {
       let wine_id = document.getElementsByClassName("id")[i].innerText;
       const { data } = await axios.post(
-        `http://localhost:3000/dashboard/wines/wish`,
+        `http://localhost:3333/dashboard/wines/wish`,
         {
           wine_id,
         }
@@ -40,7 +40,7 @@ window.onload = () => {
 //             console.log(event.target.dataset.type);
 //             console.log(parameter)
 //             const { data } = await axios.post(
-//                 `http://localhost:3000/dashboard/wines`, {
+//                 `http://localhost:3333/dashboard/wines`, {
 //                     parameter
 //                 }
 //             );

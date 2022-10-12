@@ -49,11 +49,13 @@ const DashboardService = {
       return wines;
     }
   },
+
   getWineDetails: async (req, res) => {
     let { id } = req.params;
     const wine = await db.Wine.findByPk(id);
     return wine;
   },
+
   favoriteWine: async (req, res) => {
     let { wine_id } = req.body;
     let users_id = req.headers.authorization.id;
@@ -63,6 +65,7 @@ const DashboardService = {
     });
     return;
   },
+
   wishWine: async (req, res) => {
     let { wine_id } = req.body;
     let users_id = req.headers.authorization.id;
@@ -72,8 +75,9 @@ const DashboardService = {
     });
     return;
   },
+
   getMembers: async (req, res) => {
-    let id = req.headers.authorization.id;
+    let id = req.session.user.id;
     const membersBrotherhoods = await db.Brotherhood.findAll({
       attributes: ["id", "name", "description", "since", "createdAt"],
       include: [
@@ -90,7 +94,7 @@ const DashboardService = {
   },
 
   getUserEvents: async (req, res) => {
-    let id = req.headers.authorization.id;
+    let id = req.session.user.id;
     const events = [];
     const raw_events = await db.Event.findAll({
       include: {

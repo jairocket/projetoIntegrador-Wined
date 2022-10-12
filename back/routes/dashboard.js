@@ -9,9 +9,9 @@ const DashboardService = require("../services/DashboardService");
 
 //passwordCheck,jwt,
 
-router.get("/", jwt, DashboardController.getBrotherhoods);
+router.get("/", passwordCheck, DashboardController.getBrotherhoods);
 
-router.get("/brotherhoods", jwt, passwordCheck, async (req, res) => {
+router.get("/brotherhoods", passwordCheck, async (req, res) => {
   const brotherhoods = await DashboardService.getMembers(req, res);
   res.json(brotherhoods);
 });

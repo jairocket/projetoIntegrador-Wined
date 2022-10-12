@@ -15,7 +15,7 @@
                 
             </div>
             <!-- <div class="brotherhoodMenu"> 
-                <a href="http://localhost:3000/favorites"><p>Favoritos</p></a>
+                <a href="http://localhost:3333/favorites"><p>Favoritos</p></a>
                 
             </div> -->
         </section>
@@ -26,7 +26,7 @@
                 <input type="text" id="txtBusca" placeholder="Buscar...">
                 <img src="../images/search.svg" id="btnBusca"  data-type="get-wines" alt="Buscar">
             </div> -->
-            <form action="http://localhost:3000/dashboard/wines" method="GET">
+            <form action="http://localhost:3333/dashboard/wines" method="GET">
                 <label for="parameter"></label>
                 <input type="text" name="parameter" id="txtBusca" placeholder="Buscar...">
                 <button type="submit" data-type="get-wines"><img src="../images/search.svg" id="btnBusca"  data-type="get-wines" alt="Buscar"></button>
@@ -37,7 +37,7 @@
                     <% wines.forEach(wine=> { %>
                      <div class='wine'>
                          <div class='id'><%= wine.id %></div>
-                         <a href="http://localhost:3000/dashboard/wine/<%= wine.id %>">
+                         <a href="http://localhost:3333/dashboard/wine/<%= wine.id %>">
                             <div class='wine-pic'>
                                 <img src="../images/wines/<%= wine.picture_path %>" alt="wine">
                              </div>

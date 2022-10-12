@@ -52,7 +52,7 @@ window.onload = () => {
     let text = document.querySelector("[role=textbox]").innerText;
     if (text.trim().length > 0) {
       const { data } = await axios.post(
-        `http://localhost:3000/confraria/post-content/`,
+        `http://localhost:3333/confraria/post-content/`,
         {
           content: text,
           brotherhood_id,
@@ -89,7 +89,7 @@ window.onload = () => {
 
       if (text.trim().length > 0) {
         const { data } = await axios.post(
-          `http://localhost:3000/confraria/post-comment/`,
+          `http://localhost:3333/confraria/post-comment/`,
           {
             content: text,
             brotherhood_id,
@@ -106,7 +106,7 @@ window.onload = () => {
     dbtn[i].onclick = async function (event) {
       let ref_post_id = document.getElementsByClassName("hidden")[i].innerText;
       const { data } = await axios.delete(
-        `http://localhost:3000/confraria/post-delete/`,
+        `http://localhost:3333/confraria/post-delete/`,
         {
           data: {
             id: ref_post_id,
@@ -121,7 +121,7 @@ window.onload = () => {
     rbtn[i].onclick = async function (event) {
       let post_id = document.getElementsByClassName("hidden")[i].innerText;
       const { data } = await axios.post(
-        `http://localhost:3000/confraria/react/`,
+        `http://localhost:3333/confraria/react/`,
         {
           post_id,
           brotherhood_id,
@@ -136,7 +136,7 @@ window.onload = () => {
       let post_id = document.getElementsByClassName("hidden2")[i].innerText;
       console.log(post_id);
       const { data } = await axios.post(
-        `http://localhost:3000/confraria/react/`,
+        `http://localhost:3333/confraria/react/`,
         {
           post_id,
           brotherhood_id,
@@ -151,7 +151,7 @@ window.onload = () => {
       let post_id = document.getElementsByClassName("hidden2")[i].innerText;
       console.log(post_id);
       const { data } = await axios.delete(
-        `http://localhost:3000/confraria/comment-delete/`,
+        `http://localhost:3333/confraria/comment-delete/`,
         {
           data: {
             id: post_id,
@@ -171,7 +171,7 @@ window.onload = () => {
       console.log(text);
       console.log(ref_post_id);
       const { data } = await axios.put(
-        `http://localhost:3000/confraria/edit-comment/${ref_post_id}`,
+        `http://localhost:3333/confraria/edit-comment/${ref_post_id}`,
         {
           content: text,
           brotherhood_id,

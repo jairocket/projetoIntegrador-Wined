@@ -4,7 +4,7 @@
 <main>
     <div class="main">
         <section class="profileInfo">
-            <%- include('./partials/topview') %>
+            <%- include('partials/topView.ejs') %>
             <div class="userDescription">
                 <p><%= user.description %></p>
             </div>
@@ -24,7 +24,7 @@
                     <input type="text" id="txtBusca" placeholder="Buscar...">
                     <img src="../images/search.svg" id="btnBusca"  data-type="get-wines" alt="Buscar">
                 </div> -->
-                <form action="http://localhost:3000/dashboard/wines" method="GET">
+                <form action="http://localhost:3333/dashboard/wines" method="GET">
                     <label for="parameter"></label>
                     <input type="text" name="parameter" id="txtBusca" placeholder="Buscar...">
                     <button type="submit" data-type="get-wines"><img src="../images/search.svg" id="btnBusca"  data-type="get-wines" alt="Buscar"></button>
@@ -80,5 +80,5 @@
 <%- include('./partials/footer')  %>  
 
 <script src='../js/dashboard.js'></script>
-<script src='../js/topView.js'></script>
+<script src='../views/partials/topView.ejs'></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

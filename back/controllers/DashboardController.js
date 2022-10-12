@@ -8,9 +8,9 @@ const UserController = require("./UserController");
 const DashboardController = {
   // GET member's brotherhoods
   getBrotherhoods: async (req, res) => {
-    // let avatar = req.session.user.avatar_picture
-    // let id = req.session.user.id;
-    let id = req.headers.authorization.id;
+    let avatar = req.session.user.avatar_picture;
+    let id = req.session.user.id;
+    // let id = req.headers.authorization.id;
     const membersBrotherhoods = await DashboardService.getMembers(req, res);
     const events = await DashboardService.getUserEvents(req, res);
     // res.json(events)
@@ -26,23 +26,21 @@ const DashboardController = {
       ],
     });
 
-    return res.json({
+    // return res.json({
+    //   brotherhoods: membersBrotherhoods,
+    //   user,
+    //   // avatar,
+    //   events,
+    // });
+
+    return res.render("dashboard", {
+      title: "Dashboard",
+      style: "dashboard",
       brotherhoods: membersBrotherhoods,
       user,
-      // avatar,
+      avatar,
       events,
     });
-
-    // return res.render(
-    //     'dashboard', {
-    //         title: "Dashboard",
-    //         style: "dashboard",
-    //         brotherhoods: membersBrotherhoods,
-    //         user,
-    //         avatar,
-    //         events
-    //     }
-    //  )
   },
 
   getWines: async (req, res) => {

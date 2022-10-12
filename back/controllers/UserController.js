@@ -45,9 +45,11 @@ let UserController = {
       res.render("register", { errors: errorsList.errors, old: req.body });
     }
   },
+
   loginForm: (req, res) => {
     res.render("login");
   },
+
   userLogger: async (req, res) => {
     let errorsList = validationResult(req);
     if (errorsList.isEmpty()) {
@@ -69,7 +71,7 @@ let UserController = {
         const token = jwt.sign({ id: profile.id }, process.env.SECRET, {
           expiresIn: "20m",
         });
-        return res.json({ auth: true, token: token }); //res.redirect('/dashboard');
+        return res.redirect("/dashboard"); //res.json({ auth: true, token: token });
       } else {
         req.flash("error", "Senha incorreta!");
         return res.status(500).json({ message: "Senha incorreta!" }); //res.render('login', {old: req.body})
