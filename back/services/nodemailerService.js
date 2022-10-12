@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
 
 async function main(configObject) {
   // let testAcount = await nodemailer.createTestAccount();
@@ -18,17 +18,16 @@ async function main(configObject) {
     port: 2525,
     auth: {
       user: "eac9af5ccc8d5f",
-      pass: "24d82453a8f2ba"
-    }
+      pass: "24d82453a8f2ba",
+    },
   });
   let info = await transport.sendMail({
     from: '"Wined+" <wined@wined.com>',
-    ...configObject
+    ...configObject,
   });
 
   // console.log("Message sent: %s", info.messageId);
   // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 }
 
-module.exports = main
-
+module.exports = main;

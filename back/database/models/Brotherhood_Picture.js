@@ -1,26 +1,29 @@
 module.exports = (sequelize, DataTypes) => {
-    const Brotherhood_Picture = sequelize.define('Brotherhood_Picture', {
+  const Brotherhood_Picture = sequelize.define(
+    "Brotherhood_Picture",
+    {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
       },
       name: {
         type: DataTypes.STRING(255),
-        allowNull: false
+        allowNull: false,
       },
       path: {
         type: DataTypes.STRING(1024),
-        allowNull: false
-      }
+        allowNull: false,
+      },
     },
     {
-      tableName: "brotherhood_pictures"
-    });
-  
-    Brotherhood_Picture.associate = function(models) {
-      Brotherhood_Picture.belongsTo(models.Brotherhood)
+      tableName: "brotherhood_pictures",
     }
-  
-    return Brotherhood_Picture;
+  );
+
+  Brotherhood_Picture.associate = function (models) {
+    Brotherhood_Picture.belongsTo(models.Brotherhood);
   };
+
+  return Brotherhood_Picture;
+};

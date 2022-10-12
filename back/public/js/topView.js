@@ -1,33 +1,37 @@
 window.onload = () => {
-    console.log('funcionando')
-    const profilePictureInput = document.getElementById('profile-picture');
-    const backgroundPictureInput = document.getElementById('background-picture');
-    const profileBtn = document.getElementById('profile-btn');
-    const backgroundBtn = document.getElementById('background-btn');
-    const profilePicture = document.getElementById('profile-picture-src');
-    const backgroundPicture = document.getElementById('background-picture-src');
-    const profileForm = document.getElementById('profile-picture-form');
-    const backgroundForm = document.getElementById('background-picture-form');
+  console.log("funcionando");
+  const profilePictureInput = document.getElementById("profile-picture");
+  const backgroundPictureInput = document.getElementById("background-picture");
+  const profileBtn = document.getElementById("profile-btn");
+  const backgroundBtn = document.getElementById("background-btn");
+  const profilePicture = document.getElementById("profile-picture-src");
+  const backgroundPicture = document.getElementById("background-picture-src");
+  const profileForm = document.getElementById("profile-picture-form");
+  const backgroundForm = document.getElementById("background-picture-form");
 
-    showBtn = btn => btn.style.visibility = 'visible';
+  showBtn = (btn) => (btn.style.visibility = "visible");
 
-    function picturePreview(input, image) {
-        const picture = new FileReader();
-        picture.readAsDataURL(input.files[0]);
+  function picturePreview(input, image) {
+    const picture = new FileReader();
+    picture.readAsDataURL(input.files[0]);
 
-        picture.onload = e => image.src = e.target.result;
-    };
+    picture.onload = (e) => (image.src = e.target.result);
+  }
 
-    profilePictureInput.onchange = function(){
-        picturePreview(profilePictureInput, profilePicture);
-        showBtn(profileBtn);
-    };
-    backgroundPictureInput.onchange = function(){
-        console.log('change')
-        picturePreview(backgroundPictureInput, backgroundPicture);
-        showBtn(backgroundBtn);
-    };
+  profilePictureInput.onchange = function () {
+    picturePreview(profilePictureInput, profilePicture);
+    showBtn(profileBtn);
+  };
+  backgroundPictureInput.onchange = function () {
+    console.log("change");
+    picturePreview(backgroundPictureInput, backgroundPicture);
+    showBtn(backgroundBtn);
+  };
 
-    profileBtn.onclick = function() { profileForm.submit(); }
-    backgroundBtn.onclick = function() { backgroundForm.submit(); }
-}
+  profileBtn.onclick = function () {
+    profileForm.submit();
+  };
+  backgroundBtn.onclick = function () {
+    backgroundForm.submit();
+  };
+};

@@ -1,22 +1,24 @@
-'use strict';
+"use strict";
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('wines', [{
-      id: 2,
-      wine: "Chateau De Fargues, Blanc, Sauternes",
-      wine_slug: "chateau-de-fargues-blanc-sauternes",
-      appellation: "Sauternes",
-      appellation_slug: "sauternes",
-      color: "White",
-      wine_type: "sweet",
-      regions: "Bordeaux",
-      country: "France",
-      vintage: "2020",
-      score: 94.38,
-      confidence_index: "B",
-      picture_path: "chateau-de-fargues-blanc-sauternes"
-      },{
+    await queryInterface.bulkInsert("wines", [
+      {
+        id: 2,
+        wine: "Chateau De Fargues, Blanc, Sauternes",
+        wine_slug: "chateau-de-fargues-blanc-sauternes",
+        appellation: "Sauternes",
+        appellation_slug: "sauternes",
+        color: "White",
+        wine_type: "sweet",
+        regions: "Bordeaux",
+        country: "France",
+        vintage: "2020",
+        score: 94.38,
+        confidence_index: "B",
+        picture_path: "chateau-de-fargues-blanc-sauternes",
+      },
+      {
         id: 3,
         wine: "Chateau Coutet, Blanc, Barsac",
         wine_slug: "chateau-coutet-blanc-barsac",
@@ -29,8 +31,9 @@ module.exports = {
         vintage: "2020",
         score: 92.67,
         confidence_index: "B",
-        picture_path: "chateau-coutet-blanc-barsac"
-      },{
+        picture_path: "chateau-coutet-blanc-barsac",
+      },
+      {
         id: 4,
         wine: "Chateau La Tour Blanche, Blanc, Sauternes",
         wine_slug: "chateau-la-tour-blanche-blanc-sauternes",
@@ -43,8 +46,9 @@ module.exports = {
         vintage: "2020",
         score: 92.54,
         confidence_index: "A+",
-        picture_path: "chateau-la-tour-blanche-blanc-sauternes"
-      },{
+        picture_path: "chateau-la-tour-blanche-blanc-sauternes",
+      },
+      {
         id: 5,
         wine: "Chateau Doisy Vedrines, Blanc, Sauternes",
         wine_slug: "chateau-doisy-vedrines-blanc-sauternes",
@@ -57,8 +61,9 @@ module.exports = {
         vintage: "2020",
         score: 91.99,
         confidence_index: "B",
-        picture_path: "chateau-doisy-vedrines-blanc-sauternes"
-      },{
+        picture_path: "chateau-doisy-vedrines-blanc-sauternes",
+      },
+      {
         id: 6,
         wine: "Chateau La Fleur Peyrabon, Pauillac",
         wine_slug: "chateau-la-fleur-peyrabon-pauillac",
@@ -71,8 +76,9 @@ module.exports = {
         vintage: "2020",
         score: 88.12,
         confidence_index: "C+",
-        picture_path: "chateau-la-fleur-peyrabon-pauillac"
-      },{
+        picture_path: "chateau-la-fleur-peyrabon-pauillac",
+      },
+      {
         id: 7,
         wine: "Chateau Canon, Saint Emilion Grand Cru",
         wine_slug: "chateau-canon-saint-emilion-grand-cru",
@@ -85,8 +91,9 @@ module.exports = {
         vintage: "2020",
         score: 98.61,
         confidence_index: "A+",
-        picture_path: "chateau-canon-saint-emilion-grand-cru"
-      },{
+        picture_path: "chateau-canon-saint-emilion-grand-cru",
+      },
+      {
         id: 8,
         wine: "Chateau Trotanoy, Pomerol",
         wine_slug: "chateau-trotanoy-pomerol",
@@ -99,8 +106,9 @@ module.exports = {
         vintage: "2020",
         score: 98.28,
         confidence_index: "A",
-        picture_path: "chateau-trotanoy-pomerol"
-      },{
+        picture_path: "chateau-trotanoy-pomerol",
+      },
+      {
         id: 9,
         wine: "Chateau Haut Brion, Pessac Leognan",
         wine_slug: "chateau-haut-brion-pessac-leognan",
@@ -113,8 +121,9 @@ module.exports = {
         vintage: "2020",
         score: 98.25,
         confidence_index: "B+",
-        picture_path: "chateau-haut-brion-pessac-leognan"
-      },{
+        picture_path: "chateau-haut-brion-pessac-leognan",
+      },
+      {
         id: 10,
         wine: "Chateau La Mission Haut Brion, Pessac Leognan",
         wine_slug: "chateau-la-mission-haut-brion-pessac-leognan",
@@ -127,8 +136,9 @@ module.exports = {
         vintage: "2020",
         score: 98.21,
         confidence_index: "A+",
-        picture_path: "chateau-la-mission-haut-brion-pessac-leognan"
-      },{
+        picture_path: "chateau-la-mission-haut-brion-pessac-leognan",
+      },
+      {
         id: 11,
         wine: "Chateau Margaux, Margaux",
         wine_slug: "chateau-margaux-margaux",
@@ -141,8 +151,9 @@ module.exports = {
         vintage: "2020",
         score: 98.1,
         confidence_index: "A",
-        picture_path: "chateau-margaux-margaux"
-      },{
+        picture_path: "chateau-margaux-margaux",
+      },
+      {
         id: 12,
         wine: "Chateau Mouton Rothschild, Pauillac",
         wine_slug: "chateau-mouton-rothschild-pauillac",
@@ -155,8 +166,9 @@ module.exports = {
         vintage: "2020",
         score: 97.94,
         confidence_index: "A+",
-        picture_path: "chateau-mouton-rothschild-pauillac"
-      },{
+        picture_path: "chateau-mouton-rothschild-pauillac",
+      },
+      {
         id: 13,
         wine: "Chateau Angelus, Saint Emilion Grand Cru",
         wine_slug: "chateau-angelus-saint-emilion-grand-cru",
@@ -169,8 +181,9 @@ module.exports = {
         vintage: "2020",
         score: 97.72,
         confidence_index: "A",
-        picture_path: "chateau-angelus-saint-emilion-grand-cru"
-      },{
+        picture_path: "chateau-angelus-saint-emilion-grand-cru",
+      },
+      {
         id: 14,
         wine: "Vieux Chateau Certan, Pomerol",
         wine_slug: "vieux-chateau-certan-pomerol",
@@ -183,8 +196,9 @@ module.exports = {
         vintage: "2020",
         score: 97.51,
         confidence_index: "B+",
-        picture_path: "vieux-chateau-certan-pomerol"
-      },{
+        picture_path: "vieux-chateau-certan-pomerol",
+      },
+      {
         id: 15,
         wine: "Chateau L'Eglise Clinet, Pomerol",
         wine_slug: "chateau-leglise-clinet-pomerol",
@@ -197,8 +211,9 @@ module.exports = {
         vintage: "2020",
         score: 97.49,
         confidence_index: "A+",
-        picture_path: "chateau-leglise-clinet-pomerol"
-      },{
+        picture_path: "chateau-leglise-clinet-pomerol",
+      },
+      {
         id: 16,
         wine: "Chateau Smith Haut Lafitte, Pessac Leognan",
         wine_slug: "chateau-smith-haut-lafitte-pessac-leognan",
@@ -211,8 +226,9 @@ module.exports = {
         vintage: "2020",
         score: 97.44,
         confidence_index: "A+",
-        picture_path: "chateau-smith-haut-lafitte-pessac-leognan"
-      },{
+        picture_path: "chateau-smith-haut-lafitte-pessac-leognan",
+      },
+      {
         id: 17,
         wine: "Chateau Pavie, Saint Emilion Grand Cru",
         wine_slug: "chateau-pavie-saint-emilion-grand-cru",
@@ -225,8 +241,9 @@ module.exports = {
         vintage: "2020",
         score: 97.43,
         confidence_index: "A+",
-        picture_path: "chateau-pavie-saint-emilion-grand-cru"
-      },{
+        picture_path: "chateau-pavie-saint-emilion-grand-cru",
+      },
+      {
         id: 18,
         wine: "Chateau Ducru Beaucaillou, Saint Julien",
         wine_slug: "chateau-ducru-beaucaillou-saint-julien",
@@ -239,8 +256,9 @@ module.exports = {
         vintage: "2020",
         score: 97.24,
         confidence_index: "A",
-        picture_path: "chateau-ducru-beaucaillou-saint-julien"
-      },{
+        picture_path: "chateau-ducru-beaucaillou-saint-julien",
+      },
+      {
         id: 19,
         wine: "Chateau Lafite Rothschild, Pauillac",
         wine_slug: "chateau-lafite-rothschild-pauillac",
@@ -253,8 +271,9 @@ module.exports = {
         vintage: "2020",
         score: 97.15,
         confidence_index: "A+",
-        picture_path: "chateau-lafite-rothschild-pauillac"
-      },{
+        picture_path: "chateau-lafite-rothschild-pauillac",
+      },
+      {
         id: 20,
         wine: "Chateau Belair-Monange, Saint Emilion Grand Cru",
         wine_slug: "chateau-belair-monange-saint-emilion-grand-cru",
@@ -267,14 +286,12 @@ module.exports = {
         vintage: "2020",
         score: 97.12,
         confidence_index: "A",
-        picture_path: "chateau-belair-monange-saint-emilion-grand-cru"
-      }
+        picture_path: "chateau-belair-monange-saint-emilion-grand-cru",
+      },
     ]);
   },
 
   down: async (queryInterface, Sequelize) => {
-    
-      await queryInterface.bulkDelete('wines', {country: "France"}, {});
-     
-  }
+    await queryInterface.bulkDelete("wines", { country: "France" }, {});
+  },
 };
