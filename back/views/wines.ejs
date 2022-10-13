@@ -9,15 +9,13 @@
                 <p><%= user.description %></p>
             </div>
             <div class= dashMenu>
-            <div class="brotherhoodMenu">
-                
-                <a href='/confraria/criar'><p>Criar Confraria</p></a>
-                
+            <div class="brotherhoodMenu">         
+                <a href='/confraria/criar'><p>Criar Confraria</p></a>              
             </div>
-            <!-- <div class="brotherhoodMenu"> 
+            <div class="brotherhoodMenu"> 
                 <a href="http://localhost:3333/favorites"><p>Favoritos</p></a>
                 
-            </div> -->
+            </div>
         </section>
 
         <section class="adega" id="adega">
@@ -31,7 +29,6 @@
                 <input type="text" name="parameter" id="txtBusca" placeholder="Buscar...">
                 <button type="submit" data-type="get-wines"><img src="../images/search.svg" id="btnBusca"  data-type="get-wines" alt="Buscar"></button>
             </form>
-
             <div class="wines">
                 <% if(wines){ %>
                     <% wines.forEach(wine=> { %>
@@ -39,23 +36,18 @@
                          <div class='id'><%= wine.id %></div>
                          <a href="http://localhost:3333/dashboard/wine/<%= wine.id %>">
                             <div class='wine-pic'>
-                                <img src="../images/wines/<%= wine.picture_path %>" alt="wine">
-                             </div>
-                        </a>
-                         
+                                <img src="../images/wines/<%= wine.picture_path %>.jpeg" alt="wine">
+                            </div>
+                         </a>      
                         <div class="wine-menu">
                             <button type="button" class="fvrt">Favoritos</button>
                             <button type="button" class="wish">Desejados</button>
                         </div>
                         <div class= "wine-name"><%= wine.wine %></div>
-                     </div>
-                     
-                     <% }) %>
-                     
-                 <% } %> 
+                     </div>       
+                    <% }) %>             
+                <% } %> 
             </div>
-
-
         </section>
 
         <section class="myBrotherhoods">
@@ -64,8 +56,6 @@
                 <a href ="/confraria/<%= brotherhood.id %>"><div class="brotherhood"><%= brotherhood.name %></div></a><br>
             <% }) %>
         </section>
-
-
     </div>
 
 </main>

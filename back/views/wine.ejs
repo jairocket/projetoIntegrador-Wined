@@ -14,10 +14,10 @@
                 <a href='/confraria/criar'><p>Criar Confraria</p></a>
                 
             </div>
-            <!-- <div class="brotherhoodMenu"> 
+            <div class="brotherhoodMenu"> 
                 <a href="http://localhost:3333/favorites"><p>Favoritos</p></a>
                 
-            </div> -->
+            </div>
         </section>
 
         <section class="adega" id="adega">
@@ -31,9 +31,9 @@
                 <input type="text" name="parameter" id="txtBusca" placeholder="Buscar...">
                 <button type="submit" data-type="get-wines"><img src="../../images/search.svg" id="btnBusca"  data-type="get-wines" alt="Buscar"></button>
             </form>
-
+       
             <div class="wine-details">
-                <div class='wine-picture'><img src="../../images/wines/<%= wine.picture_path %>" alt=""></div>
+                <div class='wine-picture'><img src="../images/wines/<%= wine.picture_path %>" alt="wine-picture"></div>
                 <div class="wine-data">
                     <table>
                         <tr>
@@ -54,7 +54,6 @@
                         </tr>
                     </table>
                     <p>* Denominação de Origem Controlada</p>
-
                 </div>
             </div>
 

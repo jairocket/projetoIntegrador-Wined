@@ -4,10 +4,11 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert("wines", [
       {
+        id: 1,
         wine: "Chateau Figeac, Saint Emilion Grand Cru",
         wine_slug: "chateau-figeac-saint-emilion-grand-cru",
-        appelation: "Saint Emilion Grand Cru",
-        appelation_slug: "saint-emilion-grand-cru",
+        appellation: "Saint Emilion Grand Cru",
+        appellation_slug: "saint-emilion-grand-cru",
         color: "Red",
         wine_type: "",
         regions: "Bordeaux",
