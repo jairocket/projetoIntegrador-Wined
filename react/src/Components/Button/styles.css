@@ -1,0 +1,33 @@
+.btn-form {
+    margin: 24px 0px 14px;
+    width: 200px;
+    height: 40px;
+    background: #9B0000;
+    border-radius: 40px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+  }
+
+  .btn-search {
+    width: 60px;
+    height: 35px;
+    background: #287A5C;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    color: white;
+    font-weight: 500;
+  }
+
+  .btn {
+    margin: 24px 0px 14px;
+    background: #287A5C;
+    color: white;
+    width: 125px;
+    height: 40px;
+    font-weight: 550;
+    line-height: 20px;
+    border-radius: 40px;
+    font-size: 12.5px;
+  }
