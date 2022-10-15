@@ -1,0 +1,12 @@
+.events-list{
+    /* display: flex;
+    align-items: center;
+    
+    flex-direction: column;
+    justify-content: flex-start; */
+    padding: 15px 0;
+}
+
+.events-link{
+    margin: 15px;
+}

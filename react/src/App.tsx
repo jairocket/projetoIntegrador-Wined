@@ -7,9 +7,11 @@ import {
   Navigate,
 } from "react-router-dom";
 
+import { PrivateRoutes } from "./PrivateRoutes";
+
 import { Login } from "./Pages/Login";
 // import SignUp from "./pages/signUp";
-// import Dashboard from "./pages/dashboard";
+import { Dashboard } from "./Pages/Dashboard";
 // import Brotherhood from "./pages/brotherhood";
 // import RouteWrapper from "./routes/RouteWrapper";
 
@@ -24,15 +26,19 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<Login />}></Route>
-        {/* <Route exact path="/signup">
-          <SignUp />
+        <Route element={<PrivateRoutes />}>
+          <Route element={<Dashboard />} path="/dashboard" />
         </Route>
-        <RouteWrapper
+        {/* <RouteWrapper
           exact
           path="/dashboard"
           isPrivate
           component={() => <Dashboard />}
-        ></RouteWrapper>
+        ></RouteWrapper> */}
+        {/* <Route exact path="/signup">
+          <SignUp /> /}
+        </Route>
+
         <Route exact path="/brotherhood/:id">
           <Brotherhood />
         </Route> */}

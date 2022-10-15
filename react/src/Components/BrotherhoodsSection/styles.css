@@ -1,0 +1,23 @@
+.brotherhood-section-title{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.brotherhood-section-title > p{
+    margin-right: 5px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.brotherhood-list{
+    display: flex;
+    flex-direction: column;
+    padding-left: 25px;
+}
+
+.brotherhood-list > a{
+    margin: 7.5px;
+    font-weight: 400;
+    
+}

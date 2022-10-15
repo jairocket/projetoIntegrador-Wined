@@ -4,7 +4,7 @@ import logo from "./assets/images/logo-wined.svg";
 import Button from "../../Components/Button";
 
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import Cookie from "js-cookie";
@@ -13,7 +13,7 @@ export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [typePass, setTypePass] = useState("password");
-  const history = useHistory();
+  const navigate = useNavigate();
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [mailErr, setMailErr] = useState("error");
@@ -45,7 +45,7 @@ export function Login() {
           password,
         });
         Cookie.set("token", result.data.token);
-        history.push("/dashboard");
+        navigate("/dashboard");
       } catch (error: any) {
         if (error.response.data.message === "E-mail não cadastrado!") {
           setEmailError(error.response.data.message);
