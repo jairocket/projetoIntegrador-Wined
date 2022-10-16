@@ -1,0 +1,93 @@
+* {
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    
+}
+
+h2{
+    font-size: 22px;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+h3{
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: underline;
+    margin: 20px;
+}
+
+.brotherhood-cover{
+    max-height: 250px;
+    overflow: hidden;
+}
+
+#brotherhood-cover{
+    width: 100%;
+}
+
+.brotherhood-settings{
+    padding: 15px;
+}
+
+.brotherhood-title > div{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 7px;
+}
+
+.brotherhood-description{
+    margin: 20px;
+}
+
+.brotherhood-menu{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.brotherhood-post{
+    display: flex;
+    flex-direction: column;
+    margin-left: 4%;
+    align-items: center;
+    padding: 20px;
+    background: #9B0000;
+    border-radius: 25px;
+    margin-bottom: 15px;
+    width: 92%;
+}
+
+.brotherhood-post-prompt{
+    background: whitesmoke;
+    width: 290px;
+    border-radius: 22px;
+    text-align: justify;
+    line-height: 1;
+    min-height: 35px;
+    padding: 10px;
+    overflow-wrap: break-word;
+    
+}
+
+.brotherhood-media-post{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 0;
+    color: whitesmoke;
+}
+
+#btn, #p-btn, #event-btn{
+    display: flex;
+    flex-direction: column;
+    color:whitesmoke;
+    background: transparent;
+    font-size: 12px;
+    align-items: center;
+}
+
+.brotherhood-media-post > div > button > img, .brotherhood-media-post > div > a > img{
+    width: 25px;
+    height: 25px;
+}

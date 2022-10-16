@@ -10,10 +10,9 @@ import {
 import { PrivateRoutes } from "./PrivateRoutes";
 
 import { Login } from "./Pages/Login";
-// import SignUp from "./pages/signUp";
+import { SignUp } from "./Pages/SignUp";
 import { Dashboard } from "./Pages/Dashboard";
-// import Brotherhood from "./pages/brotherhood";
-// import RouteWrapper from "./routes/RouteWrapper";
+import { Brotherhood } from "./Pages/Brotherhood";
 
 // import Teste from './components/Teste';
 // import Footer from './components/Footer';
@@ -26,23 +25,11 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/signup" element={<SignUp />}></Route>
         <Route element={<PrivateRoutes />}>
           <Route element={<Dashboard />} path="/dashboard" />
+          <Route element={<Brotherhood />} path="/brotherhood/:id" />
         </Route>
-        {/* <RouteWrapper
-          exact
-          path="/dashboard"
-          isPrivate
-          component={() => <Dashboard />}
-        ></RouteWrapper> */}
-        {/* <Route exact path="/signup">
-          <SignUp /> /}
-        </Route>
-
-        <Route exact path="/brotherhood/:id">
-          <Brotherhood />
-        </Route> */}
-
         <Route path="/"></Route>
         <Route path="/404"></Route>
         <Route path="*" element={<Navigate to="/404" />} />
