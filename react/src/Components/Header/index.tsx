@@ -5,7 +5,7 @@ import avatar from "./profile-picture.svg";
 import Cookies from "js-cookie";
 import "./styles.css";
 
-export default function Header() {
+export function Header() {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   function showDropdown() {

@@ -8,6 +8,7 @@ const membershipCheck = require("../middlewares/membershipCheck");
 const multer = require("multer");
 const storage = require("../middlewares/multer");
 const verifyJWT = require("../middlewares/verifyJWT");
+const jwt = require("../middlewares/jwt");
 const upload = multer({ storage: storage });
 
 /*GET a form to create a brotherhood */
@@ -115,7 +116,7 @@ router.put(
 /* GET brotherhoodPage. */
 router.get(
   "/:id",
-  auth,
+  jwt,
   membershipCheck,
   brotherhoodController.accessBrotherhood
 );

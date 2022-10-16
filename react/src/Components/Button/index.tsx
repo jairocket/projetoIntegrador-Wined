@@ -6,7 +6,7 @@ interface ButtonProps {
   name: string;
 }
 
-export default function Button(props: ButtonProps) {
+export function Button(props: ButtonProps) {
   return (
     <button className={props.className} type={props.type}>
       {props.name}

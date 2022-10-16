@@ -3,11 +3,11 @@ import "./styles.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Header from "../../Components/Header";
+import { Header } from "../../Components/Header";
 import { IdentitySection } from "../../Components/IdentitySection";
 import { BrotherhoodsSection } from "../../Components/BrotherhoodsSection";
 import { EventsSection } from "../../Components/EventsSection";
-import Button from "../../Components/Button";
+import { Button } from "../../Components/Button";
 import { Footer } from "../../Components/Footer";
 
 //import { IoIosArrowDown } from "react-icons/io";

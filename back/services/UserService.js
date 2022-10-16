@@ -5,7 +5,7 @@ const nodemailer = require("./nodemailerService");
 
 const UserService = {
   getSessionUser: async (req, res) => {
-    const user_id = req.session.user.id;
+    let user_id = req.headers.authorization.id;
     const { id } = req.params;
 
     const user = await db.User.findByPk(user_id, {

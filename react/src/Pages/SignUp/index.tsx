@@ -1,6 +1,6 @@
 import "./styles.css";
 
-import Button from "../../Components/Button";
+import { Button } from "../../Components/Button";
 import { PasswordInput } from "../../Components/PasswordInput";
 import { useState } from "react";
 

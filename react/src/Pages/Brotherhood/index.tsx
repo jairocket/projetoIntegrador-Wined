@@ -1,8 +1,8 @@
 import "./styles.css";
 
-import Header from "../../Components/Header";
+import { Header } from "../../Components/Header";
 import { Footer } from "../../Components/Footer";
-import Button from "../../Components/Button";
+import { Button } from "../../Components/Button";
 
 import Picture from "./assets/images/add-picture.svg";
 import Dot from "./assets/images/dot.svg";
@@ -10,24 +10,76 @@ import Cover from "./assets/images/brotherhood-picture.svg";
 import Video from "./assets/images/add-video.svg";
 import Event from "./assets/images/event.svg";
 import Send from "./assets/images/post.svg";
+import Cookies from "js-cookie";
 
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+//get brotherhood chancellor
+
+interface MemberInterface {
+  name: string;
+  surname: string;
+  id: number;
+}
+
+interface BrotherhoodInterface {
+  brotherhood_picture: string;
+  createAt: string;
+  description: string;
+  id: number;
+  members: Array<MemberInterface>;
+  name: string;
+  since: string;
+}
+
+interface Count {
+  count: number;
+}
 
 export function Brotherhood() {
-  const [brotherhood, setBrotherhood] = useState([]);
-  const [count, setCount] = useState("");
+  const [brotherhood, setBrotherhood] = useState<BrotherhoodInterface>({
+    brotherhood_picture: "",
+    createAt: "",
+    description: "",
+    id: 0,
+    members: [],
+    name: "",
+    since: "",
+  });
+  const [count, setCount] = useState<Count>({
+    count: 0,
+  });
   const [posts, setPosts] = useState([]);
   const [events, setEvents] = useState([]);
+  const [user, setUser] = useState({});
 
-  //Alterar backend para midware jwt
+  const token = Cookies.get("token");
+  const [, , id] = window.location.pathname.split("/");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch(`http://localhost:3333/confraria/${id}`, {
+      headers: { authorization: `Bearer ${token}` },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        setUser(response.user);
+        setBrotherhood(response.brotherhood);
+        setEvents(response.events);
+        setCount(response.count);
+        setPosts(response.posts);
+      })
+      .catch((error) => {
+        console.log(error);
+        navigate("/dashboard");
+      });
+  }, [token, navigate]);
+
+  //Alterar backend para midware jwt :check:
   //verificar o retorno para quem não faz parte da confraria
-
-  // useEffect(()=>{
-  //   fetch(`http://localhost:3333/brotherhood/{id}`, {
-  //     // headers: { authorization: `Bearer ${token}` })
-
-  // },[])
-
+  //capturar o id da url :check:
+  console.log(brotherhood);
   return (
     <>
       <Header />
@@ -41,19 +93,22 @@ export function Brotherhood() {
         </div>
         <div className="brotherhood-settings">
           <div className="brotherhood-title">
-            <h2> Confraria Teste </h2>
+            <h2> {brotherhood.name}</h2>
             <div>
-              <p>Since: Tal ano</p>
+              <p>Since {brotherhood.since}</p>
               <img src={Dot} alt="ponto de separação" />
-              <p>Tantos Confrades</p>
+              <p>{count.count}</p>
             </div>
           </div>
           <div className="brotherhood-description">
-            <p>Descrição da confraria</p>
+            <p>{brotherhood.description}</p>
           </div>
           <div className="brotherhood-menu">
+            {/* {brotherhood.members.chancellor.chancellor && (
+              <Button name="Editar" type="button" className="btn" />
+            )} */}
             {/* incluir validação para acesso apenas ao chanceler */}
-            <Button name="Editar" type="button" className="btn" />
+
             <form
               action="/confraria/editar/delete/<%= brotherhood.id %>/<%= user.id %>?_method=DELETE"
               method="POST"

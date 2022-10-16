@@ -1,7 +1,7 @@
 import "./styles.css";
 import logo from "./assets/images/logo-wined.svg";
 
-import Button from "../../Components/Button";
+import { Button } from "../../Components/Button";
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
