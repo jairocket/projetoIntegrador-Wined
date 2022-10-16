@@ -83,7 +83,7 @@ export function Brotherhood() {
   //Alterar backend para midware jwt :check:
   //verificar o retorno para quem não faz parte da confraria
   //capturar o id da url :check:
-  console.log(chancellor);
+  console.log(brotherhood);
   return (
     <>
       <Header />

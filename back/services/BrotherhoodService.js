@@ -7,7 +7,7 @@ const Post = require("../database/models/Post");
 const BrotherhoodService = {
   getBrotherhood: async (req, res) => {
     const { id } = req.params;
-
+    const users_id = req.headers.authorization.id;
     const bhood = await db.Brotherhood.findByPk(id, {
       attributes: [
         "name",
@@ -29,11 +29,17 @@ const BrotherhoodService = {
           "avatar_picture",
           "background_picture",
         ],
+        include: {
+          model: db.Brotherhood_User,
+          where: { brotherhood_id: id },
+          as: "chancellor",
+          attributes: ["chancellor"],
+        },
       },
 
       include: {
         model: db.Brotherhood_User,
-        where: { brotherhood_id: id },
+        where: { users_id },
         as: "chancellor",
         attributes: ["chancellor"],
       },
@@ -109,7 +115,7 @@ const BrotherhoodService = {
     let { members } = req.body;
     let { id } = req.params;
     let fmembers = [];
-    let users_id = req.session.user.id;
+    const users_id = req.headers.authorization.id;
 
     const inviter = await db.User.findByPk(users_id, {
       attributes: ["name", "surname"],

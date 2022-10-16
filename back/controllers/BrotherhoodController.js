@@ -14,7 +14,7 @@ const BrotherhoodController = {
     const user = await UserService.getSessionUser(req, res);
     const posts = await BrotherhoodService.getPosts(req, res);
     const events = await BrotherhoodService.getEvents(req, res);
-
+    console.log(brotherhood);
     res.json({
       brotherhood,
       count,
