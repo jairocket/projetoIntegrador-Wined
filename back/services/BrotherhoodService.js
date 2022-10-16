@@ -29,12 +29,13 @@ const BrotherhoodService = {
           "avatar_picture",
           "background_picture",
         ],
-        include: {
-          model: db.Brotherhood_User,
-          where: { brotherhood_id: id },
-          as: "chancellor",
-          attributes: ["chancellor"],
-        },
+      },
+
+      include: {
+        model: db.Brotherhood_User,
+        where: { brotherhood_id: id },
+        as: "chancellor",
+        attributes: ["chancellor"],
       },
     });
 
@@ -50,7 +51,7 @@ const BrotherhoodService = {
       description: bhood.description,
       id: bhood.id,
       members: bhood.users,
-      chancellor: bhood.users.chancellor,
+      chancellor: bhood.chancellor,
       brotherhood_picture: bhood.brotherhood_picture,
     };
     return brotherhood;

@@ -26,6 +26,7 @@ interface MemberInterface {
 interface BrotherhoodInterface {
   brotherhood_picture: string;
   createAt: string;
+  chancellor: boolean;
   description: string;
   id: number;
   members: Array<MemberInterface>;
@@ -41,6 +42,7 @@ export function Brotherhood() {
   const [brotherhood, setBrotherhood] = useState<BrotherhoodInterface>({
     brotherhood_picture: "",
     createAt: "",
+    chancellor: false,
     description: "",
     id: 0,
     members: [],
@@ -50,6 +52,7 @@ export function Brotherhood() {
   const [count, setCount] = useState<Count>({
     count: 0,
   });
+  const [chancellor, setChancellor] = useState(false);
   const [posts, setPosts] = useState([]);
   const [events, setEvents] = useState([]);
   const [user, setUser] = useState({});
@@ -69,6 +72,7 @@ export function Brotherhood() {
         setEvents(response.events);
         setCount(response.count);
         setPosts(response.posts);
+        setChancellor(response.brotherhood.chancellor[0].chancellor);
       })
       .catch((error) => {
         console.log(error);
@@ -79,7 +83,7 @@ export function Brotherhood() {
   //Alterar backend para midware jwt :check:
   //verificar o retorno para quem não faz parte da confraria
   //capturar o id da url :check:
-  console.log(brotherhood);
+  console.log(chancellor);
   return (
     <>
       <Header />
@@ -104,11 +108,9 @@ export function Brotherhood() {
             <p>{brotherhood.description}</p>
           </div>
           <div className="brotherhood-menu">
-            {/* {brotherhood.members.chancellor.chancellor && (
+            {chancellor && (
               <Button name="Editar" type="button" className="btn" />
-            )} */}
-            {/* incluir validação para acesso apenas ao chanceler */}
-
+            )}
             <form
               action="/confraria/editar/delete/<%= brotherhood.id %>/<%= user.id %>?_method=DELETE"
               method="POST"

@@ -9,14 +9,11 @@ const UserService = require("../services/UserService");
 const BrotherhoodController = {
   //Get brotherhood page
   accessBrotherhood: async function (req, res) {
-    // const avatar = req.session.user.avatar_picture;
     const brotherhood = await BrotherhoodService.getBrotherhood(req, res);
     const count = await BrotherhoodService.getCount(req, res);
     const user = await UserService.getSessionUser(req, res);
     const posts = await BrotherhoodService.getPosts(req, res);
     const events = await BrotherhoodService.getEvents(req, res);
-    console.log(brotherhood);
-    // res.json(events)
 
     res.json({
       brotherhood,
@@ -25,17 +22,6 @@ const BrotherhoodController = {
       posts,
       events,
     });
-
-    // res.render("brotherhoodPage", {
-    //   title: "Confraria",
-    //   style: "brotherhood",
-    //   user,
-    //   brotherhood: brotherhood,
-    //   count: count.count,
-    //   posts: posts,
-    //   avatar,
-    //   events,
-    // });
   },
 
   /*Creates a brotherhood */
