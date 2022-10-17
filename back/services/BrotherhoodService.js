@@ -17,32 +17,26 @@ const BrotherhoodService = {
         "id",
         "brotherhood_picture",
       ],
-
-      include: {
-        model: db.User,
-        as: "users",
-        attributes: [
-          "name",
-          "surname",
-          "id",
-          "description",
-          "avatar_picture",
-          "background_picture",
-        ],
-        include: {
+      include: [
+        {
+          model: db.User,
+          as: "users",
+          attributes: [
+            "name",
+            "surname",
+            "id",
+            "description",
+            "avatar_picture",
+            "background_picture",
+          ],
+        },
+        {
           model: db.Brotherhood_User,
-          where: { brotherhood_id: id },
+          where: { users_id },
           as: "chancellor",
           attributes: ["chancellor"],
         },
-      },
-
-      include: {
-        model: db.Brotherhood_User,
-        where: { users_id },
-        as: "chancellor",
-        attributes: ["chancellor"],
-      },
+      ],
     });
 
     const brotherhood = {
