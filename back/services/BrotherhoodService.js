@@ -1,42 +1,43 @@
-const db = require("../database/models");
-const { Op, fn } = require("sequelize");
-const nodemailer = require("../services/nodemailerService");
-const { sequelize } = require("../database/models");
-const Post = require("../database/models/Post");
+const db = require('../database/models')
+const { Op, fn } = require('sequelize')
+const nodemailer = require('../services/nodemailerService')
+const { sequelize } = require('../database/models')
+const Post = require('../database/models/Post')
+const { promiseImpl } = require('ejs')
 
 const BrotherhoodService = {
   getBrotherhood: async (req, res) => {
-    const { id } = req.params;
+    const { id } = req.params
 
     const bhood = await db.Brotherhood.findByPk(id, {
       attributes: [
-        "name",
-        "since",
-        "createdAt",
-        "description",
-        "id",
-        "brotherhood_picture",
+        'name',
+        'since',
+        'createdAt',
+        'description',
+        'id',
+        'brotherhood_picture',
       ],
 
       include: {
         model: db.User,
-        as: "users",
+        as: 'users',
         attributes: [
-          "name",
-          "surname",
-          "id",
-          "description",
-          "avatar_picture",
-          "background_picture",
+          'name',
+          'surname',
+          'id',
+          'description',
+          'avatar_picture',
+          'background_picture',
         ],
         include: {
           model: db.Brotherhood_User,
           where: { brotherhood_id: id },
-          as: "chancellor",
-          attributes: ["chancellor"],
+          as: 'chancellor',
+          attributes: ['chancellor'],
         },
       },
-    });
+    })
 
     const brotherhood = {
       name: bhood.name,
@@ -52,47 +53,47 @@ const BrotherhoodService = {
       members: bhood.users,
       chancellor: bhood.users.chancellor,
       brotherhood_picture: bhood.brotherhood_picture,
-    };
-    return brotherhood;
+    }
+    return brotherhood
   },
 
   getCount: async (req, res) => {
-    const { id } = req.params;
+    const { id } = req.params
 
     const count = await db.User.findAndCountAll({
       include: [
         {
           model: db.Brotherhood,
-          as: "brotherhoods",
+          as: 'brotherhoods',
           where: { id },
           required: true,
           attributes: [],
         },
       ],
       attributes: [],
-    });
-    return count;
+    })
+    return count
   },
 
   getMembers: async (req, res) => {
-    let { id } = req.params;
+    let { id } = req.params
     const members = await db.Brotherhood_User.findAll({
       where: { brotherhood_id: id },
-      attributes: ["chancellor"],
+      attributes: ['chancellor'],
       include: [
         {
           model: db.User,
-          as: "users",
-          attributes: ["id", "name", "surname", "avatar_picture"],
+          as: 'users',
+          attributes: ['id', 'name', 'surname', 'avatar_picture'],
         },
       ],
-    });
-    return members;
+    })
+    return members
   },
 
   update: async (req, res) => {
-    let { id } = req.params;
-    let { name, description } = req.body;
+    let { id } = req.params
+    let { name, description } = req.body
     const brotherhood = await db.Brotherhood.update(
       {
         name,
@@ -100,55 +101,55 @@ const BrotherhoodService = {
       },
       {
         where: { id },
-      }
-    );
+      },
+    )
   },
 
   addMembers: async (req, res) => {
-    let { members } = req.body;
-    let { id } = req.params;
-    let fmembers = [];
-    let users_id = req.session.user.id;
+    let { members } = req.body
+    let { id } = req.params
+    let fmembers = []
+    let users_id = req.session.user.id
 
     const inviter = await db.User.findByPk(users_id, {
-      attributes: ["name", "surname"],
-    });
+      attributes: ['name', 'surname'],
+    })
 
     if (Array.isArray(members)) {
       for (member of members) {
         await db.User.findOne({
           where: { email: member },
-          attributes: ["id"],
+          attributes: ['id'],
           include: [
             {
               model: db.Brotherhood,
-              as: "brotherhoods",
+              as: 'brotherhoods',
               where: { id },
               required: true,
             },
           ],
         }).then((result) => {
           if (!result) {
-            fmembers.push(member);
+            fmembers.push(member)
           }
-        });
+        })
       }
       if (fmembers.length === 0) {
         req.flash(
-          "errorMessage",
-          "Confrade(s) já faz(em) parte desta confraria!"
-        );
-        res.redirect(`/confraria/${id}`);
+          'errorMessage',
+          'Confrade(s) já faz(em) parte desta confraria!',
+        )
+        res.redirect(`/confraria/${id}`)
       } else {
         for (member of fmembers) {
           await db.User.findOne({
             where: { email: member },
-            attributes: ["id"],
+            attributes: ['id'],
           }).then(async (result) => {
             if (!result) {
               await nodemailer({
                 to: member,
-                subject: "Convite Wined+",
+                subject: 'Convite Wined+',
                 text: `Olá, ${member}!
 ${inviter.name} ${inviter.surname} está te convidando para participar da Wined+, uma rede social para amantes de vinho!
 
@@ -157,25 +158,25 @@ Para participar, acesse http://localhost:3333/
 Um abraço <3
 
 Wined+ Team`,
-              });
+              })
             } else {
               await db.Brotherhood_User.create({
                 brotherhood_id: id,
                 users_id: result.id,
                 chancellor: false,
-              });
+              })
             }
-          });
+          })
         }
       }
     } else {
       await db.User.findOne({
         where: { email: members },
-        attributes: ["id"],
+        attributes: ['id'],
         include: [
           {
             model: db.Brotherhood,
-            as: "brotherhoods",
+            as: 'brotherhoods',
             where: { id },
             required: true,
           },
@@ -183,19 +184,19 @@ Wined+ Team`,
       }).then(async (result) => {
         if (result) {
           req.flash(
-            "errorMessage",
-            "Confrade(s) já faz(em) parte desta confraria!"
-          );
-          return res.redirect(`/confraria/${id}`);
+            'errorMessage',
+            'Confrade(s) já faz(em) parte desta confraria!',
+          )
+          return res.redirect(`/confraria/${id}`)
         } else {
           await db.User.findOne({
             where: { email: members },
-            attributes: ["id"],
+            attributes: ['id'],
           }).then(async (results) => {
             if (!results) {
               await nodemailer({
                 to: members,
-                subject: "Convite Wined+",
+                subject: 'Convite Wined+',
                 text: `Olá, ${members}!
 
 ${inviter.name} ${inviter.surname} está te convidando para participar da Wined+, uma rede social para amantes de vinho!
@@ -205,64 +206,64 @@ Para participar, acesse http://localhost:3333/
 Um abraço <3
 
 Wined+ Team`,
-              });
+              })
             } else {
               await db.Brotherhood_User.create({
                 brotherhood_id: id,
                 users_id: results.id,
                 chancellor: false,
-              });
+              })
             }
             req.flash(
-              "successMessage",
-              "Confrade(s) adicionado(s) com sucesso!"
-            );
-            return res.redirect(`/confraria/${id}`);
-          });
+              'successMessage',
+              'Confrade(s) adicionado(s) com sucesso!',
+            )
+            return res.redirect(`/confraria/${id}`)
+          })
         }
-      });
+      })
     }
   },
 
   reactionsSwitch: async (req, res) => {
-    let users_id = req.session.user.id;
-    let { post_id } = req.body;
+    let users_id = req.session.user.id
+    let { post_id } = req.body
     const reacted = await db.Reaction.findOne({
-      attributes: ["id"],
+      attributes: ['id'],
       where: {
         [Op.and]: [{ post_id: post_id.trim() }, { users_id }],
       },
-    });
+    })
     if (!reacted) {
       await db.Reaction.create({
         users_id,
         post_id: post_id.trim(),
-      });
+      })
     } else {
       await db.Reaction.destroy({
         where: {
           [Op.and]: [{ users_id }, { post_id: post_id.trim() }],
         },
-      });
+      })
     }
-    return;
+    return
   },
 
   chancellorSwitch: async (req, res) => {
-    let { id, m_id } = req.params;
+    let { id, m_id } = req.params
 
     const member = await db.Brotherhood_User.findOne({
-      attributes: ["chancellor"],
+      attributes: ['chancellor'],
       where: {
         [Op.and]: [{ brotherhood_id: Number(id) }, { users_id: Number(m_id) }],
       },
-    });
+    })
 
     const chancellors = await db.Brotherhood_User.findAndCountAll({
       where: {
         [Op.and]: [{ brotherhood_id: Number(id) }, { chancellor: true }],
       },
-    });
+    })
 
     if (chancellors.count > 1) {
       if (member.chancellor) {
@@ -277,8 +278,8 @@ Wined+ Team`,
                 { users_id: Number(m_id) },
               ],
             },
-          }
-        );
+          },
+        )
       } else {
         await db.Brotherhood_User.update(
           {
@@ -291,8 +292,8 @@ Wined+ Team`,
                 { users_id: Number(m_id) },
               ],
             },
-          }
-        );
+          },
+        )
       }
     } else if (chancellors.count == 1) {
       if (!member.chancellor) {
@@ -307,104 +308,104 @@ Wined+ Team`,
                 { users_id: Number(m_id) },
               ],
             },
-          }
-        );
+          },
+        )
       } else {
-        return res.redirect("/confraria/chancellorRequired");
+        return res.redirect('/confraria/chancellorRequired')
       }
     }
   },
 
   postText: async (req, res) => {
-    let users_id = req.session.user.id;
-    let { content, brotherhood_id, comment } = req.body;
+    let users_id = req.session.user.id
+    let { content, brotherhood_id, comment } = req.body
 
     const post = await db.Post.create({
       content,
       brotherhood_id,
       users_id,
       comment,
-    });
+    })
 
-    res.redirect(`/confraria/${brotherhood_id}`);
+    res.redirect(`/confraria/${brotherhood_id}`)
   },
 
   postBackground: async (req, res) => {
-    const file = req.file;
+    const file = req.file
     if (!file) {
-      const error = new Error("Por favor, escolha uma foto!");
-      error.httpStatusCode = 400;
-      return res.status(400);
+      const error = new Error('Por favor, escolha uma foto!')
+      error.httpStatusCode = 400
+      return res.status(400)
     } else {
-      let { id } = req.params;
-      let { filename } = req.file;
+      let { id } = req.params
+      let { filename } = req.file
       await db.Brotherhood.update(
         {
           brotherhood_picture: filename,
         },
         {
           where: { id },
-        }
-      );
+        },
+      )
     }
   },
 
   postComment: async (req, res) => {
-    let users_id = req.session.user.id;
-    let { content, brotherhood_id, comment, ref_post_id } = req.body;
+    let users_id = req.session.user.id
+    let { content, brotherhood_id, comment, ref_post_id } = req.body
 
     const post = await db.Post.create({
       content,
       brotherhood_id,
       users_id,
       comment,
-    });
+    })
 
     const commentary = await db.Post_Comment.create({
       ref_post_id: Number(ref_post_id),
       post_id: post.id,
-    });
+    })
 
-    res.redirect(`/confraria/${brotherhood_id}`);
+    res.redirect(`/confraria/${brotherhood_id}`)
   },
 
   getPosts: async (req, res) => {
-    let { id } = req.params;
+    let { id } = req.params
     const posts = await db.Post.findAll({
-      order: [["createdAt", "DESC"]],
+      order: [['createdAt', 'DESC']],
       include: [
         {
           model: db.User,
-          as: "author",
-          attributes: ["name", "surname", "avatar_picture", "id"],
+          as: 'author',
+          attributes: ['name', 'surname', 'avatar_picture', 'id'],
         },
         {
           model: db.Post_Midia,
-          as: "midia",
-          attributes: ["midia_type", "midia_path"],
+          as: 'midia',
+          attributes: ['midia_type', 'midia_path'],
         },
         {
           model: db.Post_Comment,
-          as: "comments",
+          as: 'comments',
           include: {
             model: db.Post,
-            as: "contents",
-            attributes: ["content"],
+            as: 'contents',
+            attributes: ['content'],
             include: [
               {
                 model: db.User,
-                as: "author",
-                attributes: ["name", "surname", "avatar_picture", "id"],
+                as: 'author',
+                attributes: ['name', 'surname', 'avatar_picture', 'id'],
               },
               {
                 model: db.Reaction,
-                as: "reactions",
-                attributes: ["users_id"],
+                as: 'reactions',
+                attributes: ['users_id'],
                 include: [
                   {
                     model: db.User,
-                    as: "users",
-                    attributes: ["name", "surname"],
+                    as: 'users',
+                    attributes: ['name', 'surname'],
                   },
                 ],
               },
@@ -413,13 +414,13 @@ Wined+ Team`,
         },
         {
           model: db.Reaction,
-          as: "reactions",
-          attributes: ["users_id"],
+          as: 'reactions',
+          attributes: ['users_id'],
           include: [
             {
               model: db.User,
-              as: "users",
-              attributes: ["name", "surname"],
+              as: 'users',
+              attributes: ['name', 'surname'],
             },
           ],
         },
@@ -429,15 +430,15 @@ Wined+ Team`,
       },
 
       nested: true,
-    });
+    })
 
-    return posts;
+    return posts
   },
 
   editPosts: async (req, res) => {
-    let { content, brotherhood_id, comment, ref_post_id } = req.body;
-    console.log(content);
-    console.log(ref_post_id.trim());
+    let { content, brotherhood_id, comment, ref_post_id } = req.body
+    console.log(content)
+    console.log(ref_post_id.trim())
     const changedPosts = await db.Post.findByPk(ref_post_id.trim()).then(
       (post) =>
         post.update({
@@ -445,57 +446,57 @@ Wined+ Team`,
           brotherhood_id,
           comment,
           ref_post_id,
-        })
-    );
+        }),
+    )
   },
 
   deleteReactions: async (req, res) => {
-    let { id } = req.body;
+    let { id } = req.body
     const deleteReactions = await db.Reaction.destroy({
       where: { post_id: id.trim() },
-    });
-    return;
+    })
+    return
   },
 
   deleteComments: async (req, res) => {
-    let { id } = req.body;
+    let { id } = req.body
     const deleteComments = await db.Post_Comment.destroy({
       where: { post_id: id.trim() },
-    });
-    return;
+    })
+    return
   },
 
   deletePosts: async (req, res) => {
-    let { id } = req.body;
+    let { id } = req.body
     const deleteComments = await db.Post_Comment.destroy({
       where: { ref_post_id: id.trim() },
-    });
+    })
     const deleteMidia = await db.Post_Midia.destroy({
       where: { post_id: id.trim() },
-    });
+    })
     const deleted = await db.Post.destroy({
       where: { id: id.trim() },
-    });
-    return;
+    })
+    return
   },
 
   deleteMember: async (req, res) => {
-    let { id, m_id } = req.params;
+    let { id, m_id } = req.params
     const chancellor = await db.Brotherhood_User.findOne({
       where: {
         [Op.and]: [{ brotherhood_id: Number(id) }, { users_id: Number(m_id) }],
       },
-      attributes: ["chancellor"],
-    });
+      attributes: ['chancellor'],
+    })
 
     const chancellors = await db.Brotherhood_User.findAndCountAll({
       where: {
         [Op.and]: [{ brotherhood_id: Number(id) }, { chancellor: true }],
       },
-    });
+    })
 
     if (chancellor.chancellor == true && chancellors.count == 1) {
-      return res.redirect("/confraria/chancellorRequired");
+      return res.redirect('/confraria/chancellorRequired')
     } else {
       const deleted = await db.Brotherhood_User.destroy({
         where: {
@@ -504,14 +505,14 @@ Wined+ Team`,
             { users_id: Number(m_id) },
           ],
         },
-      });
+      })
     }
   },
   eventCreator: async (req, res) => {
-    let { id } = req.params;
+    let { id } = req.params
     let { name, cep, street, number, complement, city, state, date, time } =
-      req.body;
-    date = `${date} ${time}`;
+      req.body
+    date = `${date} ${time}`
 
     const event = await db.Event.create({
       name,
@@ -523,22 +524,22 @@ Wined+ Team`,
       state,
       date,
       brotherhood_id: id,
-    });
+    })
 
-    return event;
+    return event
   },
 
   getEvents: async (req, res) => {
-    let { id } = req.params;
-    const events = [];
+    let { id } = req.params
+    const events = []
     const raw_events = await db.Event.findAll({
       where: { brotherhood_id: id },
-    });
+    })
     raw_events.forEach((appointment) => {
       let due_date = `${appointment.date.getDate()}/${
         appointment.date.getMonth() + 1
-      }/${appointment.date.getFullYear()}`;
-      let due_time = `${appointment.date.getHours()}:${appointment.date.getMinutes()}`;
+      }/${appointment.date.getFullYear()}`
+      let due_time = `${appointment.date.getHours()}:${appointment.date.getMinutes()}`
       const event = {
         id: appointment.id,
         name: appointment.name,
@@ -550,28 +551,28 @@ Wined+ Team`,
         state: appointment.state,
         date: due_date,
         time: due_time,
-      };
-      events.push(event);
-    });
-    return events;
+      }
+      events.push(event)
+    })
+    return events
   },
   deleteEvent: async (req, res) => {
-    let { id } = req.params;
+    let { id } = req.params
     await db.User_Event.destroy({
       where: { events_id: id },
-    });
+    })
     await db.Event.destroy({
       where: { id },
-    });
-    return;
+    })
+    return
   },
 
   updateEvent: async (req, res) => {
-    let { id } = req.params;
+    let { id } = req.params
     let { name, cep, street, number, complement, city, state, date, time } =
-      req.body;
-    raw_date = `${date} ${time}`;
-    date = new Date(raw_date);
+      req.body
+    raw_date = `${date} ${time}`
+    date = new Date(raw_date)
     await db.Event.update(
       {
         name,
@@ -585,13 +586,34 @@ Wined+ Team`,
       },
       {
         where: { id },
-      }
-    );
-    return;
+      },
+    )
+    return
   },
-};
 
-module.exports = BrotherhoodService;
+  getStillNotAddedEmail: async (id, email) => {
+    const emailAdded = await db.User.findOne({
+      where: { email },
+      attributes: ['id'],
+      include: [
+        {
+          model: db.Brotherhood,
+          as: 'brotherhoods',
+          where: { id },
+          required: true,
+        },
+      ],
+    })
+
+    if (emailAdded) {
+      return
+    }
+
+    return email
+  },
+}
+
+module.exports = BrotherhoodService
 
 // async(req, res)=>{
 //     await db.User.findAll({
