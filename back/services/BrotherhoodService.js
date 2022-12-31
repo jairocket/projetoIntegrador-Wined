@@ -105,73 +105,50 @@ const BrotherhoodService = {
     )
   },
 
-  addMembers: async (req, res) => {
-    let { members } = req.body
-    let { id } = req.params
-    let fmembers = []
-    let users_id = req.session.user.id
-
+  getInviter: async (users_id) => {
     const inviter = await db.User.findByPk(users_id, {
       attributes: ['name', 'surname'],
     })
+    return inviter
+  },
 
-    if (Array.isArray(members)) {
-      for (member of members) {
-        await db.User.findOne({
-          where: { email: member },
-          attributes: ['id'],
-          include: [
-            {
-              model: db.Brotherhood,
-              as: 'brotherhoods',
-              where: { id },
-              required: true,
-            },
-          ],
-        }).then((result) => {
-          if (!result) {
-            fmembers.push(member)
-          }
-        })
-      }
-      if (fmembers.length === 0) {
-        req.flash(
-          'errorMessage',
-          'Confrade(s) já faz(em) parte desta confraria!',
-        )
-        res.redirect(`/confraria/${id}`)
-      } else {
-        for (member of fmembers) {
-          await db.User.findOne({
-            where: { email: member },
-            attributes: ['id'],
-          }).then(async (result) => {
-            if (!result) {
-              await nodemailer({
-                to: member,
-                subject: 'Convite Wined+',
-                text: `Olá, ${member}!
-${inviter.name} ${inviter.surname} está te convidando para participar da Wined+, uma rede social para amantes de vinho!
+  inviteNewMembers: async (email, inviter) => {
+    await nodemailer({
+      to: email,
+      subject: 'Convite Wined+',
+      text: `Olá, ${email}!
+      ${inviter.name} ${inviter.surname} está te convidando para participar da Wined+, uma rede social para amantes de vinho!
+      
+      Para participar, acesse http://localhost:3333/
+      
+      Um abraço <3
+      
+      Wined+ Team`,
+    })
+  },
 
-Para participar, acesse http://localhost:3333/
+  createChancellor: async (brotherhood_id, users_id) => {
+    await db.Brotherhood_User.create({
+      brotherhood_id,
+      users_id,
+      chancellor: true,
+    })
+  },
 
-Um abraço <3
+  addMembers: async (req, res, id) => {
+    const { members } = req.body
+    const fmembers = []
+    const users_id = req.session.user.id
 
-Wined+ Team`,
-              })
-            } else {
-              await db.Brotherhood_User.create({
-                brotherhood_id: id,
-                users_id: result.id,
-                chancellor: false,
-              })
-            }
-          })
-        }
-      }
-    } else {
+    const inviter = await BrotherhoodService.getInviter(users_id)
+
+    const possibleNewMembersEmails = Array.isArray(members)
+      ? [...members]
+      : [members]
+
+    for (member of possibleNewMembersEmails) {
       await db.User.findOne({
-        where: { email: members },
+        where: { email: member },
         attributes: ['id'],
         include: [
           {
@@ -181,47 +158,33 @@ Wined+ Team`,
             required: true,
           },
         ],
-      }).then(async (result) => {
-        if (result) {
-          req.flash(
-            'errorMessage',
-            'Confrade(s) já faz(em) parte desta confraria!',
-          )
-          return res.redirect(`/confraria/${id}`)
-        } else {
-          await db.User.findOne({
-            where: { email: members },
-            attributes: ['id'],
-          }).then(async (results) => {
-            if (!results) {
-              await nodemailer({
-                to: members,
-                subject: 'Convite Wined+',
-                text: `Olá, ${members}!
-
-${inviter.name} ${inviter.surname} está te convidando para participar da Wined+, uma rede social para amantes de vinho!
-
-Para participar, acesse http://localhost:3333/
-
-Um abraço <3
-
-Wined+ Team`,
-              })
-            } else {
-              await db.Brotherhood_User.create({
-                brotherhood_id: id,
-                users_id: results.id,
-                chancellor: false,
-              })
-            }
-            req.flash(
-              'successMessage',
-              'Confrade(s) adicionado(s) com sucesso!',
-            )
-            return res.redirect(`/confraria/${id}`)
-          })
+      }).then((result) => {
+        if (!result) {
+          fmembers.push(member)
         }
       })
+    }
+
+    if (fmembers.length === 0) {
+      req.flash('errorMessage', 'Confrade(s) já faz(em) parte desta confraria!')
+      res.redirect(`/confraria/${id}`)
+    } else {
+      for (email of fmembers) {
+        const member = await db.User.findOne({
+          where: { email },
+          attributes: ['id'],
+        })
+
+        if (!member) {
+          await BrotherhoodService.inviteNewMembers(email, inviter)
+        } else {
+          await db.Brotherhood_User.create({
+            brotherhood_id: id,
+            users_id: member.id,
+            chancellor: false,
+          })
+        }
+      }
     }
   },
 
