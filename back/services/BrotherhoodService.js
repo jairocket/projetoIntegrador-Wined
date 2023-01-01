@@ -135,9 +135,31 @@ const BrotherhoodService = {
     })
   },
 
+  filterNewMembers: async (emails, brotherhood_id) => {
+    const newMembers = []
+    for (email of emails) {
+      await db.User.findOne({
+        where: { email },
+        attributes: ['id'],
+        include: [
+          {
+            model: db.Brotherhood,
+            as: 'brotherhoods',
+            where: { id: brotherhood_id },
+            required: true,
+          },
+        ],
+      }).then((result) => {
+        if (!result) {
+          newMembers.push(email)
+        }
+      })
+    }
+    return newMembers
+  },
+
   addMembers: async (req, res, id) => {
     const { members } = req.body
-    const fmembers = []
     const users_id = req.session.user.id
 
     const inviter = await BrotherhoodService.getInviter(users_id)
@@ -146,44 +168,30 @@ const BrotherhoodService = {
       ? [...members]
       : [members]
 
-    for (member of possibleNewMembersEmails) {
-      await db.User.findOne({
-        where: { email: member },
-        attributes: ['id'],
-        include: [
-          {
-            model: db.Brotherhood,
-            as: 'brotherhoods',
-            where: { id },
-            required: true,
-          },
-        ],
-      }).then((result) => {
-        if (!result) {
-          fmembers.push(member)
-        }
-      })
-    }
+    const newMembers = await BrotherhoodService.filterNewMembers(
+      possibleNewMembersEmails,
+      id,
+    )
 
-    if (fmembers.length === 0) {
+    if (newMembers.length === 0) {
       req.flash('errorMessage', 'Confrade(s) já faz(em) parte desta confraria!')
       res.redirect(`/confraria/${id}`)
-    } else {
-      for (email of fmembers) {
-        const member = await db.User.findOne({
-          where: { email },
-          attributes: ['id'],
-        })
+    }
 
-        if (!member) {
-          await BrotherhoodService.inviteNewMembers(email, inviter)
-        } else {
-          await db.Brotherhood_User.create({
-            brotherhood_id: id,
-            users_id: member.id,
-            chancellor: false,
-          })
-        }
+    for (email of newMembers) {
+      const member = await db.User.findOne({
+        where: { email },
+        attributes: ['id'],
+      })
+
+      if (member) {
+        await db.Brotherhood_User.create({
+          brotherhood_id: id,
+          users_id: member.id,
+          chancellor: false,
+        })
+      } else {
+        await BrotherhoodService.inviteNewMembers(email, inviter)
       }
     }
   },
