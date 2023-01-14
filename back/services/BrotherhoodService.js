@@ -155,7 +155,49 @@ const BrotherhoodService = {
     return newMembers
   },
 
-  addMembers: async (req, res, id) => {
+  createBrotherhood: async (req) => {
+    const { name, description, brotherhood_picture, since } = req.body
+
+    const brotherhood = await db.Brotherhood.create({
+      name,
+      description,
+      brotherhood_picture,
+      since,
+    })
+
+    return brotherhood
+  },
+
+  fetchUserByEmail: async (email) => {
+    const user = await db.User.findOne({
+      where: { email },
+      attributes: ['id'],
+    })
+    return user
+  },
+
+  fetchUsersByEmail: async (emails) => {
+    const users = await db.User.findAll({
+      where: {
+        email: {
+          [Op.in]: emails,
+        },
+      },
+      attributes: ['id', 'email'],
+    })
+
+    return users
+  },
+
+  addRegularMember: async (brotherhood_id, users_id) => {
+    await db.Brotherhood_User.create({
+      brotherhood_id,
+      users_id,
+      chancellor: false,
+    })
+  },
+
+  addMembers: async (req, res, brotherhood_id) => {
     const { members } = req.body
     const users_id = req.session.user.id
 
@@ -165,26 +207,18 @@ const BrotherhoodService = {
 
     const newMembers = await BrotherhoodService.filterNewMembers(
       possibleNewMembersEmails,
-      id,
+      brotherhood_id,
     )
 
     if (newMembers.length === 0) {
       req.flash('errorMessage', 'Confrade(s) já faz(em) parte desta confraria!')
-      res.redirect(`/confraria/${id}`)
+      return null
     }
 
     for (email of newMembers) {
-      const member = await db.User.findOne({
-        where: { email },
-        attributes: ['id'],
-      })
-
+      const member = await BrotherhoodService.fetchUserByEmail(email)
       if (member) {
-        await db.Brotherhood_User.create({
-          brotherhood_id: id,
-          users_id: member.id,
-          chancellor: false,
-        })
+        await BrotherhoodService.addRegularMember(brotherhood_id, member.id)
       } else {
         await BrotherhoodService.inviteNewMembers(email, users_id)
       }

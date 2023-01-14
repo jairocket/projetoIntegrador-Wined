@@ -32,14 +32,9 @@ const BrotherhoodController = {
 
   /*Creates a brotherhood */
   brotherhoodCreator: async (req, res) => {
-    const { name, description, brotherhood_picture, since, members } = req.body
+    const { members } = req.body
 
-    const brotherhood = await db.Brotherhood.create({
-      name,
-      description,
-      brotherhood_picture,
-      since,
-    })
+    const brotherhood = await BrotherhoodService.createBrotherhood(req)
 
     const brotherhood_id = brotherhood.id
     const users_id = req.session.user.id
