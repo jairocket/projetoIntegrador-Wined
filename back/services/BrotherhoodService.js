@@ -105,14 +105,11 @@ const BrotherhoodService = {
     )
   },
 
-  getInviter: async (users_id) => {
+  inviteNewMembers: async (email, users_id) => {
     const inviter = await db.User.findByPk(users_id, {
       attributes: ['name', 'surname'],
     })
-    return inviter
-  },
 
-  inviteNewMembers: async (email, inviter) => {
     await nodemailer({
       to: email,
       subject: 'Convite Wined+',
@@ -162,8 +159,6 @@ const BrotherhoodService = {
     const { members } = req.body
     const users_id = req.session.user.id
 
-    const inviter = await BrotherhoodService.getInviter(users_id)
-
     const possibleNewMembersEmails = Array.isArray(members)
       ? [...members]
       : [members]
@@ -191,7 +186,7 @@ const BrotherhoodService = {
           chancellor: false,
         })
       } else {
-        await BrotherhoodService.inviteNewMembers(email, inviter)
+        await BrotherhoodService.inviteNewMembers(email, users_id)
       }
     }
   },
